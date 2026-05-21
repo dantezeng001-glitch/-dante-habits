@@ -2,43 +2,43 @@
   "version": 1,
   "skills": {
     "babysit": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "canvas": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "create-hook": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "create-rule": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "create-skill": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "create-subagent": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "sdk": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "migrate-to-skills": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "shell": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "split-to-prs": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "statusline": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "update-cli-config": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     },
     "update-cursor-settings": {
-      "lastSyncedAt": 1779265095857
+      "lastSyncedAt": 1779272302321
     }
   },
   "lastInventoryAt": 1779265095857
