@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shokz Persona Simulator"
+  short_description: "Simulate Shokz personas with weighted scores and survey evidence."
+  default_prompt: "Use $shokz-persona-simulator to evaluate this Shokz product or marketing concept with persona reactions, weighted scoring, and survey evidence."
