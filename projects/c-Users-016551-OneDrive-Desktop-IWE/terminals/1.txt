@@ -1,17 +1,6 @@
 ---
-pid: 28624
+pid: 36624
 cwd: |
   C:\Users\016551\OneDrive\Desktop\IWE
 ---
-PS C:\Users\016551\OneDrive\Desktop\IWE> 
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost...
+PS C:\Users\016551\OneDrive\Desktop\IWE>

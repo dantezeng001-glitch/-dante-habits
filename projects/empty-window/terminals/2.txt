@@ -1,17 +1,6 @@
 ---
-pid: 22416
+pid: 37948
 cwd: |
   C:\Users\016551
 ---
-PS C:\Users\016551> 
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost... 
-
- *  Restarting the terminal because the connection to the shell process was lost...
+PS C:\Users\016551>
