@@ -1,0 +1,705 @@
+COSTCO PACKAGING SPECIFICATIONS & REQUIREMENTS GUIDE
+
+top of page
+
+Search
+
+By The Costco Packaging Guys — About Us/ LinkedIn
+
+Following Costco's Packaging Specifications are critical to success.
+
+Summary:
+
+Costco's packaging requirements are anchored in one rule: your packaging is your store shelf. Product ships on a pallet, gets cross-docked through a depot, and lands on the warehouse floor display ready.
+
+Here are the numbers that matter most:
+
+Pallet
+
+48″ × 40″ × 5.5″ CHEP, PECO, or iGPS block pallet
+
+Footprint
+
+No overhang. Min 45″ × 37″, recommended 47″ × 39″
+
+Tray weight max
+
+40 lb (18 kg) per display tray
+
+Stacking strength
+
+1,500 lb on bottom layer (loads < 750 lb); 2,500 lb (loads ≥ 750 lb)
+
+Clamp pressure
+
+Up to 2,300 psi / 159 BAR — 15+ cycles for ecommerce
+
+Pallet height (typical)
+
+52″ dry double-stacked; 92″ refrigerated clamped; up to 104″ dry single-stacked
+
+Sustainability
+
+FSC preferred, no PFAS, no expanded polystyrene, widely recyclable
+
+Penalty for non-compliance
+
+risk of item deletion
+
+If you've been following this blog you've heard us reiterate countless times that packaging is critical because Costco is a no-touch supply chain: meaning, there is no extra handling or stocking of shelves. Once pallets leave your dock, the next person touching the goods is the Costco member.
+
+Check out our CPG's article focued on Costco's Cross-Docking Choreography
+
+Whether you're prepping for your first Costco buyer meeting or auditing an existing program, this guide consolidates the current Costco Structural Packaging Specifications, the depot supply-chain mechanics that drive those rules, and the department-by-department nuances.
+
+Click here to, download the latest Costco Packaging Secifications
+
+Where we start:
+
+## What is the 5x5 rule for Costco packaging?
+
+The 5x5 rule is the design language we use to evaluate whether a package will succeed on the warehouse floor:
+
+A member should know, in 5 seconds from 5 feet away, what the product is and why it's a value.
+
+Behind that one-liner are five design pillars. Hit all five and your program will survive the buyer review, the cross-dock, and the sales floor.
+
+Structural
+
+Survive the supply chain. Pallet, clamp, drop, stack, humidity, double-stack in transit.
+
+Shoppability
+
+3-side shoppable where possible. The pallet is the shelf.
+
+Statements
+
+Lead with the value proposition, not the brand. Quantity, certifications, claims.
+
+Striking
+
+Color-block, billboard the primary face, maximize facings, make it findable.
+
+Sustainability
+
+Recyclable materials, FSC fiber, no PFAS, no polystyrene.
+
+Check out our article featured in Packaging Digest on the 5x5 rule for Costco Packaging
+
+## Costco pallet specifications
+
+Every Costco program — with very narrow exceptions — ships on a 48″ × 40″ × 5.5″ block pallet. Pallet selection isn't optional; it's enforced.
+
+CHEP pallets are 4-way Block Pallets.
+
+### Required pallet types
+
+CHEP, PECO, or iGPS
+
+Pooled (rented) block pallets are required throughout North America. Apply via the providers directly: CHEP, PECO, iGPS.
+
+Plastic pallet initiative
+
+Costco is actively replacing wood with lighter, cleaner plastic pallets. iGPS and PECO supply approved plastic pallets. Email pallets@costco.com.
+
+Check out our full article on Plastic Pallets at Costco
+
+Purpose-built pallets
+
+Allowed only for oversized goods, when a pool can't supply, when the pallet is sold to the member, or when fixtures are bolted to the deck. Requires advance approval, per item, per destination country, per season.
+
+Not accepted
+
+GMA / Grade A stringer pallets, CHEP stringers, CHEP Euro, corrugated/paperboard pallets
+
+### Pallet load footprint
+
+Maximum footprint
+
+48″ × 40″ (121.9 cm × 101.6 cm) — no overhang, including overpacking components.
+
+Minimum footprint
+
+45″ × 37″ (111.8 cm × 94 cm) — do not exceed 3″ underhang in either direction.
+
+Recommended footprint
+
+47″ × 39″ (119.4 cm × 99.1 cm).
+
+Maximum pallet load weight
+
+2,500 lb / 1,134 kg, including pallet.
+
+Trailer weight cap
+
+44,000 lb for 53′ dry; 40,000 lb for reefer.
+
+### Pallet height matrix (including pallet)
+
+Check out our full article on Pallet Heights by department
+
+Product type
+
+Clamped at depot?
+
+Stack mode (supplier → depot)
+
+Max pallet height
+
+Refrigerated
+
+No
+
+Double-stacked
+
+46″
+
+Non-refrigerated
+
+No
+
+Double-stacked
+
+52″
+
+Non-refrigerated
+
+No
+
+Single-stacked
+
+58″
+
+Refrigerated
+
+No
+
+Single-stacked
+
+58″
+
+Refrigerated
+
+Yes
+
+Single-stacked
+
+92″
+
+Non-refrigerated
+
+Yes
+
+Single-stacked
+
+104″
+
+### Dynamic stacking strength minimums
+
+Per the 2025 Costco Structural Packaging Specifications:
+
+Pallet loads under 750 lb (340 kg, including pallet) must withstand 1,500 lb (680 kg) on the bottom product layer without damage.
+
+Pallet loads of 750 lb or more must withstand 2,500 lb (1,134 kg) on the bottom layer without damage.
+
+Pallet loads must maintain stacking strength and stability through end-aisle (end-cap) merchandising of no less than 6 ft (1.8 m) tall, regardless of inbound unit-load height.
+
+Stack lean may be no greater than 3% of total stack height.
+
+### Layout rules
+
+Maximize pallet area — no gaps between sell units or master cartons.
+
+Chimney stacking is prohibited (no center void column).
+
+Pinwheel stacking is prohibited in cooler/freezer.
+
+False bottoms (empty space below product) are prohibited unless requested by Costco for OTC pharmacy.
+
+Column stack to optimize stacking strength.
+
+Heaviest box on the bottom; largest box centered for multi-box sell units.
+
+Excerpt from the 2025 Costco Packaging Specifications showing Fillers, Center Chimneys and False Bottoms
+
+## Why the Costco supply chain shapes every spec
+
+Costco runs a cross-dock supply chain. Every specification — clamp pressure, stretch wrap gauge, tray construction — traces back to a real handling event in this chain. If your packaging design doesn't account for the depot, it will not survive.
+
+### Depots (Distribution Centers)
+
+15+ primary depot locations across North America. Each is split into Dry (HABA, Electronics, Sundries) and Wet (Deli, Frozen, Produce).
+
+This split dictates how your goods will be handled in the depot
+
+Costco Regions serviced by the Depot network
+
+Costco operates a cross-dock distribution model. Nothing is stored overnight at their depot locations. All goods move direct to Club
+
+Function
+
+Cross-dock= no storage. Each depot is cleared empty every day. Inbound truck → staging → outbound truck.
+
+Equipment
+
+Forklifts (single, double, triple, quad), electric pallet jacks (EPJ), layer clamps, appliance clamps, mechanical clamp trucks (29″ L × 48″ H clamping panels).
+
+What this means for you
+
+Pallets get moved fast and effectivly at Costco. Dry Depots are going to move good around with forklifts so design for compression and stability. Wet Depots are a different animal. Pallets get clamped, separated by layers re-stacked in a matter of hours. Building mixed loads, by layers, with other goods. This is why a tight pallet footprint is so critical in Costco's supply chain.
+
+2-way clamp truck and 4-way clamp trucks are used to separate product by layers at the Costco Depot
+
+### Warehouses (the clubs)
+
+Costco operates ~891 warehouses worldwide and ~627 across 49 U.S. states (California alone has ~142 locations). Inventory merchandises on the same 48″ × 40″ pallet it shipped on. Replenishment overstock sits in steel shelves above the pallet run — "the steel" — and gets pulled to refresh the floor.
+
+Check out our article about how important California is to Costcos overall sales volume:
+
+### Ecommerce: Big-and-bulky (DDC / MDO / Canadian Depot)
+
+Items >150 lb, or where length + girth > 165″, or length > 108″.
+
+Floor-loaded into DDCs/Depots, moved by mechanical clamp truck.
+
+Stacked up to 25 ft (7.6 m) high.
+
+Stored for up to one year to support online orders.
+
+Packaging must withstand 2,300 psi clamping 15 or more times.
+
+Handling pictograms required on all items.
+
+Cartons < 30″ tall: stack lower limit. Cartons ≥ 30″: stack to at least 15 ft, up to 25 ft.
+
+### Ecommerce: Small-pack (Depot to Member)
+
+Pallet jacks for receiving, clamp truck for floor-loaded. Stored up to one year, stacked up to 25 ft. Floor-loaded onto 53′ trailers for hand-off to small-package carriers for final-mile.
+
+### Ecommerce: Drop-ship (Supplier to Member)
+
+Negotiated per item. Drop-ship items must be designed to arrive at the member without damage, in their original package or in an overpack. Supplier owns the design decision.
+
+## Display tray requirements
+
+The display tray is the single most-scrutinized component of a Costco program. It's your shipping container, your shelf, and the shopping bag the member carries to checkout — all in one.
+
+### Universal tray rules
+
+Stacking Tray for HABA
+
+Maximum tray weight
+
+40 lb (18 kg). Recommended case weight should not exceed 25 lb (11 kg).
+
+Front panel height
+
+Minimum 3″ (8 cm), with two exceptions:
+
+Product height 5″~“8″: front panel may drop to 2″, remaining three sides minimum 4″.
+
+Product height ≤ 5″: tray exempt from minimum front height.
+
+Display-ready
+
+No box cutters, no labor required to stock product on the floor.
+
+Construction
+
+One-piece tray designs preferred. No separate dividers or fillers in most departments.
+
+Anti-nesting feature required
+
+Trays must have a feature that prevents the tray above from nesting into the tray below.
+
+### What's prohibited (in most departments)
+
+Telescoping lids (exception: Deli; or layer-quantity distribution; or carton + telescoping lid taped to bottom)
+
+Tear front panels
+
+Plastic strapping, tear tape
+
+Locking tabs (exception: produce items only)
+
+Plastic corner posts (paper/fiber only, and only if necessary)
+
+Stacking tabs that interlock layers (exception: produce only, max 0.75″ height)
+
+Metal strapping, metal buckles, stretchable tape, netting
+
+40″ × 48″ pallet trays (exception: chips, salty snacks, bedding, tableware, or 24-or-fewer sell units per layer)
+
+## Department-specific Costco packaging requirements
+
+### HABA / Health & Beauty (D20)
+
+Shipped as feature pallet displays.
+
+Three-side shoppable critical; the 48″ side is primary.
+
+Three-side shoppable pallets are critical for Costco. You have to be seen to be shopped!
+
+Check out our full article on Shoppability:
+
+Tray weight max 40 lb. Litho printing and hi-res graphics common.
+
+No fillers between trays. No locking tabs.
+
+Tray dividers are allowed in this department (uncommon).
+
+OTC variant: can be distributed in full pallets or layers; HSC covers recommended.
+
+### Dry Grocery (D13) and Non-Foods
+
+Most ship as feature pallet displays; some clamped — confirm with buyer.
+
+Three-side shoppable preferred; 48″ side is primary.
+
+Front lip height 3″.
+
+Layer trays common for high-velocity items and when there are 24 or fewer sell units per layer.
+
+Self-supporting product: no trays or low-height trays allowed.
+
+If product packaging supports load weight and is smaller than 7.5″ × 7.5″ × 7.5″, include a low-wall tray for containment.
+
+### Cooler (D17) and Freezer (D18)
+
+For clampability most display trays in D17 and D18 utilize an HSC topcover
+
+Distributed in layer quantities; pallets are mechanically clamped at depot.
+
+Pallet shops from the 48″ side; doesn't need three-side shoppable.
+
+Tray weight max 40 lb. Avoid locking tabs.
+
+MRA (Moisture Resistant Adhesive) or WRA required on all corrugate.
+
+SUS board recommended for folding cartons.
+
+1-piece tray designs preferred. No 40″ × 48″ layer trays.
+
+Hinged handles preferred. Use wide stacking shoulders — narrow side panels with center dividers do not stack reliably in a cold environment.
+
+Pallet load height up to 94″ when distributed in layer quantities.
+
+Exposed front of display packaging may be turned toward center of pallet for shipping protection.
+
+### Frozen (D18) merchandising options
+
+Branded display tray: in-store POS, helps stand out, higher cost.
+
+HSC : lower cost, lower shipping cost, limited branding.
+
+Master cases ship open-side-up, then rotated 90° at the warehouse for shopping.
+
+Build pallets to max 92″ height (98″ reefer).
+
+Carton-style: open-top HSC, 40 ECT / 250 lb Mullen test, vertical corrugate orientation, 4″ deep pallet caps between layers, 0.25″ finger space at top.
+
+U-shaped cutouts not allowed.
+
+### Deli
+
+Distributed in single cases or pallet layers; clamp-designed.
+
+Largest side of primary packaging faces the member.
+
+Tray weight max 40 lb. Telescoping lids approved for Deli.
+
+MRA / WRA required.
+
+Display trays reused at checkout for member carry-out.
+
+Hinged handles preferred. Shelves are 12″â€“13.5″ apart, ~24″ deep front-to-back. Tray depth should not exceed 11.75″ (two-deep merchandising).
+
+No 40″ × 48″ layer trays.
+
+### Electronics (TTR — Take-To-Register)
+
+Used for high-dollar items.
+
+Shipped as full pallet, three-side shoppable, standardized design.
+
+Available with or without product demo unit.
+
+Take to Register display. Members will take the Card to the register to purchase. These pallets needs to be robust for shipping and in-club execution
+
+### Liquor (D16)
+
+All beer packaging must have functional carry handles or side-access holes.
+
+Wine and spirits trays: minimum 50% of bottle height, max 65%.
+
+Tray pack dividers/inserts must be removable — no glue.
+
+Dividers should not extend above the top edge of the tray pack (written buyer approval required if they do).
+
+Corrugated tray pack: HSC, 32 ECT / 200 lb Mullen test, B or C flute minimum.
+
+Must comply with TTB (USA) and provincial regulations.
+
+### Produce (D65)
+
+Pallet load height up to 94″ when distributed in layer quantities.
+
+Stretch film not required unless specified by buyer.
+
+Cartons oriented to sustain mechanical clamping against the 48″ pallet sides.
+
+Stacking tabs allowed but max 0.75″ height; minimum two-ply.
+
+Bulk bins: triple-wall corrugated minimum; 4″ deep octagonal lid (32 ECT / 200 lb Mullen, C flute) on top.
+
+Must comply with industry-accepted Common Footprint Guidelines.
+
+### Candy (D12) — Date coding
+
+Date coding required on a minimum of two sides plus the front of each display tray.
+
+Format: Best Before mm/dd/yy — minimum font height 0.375″ (0.95 cm).
+
+Summary of Costco Pallet Height requirements by department and depot handling method
+
+Check out our article on Costco Pallet Height Requirements
+
+## Sustainability and material restrictions
+
+Paper fiber
+
+Use responsibly sourced paper. Costco prefers Forest Stewardship Council (FSC) certification. Sustainable Forestry Initiative (SFI) and Programme for the Endorsement of Forest Certification (PEFC) are also accepted.
+
+Recyclability
+
+All packaging materials should be widely recyclable, certified compostable, or biodegradable in the regions where the product is sold. Optimize recycled content.
+
+Expanded polystyrene
+
+Not allowed, except in limited circumstances where no alternative material can sufficiently protect the product. If used, must be minimum 20 kg foam, clean, high-impact, and not pill or break apart.
+
+PFAS
+
+Costco is actively eliminating PFAS in all products and packaging. Several U.S. states have passed limiting regulations.
+
+Other chemicals
+
+Costco follows the AFIRM Packaging Restricted Substance List.
+
+Wax-coated cases
+
+Wax-coated cases that prohibit recycling are not allowed. Wax-impregnated boxes allowed only on fully enclosed master cases.
+
+## Marking, labeling, and identification
+
+### Shipping labels & placards
+
+Costco has been moving suppliers to SSCC supply chain EDI labels.
+
+Minimum placement: two adjacent sides of the pallet.
+
+Minimum label size: 4″ × 6″. Include: company, item #, layers, sell units per pallet.
+
+Examples of SSCC EDI labels and Basic Costco Pallet Placards
+
+### Costco Item Number
+
+The Costco item number must be printed above the UPC on the sell unit.
+
+Checkout Costco's new Barcode Requirements
+
+## Testing recommendations: which ISTA / ASTM protocols apply?
+
+Performance testing is strongly recommended (not always required), and the right protocol depends on how your product moves. A safety factor of 4+ is the target for top-bottom compression testing in a climate-controlled lab, using the average of three samples.
+
+Shipping mode
+
+Recommended protocol(s)
+
+Feature display pallet, full truckload
+
+ISTA 3E + ASTM D6055, ASTM D6179, load stability
+
+Mixed loads / LTL
+
+ISTA 3B + clamping, ASTM D526, load stability
+
+Individual mixed-pallet shipment < 100 lb
+
+ISTA 3F
+
+Parcel
+
+ISTA 3A + FedEx Small Parcel
+
+Ecommerce
+
+ISTA 6-Amazon, ASTM D5264 (label rub)
+
+Cold chain
+
+ISTA 7D (thermal)
+
+These are our recommendations. Costco does not recommend which testing protocol's to use
+
+## What's new in the 2025–2026 specifications?
+
+The current Costco Structural Packaging Specifications (effective 2025) sharpened several requirements that earlier editions handled with looser language:
+
+Compliance enforcement is explicit. The 2% chargeback and item-deletion language is now stated up front. Costco runs random performance compliance audits.
+
+Ecommerce big-and-bulky requirements are codified. 25 ft stacking, one-year storage, 15+ clamp cycles, 3% stack-lean ceiling, mandatory pictograms.
+
+Stacking strength is tiered by load weight. The 1,500 lb / 2,500 lb thresholds at 750 lb are now numerically explicit.
+
+Plastic pallet initiative is active. Costco is replacing wood with plastic pallets via iGPS and PECO; suppliers are encouraged to transition shipments.
+
+Sustainability prohibitions hardened. Expanded polystyrene is restricted to last-resort cases. PFAS elimination is a stated direction. Wax-coated cases that block recycling are out.
+
+Blister packaging tightened. Two-piece clamshells, blister boxes, blister cards (face seal, skin board, mock clamshell) are explicitly disallowed. Card-and-blister and stretch card require written buyer approval.
+
+Department addendums expanded. Liquor (D16), Cooler/Freezer (D17/D18), Produce (D65), and Consumables now have dedicated addendums clarifying modified requirements.
+
+## Costco packaging FAQ
+
+### What is the 5x5 rule for Costco packaging?
+
+A Costco member should be able to determine, in 5 seconds from 5 feet away, what the product is and why it's a value. The five design pillars are Structural, Shoppability, Statements, Striking, and Sustainability.
+
+### What size pallet does Costco require?
+
+48″ × 40″ × 5.5″ block pallets. CHEP, PECO, and iGPS pooled (rented) pallets are required throughout North America. Quarter and half pallets are not accepted. Purpose-built pallets are allowed only for oversized goods, with advance approval per item and per destination country.
+
+### What is the maximum pallet height for Costco?
+
+Maximum pallet height (including the pallet) varies by handling. Common limits: 52″ non-refrigerated double-stacked dry; 58″ single-stacked; 92″ refrigerated clamped at depot; up to 104″ for dry single-stacked. Frozen pallets max at 92″ based on a 98″ reefer interior height.
+
+### What is the maximum tray weight at Costco?
+
+40 lb (18 kg) per display tray, across all departments. Recommended master case weight should not exceed 25 lb (11 kg). Hand-lifted enclosed master cases should not exceed 50 lb (23 kg) without a multi-person-lift pictogram.
+
+### Why does Costco reject packaging?
+
+Most common reasons: pallet overhang or excessive underhang, chimney or pinwheel stacking, exceeding the 40 lb tray limit, telescoping lids and tear panels in non-approved departments, locking tabs that slow front-end recovery, packaging that fails clamp tests, non-recyclable wax-coated cases, expanded polystyrene fillers, PFAS-containing materials, and non-rentable wooden stringer pallets in place of CHEP/PECO/iGPS block pallets. Non-compliant items risk a 2% chargeback and may be at risk of deletion.
+
+### Does Costco require ISTA testing?
+
+Performance testing is strongly recommended, not mandatory. ISTA 3E for feature display pallets in full truckload; ISTA 3B for mixed-load LTL; ISTA 3F for individual mixed-pallet shipments under 100 lb; ISTA 3A for parcel; ISTA 6-Amazon for ecommerce; ISTA 7D for thermal validation; ASTM D6055 and D6179 for mechanical handling and rough handling.
+
+### When is Moisture Resistant Adhesive (MRA) required?
+
+MRA is required on all corrugated packaging exposed to a moist, refrigerated environment — Cooler (D17), Freezer (D18), Deli, Produce. Recommended even in non-refrigerated environments. SUS board is recommended for folding cartons in cooler/freezer.
+
+### Are clamshells allowed at Costco?
+
+Two-piece clamshell blister packs are not allowed. Costco prefers paper card and trapped paper card. Card-and-blister and stretch card require written buyer approval. Blister box, blister card (face seal, skin board, mock clamshell) are prohibited. Exceptions: produce clamshells and unit-dispensing blister cards (pharmacy and chewing gum).
+
+### Does Costco require FSC-certified packaging?
+
+Strong preference for Forest Stewardship Council (FSC). Sustainable Forestry Initiative (SFI) and Programme for the Endorsement of Forest Certification (PEFC) are also accepted. All packaging materials should be widely recyclable, certified compostable, or biodegradable in the regions where the product is sold.
+
+### Is PFAS allowed in Costco packaging?
+
+No. Costco is actively eliminating PFAS in all products and packaging. For other chemical restrictions, Costco follows the AFIRM Packaging Restricted Substance List.
+
+### What are the 'three sides shoppable' rules?
+
+For dry items merchandised on pallets, three- or four-side shoppable is preferred. Minimum: orient goods to face one 48″ side and at least one 40″ side. The 48″ pallet dimension is always the primary shopping side. Cooler and freezer pallets only need to be shoppable from one 48″ side.
+
+### What is the chargeback for non-compliant Costco packaging?
+
+Per Costco's 2025 Structural Packaging Specifications, non-compliant items may be subject to a 2% chargeback to reimburse Costco's operational and handling costs. Repeat or severe non-compliance can result in item deletion. New items will not be accepted unless they meet packaging requirements.
+
+### Can my pallet load have any overhang?
+
+No. Overhang is prohibited. Footprint must not exceed 48″ × 40″ (121.9 cm × 101.6 cm). Underhang is also limited: not smaller than 45″ × 37″, and no more than 3″ underhang in either direction. Recommended footprint is 47″ × 39″.
+
+### What are Costco's ecommerce packaging requirements?
+
+Big-and-bulky items move through DDCs (USA) or Depots (Canada), may be stored up to one year, and stacked up to 25 ft (7.6 m). Packaging must withstand 2,300 psi mechanical clamping 15 or more times without damage. Stack lean must not exceed 3% of total height. Handling pictograms are required on all big-and-bulky items. Drop-ship items must arrive at the member without damage.
+
+### Do display trays need to be reusable?
+
+Yes. Display trays must be display-ready and functional as carry-out containers — members reuse them at the front end as shopping bags. Trays should have hinged handles where possible and avoid locking tabs that slow front-end recovery.
+
+## Costco packaging glossary
+
+5x5 rule
+
+Five seconds, five feet — member must understand product and value at a glance.
+
+Block pallet
+
+Pallet with 4-way fork entry; the only style accepted at Costco. Required brands: CHEP, PECO, iGPS.
+
+Cross-dock
+
+Costco's depot model: inbound truck → outbound truck the same day, no storage.
+
+DDC
+
+Direct Distribution Center — USA ecommerce facility for big-and-bulky items.
+
+Depot
+
+Costco's distribution center; cross-dock function.
+
+EDI
+
+Electronic Data Interchange — preferred shipping label format.
+
+EPJ
+
+Electric Pallet Jack — can move up to 10 pallets at once.
+
+Feature pallet display
+
+The pallet itself is the in-store display — the salesperson, the shipping medium, and the shelf.
+
+HSC
+
+Half Slotted Container — commonly used in cooler/freezer.
+
+ISTA
+
+International Safe Transit Association — ISTA 3E is the protocol for feature pallet displays.
+
+Layer tray
+
+Tray that contains one full layer of product on a pallet.
+
+MDO
+
+Market Delivery Operation — USA ecommerce facility staging product for final-mile.
+
+MRA / WRA
+
+Moisture Resistant Adhesive / Water Resistant Adhesive — required on cooler/freezer corrugate.
+
+Stadium tray
+
+Tiered display tray that lifts back-row product visibility.
+
+SUS board
+
+Solid Unbleached Sulphate — folding carton material recommended for cooler/freezer.
+
+The Steel
+
+The overhead pallet rack above the selling floor where replenishment overstock sits.
+
+Trap card
+
+Paper card packaging where the product is trapped between two paper boards.
+
+TTR
+
+Take-To-Register — standardized display for high-dollar electronics items.
+
+Until next time!
+
+Cheers,
+
+TCPG
+
+bottom of page

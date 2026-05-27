@@ -1,6 +1,0 @@
----
-pid: 31316
-cwd: |
-  C:\Users\016551\OneDrive\Desktop\SwimPro\05_子项目_05 costco活动 Opentri 本质SEAL换色
----
-PS C:\Users\016551\OneDrive\Desktop\SwimPro\05_子项 目_05 costco活动 Opentri  本质SEAL换色>

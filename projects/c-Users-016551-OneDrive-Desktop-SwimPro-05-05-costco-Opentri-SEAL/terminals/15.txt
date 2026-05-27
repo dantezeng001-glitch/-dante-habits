@@ -1,0 +1,11 @@
+---
+pid: 22608
+cwd: |
+  C:\Users\016551\OneDrive\Desktop\SwimPro\05_子项目_05 costco活动 Opentri 本质SEAL换色
+---
+Windows PowerShell
+版权所有（C） Microsoft Corporation。保留所有权利。
+
+安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows
+
+PS C:\Users\016551\OneDrive\Desktop\SwimPro\05_子项目_05 costco活动 Opentri 本质SEAL换色>
