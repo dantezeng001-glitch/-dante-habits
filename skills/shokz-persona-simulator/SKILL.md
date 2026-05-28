@@ -33,7 +33,11 @@ Use this skill to estimate how four typical Shokz user persona segments may reac
    **Step C — Handle user response**:
    - 选中具体预设：使用对应权重，在最终报告中 cite 该预设的数据来源
    - 自定义：要求用户提供 4 个权重 + 调权理由 + 数据依据 + 关键假设；校验和并 normalize（sum = 1.00 ± 0.05）
-   - 描述具体场景但没选预设：根据描述映射到最近的预设，或建议自定义
+   - 描述具体场景但没选预设（5 套预设都不匹配）：**默认走自定义路径**——先基于用户描述给出建议的 4 个权重值 + 调权理由 + 数据依据 + 关键假设。请用户从以下 3 个退出键中选择：
+     - **(a) 接受**：使用 skill 建议的自定义权重
+     - **(b) 修改**：用户提供自己的 4 个权重 + 理由
+     - **(c) 退回预设**：用户明确说"用最近预设" → skill 映射到最近预设并附 "approximated; accuracy reduced" 标签
+     不要在用户选择前自行映射或代为决定
    - 不响应或选默认：使用 0.218/0.316/0.163/0.303 并在报告中标注 "using default weights (Shokz 北美总盘)"
 
    **Step D — Cite the chosen weight's provenance in the final report header**, e.g.:
@@ -52,7 +56,9 @@ Use this skill to estimate how four typical Shokz user persona segments may reac
 
 8. **Provide improvement suggestions if weighted_score < 4.0.**
 
-   When the overall weighted score is below 4.0, the concept needs work. Identify the lowest-scoring persona, then:
+   When the overall weighted score is below 4.0, the concept needs work. Before drafting suggestions, ask the user: "综合分 X.XX / 5.00，需要查看改进建议吗？默认 yes，输入 'skip' 跳过。" If user inputs 'skip', stop here and only output the scoring report.
+
+   Otherwise: Identify the lowest-scoring persona, then:
 
    - Cross-reference that persona's "Concept Reaction Heuristics" in `personas.md`
    - Suggest 2-3 specific rewrites or additions that would lift that persona's score (e.g., "为科技老白男补一个可量化 proof point，如 '27g' 或 '9hr battery'")
@@ -106,7 +112,14 @@ Then add:
 - `调研风险/不支持点`: 1-3 bullets from `core_research_findings.md` that weaken or complicate the concept.
 - `证据缺口`: mention missing evidence when the concept depends on topics not directly covered, such as pricing, creator choice, retail conversion, or competitive claim testing.
 
-Do not force evidence. If the reference does not speak to a concept, say that the survey offers limited direct evidence and keep the persona score as a hypothesis.
+**Evidence quality flag**: After each persona's interest score, append one of these tags based on how the score was derived:
+
+- `[evidence: high]` — 1+ direct survey finding supports the score (e.g., score for 骨传导跑男 backed by "Running/Jogging 60%" in core_research_findings.md)
+- `[evidence: medium]` — Indirect inference from related findings (e.g., extrapolating from purchase drivers to a new use case)
+- `[evidence: low]` — Mostly relies on persona Concept Reaction Heuristics with no direct survey evidence
+- `[evidence: gap]` — No relevant survey coverage at all; score is hypothesis only
+
+**Overall evidence verdict**: If 2+ persona scores carry `[evidence: gap]`, output a top-level warning `Overall evidence: insufficient — treat results as directional only, not for go/no-go decisions.` Do not force evidence; surfacing the gap is more useful than fabricating support.
 
 ## Calculation Helper
 

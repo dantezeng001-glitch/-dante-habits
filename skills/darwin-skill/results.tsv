@@ -1,2 +1,5 @@
 timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
 2026-05-28T10:24	baseline	shokz-persona-simulator	-	83.4	baseline	-	初始评估 asset_type=skill target_path=~/.cursor/skills/shokz-persona-simulator	dry_run
+2026-05-28T10:42	round1	shokz-persona-simulator	83.4	84.9	keep	8ʵ��	Step 3.5 Step C: Ĭ�����Զ���·������ӳ��	dry_run
+2026-05-28T10:44	round2	shokz-persona-simulator	84.9	86.75	keep	4����	Step 8 confirm + Step 3.5 �˳��� a/b/c	dry_run
+2026-05-28T10:46	round3	shokz-persona-simulator	86.75	88.25	keep	3�߽�	Step 7 evidence quality flag + insufficient warning	dry_run

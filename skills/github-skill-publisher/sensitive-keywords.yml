@@ -1,0 +1,26 @@
+# 敏感关键词注册表
+# github-skill-publisher 在上传前扫描 skill 文件，命中以下关键词的内容会被过滤或脱敏。
+# 用户可随时编辑此文件，添加新的品牌、产品名或文件路径模式。
+
+# 品牌名（大小写不敏感）
+brands:
+  - Shokz
+  - 韶音
+
+# 产品系列名（精确匹配）
+products:
+  - OpenRun
+  - OpenFit
+  - OpenSwim
+  - OpenComm
+  - OpenDots
+  - OpenMove
+  - OpenMeet
+  - OpenHear
+  - RoadWave
+  - "Shokz Loop"
+
+# 通配排除模式（文件路径匹配，命中则整个文件排除不上传）
+file_patterns:
+  - "context/shokz*"
+  - "**/brand-spec*"
