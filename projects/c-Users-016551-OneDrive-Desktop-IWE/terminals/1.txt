@@ -1,6 +1,0 @@
----
-pid: 36624
-cwd: |
-  C:\Users\016551\OneDrive\Desktop\IWE
----
-PS C:\Users\016551\OneDrive\Desktop\IWE>

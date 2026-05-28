@@ -1,3 +1,0 @@
-{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n@@大疆 DJI｜技术影响力长周期营销策略研究报告.docx 做md转化\n</user_query>"}]}}
-{"role":"assistant","message":{"content":[{"type":"text","text":"我来先读取同步索引文件，然后处理这个 Word 文档的转换。"}]}}
-{"role":"assistant","message":{"content":[{"type":"text","text":"这个 docx 文件还没有被同步。我先运行 file_sync 脚本把它同步，然后读取转换后的内容。"}]}}

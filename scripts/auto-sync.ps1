@@ -1,14 +1,12 @@
-# ============================================================
-# Cursor Config Auto-Sync
-# Called by Windows Scheduled Task. Never prompts; never hangs.
-# ============================================================
+# ===============================================================
+# Cursor Rules Auto-Sync
+# Called by Windows Scheduled Task (daily). Never prompts; never hangs.
+# ===============================================================
 
 $ErrorActionPreference = 'Continue'
 $repo    = "$env:USERPROFILE\.cursor"
 $logFile = Join-Path $repo '.sync.log'
 
-# Hard-disable any interactive prompt git might attempt under a
-# non-interactive session (Scheduled Task with -WindowStyle Hidden).
 $env:GIT_TERMINAL_PROMPT = '0'
 $env:GCM_INTERACTIVE     = 'never'
 
@@ -21,8 +19,8 @@ function Write-Log {
 function Trim-Log {
     if (-not (Test-Path $logFile)) { return }
     $lines = Get-Content $logFile -Encoding utf8
-    if ($lines.Count -gt 1000) {
-        $lines[-800..-1] | Set-Content $logFile -Encoding utf8
+    if ($lines.Count -gt 500) {
+        $lines[-300..-1] | Set-Content $logFile -Encoding utf8
     }
 }
 
