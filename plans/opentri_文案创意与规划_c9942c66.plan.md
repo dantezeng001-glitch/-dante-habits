@@ -4,13 +4,13 @@ overview: 重新梳理全场景定位的 Slogan、品类描述和 5 个核心卖
 todos:
   - id: confirm-ideas
     content: 与用户确认 Slogan、品类描述和卖点重构的创意方向
-    status: pending
+    status: completed
   - id: draft-copy
     content: 根据确认的方向，撰写完整的英文栈板文案
-    status: pending
+    status: completed
   - id: compliance-check
     content: 进行合规检查（Omdia背书、MP3水下免责声明）
-    status: pending
+    status: in_progress
   - id: output-final-doc
     content: 整理并输出最终的结构化排版文档
     status: pending

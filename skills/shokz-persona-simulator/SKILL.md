@@ -12,6 +12,34 @@ Use this skill to estimate how four typical Shokz user persona segments may reac
 1. Read `references/personas.md` before scoring.
 2. Read `references/core_research_findings.md` to identify survey evidence that supports, cautions against, or leaves gaps for the concept.
 3. Parse the concept: product/feature, audience, occasion, message, proof points, tone, channel, price or offer if available.
+
+3.5. **Surface persona weighting transparently before scoring.**
+
+   The default weights (0.218/0.316/0.163/0.303) come from the 2026 北美品牌用户调研 (n=633, k=4 clustering) and reflect Shokz's overall North America user base. For channel-specific or scenario-specific evaluations, that baseline may not fit. Read `references/weight_presets.md` and follow these substeps:
+
+   **Step A — Show the full weight-preset table to the user**, including data provenance:
+
+   | 预设 | 4 维权重 | 数据来源 | 性质 |
+   |---|---|---|---|
+   | 默认（北美总盘） | 0.218 / 0.316 / 0.163 / 0.303 | 2026 北美品牌用户调研 n=633 | 调研直接来源 |
+   | Costco 渠道 | 0.15 / 0.20 / 0.30 / 0.35 | Costco 用户画像研究（72% female shopper） | 我的判断 |
+   | Target 渠道 | 0.13 / 0.20 / 0.35 / 0.32 | Target 客群洞察报告（事实校准版） | 我的判断 |
+   | BOS DTC 渠道 | 0.25 / 0.50 / 0.05 / 0.20 | 26 年 3 月骨导运动线 IMC 信息通 | 我的判断 |
+   | SEAL 游泳人群 | 0.20 / 0.35 / 0.15 / 0.30 | 26 年 3 月骨导运动线 IMC 信息通 | 我的判断 |
+   | 自定义 | 用户输入 | sum = 1.00 ± 0.05 | 用户判断 |
+
+   **Step B — Ask the user one calibration question**: "你这次评估的场景是？如果上述预设都不匹配，请描述目标人群，我会帮你推荐或自定义权重。"
+
+   **Step C — Handle user response**:
+   - 选中具体预设：使用对应权重，在最终报告中 cite 该预设的数据来源
+   - 自定义：要求用户提供 4 个权重 + 调权理由 + 数据依据 + 关键假设；校验和并 normalize（sum = 1.00 ± 0.05）
+   - 描述具体场景但没选预设：根据描述映射到最近的预设，或建议自定义
+   - 不响应或选默认：使用 0.218/0.316/0.163/0.303 并在报告中标注 "using default weights (Shokz 北美总盘)"
+
+   **Step D — Cite the chosen weight's provenance in the final report header**, e.g.:
+   - "本次评估使用 Costco 渠道权重，来源：Costco 用户画像研究报告 §1.1（72% female shopper）。本预设为我的判断，非调研直接结论。"
+   - Default 预设无须附 "我的判断" disclaimer
+
 4. If details are missing, make concise assumptions and label them.
 5. Score every persona from 1 to 5 and assign a stance:
    - 5 = very interested / strong approval
@@ -19,8 +47,19 @@ Use this skill to estimate how four typical Shokz user persona segments may reac
    - 3 = neutral or conditional
    - 2 = low interest / meaningful doubts
    - 1 = rejection or mismatch
-6. Compute the weighted overall interest score with the persona shares in `references/personas.md`. The full score is 5.0 points. Optionally also show a 100-point conversion: `score / 5 * 100`.
+6. Compute the weighted overall interest score with the persona weights chosen in Step 3.5 (default or preset). The full score is 5.0 points. Optionally also show a 100-point conversion: `score / 5 * 100`.
 7. Add a short evidence section using `references/core_research_findings.md`.
+
+8. **Provide improvement suggestions if weighted_score < 4.0.**
+
+   When the overall weighted score is below 4.0, the concept needs work. Identify the lowest-scoring persona, then:
+
+   - Cross-reference that persona's "Concept Reaction Heuristics" in `personas.md`
+   - Suggest 2-3 specific rewrites or additions that would lift that persona's score (e.g., "为科技老白男补一个可量化 proof point，如 '27g' 或 '9hr battery'")
+   - For each suggestion, estimate the expected score lift as my judgment (e.g., "+0.3 expected")
+   - Label all suggestions as "我的判断" per content-integrity rule; the lift estimate is not a precise prediction
+
+   If multiple personas tie for the lowest score, prioritize the one with the highest cluster weight (largest commercial impact).
 
 ## Scoring Priorities
 
@@ -71,10 +110,17 @@ Do not force evidence. If the reference does not speak to a concept, say that th
 
 ## Calculation Helper
 
-For deterministic math, use:
+For deterministic math, use the helper script. It accepts three input modes:
 
 ```bash
+# Mode 1: JSON string as argument (preferred on Windows to avoid encoded-path bugs)
+python scripts/weighted_score.py '{"scores": {"科技老白男": 4.2, "骨传导跑男": 4.0, "日常颜值派": 3.6, "日常开放派": 3.8}}'
+
+# Mode 2: File path argument
 python scripts/weighted_score.py scores.json
+
+# Mode 3: Stdin
+echo '{"scores": {...}}' | python scripts/weighted_score.py
 ```
 
 The input may be either a `scores` object or a plain object keyed by id, name, or persona label:
@@ -86,8 +132,13 @@ The input may be either a `scores` object or a plain object keyed by id, name, o
     "骨传导跑男": 4.0,
     "日常颜值派": 3.6,
     "日常开放派": 3.8
+  },
+  "weights": {
+    "preset": "costco"
   }
 }
 ```
+
+If `weights.preset` is provided (one of `default`, `costco`, `target`, `bos_dtc`, `seal_swim`, `custom`), the helper applies that preset's weights. Otherwise it uses the default weights. Preset weight values are defined in `references/weight_presets.md` and mirrored in the script.
 
 Use the helper when exact arithmetic matters, then include the resulting weighted score in the final answer.

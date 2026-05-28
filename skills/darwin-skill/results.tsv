@@ -1,3 +1,2 @@
 timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
-2026-05-27T09:30	baseline	product-development	-	63.7	baseline	-	初始评估	dry_run
-2026-05-27T11:32	-	product-development	63.7	86.5	keep	D4+D3+D5+D2+D7+D1	5轮合并重写：检查点+边界条件+具体规格+结构重组+总览图	dry_run
+2026-05-28T10:24	baseline	shokz-persona-simulator	-	83.4	baseline	-	初始评估 asset_type=skill target_path=~/.cursor/skills/shokz-persona-simulator	dry_run
