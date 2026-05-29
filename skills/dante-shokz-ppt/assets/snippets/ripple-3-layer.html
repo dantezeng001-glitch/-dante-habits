@@ -1,0 +1,101 @@
+<!--
+  Dante Shokz PPT · ripple-3-layer.html
+  ────────────────────────────────────────────────────────
+  组件：三层涟漪扩散叙事
+  适用：讲一件事的"个人 → 团队 → 组织"或"部门内 → 跨部门 → 公司级"扩散
+  来源：原 deck P09
+
+  布局：
+    [════════ R 头部条（全宽 80px Ink 底）════════════]
+    [LAYER 01 灰边]  [LAYER 02 中灰边]  [LAYER 03 橙边]
+    [中文标题]       [中文标题]         [中文标题]
+    [12pt 正文]      [12pt 正文]        [12pt 正文]
+
+  可改字段：
+    1. R 头部条的"结果总述"（18pt 加粗白字）和右侧副说明（13pt 浅灰）
+    2. 三层 LAYER 名（中英：如"LAYER 01 · 部门内"）
+    3. 三层中文标题（16pt 加粗）
+    4. 三层 12pt 正文（关键词用 #FF7A3D 加粗强调）
+
+  不可改：
+    - 三栏宽 353.78
+    - 顶部 3pt 粗 border 配色顺序：#BABABA → #666666 → #FF7A3D（从近到远 / 从小到大）
+    - 上方 R 头部条 1088×80 Ink 黑底
+    - LAYER 字号 10pt 等宽 / 标题 16pt 加粗 / 正文 12pt
+
+  红线：
+    - ❌ 不要反过来用色（橙→中灰→灰会让"扩散感"逻辑错乱）
+    - ❌ 不要只用 2 层（那是对比，不是涟漪）
+-->
+
+<!-- R 头部条 -->
+<div class="shp" data-name="R-Header" style="left:96.0px;top:210.0px;width:1088px;height:80px;background:#050505;overflow:hidden">
+  <div style="width:100%;height:100%;padding:14px 28px;box-sizing:border-box;display:flex;align-items:center;gap:32px">
+    <span style="font-size:48.0pt;color:#FFFFFF;font-weight:700;line-height:1">R</span>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <span style="font-size:10.0pt;color:#FF7A3D;font-family:'Consolas','Courier New',monospace">RESULT · 结果</span>
+      <span style="font-size:18.0pt;color:#FFFFFF;font-weight:700">替换为结果总述（如"5 min 起手 + 三层涟漪持续扩散"）</span>
+    </div>
+    <div style="margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+      <span style="font-size:10.0pt;color:#BABABA;font-family:'Consolas','Courier New',monospace">↓ 三层涟漪明细</span>
+      <span style="font-size:13.0pt;color:#BABABA">替换为右侧副说明</span>
+    </div>
+  </div>
+</div>
+
+<!-- LAYER 01（最近一层，灰边） -->
+<div class="shp" style="left:96.0px;top:290.0px;width:353.78px;height:250.0px;background:#F1F1F1;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:96.0px;top:292.0px;width:353.78px;height:0.0px;border:3.0pt solid #BABABA;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:114.66px;top:360.0px;width:322.8px;height:15.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:10.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">LAYER 01 · 替换为最近层级名</span></p>
+</div>
+<div class="shp" style="left:114.66px;top:380.33px;width:322.8px;height:27.72px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:16.0pt;color:#050505;font-weight:700">层 1 中文标题</span></p>
+</div>
+<div class="shp" style="left:114.66px;top:416.05px;width:322.8px;height:80.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left">
+    <span style="font-size:12.0pt;color:#050505;line-height:1.55">替换为层 1 正文，</span><span style="font-size:12.0pt;color:#FF7A3D;font-weight:700;line-height:1.55">关键词橙色加粗</span><span style="font-size:12.0pt;color:#050505;line-height:1.55">，描述这一层的扩散效果</span>
+  </p>
+</div>
+
+<!-- LAYER 02（中间一层，中灰边） -->
+<div class="shp" style="left:463.11px;top:290.0px;width:353.78px;height:250.0px;background:#F1F1F1;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:463.11px;top:292.0px;width:353.78px;height:0.0px;border:3.0pt solid #666666;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:481.77px;top:360.0px;width:322.8px;height:15.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:10.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">LAYER 02 · 替换为中间层级名</span></p>
+</div>
+<div class="shp" style="left:481.77px;top:380.33px;width:322.8px;height:27.72px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:16.0pt;color:#050505;font-weight:700">层 2 中文标题</span></p>
+</div>
+<div class="shp" style="left:481.77px;top:416.05px;width:322.8px;height:80.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left">
+    <span style="font-size:12.0pt;color:#050505;line-height:1.55">替换为层 2 正文，</span><span style="font-size:12.0pt;color:#FF7A3D;font-weight:700;line-height:1.55">关键词橙色加粗</span>
+  </p>
+</div>
+
+<!-- LAYER 03（最远一层，橙边） -->
+<div class="shp" style="left:830.22px;top:290.0px;width:353.78px;height:250.0px;background:#F1F1F1;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:830.22px;top:292.0px;width:353.78px;height:0.0px;border:3.0pt solid #FF7A3D;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" style="left:848.87px;top:340.0px;width:322.8px;height:15.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:10.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">LAYER 03 · 替换为最远层级名</span></p>
+</div>
+<div class="shp" style="left:848.87px;top:360.33px;width:322.8px;height:27.72px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:16.0pt;color:#050505;font-weight:700">层 3 中文标题</span></p>
+</div>
+<div class="shp" style="left:848.87px;top:396.05px;width:322.8px;height:100.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left">
+    <span style="font-size:12.0pt;color:#050505;line-height:1.55">替换为层 3 正文，</span><span style="font-size:12.0pt;color:#FF7A3D;font-weight:700;line-height:1.55">最远层级的关键词橙色加粗</span><span style="font-size:12.0pt;color:#050505;line-height:1.55">，体现最深的扩散影响</span>
+  </p>
+</div>

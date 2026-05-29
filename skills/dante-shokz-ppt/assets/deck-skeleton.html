@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Shokz Deck · 替换为你的主题</title>
+
+<!--
+  Dante Shokz PPT · deck-skeleton.html
+  起手骨架。拷贝本文件 → 改名（如 2026Q2-OpenRun-launch.html）→ 增加 <section> → 填内容。
+
+  红线：
+  - 不要在这里加新 <style>，公共样式在 deck.css。本页要做局部覆盖时再加。
+  - 不要改翻页脚本（已经在用户中验过场）。
+  - 不要删 deck-toolbar（提供键盘提示）。
+  - 不要修改 motion.min.js 引用方式（如不需要动画可删 <script src="motion.min.js">，但不影响主链）。
+-->
+
+<link rel="stylesheet" href="assets/deck.css">
+
+<!-- 可选：如本 deck 用动画，保留以下引用；否则可删 -->
+<!-- <script src="assets/motion.min.js"></script> -->
+
+</head>
+<body>
+
+<div class="deck-toolbar">
+  替换为主题 · N 页 · ↑↓ 翻页
+  <a href="#slide-1">回到首页</a>
+</div>
+
+<div class="deck-wrap">
+
+<!-- ============================================================
+     页面区开始
+     每页一个 <section class="deck-slide" id="slide-N" data-idx="N">
+     从 snippets/ 拷贝组件粘进 section 内
+     ============================================================ -->
+
+<!-- ===== P01 · 封面（用 snippets/cover.html） ===== -->
+<section class="deck-slide" id="slide-1" data-idx="1" style="background:#FFFFFF">
+  <div class="slide-num">01 / NN</div>
+
+  <!-- TODO: 粘 snippets/cover.html 内容到这里 -->
+
+</section>
+
+
+<!-- ===== P02 · 替换为页主题 ===== -->
+<section class="deck-slide" id="slide-2" data-idx="2" style="background:#FFFFFF">
+  <div class="slide-num">02 / NN</div>
+
+  <!-- TODO: 粘 snippets/header-chrome.html -->
+  <!-- TODO: 粘 title + subtitle -->
+  <!-- TODO: 粘对应组件 snippet -->
+  <!-- TODO: 粘 snippets/footer-chrome.html -->
+
+</section>
+
+
+<!-- 继续按 P03 / P04 / ... 复制上面的 section 模式 -->
+
+
+<!-- ============================================================
+     页面区结束
+     ============================================================ -->
+
+</div>
+
+<!-- 翻页脚本：键盘 ↑↓ / PageUp/PageDown / Home / End / Space -->
+<script>
+  const slides = Array.from(document.querySelectorAll('.deck-slide'));
+  let cur = 0;
+  function go(d) {
+    cur = Math.max(0, Math.min(slides.length - 1, cur + d));
+    slides[cur].scrollIntoView({behavior: 'smooth', block: 'center'});
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault(); go(1);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault(); go(-1);
+    } else if (e.key === 'Home') {
+      cur = 0; slides[0].scrollIntoView();
+    } else if (e.key === 'End') {
+      cur = slides.length - 1; slides[cur].scrollIntoView();
+    }
+  });
+  /* 滚动时同步 cur */
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting && e.intersectionRatio > 0.5) {
+        cur = slides.indexOf(e.target);
+      }
+    }
+  }, { threshold: [0.5] });
+  slides.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>

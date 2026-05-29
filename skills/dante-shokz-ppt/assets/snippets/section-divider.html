@@ -1,0 +1,57 @@
+<!--
+  Dante Shokz PPT · section-divider.html
+  ────────────────────────────────────────────────────────
+  组件：章节分隔页（整页 Ink 黑底 + 大字章节名）
+  适用：deck > 12 页时，每个大主题之间插一页换气
+  来源：本 skill 自定义（原 deck 16 页没用章节分隔）
+
+  可改字段：
+    1. 整 <section> 的 background:#050505 —— 章节分隔强制黑底，不要改
+    2. 编号（如"02"）—— 用大字橙色编号锚定章节序号
+    3. 章节名（如"案例与复盘"/"未来与反思"）—— 60pt 白字
+    4. 副说明（如"CHAPTER 02 · CASES & RETROS"）—— 16pt 等宽橙色
+    5. 页码 NN / 总数
+
+  不可改：
+    - 整页黑底（章节页的视觉契约）
+    - 60pt 主大字（再大显得喧宾夺主）
+    - 编号位置 left:96, top:240
+
+  使用方式：
+    - <section> 的 style 改为 background:#050505
+    - 不需要常规页眉（章节本身就是 chrome 替代）
+    - 仍需要页脚（保持一致性）
+
+  使用示例：
+    <section class="deck-slide" id="slide-N" data-idx="N" style="background:#050505">
+      <!-- 粘下面内容 -->
+    </section>
+-->
+
+<!-- 大编号 -->
+<div class="shp" style="left:96.0px;top:240.0px;width:200px;height:80px;display:flex;align-items:center;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:96.0pt;color:#FF7A3D;font-weight:700;font-family:'Consolas','Courier New',monospace;line-height:1">02</span></p>
+</div>
+
+<!-- 副说明（英文章节标签） -->
+<div class="shp" style="left:96.0px;top:340.0px;width:600px;height:22px;display:flex;align-items:center;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:16.0pt;color:#FF7A3D;font-family:'Consolas','Courier New',monospace">CHAPTER 02 · REPLACE WITH ENGLISH</span></p>
+</div>
+
+<!-- 章节大字 -->
+<div class="shp" style="left:96.0px;top:380.0px;width:1088px;height:90px;display:flex;align-items:center;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:60.0pt;color:#FFFFFF;font-weight:700">替换章节名</span></p>
+</div>
+
+<!-- 章节描述（可选，最多两行） -->
+<div class="shp" style="left:96.0px;top:485.0px;width:1088px;height:50px;display:flex;align-items:flex-start;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:18.0pt;color:#BABABA;line-height:1.4">替换为章节一句话描述（可选，不需要可删本块）</span></p>
+</div>
+
+<!-- 页脚（注意：章节页页脚用浅灰反白以适配深底） -->
+<div class="shp" style="left:96.0px;top:674.0px;width:174.96px;height:22.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#999999;font-family:'Consolas','Courier New',monospace">Shokz 韶音 · BE OPEN</span></p>
+</div>
+<div class="shp" style="left:1123.47px;top:674.0px;width:61.74px;height:22.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#999999;font-family:'Consolas','Courier New',monospace">NN / 总数</span></p>
+</div>

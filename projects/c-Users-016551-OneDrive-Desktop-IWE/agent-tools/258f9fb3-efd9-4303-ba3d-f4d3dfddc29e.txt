@@ -1,0 +1,457 @@
+-- -- -- -- -- Explore Galaxy Buds3 Pro | In-Ear Wireless Earbuds | Samsung US -- -- -- if('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js') .then(function(registration) { console.log("Service Worker registered with scope:", registration.scope); }); } window.addEventListener('beforeinstallprompt', (e) = { // Prevent Chrome 67 and earlier from automatically showing the prompt //e.preventDefault(); console.log("beforeinstallprompt"); }); --
+
+붙이던 부분 삭제함 필요시 search/를 붙여서 사용-- runmodeInfo 이름 변경--
+
+--
+
+Welcome to the
+
+!
+
+Please enjoy our special offers for you
+
+[MY BENEFITS](https://samsung.com/us/support/account/benefits/) [SPECIAL OFFERS](https://samsung.com/us/shop/all-deals/)
+
+## Galaxy Buds3 Pro
+
+- [From $249.99](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/)
+
+[BUY NOW](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/)
+
+- [From $249.99](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/)
+- [Specs](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/#compare)
+- [Features](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/#pro-audio)
+
+-- --
+
+Meet the new shape of sound, completely redesigned to bring you deeper into your audio than ever before.
+
+Save $70 instantly. θ -- Redefine your listening experience. Hear each note in crystal-clear clarity, with 24-bit CODEC. Minimize distortion with our first-ever, dual amp on Galaxy Buds. Capture a high range of intricate details with enhanced 2-way speaker — featuring a planar tweeter, a first on Galaxy Buds. Take your listening experience to the next level with Galaxy AI-boosted Noise Control and real-time interpretation. See your Buds in a new light. , , --
+
+[Buy now](https://www.samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/) Reserve now [Pre-order now](https://www.samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/) Where to buy
+
+Image simulated. Available colors of Galaxy Buds3 Pro may vary by country or carrier. Galaxy Buds3 Pro supports Galaxy AI features such as interpreter and Live Translate when paired with compatible Samsung Galaxy devices. Availability of Galaxy AI features may vary by device model. See samsung.com for details. --
+
+Lucky you. Get $50 off. Spend $500 or more on your first Shop Samsung app purchase# Shop now --
+
+REVIEWS
+
+## See what fans of Galaxy Buds3 Pro are saying
+
+[See All Reviews](https://samsung.com/us/mobile-audio/galaxy-buds3-pro/buy/galaxy-buds3-pro-silver-sm-r630nzaaxar/#reviews)
+
+### "Robust, enveloping sound that rivals some of the best"
+
+## "I love my new Galaxy Buds3 Pro!"
+
+"They fit great, they sound great and they look amazing! This is my 4th pair of Galaxy Buds and I like these way better than all the others that I have had."§
+
+READ MORE --
+
+## "New ear bliss"
+
+"I love the galaxy buds3 pro. They sound great and love the voice acting also. The extreme comfortable and the don't fall out when I'm working out."§
+
+## "The must have Buds of 2024"
+
+"So many amazing things to say about the Samsung Galaxy Buds3 Pro. From audio to noise cancelation I truly love this product. Mobile Calls are amazing too!"§
+
+Galaxy AIis here Galaxy AI is here for your all-new Galaxy Buds3 Pro Redefine your listening experience. Hear each note in crystal-clear clarity, with 24-bit CODEC. Minimize distortion with our first-ever, dual amp on Galaxy Buds. Capture a high range of intricate details with enhanced 2-way speaker — featuring a planar tweeter, a first on Galaxy Buds. Take your listening experience to the next level with Galaxy AI-boosted Noise Control and real-time interpretation. See your Buds in a new light. , , --
+
+Play
+
+play
+
+## All-new clear case and Blade Light
+
+A pair of silver colored Galaxy Buds3 Pro earbuds in an open case.
+
+Previous Next
+
+AUDIO
+
+## Refreshed look. Revolutionary sound. A comfortable new design and improved hardware deliver the high-resolution experience your ears have been craving. --
+
+Designed for true audio lovers. A comfortable, new shape and improved hardware deliver the high-resolution audio experience your ears have been craving.
+
+Multiple lines create wave-like shapes and particles, representing different aspects of sound. The particles disappear in a flash of light, transforming into the Blade Light and showing the Galaxy Buds3 Pro.
+
+play
+
+### Our best and most immersive audio
+
+Immerse yourself in the elaborate details — from the deep rumble of the bass to the clear, crisp highs of the trebles — with enhanced 2-way speaker. Hear the vibrato of instruments with minimal distortion through our first-ever dual amp. --
+
+- Pinch Control
+- Swipe
+- Blade Light
+- Wind Shield
+
+#### Dual Amplifier
+
+Powered by our first-ever, independently controlled woofer and tweeter, Galaxy Buds3 Pro allow you to experience a broad spectrum of sound. , --
+
+#### Enhanced 2-Way Speaker
+
+An enhanced woofer and tweeter with wide frequency response unveil the minute details in your music. , --
+
+Stunning, studio-like sound Retain ultra high quality audio from the recording studio to your Galaxy Buds3 Pro. The Samsung Seamless Codec compresses and encodes up to 24bit / 96kHz audio. Then, decodes on the Galaxy Buds3 Pro, maintaining the 24bit / 96kHz, high-fidelity sound so you can hear the intricate details, just as it was intended. , 16 bit / 44.1 kHz 24 bit / 96 kHz Samsung Seamless Codec -- GALAXY AI Galaxy AIis here for your all-new Buds --
+
+GALAXY AI
+
+## Galaxy AIis here
+
+## for your all-new Galaxy Buds
+
+### Audio tailored to best fit you
+
+Adaptive Equalizer with Galaxy AI adjusts audio based on how your Buds sit in your ears. That means every time you put Buds in, you can bring out the best in every playlist.
+
+### Tune into what’s important
+
+With Adaptive Noise Control with Galaxy AI, you can immerse yourself in sound while staying alert to your surroundings.
+
+A Galaxy Buds3 Pro earbud in silver with 'Galaxy AI is here' above the earbud. Large particles, representing noise are on one side of the earbud and sans particles on the other. 3 images appear. An image of New York City with several taxis, people having a conversation and an ambulance with the siren on.
+
+play
+
+ANC
+
+Choose your level of Active Noise Cancellation to filter out unwanted noise and let in just the right amount of ambient sound.
+
+Voice Detect
+
+If someone starts speaking to you while you're jamming out, your Buds will automatically adapt to help you hear what matters.
+
+Siren Detect
+
+Reduce unnecessary external noise, except for alarms and sirens to warn you to steer clear of harm's way.
+
+[ANC](javascript:void(0)) [Voice Detect](javascript:void(0)) [Siren Detect](javascript:void(0))
+
+Choose your level of Active Noise Cancellation to filter out unwanted noise and let in just the right amount of ambient sound.
+
+### They say “hola,” you hear “hello”
+
+Hear translations through your Galaxy Buds during conversations using Real-Time Interpreter with Galaxy AI. simultaneously hear your conversation interpreted in real-time through your Galaxy Buds3 Pro. Discover what it means to be truly free of language barriers. --
+
+[Listening mode](javascript:void(0)) [Conversation mode](javascript:void(0))
+
+Hola todos. La lección de hoy será sobre el impresionismo.
+
+Hello everyone. Today's lesson will be about Impressionism.
+
+To access listening mode, simply pinch and hold your earbuds and your Galaxy Buds3 Pro will continue to interpret as the speaker is talking.
+
+To access conversation mode, place the phone mic toward the speaker, short press your Galaxy Buds3 Pro and listen to your conversation translated in real-time. -- To access listening mode, simply pinch and hold your earbuds and your Galaxy Buds3 Pro will continue to interpret as the speaker is talking. --
+
+## Super clear calls
+
+Machine learning minimizes background noise so your voice is heard even in busy environments. Bluetooth Super Wideband further improves call quality by doubling audio bandwidth for more natural sounding speech. ,
+
+## Your voice is the command
+
+## Your voice is the command
+
+Control your compatible phone with simple voice commands. Simply say a command, such as "answer call" or "volume up." Control your audio settings without needing to touch your phone. Simply say a command, such as "next song" or "volume up" and let Galaxy Buds3 Pro do the rest. --
+
+DESIGN A new design made to shine Listen in comfort with a redesigned shape that delivers our snuggest fit ever. And because your Buds should shine as much as you do, we’ve added Blade Lights to stand out from the crowd and glow up your listening experience. -- --
+
+DESIGN
+
+### Improved comfort for immersive listening
+
+Listen in comfort with a redesigned shape that delivers our snuggest fit ever. And because your Buds should shine as much as you do, we’ve added Blade Lights to stand out from the crowd and glow up your listening experience.
+
+A pair of silver Galaxy Buds3 Pro appear in a closed case which opens up. Once open, the earbuds slide up with the Blade Lights on and hover over the open case. play --
+
+### Color
+
+Silver Case
+
+### Controls with a personal touch
+
+Tap into convenience with touch controls customized by you, for you. Intuitive Touch Control lets you pause, skip tracks, accept calls and more. --
+
+[Swipe Swipe up/down the Blade to adjust the volume.](javascript:void(0))
+
+[Pinch Control Pinch to play and pause, or pinch and hold to launch your favorite app.](javascript:void(0))
+
+Swipe Content
+
+A finger swipes across the blade of a single, Galaxy Buds3 Pro earbud.
+
+play
+
+CONNECTED EXPERIENCE
+
+## Bring entertainment and gaming to life
+
+Audio Samsung TV -- Auto Switch -- Auto Switch Auracast -- Auracast
+
+Samsung TV Your own personal theater experience Hear your favorite shows and movies in a whole new way with 360 Audio now available on Samsung TVs. 360 Audio tracks your head movement to provide immersive sound that puts you right in the action. --
+
+Auto Switch
+
+## Seamlessly switch your sound to your PC
+
+Listen to the latest playlists on your Galaxy phone, then seamlessly switch to your laptop for the final boss battle of your favorite game using PC Auto Switch.
+
+Bring entertainment and gaming to life Dive into a spatial sound experience. 360 Audio is a feature that identifies the exact direction of the sound as you tilt your head, providing surround sound for a more vivid listening and viewing experience. , , -- PC Auto Switch keeps the synergy going PC Auto Switch on Galaxy Buds3 Pro detects audio activity and transfers the connection to your favorite Samsung Galaxy devices, so you can work and play seamlessly. , From left to right is a Samsung Galaxy Book laptop, Galaxy Buds3 Pro and Z Fold6. A call from the Z Fold6 appears on the Samsung Galaxy Book laptop. After answering the call on Z Fold6, PC Auto Switch changes the Galaxy Buds3 Pro audio output from the laptop to the smartphone. play -- Share your sound with those around via Auracast With Auracast broadcast technology, share your audio stream with an unlimited number of devices. Effortlessly transform your Samsung TV, Samsung Galaxy smartphone or tablet into a radio source to start engaging with others. , , , , --
+
+## Customize sound settings for different apps
+
+Swipe down to quickly adjust your EQ and noise control from the Quick Settings panel. Your custom settings are saved for each app, so whether you're using 360 Audio on YouTube or bass boost on Spotify, your sounds stay in tune with you. ,
+
+A Galaxy smartphone screen is swiped down, which opens up the quick settings panel. It's zoomed in on the volume slider which is pressed for few seconds to open a widget showing Buds battery level and Active Noise Canceling level. Another screen is zoomed in on Active Noise Canceling level widget where the ANC level slides up from left to right. Below, a widget for YouTube audio shows settings for 360 audio, Equalizer, Boost dialogue and Loudness normalization. Subsequently, it changes to a widget for Spotify audio, which shows the same set of settings. It zooms out to show all the settings previously shown.
+
+play
+
+Your personalized sound sanctuary Mindfulness comes with daily practice. At the press of a button, teleport to a worry-free world of your own with Samsung Health powered by Calm. Alleviate stress with peaceful melodies from nature, improve your focus , , --
+
+## Find your sound sanctuary
+
+Mindfulness comes with daily practice. Teleport to a worry-free world of your own with Samsung Health powered by Calm. Alleviate stress with peaceful melodies from nature, improve your focus with white noise or relax with ASMR for a happier, healthier you.
+
+Galaxy Z Fold6 is open with a Galaxy Buds3 Pro earbud on the right and Samsung Health powered by Calm application icons on the bottom. By pressing Galaxy Buds3 Pro, the app activates and at the same time, the office image changes to 5 images of nature. An image of trees, a river, raindrops falling, palm trees and a bonfire.
+
+play
+
+# Personal training, on us
+
+Get 3 months of trainer-led workouts by iFIT on Samsung Health with new qualifying Galaxy Buds3 Pro.*
+
+[Learn more](https://www.samsung.com/us/mobile/galaxy/offers/ifit/)
+
+## Seamless sounds across Android smartphones​
+
+Galaxy Buds3 Pro pairs easily with almost any Android phone. Download the Galaxy Wearable app to access additional sound settings wherever the music takes you. ,
+
+Galaxy Wearable App Samsung Health App --
+
+Galaxy Wearable App Samsung Health App --
+
+## Long-lasting battery life --
+
+Stay in your groove for hours with a battery that rocks. With the charging case, Galaxy Buds3 Pro provide up to 30 hours of listening time.
+
+*Wireless Charging Support --
+
+Constantly connected Keep your music and audio flowing, whenever and wherever you’re going. , , , , Play time Up to ANC Off 7/ 30h Up to ANC On 6/ 26h Bluetooth V 5.4 Water Resistance IP57 Weight Earbuds 5.4 g Case 46.5 g --
+
+# Hear for yourself, virtually
+
+Try out noise cancelling and more audio effects with a virtual listening experience on your phone.
+
+[Try Galaxy Buds](https://trygalaxy.com/?utm_source=samsungcom&utm_medium=Link-Buds3_Pro_MLP&utm_campaign=try%E2%80%A6) Try Galaxy Watch --
+
+COMPARE
+
+### Find the best Galaxy Buds for you
+
+### Galaxy Buds3 Pro
+
+- White
+- Silver
+
+[Learn More](https://www.samsung.com/us/mobile-audio/galaxy-buds3-pro/)
+
+### Galaxy Buds3
+
+- White
+- Silver
+
+[Learn More](https://www.samsung.com/us/mobile-audio/galaxy-buds3/)
+
+Spec
+
+Buds3 Pro
+
+Buds3
+
+Audio
+
+Speaker
+
+Enhanced 2 way
+
+Speaker
+
+1 way
+
+Audio
+
+Amplifier
+
+Dual Amplifier
+
+Amplifier
+
+Single Amplifier
+
+Audio
+
+Lossless Ultra High Quality audio
+
+support
+
+(24bit / 96kHz)
+
+Lossless Ultra High Quality audio
+
+support
+
+(24bit / 96kHz)
+
+Audio
+
+Super Wideband Call
+
+support
+
+Super Wideband Call
+
+support
+
+Audio
+
+360 Audio
+
+support
+
+360 Audio
+
+support
+
+Intelligent Audio Technology
+
+Adaptive Noise Control
+
+support
+
+Adaptive Noise Control
+
+not support
+
+Intelligent Audio Technology
+
+Adaptive EQ, ANC
+
+support
+
+Adaptive EQ, ANC
+
+support
+
+Intelligent Audio Technology
+
+Ambient Sound
+
+support
+
+Ambient Sound
+
+not support
+
+Controls
+
+Swipe/Pinch and Voice
+
+support
+
+Swipe/Pinch and Voice
+
+support
+
+Controls
+
+Blade Lights
+
+support
+
+Blade Lights
+
+not support
+
+Battery and durability
+
+Durability
+
+IP57
+
+Durability
+
+IP57
+
+Battery and durability
+
+Play time
+
+Up to 7.0/30hr(ANC Off) Up to 6.0/26hr(ANC On)
+
+Play time
+
+Up to 6.0/30hr(ANC Off) Up to 5.0/24hr(ANC On)
+
+Connectivity
+
+SmartThings Find
+
+Yes
+
+SmartThings Find
+
+Yes
+
+Connectivity
+
+Bluetooth Ver.
+
+5.4
+
+Bluetooth Ver.
+
+5.4
+
+Connectivity
+
+Auto Switch
+
+Yes
+
+Auto Switch
+
+Yes
+
+SEE ALL SPECS Collapse
+
+Next
+
+C C
+
+1. M7/10/24-7/23/24, while supplies last, order and purchase a Galaxy Buds3 Pro ("Qualifying Purchase") and receive a select buds case cover on us ($29.99) (“Promotional Product”). Promotional Product must be selected by the customer in the same transaction of Qualifying Purchase at the time of order in the Galaxy Buds3 Pro buy page. The Promotional Product is limited to 1 per Qualifying Purchase. If you return or cancel your Qualifying purchase, you must return the Promotional Product with your Qualifying purchase or pay for the Promotional Product in full. Void where prohibited or restricted by law. -- ᶿFor a limited time only, on Samsung.com/Shop Samsung App, purchase a new qualifying Galaxy device (“Qualifying Purchase”), send in your qualifying trade-in device to Samsung through the Samsung Trade-In Program, and if Samsung determines your trade-in device meets all eligibility requirements, you will receive a trade-in credit specific to your qualifying trade-in device to apply toward your Qualifying Purchase. Device models that currently qualify for trade-in and trade-in credit amounts associated with those models are available on Samsung.com and the Shop Samsung App; eligible models and amounts may change at Samsung’s sole discretion. To be eligible for trade-in, your qualifying device must meet all Trade-In Program eligibility requirements, which include, but are not limited to, that the device powers on, holds a charge, and does not power off unexpectedly; has a functioning display; has no breaks or cracks in the screen (unless a cracked screen offer applies); has no breaks or cracks in the case; has no liquid damage (whether visible or not); has no other defects that go beyond normal wear and tear; is not on a black list; has a verified FCC ID; has been reset to factory settings; has all personal information removed; has all software locks disabled; and is owned by you (leased devices are not eligible). Anticipated trade-in value will be applied as a credit at time of purchase, but, if you do not send in your trade-in device within 15 days of receipt of your Qualifying Purchase, you will be charged back for the trade-in credit applied to your purchase, or if you send in your trade-in device within 15 days of receipt of your Qualifying Purchase but Samsung determines your device does not meet all eligibility requirements, you will be charged back for the trade-in credit applied to your purchase minus $25. Participation in this program does not excuse you from contracts with your carrier or retailer (or any related payments or fees) for the device that was traded in. Limit 1 trade-in per Qualifying Purchase. Samsung reserves the right to modify or discontinue this offer at any time. The Trade-In Program cannot be combined with any other Samsung, carrier or retailer promotions, discounts, or offers unless specifically provided for in the terms and conditions of such offers. Additional terms, including terms that govern the resolution of disputes, apply. Click here to learn more. -- Adaptive Noise Control is off, Voice Detect is off and Siren Detect is off by default, and can be configured in the Galaxy Wearable app. The Adaptive Noise Control, Voice Detect and Siren Detect features are only available on Samsung Galaxy Buds3Pro. --
+2. *11/3/25-12/31/26 while supplies last, purchase a qualifying product at Samsung.com or the Shop Samsung app and receive a trial of Samsung Health powered by iFit as follows: (a) 30 days with the purchase of: Fold7, Flip7, S25 Ultra, S25+, S25, S25 FE, S25 Edge, A56, A36, A26, or A16, (b) 3 months with the purchase of: Galaxy Buds3 Pro, (c) 6 months with purchase of: Galaxy Watch8, Galaxy Watch8 Classic, Galaxy Watch Ultra. Activation code will be sent via e-mail 14 days after purchase.
+3. ⊕Your rate for pay-over-time plans will be 0–36% APR. Affirm Pay in 4 payment option is 0% APR. Payment options through Affirm are subject to an eligibility check and may not be available everywhere. Options depend on your purchase amount, and a down payment may be required. For example, at a purchase price of $800 you could pay a down payment of $160 today, followed by 12 monthly payments of $57.77 at 15% APR or 4 interest-free payments of $200 every 2 weeks. Payment options through Affirm are provided by these lending partners: affirm.com/lenders. For licenses and disclosures, including information for New Mexico residents, see affirm.com/licenses. CA residents: Loans by Affirm Loan Services, LLC are made or arranged pursuant to a California Financing Law license.
+4. #6/15/24 – 3/31/25, Promotional discount applies while supplies last when making your first qualifying purchase in the Shop Samsung App ($500 first order minimum). This offer is available to direct consumers only, Business customer accounts are not eligible. Void where prohibited or restricted by law. Samsung reserves the right to modify or discontinue offers at any time by posting notice on the app or website.
+5. θFor a limited time only, on Samsung.com/Shop Samsung App, purchase a new qualifying Galaxy device (“Qualifying Purchase”), send in your qualifying trade-in device to Samsung through the Samsung Trade-In Program, and if Samsung determines your trade-in device meets all eligibility requirements, you will receive a trade-in credit specific to your qualifying trade-in device to apply toward your Qualifying Purchase. Device models that currently qualify for trade-in and trade-in credit amounts associated with those models are available on Samsung.com and the Shop Samsung App; eligible models and amounts may change at Samsung’s sole discretion. To be eligible for trade-in, your qualifying device must meet all Trade-In Program eligibility requirements, which include, but are not limited to, that the device powers on, holds a charge, and does not power off unexpectedly; has a functioning display; has no breaks or cracks in the screen (unless a cracked screen offer applies); has no breaks or cracks in the case; has no liquid damage (whether visible or not); has no other defects that go beyond normal wear and tear; is not on a black list; has a verified FCC ID; has been reset to factory settings; has all personal information removed; has all software locks disabled; and is owned by you (leased devices are not eligible). Anticipated trade-in value will be applied as a credit at time of purchase, but, if you do not send in your trade-in device within 15 days of receipt of your Qualifying Purchase, you will be charged back for the trade-in credit applied to your purchase, or if you send in your trade-in device within 15 days of receipt of your Qualifying Purchase but Samsung determines your device does not meet all eligibility requirements, you will be charged back for the trade-in credit applied to your purchase minus $25. Participation in this program does not excuse you from contracts with your carrier or retailer (or any related payments or fees) for the device that was traded in. Limit 1 trade-in per Qualifying Purchase. Samsung reserves the right to modify or discontinue this offer at any time. The Trade-In Program cannot be combined with any other Samsung, carrier or retailer promotions, discounts, or offers unless specifically provided for in the terms and conditions of such offers. Additional terms, including terms that govern the resolution of disputes, apply. [Click here](https://www.samsung.com/us/trade-in/terms-and-conditions/) to learn more.
+6. Q6/7/25 - 6/7/25 while supplies last, purchase a Galaxy Buds3 or Galaxy Bud3 Pro ("Qualifying Purchase") and receive a select Galaxy Buds3 or Buds3Pro Case on us (“Promotional Product”). Products must be purchased simultaneously using the Galaxy Watch 7 or Watch Ultra buy page. Limited to 1 per Qualifying Purchase. If you return or cancel your Qualifying Purchase, you must return the Promotional Product at the same time or pay for the Promotional Product in full. Void where prohibited or restricted by law. --
+7. Requires a compatible Samsung Galaxy device, Internet connection and Samsung account.​
+8. Screen images simulated.​
+9. Connecting Galaxy Buds as Bluetooth Audio is available regardless of OS but to configure advanced settings on the Galaxy Wearable app, Galaxy Buds must be paired with a smartphone with Android 10.0 or above and minimum 1.5GB Memory.​ Advanced settings on the Galaxy Wearable app include Noise Control, Adaptive EQ, Pinch Control and software update.​ Some features are only available on compatible Samsung Galaxy smartphones.​Android is a trademark of Google LCC.
+10. Super Wideband (SWB) is available regardless of the Call App. SWB may not be supported depending on the mobile network between devices.​
+11. Super Wideband call is available on Galaxy devices with One UI 6.1.1 or above. Additional devices may be supported in the future.​
+12. Consistent with 10ATM water-resistance classification (up to 100m of water for up to 10 minutes) and IP68 rating (up to 6 feet of water for up to 30 minutes). Rinse residue / dry after wet.
+13. Auto Switch feature is only available on Samsung Galaxy Book series with One UI 6.0 or later, Samsung Galaxy smartphones and Galaxy Tab devices with One UI 4.1.1 or later and Galaxy Watch4 series or later. Samsung Galaxy devices must be logged in to Samsung Account to enable the Auto Switch feature. Auto Switch feature for Samsung TV is only available on Samsung TVs launched Feb ’22 or later after getting a firmware update from Jul ’22. Auto Switch with TV is only available for making and receiving phone calls.
+14. Requires a smartphone with the SmartThings app and a Wi-Fi or Bluetooth connection. Compatible smart devices must be initially set up in the SmartThings app.
+15. IP rated for submersion in up to 3 feet of fresh water for up to 30 minutes (charging case is not water resistant). Not advised for beach or pool use. If the earbuds or your hands are wet, they must be dried thoroughly prior to handling. Damaged earbuds are not guaranteed to be water resistant.
+16. Actual battery life may vary and depend on usage conditions such as function settings, play back file type and Bluetooth signal strength. Play time may vary based on settings.
+17. Requires initial set up via Samsung Wear app and with compatible Galaxy phone, tablet or TV. The number of Galaxy Buds users that can connect may vary depending on the surrounding circumstances such as distance and obstruction.
+18. Requires compatible smartphone. Feature supported on Galaxy Book series PCs launched 2020 or later and TV models launched 2022 or later.
+19. Requires compatible smartphone.
+20. Requires compatible Galaxy device. Samsung account login and language preset (English and Spanish pre-installed; other languages require free download). Results may vary.
+21. Requires initial set up via Samsung Wear app on compatible device.
+22. Select Galaxy AI features require compatible Samsung Galaxy phone.
+
+ᶿFor a limited time only, on Samsung.com/Shop Samsung App, purchase a new qualifying Galaxy device (“Qualifying Purchase”), send in your qualifying trade-in device to Samsung through the Samsung Trade-In Program, and if Samsung determines your trade-in device meets all eligibility requirements, you will receive a trade-in credit specific to your qualifying trade-in device to apply toward your Qualifying Purchase. Device models that currently qualify for trade-in and trade-in credit amounts associated with those models are available on Samsung.com and the Shop Samsung App; eligible models and amounts may change at Samsung’s sole discretion. To be eligible for trade-in, your qualifying device must meet all Trade-In Program eligibility requirements, which include, but are not limited to, that the device powers on, holds a charge, and does not power off unexpectedly; has a functioning display; has no breaks or cracks in the screen (unless a cracked screen offer applies); has no breaks or cracks in the case; has no liquid damage (whether visible or not); has no other defects that go beyond normal wear and tear; is not on a black list; has a verified FCC ID; has been reset to factory settings; has all personal information removed; has all software locks disabled; and is owned by you (leased devices are not eligible). Anticipated trade-in value will be applied as a credit at time of purchase, but, if you do not send in your trade-in device within 15 days of receipt of your Qualifying Purchase, you will be charged back for the trade-in credit applied to your purchase, or if you send in your trade-in device within 15 days of receipt of your Qualifying Purchase but Samsung determines your device does not meet all eligibility requirements, you will be charged back for the trade-in credit applied to your purchase minus $25. Participation in this program does not excuse you from contracts with your carrier or retailer (or any related payments or fees) for the device that was traded in. Limit 1 trade-in per Qualifying Purchase. Samsung reserves the right to modify or discontinue this offer at any time. The Trade-In Program cannot be combined with any other Samsung, carrier or retailer promotions, discounts, or offers unless specifically provided for in the terms and conditions of such offers. Additional terms, including terms that govern the resolution of disputes, apply. Click here to learn more. -- ᶿFor a limited time only, on Samsung.com/Shop Samsung App, purchase a new qualifying Galaxy device (“Qualifying Purchase”), send in your qualifying trade-in device to Samsung through the Samsung Trade-In Program, and if Samsung determines your trade-in device meets all eligibility requirements, you will receive a trade-in credit specific to your qualifying trade-in device to apply toward your Qualifying Purchase. Device models that currently qualify for trade-in and trade-in credit amounts associated with those models are available on Samsung.com and the Shop Samsung App; eligible models and amounts may change at Samsung’s sole discretion. To be eligible for trade-in, your qualifying device must meet all Trade-In Program eligibility requirements, which include, but are not limited to, that the device powers on, holds a charge, and does not power off unexpectedly; has a functioning display; has no breaks or cracks in the screen (unless a cracked screen offer applies); has no breaks or cracks in the case; has no liquid damage (whether visible or not); has no other defects that go beyond normal wear and tear; is not on a black list; has a verified FCC ID; has been reset to factory settings; has all personal information removed; has all software locks disabled; and is owned by you (leased devices are not eligible). Anticipated trade-in value will be applied as a credit at time of purchase, but, if you do not send in your trade-in device within 15 days of receipt of your Qualifying Purchase, you will be charged back for the trade-in credit applied to your purchase, or if you send in your trade-in device within 15 days of receipt of your Qualifying Purchase but Samsung determines your device does not meet all eligibility requirements, you will be charged back for the trade-in credit applied to your purchase minus $25. Participation in this program does not excuse you from contracts with your carrier or retailer (or any related payments or fees) for the device that was traded in. Limit 1 trade-in per Qualifying Purchase. Samsung reserves the right to modify or discontinue this offer at any time. The Trade-In Program cannot be combined with any other Samsung, carrier or retailer promotions, discounts, or offers unless specifically provided for in the terms and conditions of such offers. Additional terms, including terms that govern the resolution of disputes, apply. Click here to learn more. 0% APR for 24, 36, 40 or 48 Months with Equal Payments: Available on purchases of select products charged to a Samsung Financing account. Minimum purchase: $50. 0% APR from date of eligible purchase until paid in full. Estimated monthly payment equals the eligible purchase amount multiplied by a repayment factor and rounded to the nearest penny (repayment factors: .04167 for 24 month, .02778 for 36 month, .02500 for 40 month, .02083 for 48 month). Last payment may vary due to rounding. Total amount of payments will not exceed eligible purchase amount. Other transactions and fees affect overall minimum payment amount. Advertised payment amount is an estimate and may change once taxes, delivery or other charges are added. Limited time offer. Regular account terms apply to non-promo purchases. Minimum interest charge: $1. Standard Purchase APR: 29.99%. Prior purchases excluded. Account must be in good standing. Subject to credit approval. Samsung Financing account issued by TD Bank, N.A. M7/10/24-7/23/24, while supplies last, order and purchase a Galaxy Buds3 Pro ("Qualifying Purchase") and receive a select buds case cover on us ($29.99) (“Promotional Product”). Promotional Product must be selected by the customer in the same transaction of Qualifying Purchase at the time of order in the Galaxy Buds3 Pro buy page. The Promotional Product is limited to 1 per Qualifying Purchase. If you return or cancel your Qualifying purchase, you must return the Promotional Product with your Qualifying purchase or pay for the Promotional Product in full. Void where prohibited or restricted by law. --
+
+Go to Top --

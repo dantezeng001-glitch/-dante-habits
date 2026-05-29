@@ -1,0 +1,134 @@
+/* =====================================================================
+ * Dante Shokz PPT · deck.css
+ * 公共样式抽出。新 deck 通过 <link rel="stylesheet" href="deck.css"> 引用。
+ *
+ * 改本文件 = 改全 deck 风格。除非用户明确说"修订品牌"，否则不要动。
+ * 单个 deck 想做局部样式覆盖，在 deck 自己的 <style> 里加，不要改本文件。
+ * ===================================================================== */
+
+/* -------- 1. CSS 变量（与 references/brand-spec.md §7 同步） -------- */
+:root {
+  /* 主色 */
+  --shokz-orange: #FF7A3D;
+  --ink: #050505;
+
+  /* 灰阶 */
+  --ink-subdued: #2F2F2F;
+  --mute: #666666;
+  --mute-light: #999999;
+  --divider: #BABABA;
+  --border-light: #E5E5E5;
+  --surface: #F1F1F1;
+  --tint-gray: #E8E8E8;
+
+  /* Era */
+  --pale-blue: #DBE3EC;
+  --pale-orange: #F4D9BC;
+  --tint-orange: #FFF1EA;
+
+  /* 字体 */
+  --font-cn: "Noto Sans SC","Microsoft YaHei","PingFang SC","Noto Sans",system-ui,sans-serif;
+  --font-mono: 'Consolas','Courier New',monospace;
+}
+
+/* -------- 2. 全局 reset -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #2a2a2a;
+  color: var(--ink);
+  font-family: var(--font-cn);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* -------- 3. Deck 外层结构 -------- */
+.deck-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 0 80px;
+}
+
+.deck-toolbar {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font: 12px/1.4 var(--font-mono);
+  backdrop-filter: blur(6px);
+  user-select: none;
+}
+
+.deck-toolbar a {
+  color: var(--shokz-orange);
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+/* -------- 4. 单页画布 -------- */
+.deck-slide {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+  overflow: hidden;
+  border-radius: 4px;
+  background: #FFFFFF;  /* 默认白底，需要 Ink 底的页用 inline style 覆盖 */
+}
+
+.deck-slide .shp {
+  position: absolute;
+}
+
+/* -------- 5. 文字层修复（来自原 deck 注释）--------
+ * 1) overflow: visible —— 文字盒高度不再裁切，小徽章完整显示
+ * 2) padding: 0 —— 抹掉转换器加的 2px 4px，多出 8px 横向空间
+ * 3) word-break: keep-all + overflow-wrap: normal —— 中文不在字符间断（避免"种语言→种语/言"）
+ * 4) 不设 nowrap —— 长段落允许在标点处自然换行
+ * 外层 .deck-slide 仍是 overflow:hidden，防止溢出污染整体布局 */
+.deck-slide .shp {
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+.deck-slide .pp {
+  margin: 0;
+  line-height: 1.15;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+/* -------- 6. 表格 -------- */
+.deck-slide .tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.deck-slide .tbl td {
+  border: 1px solid var(--border-light);
+  padding: 4px 6px;
+}
+
+/* -------- 7. 调试用页码（默认隐藏，开发时可显示） -------- */
+.slide-num {
+  display: none;
+}
+
+/* -------- 8. 适配窄屏（< 1360px 等比缩放） -------- */
+@media (max-width: 1360px) {
+  .deck-slide {
+    transform: scale(calc((100vw - 40px) / 1280));
+    transform-origin: top center;
+    margin-bottom: calc(720px * (1 - (100vw - 40px) / 1280) * -1);
+  }
+}

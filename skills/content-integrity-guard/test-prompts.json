@@ -1,0 +1,12 @@
+[
+  {
+    "id": "CIG1",
+    "prompt": "我刚写了 3 份互相引用的 launch brief，请帮我做一次一致性审计，重点看是不是有“必须/行业通行”这种没依据的说法。",
+    "expected": "扫描多文档，按绿黄红分层，指出 unsupported assertions、术语或数字漂移，并给出 remediation 建议与审计摘要。"
+  },
+  {
+    "id": "CIG2",
+    "prompt": "这两份白皮书里一个写“覆盖 12 国”，另一个写“覆盖 14 国”，还有很多“最佳实践”措辞，帮我收敛。",
+    "expected": "抓出跨文档数字冲突与绝对化表述，要求来源核实；无外部依据时改写为 judgment 或 awaiting confirmation。"
+  }
+]

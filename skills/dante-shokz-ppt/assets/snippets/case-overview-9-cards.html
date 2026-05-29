@@ -1,0 +1,208 @@
+<!--
+  Dante Shokz PPT · case-overview-9-cards.html
+  ────────────────────────────────────────────────────────
+  组件：9-cards 全景概览（左 3 锚点 + 右 3×3 网格）
+  适用：多任务 / 多项目全景展示
+  来源：原 deck P05
+
+  布局：
+    +-------+-------+-------+-------+
+    | Anch  | Card  | Card  | Card  |
+    |  1    |  01   |  02   |  03   |
+    +-------+-------+-------+-------+
+    | Anch  | Card  | Card  | Card  |
+    |  2    |  04   |  05   |  06   |
+    +-------+-------+-------+-------+
+    | Anch  | Card  | Card  | Card  |
+    |  3    |  07   |  08   |  09   |
+    +-------+-------+-------+-------+
+
+  可改字段：
+    1. 每个 Anchor 的英文小标 / 中文类别名 / 件数大数字 / 副说明
+    2. 9 张卡片的 ID(01-09) / 状态(DONE/WIP/LIVE/DRAFT) / 卡名 / 任务属性 / 描述
+    3. Anchor 底色：橙系(#FFF1EA) / 灰系(#E8E8E8) / Ink 黑（突出重点）
+    4. 卡片边色：常规 #BABABA / 高亮 #FF7A3D
+    5. 底部图例（如不需要可删）
+
+  不可改：
+    - 锚点宽 240、卡片宽 262、行高 140
+    - 三行的 top: 202 / 354 / 506（行间距 152）
+    - 三列的 left: 356 / 638 / 920（栏间距 282）
+    - 锚点 left: 96
+    - 状态徽章字号 8.5pt 等宽
+    - 卡片 ID 字号 8.5pt 等宽
+-->
+
+<!-- ===== 左侧 3 个锚点 ===== -->
+
+<!-- 锚点 1（默认橙系） -->
+<div class="shp" style="left:96.0px;top:202.0px;width:240px;height:140px;background:#FFF1EA;border-left:3px solid #FF7A3D;padding:18px 18px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <p class="pp" style="text-align:left"><span style="font-size:9.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">CATEGORY 01 · ENGLISH</span></p>
+    <p class="pp" style="text-align:left;margin-top:6px"><span style="font-size:20.0pt;color:#050505;font-weight:700">类别 1 中文名</span></p>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:8px">
+    <span style="font-size:42.0pt;color:#050505;font-weight:700;line-height:1">3</span>
+    <span style="font-size:11.0pt;color:#666666">件 · X 已完成 / Y 进行中</span>
+  </div>
+</div>
+
+<!-- 锚点 2（灰系） -->
+<div class="shp" style="left:96.0px;top:354.0px;width:240px;height:140px;background:#E8E8E8;border-left:3px solid #666666;padding:18px 18px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <p class="pp" style="text-align:left"><span style="font-size:9.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">CATEGORY 02 · ENGLISH</span></p>
+    <p class="pp" style="text-align:left;margin-top:6px"><span style="font-size:20.0pt;color:#050505;font-weight:700">类别 2 中文名</span></p>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:8px">
+    <span style="font-size:42.0pt;color:#050505;font-weight:700;line-height:1">3</span>
+    <span style="font-size:11.0pt;color:#666666">件 · X 进行中</span>
+  </div>
+</div>
+
+<!-- 锚点 3（Ink 黑，突出最重要） -->
+<div class="shp" style="left:96.0px;top:506.0px;width:240px;height:140px;background:#050505;padding:18px 18px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <p class="pp" style="text-align:left"><span style="font-size:9.0pt;color:#FF7A3D;font-family:'Consolas','Courier New',monospace">CATEGORY 03 · ENGLISH</span></p>
+    <p class="pp" style="text-align:left;margin-top:6px"><span style="font-size:20.0pt;color:#FFFFFF;font-weight:700">类别 3 中文名</span></p>
+  </div>
+  <div style="display:flex;align-items:baseline;gap:8px">
+    <span style="font-size:42.0pt;color:#FF7A3D;font-weight:700;line-height:1">3</span>
+    <span style="font-size:11.0pt;color:#BABABA">件 · X 已交付</span>
+  </div>
+</div>
+
+<!-- ===== 右侧 3×3 数据卡 ===== -->
+<!-- 行 1: 卡 01 / 02 / 03 -->
+<!-- 卡 01（高亮边色 #FF7A3D 表示重点 / 已完成） -->
+<div class="shp" style="left:356.0px;top:202.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #FF7A3D;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">01</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#FF7A3D;padding:2px 6px;font-family:'Consolas','Courier New',monospace">DONE</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 01 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+
+<!-- 卡 02（常规边色 #BABABA / 进行中） -->
+<div class="shp" style="left:638.0px;top:202.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">02</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 02 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+
+<!-- 卡 03 -->
+<div class="shp" style="left:920.0px;top:202.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">03</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 03 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+
+<!-- 行 2: 卡 04 / 05 / 06 -->
+<div class="shp" style="left:356.0px;top:354.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">04</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 04 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+<div class="shp" style="left:638.0px;top:354.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">05</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 05 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+<div class="shp" style="left:920.0px;top:354.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">06</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:11.0pt;color:#050505;font-weight:700;line-height:1.25">卡 06 较长标题<br>可换行</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+
+<!-- 行 3: 卡 07 / 08 / 09 -->
+<div class="shp" style="left:356.0px;top:506.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #BABABA;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">07</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#666666;padding:2px 6px;font-family:'Consolas','Courier New',monospace">WIP</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 07 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+<div class="shp" style="left:638.0px;top:506.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #FF7A3D;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">08</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#FF7A3D;padding:2px 6px;font-family:'Consolas','Courier New',monospace">DONE</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 08 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+<div class="shp" style="left:920.0px;top:506.0px;width:262px;height:140px;background:#FFFFFF;border:1px solid #FF7A3D;padding:12px 14px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between">
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:8.5pt;color:#999999;font-family:'Consolas','Courier New',monospace">09</span>
+      <span style="font-size:8.5pt;color:#FFFFFF;background:#FF7A3D;padding:2px 6px;font-family:'Consolas','Courier New',monospace">DONE</span>
+    </div>
+    <p class="pp" style="text-align:left;margin-top:8px"><span style="font-size:12.0pt;color:#050505;font-weight:700;line-height:1.3">卡 09 中文标题</span></p>
+    <p class="pp" style="text-align:left;margin-top:4px"><span style="font-size:9.0pt;color:#666666">任务属性</span></p>
+  </div>
+  <div style="border-top:1px solid #F1F1F1;padding-top:6px">
+    <p class="pp" style="text-align:left"><span style="font-size:9.5pt;color:#2F2F2F;line-height:1.35">一行任务描述</span></p>
+  </div>
+</div>
+
+<!-- 图例 -->
+<div class="shp" style="left:96.0px;top:660.0px;width:1088px;height:18px;display:flex;align-items:center;gap:18px;overflow:hidden">
+  <span style="font-size:9.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">STATUS</span>
+  <span style="display:inline-flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;background:#FF7A3D"></span><span style="font-size:9.0pt;color:#666666">DONE · 已交付</span></span>
+  <span style="display:inline-flex;align-items:center;gap:6px"><span style="display:inline-block;width:10px;height:10px;background:#666666"></span><span style="font-size:9.0pt;color:#666666">WIP · 进行中</span></span>
+</div>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "MTS1",
+    "prompt": "把仓库里所有 Applied intelligently 的规则迁到 `.cursor/skills/`，普通 alwaysApply 规则别动。",
+    "expected": "只迁移符合条件的 rule，正文逐字保留，跳过不符合条件的规则，并汇总迁移列表。"
+  },
+  {
+    "id": "MTS2",
+    "prompt": "把 `.cursor/commands/commit.md` 和 `review.md` 迁成 skills，并告诉我怎么回滚。",
+    "expected": "为命令推断 description、加 `disable-model-invocation: true`，保留正文原样，并提供清晰回滚说明。"
+  }
+]

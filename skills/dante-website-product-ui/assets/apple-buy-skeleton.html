@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop [PRODUCT NAME] — Apple Style Buy Page</title>
+    <style>
+        :root {
+            --color-bg-light: #f5f5f7;
+            --color-bg-white: #fff;
+            --color-text-primary: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-link: #0066cc;
+            --color-footnote: #6e6e73;
+            --color-btn-primary: #0071e3;
+            --color-btn-primary-hover: #0077ed;
+            --color-border: #d2d2d7;
+            --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --max-width: 980px;
+            --padding-inline: max(22px, 3vw);
+            --radius-button: 980px;
+            --radius-card: 18px;
+            --section-gap: clamp(40px, 5vw, 80px);
+            --transition-quick: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--color-text-primary); line-height: 1.5; -webkit-font-smoothing: antialiased; background: var(--color-bg-light); }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--padding-inline); }
+        .btn-primary {
+            display: inline-block; padding: 12px 24px; border-radius: var(--radius-button);
+            background: var(--color-btn-primary); color: #fff; font-size: 17px;
+            text-decoration: none; transition: background var(--transition-quick); border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--color-btn-primary-hover); }
+        .link-blue { color: var(--color-link); text-decoration: none; font-size: 14px; }
+        .link-blue:hover { text-decoration: underline; }
+
+        /* === HERO === */
+        .hero { padding: 48px 0 24px; text-align: center; background: var(--color-bg-white); }
+        .hero h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 600; margin-bottom: 8px; }
+        .hero-links { font-size: 14px; color: var(--color-text-secondary); }
+        .hero-links a { color: var(--color-link); text-decoration: none; }
+
+        /* === SHELF === */
+        .shelf-section { padding: var(--section-gap) 0; }
+        .shelf-heading { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
+        .shelf-heading h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 600; }
+        .shelf {
+            display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; padding-bottom: 8px;
+        }
+        .shelf-card {
+            flex: 0 0 calc(33.333% - 14px); scroll-snap-align: start;
+            border-radius: var(--radius-card); background: var(--color-bg-white);
+            padding: 30px; text-align: center; min-width: 260px;
+        }
+        .shelf-badge {
+            display: inline-block; font-size: 11px; font-weight: 600;
+            color: #bf4800; background: #fef0e5; padding: 4px 10px; border-radius: 4px;
+        }
+        .shelf-card-image {
+            aspect-ratio: 1; margin: 20px 0; background: var(--color-bg-light);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--color-text-secondary);
+        }
+        .shelf-card h3 { font-size: 21px; font-weight: 600; margin-bottom: 4px; }
+        .shelf-card-desc { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 12px; }
+        .shelf-card-price { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 20px; line-height: 1.4; }
+
+        /* === SERVICE MODULES === */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .service-card {
+            background: var(--color-bg-white); border-radius: var(--radius-card);
+            padding: 24px; text-align: center;
+        }
+        .service-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .service-card p { font-size: 13px; color: var(--color-text-secondary); }
+
+        /* === FOOTNOTES === */
+        .footnotes { padding: 32px 0; }
+        .footnotes p { font-size: 12px; color: var(--color-footnote); line-height: 1.5; margin-bottom: 8px; }
+
+        @media (max-width: 734px) {
+            .shelf-card { flex: 0 0 85%; }
+            .service-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+    <div class="container">
+        <h1>Shop [PRODUCT NAME]</h1>
+        <p class="hero-links">
+            <a href="#">Connect with a Specialist</a> &nbsp;|&nbsp; <a href="#">Find an Apple Store</a>
+        </p>
+    </div>
+</section>
+
+<!-- ======================== ALL MODELS SHELF ======================== -->
+<section class="shelf-section">
+    <div class="container">
+        <div class="shelf-heading">
+            <h2>All Models</h2>
+            <a href="#" class="link-blue">Compare all models ></a>
+        </div>
+        <div class="shelf">
+            <div class="shelf-card">
+                <span class="shelf-badge">NEW</span>
+                <div class="shelf-card-image">[Product A Image]</div>
+                <h3>[Product A Name]</h3>
+                <p class="shelf-card-desc">Take a closer look</p>
+                <p class="shelf-card-price">From $XXX or $XX.XX/mo.<br>for XX mo.</p>
+                <a href="#" class="btn-primary">Buy</a>
+            </div>
+            <div class="shelf-card">
+                <div class="shelf-card-image">[Product B Image]</div>
+                <h3>[Product B Name]</h3>
+                <p class="shelf-card-desc">Take a closer look</p>
+                <p class="shelf-card-price">From $XXX or $XX.XX/mo.<br>for XX mo.</p>
+                <a href="#" class="btn-primary">Buy</a>
+            </div>
+            <div class="shelf-card">
+                <div class="shelf-card-image">[Product C Image]</div>
+                <h3>[Product C Name]</h3>
+                <p class="shelf-card-desc">Take a closer look</p>
+                <p class="shelf-card-price">From $XXX or $XX.XX/mo.<br>for XX mo.</p>
+                <a href="#" class="btn-primary">Buy</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== SHOPPING GUIDES SHELF ======================== -->
+<section class="shelf-section">
+    <div class="container">
+        <div class="shelf-heading">
+            <h2>Shopping Guides</h2>
+        </div>
+        <div class="shelf">
+            <div class="shelf-card">
+                <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--color-text-secondary);">COMPARE ALL MODELS</span>
+                <h3 style="margin-top:12px;">[Guide Title]</h3>
+                <p class="shelf-card-desc">[Guide description in one sentence.]</p>
+            </div>
+            <div class="shelf-card">
+                <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--color-text-secondary);">WATCH AND LEARN</span>
+                <h3 style="margin-top:12px;">[Video Guide Title]</h3>
+                <p class="shelf-card-desc">[Video description.]</p>
+            </div>
+            <div class="shelf-card">
+                <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--color-text-secondary);">HELPFUL GUIDE</span>
+                <h3 style="margin-top:12px;">[Buying advice title]</h3>
+                <p class="shelf-card-desc">[Description.]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== WAYS TO SAVE SHELF ======================== -->
+<section class="shelf-section">
+    <div class="container">
+        <div class="shelf-heading">
+            <h2>Ways to Save</h2>
+        </div>
+        <div class="shelf">
+            <div class="shelf-card">
+                <h3>Apple Trade In</h3>
+                <p class="shelf-card-desc">Get credit toward a new [product].</p>
+                <a href="#" class="link-blue">Learn more</a>
+            </div>
+            <div class="shelf-card">
+                <h3>Pay 0% APR</h3>
+                <p class="shelf-card-desc">Pay over time with Apple Card.</p>
+                <a href="#" class="link-blue">Learn more</a>
+            </div>
+            <div class="shelf-card">
+                <h3>Education Pricing</h3>
+                <p class="shelf-card-desc">Save with education pricing.</p>
+                <a href="#" class="link-blue">Learn more</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== APPLE STORE DIFFERENCE ======================== -->
+<section class="shelf-section">
+    <div class="container">
+        <div class="shelf-heading">
+            <h2>The Apple Store Difference</h2>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Make them yours.</h3>
+                <p>Free engraving available.</p>
+            </div>
+            <div class="service-card">
+                <h3>Get flexible delivery.</h3>
+                <p>Delivery and easy pickup options.</p>
+            </div>
+            <div class="service-card">
+                <h3>Personal Setup.</h3>
+                <p>Meet your new product with Personal Setup.</p>
+            </div>
+            <div class="service-card">
+                <h3>Shop with a Specialist.</h3>
+                <p>Online or in a store.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== FOOTNOTES ======================== -->
+<section class="footnotes">
+    <div class="container">
+        <p>[Footnote 1: pricing, availability, and trade-in terms.]</p>
+        <p>[Footnote 2: monthly payment terms and conditions.]</p>
+    </div>
+</section>
+
+</body>
+</html>

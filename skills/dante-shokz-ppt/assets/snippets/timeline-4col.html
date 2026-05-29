@@ -1,0 +1,170 @@
+<!--
+  Dante Shokz PPT · timeline-4col.html
+  ────────────────────────────────────────────────────────
+  组件：时间线 4 列 + 心路历程面板
+  适用：个人介绍 / 行业迁移 / 学习路径 / 产品演进史
+  来源：原 deck P02
+
+  布局：
+    上半页：
+      [date 1] [date 2] [date 3] [date 4]
+      [name 1] [name 2] [name 3] [name 4]
+      ━━━●━━━━━●━━━━━●━━━━━■(now)
+      [desc 1] [desc 2] [desc 3] [desc 4]
+
+    下半页（心路历程面板 1088×200，浅灰底）：
+      [↓ Box 1.1] [Box 2.1] [Box 3.1] [Box 4.1]
+      [↓ Box 1.2] [Box 2.2] [Box 3.2] [Box 4.2]
+      [↓ Box 1.3] [Box 2.3] [Box 3.3] [Box 4.3]
+
+  可改字段：
+    1. 4 个日期标签（如 "2017 - 2021"）
+    2. 4 个 Era 名（22pt 加粗，如"北京科技大学"）
+    3. 4 段描述（13pt 多行）
+    4. 心路历程面板每列 3 行 box（11pt 加粗）
+    5. Era 色顺序——但**最后一列必须 Ink 黑（表示当前位置）**
+
+  不可改：
+    - 列宽 208.89 / 257.34 / 208.89 / 208.89（这个分配支撑较长的中段 era 名如 "Carnegie Mellon"）
+    - 圆点轴位置（top:335-340）
+    - 心路面板 top:465.74, height:200
+    - 心路 box 宽 246, height 30
+    - 当前位置橙色方块（16×16, #FF7A3D）
+-->
+
+<!-- ===== 时间线 ===== -->
+
+<!-- 列 1 日期标签 -->
+<div class="shp" data-name="tl-1-date" style="left:96.0px;top:247.99px;width:208.89px;height:22.0px;background:#E5E5E5;display:flex;flex-direction:column;justify-content:center;padding:2px 8px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-family:'Consolas','Courier New',monospace">日期 1</span></p>
+</div>
+<div class="shp" data-name="tl-1-name" style="left:96.0px;top:277.98px;width:208.89px;height:41.05px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:22.0pt;color:#050505;font-weight:700">Era 1 名</span></p>
+</div>
+
+<!-- 列 2 日期标签（中段 era 列宽 257 容纳较长名字如 Carnegie Mellon） -->
+<div class="shp" data-name="tl-2-date" style="left:364.08px;top:247.99px;width:257.34px;height:22.0px;background:#DBE3EC;display:flex;flex-direction:column;justify-content:center;padding:2px 8px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-family:'Consolas','Courier New',monospace">日期 2</span></p>
+</div>
+<div class="shp" data-name="tl-2-name" style="left:364.08px;top:277.98px;width:257.34px;height:41.05px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:22.0pt;color:#050505;font-weight:700">Era 2 名</span></p>
+</div>
+
+<!-- 列 3 日期标签 -->
+<div class="shp" data-name="tl-3-date" style="left:677.15px;top:247.99px;width:208.89px;height:22.0px;background:#F4D9BC;display:flex;flex-direction:column;justify-content:center;padding:2px 8px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-family:'Consolas','Courier New',monospace">日期 3</span></p>
+</div>
+<div class="shp" data-name="tl-3-name" style="left:677.15px;top:277.98px;width:208.89px;height:41.05px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:22.0pt;color:#050505;font-weight:700">Era 3 名</span></p>
+</div>
+
+<!-- 列 4 日期标签（必须 Ink 黑 + 橙字，表示当前位置） -->
+<div class="shp" data-name="tl-4-date" style="left:995.29px;top:247.99px;width:208.89px;height:22.0px;background:#050505;display:flex;flex-direction:column;justify-content:center;padding:2px 8px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#FF7A3D;font-weight:700;font-family:'Consolas','Courier New',monospace">日期 4 - 至今</span></p>
+</div>
+<div class="shp" data-name="tl-4-name" style="left:995.29px;top:277.98px;width:208.89px;height:41.05px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:22.0pt;color:#FF7A3D;font-weight:700">Era 4 名</span></p>
+</div>
+
+<!-- 时间轴：3 段灰线 + 3 个圆点 + 1 个橙色当前位置方块 -->
+<div class="shp" style="left:106.66px;top:339.69px;width:364.31px;height:1.89px;background:#BABABA;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:470.97px;top:340.41px;width:243.84px;height:1.89px;background:#BABABA;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:709.76px;top:339.69px;width:472.44px;height:1.89px;background:#BABABA;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:96.0px;top:335.02px;width:10.66px;height:10.66px;background:#050505;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:470.97px;top:335.02px;width:10.66px;height:10.66px;background:#050505;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:732.86px;top:335.02px;width:10.66px;height:10.66px;background:#050505;overflow:hidden"><p class="pp"><br></p></div>
+<div class="shp" style="left:1062.65px;top:331.5px;width:16.0px;height:16.0px;background:#FF7A3D;overflow:hidden"><p class="pp"><br></p></div>
+
+<!-- 4 列描述 -->
+<div class="shp" data-name="tl-1-desc" style="left:96.0px;top:366.38px;width:208.89px;height:59.4px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt">描述 1 第 1 行</span></p>
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt;color:#666666">描述 1 第 2 行</span></p>
+</div>
+<div class="shp" data-name="tl-2-desc" style="left:364.08px;top:366.38px;width:257.34px;height:59.4px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt">描述 2 第 1 行</span></p>
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt;color:#666666">描述 2 第 2 行</span></p>
+</div>
+<div class="shp" data-name="tl-3-desc" style="left:677.15px;top:366.38px;width:279.22px;height:51.97px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt">描述 3 第 1 行</span></p>
+  <p class="pp"><span style="font-size:13.0pt;color:#666666">描述 3 第 2 行</span></p>
+</div>
+<div class="shp" data-name="tl-4-desc" style="left:995.29px;top:366.38px;width:208.89px;height:51.97px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt">描述 4 第 1 行</span></p>
+  <p class="pp" style="text-align:left"><span style="font-size:13.0pt;color:#2F2F2F">描述 4 第 2 行</span></p>
+</div>
+
+<!-- ===== 心路历程面板 ===== -->
+<div class="shp" data-name="mj-bg" style="left:94.2px;top:465.74px;width:1088.0px;height:200.0px;background:#F1F1F1;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<div class="shp" data-name="mj-label" style="left:122.66px;top:487.0px;width:1055.38px;height:22.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">MENTAL JOURNEY · 心路历程</span></p>
+</div>
+
+<!-- 列 1 · 3 行 box -->
+<div class="shp" style="left:122.2px;top:522.0px;width:246.0px;height:30.0px;background:#E5E5E5;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 1 心路 1</span></p>
+</div>
+<div class="shp" style="left:235.2px;top:555.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:122.2px;top:575.0px;width:246.0px;height:30.0px;background:#E5E5E5;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 1 心路 2</span></p>
+</div>
+<div class="shp" style="left:235.2px;top:608.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:122.2px;top:628.0px;width:246.0px;height:30.0px;background:#E5E5E5;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 1 心路 3</span></p>
+</div>
+
+<!-- 列 2 · 3 行 box（淡蓝底） -->
+<div class="shp" style="left:384.2px;top:522.0px;width:246.0px;height:30.0px;background:#DBE3EC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 2 心路 1</span></p>
+</div>
+<div class="shp" style="left:497.2px;top:555.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:384.2px;top:575.0px;width:246.0px;height:30.0px;background:#DBE3EC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 2 心路 2</span></p>
+</div>
+<div class="shp" style="left:497.2px;top:608.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:384.2px;top:628.0px;width:246.0px;height:30.0px;background:#DBE3EC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 2 心路 3</span></p>
+</div>
+
+<!-- 列 3 · 3 行 box（淡橙底） -->
+<div class="shp" style="left:646.2px;top:522.0px;width:246.0px;height:30.0px;background:#F4D9BC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 3 心路 1</span></p>
+</div>
+<div class="shp" style="left:759.2px;top:555.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:646.2px;top:575.0px;width:246.0px;height:30.0px;background:#F4D9BC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 3 心路 2</span></p>
+</div>
+<div class="shp" style="left:759.2px;top:608.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#999999">↓</span></p>
+</div>
+<div class="shp" style="left:646.2px;top:628.0px;width:246.0px;height:30.0px;background:#F4D9BC;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#2F2F2F;font-weight:700">列 3 心路 3</span></p>
+</div>
+
+<!-- 列 4 · 3 行 box（Ink 黑底 + 橙字，强调当前位置） -->
+<div class="shp" style="left:908.2px;top:522.0px;width:246.0px;height:30.0px;background:#050505;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#FFFFFF;font-weight:700">列 4 心路 1</span></p>
+</div>
+<div class="shp" style="left:1021.2px;top:555.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#FF7A3D;font-weight:700">↓</span></p>
+</div>
+<div class="shp" style="left:908.2px;top:575.0px;width:246.0px;height:30.0px;background:#050505;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#FFFFFF;font-weight:700">列 4 心路 2</span></p>
+</div>
+<div class="shp" style="left:1021.2px;top:608.0px;width:20.0px;height:18.0px;display:flex;flex-direction:column;justify-content:center;padding:0px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:center"><span style="font-size:14.0pt;color:#FF7A3D;font-weight:700">↓</span></p>
+</div>
+<div class="shp" style="left:908.2px;top:628.0px;width:246.0px;height:30.0px;background:#050505;border:1px solid #FF7A3D;display:flex;flex-direction:column;justify-content:center;padding:2px 10px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:11.0pt;color:#FF7A3D;font-weight:700">列 4 心路 3（高亮）</span></p>
+</div>

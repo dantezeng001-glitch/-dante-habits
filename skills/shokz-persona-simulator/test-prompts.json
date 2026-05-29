@@ -1,0 +1,40 @@
+{
+  "asset": "shokz-persona-simulator",
+  "created": "2026-05-28",
+  "purpose": "Darwin skill 优化循环的实测基准",
+  "prompts": [
+    {
+      "id": 1,
+      "label": "Happy Path",
+      "prompt": "评估这个 Shokz BOS（OpenRun Pro 2）DTC 渠道的 slogan：'Run Pro. Hear All.'",
+      "tests": [
+        "Step 3.5 是否主动推荐 BOS DTC 预设（因为 prompt 明示了渠道）",
+        "4 persona 是否各自打分并附带原因",
+        "加权计算是否使用了正确的预设权重",
+        "调研证据段落是否引用 core_research_findings.md"
+      ]
+    },
+    {
+      "id": 2,
+      "label": "渠道错配 + Step 8 触发",
+      "prompt": "评估这个 Costco 栈板的 slogan：'For the Elite Triathlete. Train Like a Pro.'",
+      "tests": [
+        "Step 3.5 是否正确选 Costco 预设（而不是默认）",
+        "综合分是否如预期 < 4.0（Costco 调性与 elite/triathlete 强冲突）",
+        "Step 8 是否真的触发并给出改进建议",
+        "改进建议是否指向正确方向（去 elite/triathlete 词，换 lifestyle 调性）"
+      ]
+    },
+    {
+      "id": 3,
+      "label": "5 套预设之外的场景",
+      "prompt": "我们要给瑜伽人群推广一款 Shokz 耳机，slogan 是 'Move Mindfully. Listen Freely.'，帮我评估。",
+      "tests": [
+        "Step 3.5 是否识别瑜伽人群不在 5 套预设里",
+        "是否主动引导用户自定义权重，而非偷懒映射到最近预设",
+        "自定义权重的必填字段（理由 + 数据依据 + 关键假设）是否被强制要求",
+        "报告头部是否 cite 用户的调权理由"
+      ]
+    }
+  ]
+}

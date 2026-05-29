@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Darwin Skill · 2026-04-23 全量优化战绩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #FAFAF5; font-family: 'Noto Sans SC', 'Inter', sans-serif; display: flex; justify-content: center; padding: 40px 24px; color: #1A1A1A; }
+  .card { width: 960px; background: #FAFAF5; box-shadow: 0 2px 30px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden; }
+  .bar { background: #1A1A1A; padding: 22px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-family: 'Inter'; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: 0.02em; }
+  .brand .dot { color: #E8590C; }
+  .date { font-family: 'Inter'; font-weight: 500; font-size: 15px; color: #aaa; }
+  .hero { padding: 36px 40px 28px; background: linear-gradient(180deg, #FAFAF5 0%, #F5F0E8 100%); display: flex; gap: 40px; align-items: center; }
+  .hero-left { flex: 0 0 280px; text-align: center; }
+  .score-big { font-family: 'Inter'; font-weight: 900; font-size: 84px; line-height: 1; color: #1A1A1A; }
+  .score-big .delta { color: #E8590C; font-size: 40px; font-weight: 800; margin-left: 8px; vertical-align: super; }
+  .score-caption { margin-top: 8px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; }
+  .hero-right { flex: 1; }
+  .headline { font-size: 26px; font-weight: 800; line-height: 1.35; }
+  .headline em { color: #E8590C; font-style: normal; }
+  .subline { margin-top: 12px; font-size: 15px; line-height: 1.6; color: #555; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid #E8E0D4; border-bottom: 1px solid #E8E0D4; }
+  .stat { padding: 22px 20px; text-align: center; border-right: 1px solid #E8E0D4; }
+  .stat:last-child { border-right: none; }
+  .stat .n { font-family: 'Inter'; font-weight: 800; font-size: 34px; color: #1A1A1A; }
+  .stat .n .suffix { font-size: 16px; color: #888; margin-left: 4px; }
+  .stat .l { margin-top: 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; }
+  .section { padding: 28px 40px; }
+  .section h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #EFEAE0; }
+  th { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #888; font-weight: 600; }
+  td.num { text-align: right; font-family: 'Inter'; font-variant-numeric: tabular-nums; }
+  td.delta { text-align: right; font-family: 'Inter'; font-weight: 700; color: #E8590C; font-variant-numeric: tabular-nums; }
+  .chip { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; }
+  .chip.skill { background: #E8F0FF; color: #2B5FD9; }
+  .chip.rule { background: #FFEDD6; color: #C8580A; }
+  .footer { padding: 22px 40px; background: #F5F0E8; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #888; letter-spacing: 0.05em; }
+  .footer strong { color: #1A1A1A; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bar">
+    <div class="brand">Darwin<span class="dot">.</span>skill</div>
+    <div class="date">2026-04-23 · Batch Run · dry_run</div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="score-big">85.4<span class="delta">+6.8</span></div>
+      <div class="score-caption">Avg score · before 78.6</div>
+    </div>
+    <div class="hero-right">
+      <div class="headline">21 个提示资产一次性<em>全量优化保留</em>，0 回滚。</div>
+      <div class="subline">6 rules + 15 skills 都按 Darwin 8 维 rubric 复评；每项都只改最弱维度一次，改完严格 &gt; 旧分才保留。</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">21</div><div class="l">Assets Tuned</div></div>
+    <div class="stat"><div class="n">21</div><div class="l">Kept (100%)</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Rollbacks</div></div>
+    <div class="stat"><div class="n">+15.4<span class="suffix">max</span></div><div class="l">Best Delta</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Top movers</h2>
+    <table>
+      <thead><tr><th>Asset</th><th>Type</th><th class="num">Before</th><th class="num">After</th><th class="delta">Δ</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td>no-redundant-writing</td><td><span class="chip rule">rule</span></td><td class="num">69.9</td><td class="num">85.3</td><td class="delta">+15.4</td><td>补 4 步去重执行顺序</td></tr>
+        <tr><td>pua-motivator</td><td><span class="chip skill">skill</span></td><td class="num">59.7</td><td class="num">74.7</td><td class="delta">+15.0</td><td>默认 neutral-owner · 禁用场景</td></tr>
+        <tr><td>writing-quality</td><td><span class="chip rule">rule</span></td><td class="num">68.9</td><td class="num">83.7</td><td class="delta">+14.8</td><td>补 5 步精修顺序 · 前置触发词</td></tr>
+        <tr><td>update-cursor-settings</td><td><span class="chip skill">skill</span></td><td class="num">67.2</td><td class="num">81.3</td><td class="delta">+14.1</td><td>先定 scope 再解析 OS 路径</td></tr>
+        <tr><td>create-subagent</td><td><span class="chip skill">skill</span></td><td class="num">70.9</td><td class="num">82.3</td><td class="delta">+11.4</td><td>scope/trigger/output/name 四锁</td></tr>
+        <tr><td>ai-product-manager</td><td><span class="chip skill">skill</span></td><td class="num">79.8</td><td class="num">88.6</td><td class="delta">+8.8</td><td>新增边界与分流矩阵</td></tr>
+        <tr><td>content-integrity</td><td><span class="chip rule">rule</span></td><td class="num">80.6</td><td class="num">89.1</td><td class="delta">+8.5</td><td>冲突硬停点 · 3 项摘要</td></tr>
+        <tr><td>file-sync</td><td><span class="chip skill">skill</span></td><td class="num">79.1</td><td class="num">87.1</td><td class="delta">+8.0</td><td>Resource Map · preflight</td></tr>
+        <tr><td>md-cleanup</td><td><span class="chip skill">skill</span></td><td class="num">84.4</td><td class="num">92.3</td><td class="delta">+7.9</td><td>F5 多方案歧义先停</td></tr>
+        <tr><td>darwin-skill</td><td><span class="chip skill">skill</span></td><td class="num">88.7</td><td class="num">93.0</td><td class="delta">+4.3</td><td>扩展到 skill + rule 双类资产</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span><strong>Train your skills</strong> like you train your models.</span>
+    <span>github.com/alchaincyf/darwin-skill</span>
+  </div>
+</div>
+</body>
+</html>

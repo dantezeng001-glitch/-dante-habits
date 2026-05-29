@@ -1,0 +1,727 @@
+e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t;if(this.hide_element()!=='body'){t=d.createElement('style');var n=this.hide_element(),i=n?n+this.hide_element_style():'',r=d.getElementsByTagName('head')[0];t.setAttribute('id','_vis_opt_path_hides');v&&t.setAttribute('nonce',v.nonce);t.setAttribute('type','text/css');if(t.styleSheet)t.styleSheet.cssText=i;else t.appendChild(d.createTextNode(i));r.appendChild(t)}else{t=d.getElementsByTagName('head')[0];var i=d.createElement('div');i.style.cssText='z-index: 2147483647 !important;position: fixed !important;left: 0 !important;top: 0 !important;width: 100% !important;height: 100% !important;background: white !important;';i.setAttribute('id','_vis_opt_path_hides');i.classList.add('_vis_hide_layer');t.parentNode.insertBefore(i,t.nextSibling)}var o=window._vis_opt_url||d.URL,s='https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(o)+'&vn='+version;if(w.location.search.indexOf('_vwo_xhr')!==-1){this.addScript({src:s})}else{this.load(s+'&x=true')}}};w._vwo_code=code;code.init();})(); --> OpenMeet Open-Ear Headset – Shokz UK 
+
+BUY NOW >
+
+ 
+
+BUY NOW >
+
+BUY NOW >
+
+Sold out
+
+BUY NOW >
+
+ 
+
+[New draw for TCS London Marathon](https://uk.shokz.com/pages/london-marathon) [Join now](https://uk.shokz.com/pages/london-marathon)
+
+ 
+
+# Comfort Empowers Innovation.
+
+BUY NOW >
+
+Overview
+
+Features
+
+Specs
+
+Compare
+
+Reviews
+
+Support
+
+BUY NOW >
+
+OPENMEET
+
+Why Buy from Shokz.com?
+
+Free 2-3 Business-Day Delivery
+
+Every order from [uk.shokz.com](https://uk.shokz.com/products/openmeet) enters our shipping process within 2–3 business days — so your headphones are on the way before your next workout or weekend adventure.
+
+30 Days Return & Refund
+
+We believe that you’ll love your Shokz at the first beat. That’s why we offer a 30-day trial with free returns. If at any time during the first 30 days of your purchase, you are no longer happy with your headphones, you can return or refund them.
+
+24-Month Warranty
+
+Our headphones were engineered to perform and last. That’s why with every purchase from [uk.shokz.com](https://uk.shokz.com/products/openmeet) comes with a 24-Month warranty. Fill out a warranty claim, and we’d be glad to mail you a replacement.
+
+Lifetime Customer Service
+
+Our headphones were engineered to perform and last. That’s why with every purchase from Shokz.com comes with a 2-year warranty. Fill out a warranty claim, and we’d be glad to mail you a replacement.
+
+Size -OPENMEET
+
+1. Measure Your Head
+
+• Use a soft measuring tape. • Start at the center of your left ear, wrap around the back of your head to the center of your right ear. • Record the distance between your ears.
+
+1/2
+
+2. Find Your Fit
+
+• Over 9.25 in (23.5 cm) : OpenRun Pro 2 Standard • Under 9.25 in (23.5 cm) : OpenRun Pro 2 Mini
+
+2/2
+
+ 
+
+NEW
+
+# OPENMEET UC
+
+£229.99
+
+Ces innovation award ® 2025 winners OpenMeet recognized for its emphasis on human-centered functionality, recognizing a breakthrough leap in professional headsets comfort, connectivity, and innovation.
+
+Ces innovation award ® 2025 winners OpenMeet recognized for its emphasis on human-centered functionality, recognizing...
+
+LEARN MORE
+
+- Open-Ear Comfort without Compromise
+- Dual-Microphone System for Up to 98.6% Noise Reduction
+- Shokz DualPitch™ Technology for Premium Sound Quality
+- Up to 15-Hour Battery Life & Quick Charge
+
+View More
+
+Open-Ear Comfort without Compromise
+
+Dual-Microphone System for Up to 98.6% Noise Reduction
+
+Shokz DualPitch™ Technology for Premium Sound Quality
+
+Up to 15-Hour Battery Life & Quick Charge
+
+Color - Black
+
+Black
+
+Wireless Adapter
+
+USB-A
+
+USB-C
+
+No Dongle
+
+ 
+
+Benefit
+
+Shokz x TCS London Marathon Belt Bag
+
+£0
+
+£25
+
+43% left
+
+Black / USB-A - £229.99 GBP Black / USB-C - £229.99 GBP Black / No Dongle - £199.99 GBP
+
+ADD TO CART 
+
+ 
+
+Why Buy from Shokz.com?
+
+Free 2-3 Business-Day Delivery
+
+30 Days Return & Refund
+
+24-Month Warranty
+
+Lifetime Customer Service
+
+[Find in-store >](https://uk.shokz.com/pages/retailers)
+
+Open-Ear Comfort without Compromise
+
+Dual-Microphone System for Up to 98.6% Noise Reduction
+
+Shokz DualPitch™ Technology for Premium Sound Quality
+
+Up to 15-Hour Battery Life & Quick Charge
+
+ 
+
+£229.99
+
+ADD TO CART
+
+ 
+
+24-Month Warranty
+
+Free 2-3 Business-Day Delivery
+
+30 Days Return & Refund
+
+LEARN MORE >
+
+24-Month Warranty
+
+You will enjoy a 24-month warranty period from the purchased date with any products here
+
+Free 2-3 Business-Day Delivery
+
+Orders will be dispatched within 2 business days. The parcel will arrive at your address within 48 hours once shipping out.
+
+30 Days Return & Refund
+
+30-day return & refund window is available for you if you aren’t satisfied with your purchase here for any reason.
+
+New draw for TCS London Marathon
+
+Leave email to win a Kipchoge Signed T-shirt and headphones
+
+[Learn More](https://uk.shokz.com/pages/london-marathon)
+
+Open-Ear Comfort.
+
+Keep Your Voice at Center-Stage.
+
+Premium Sound Quality.
+
+All-Day Battery.
+
+Stay Connect to Your World.
+
+Bluetooth v5.4.
+
+## Open-Ear Comfort.
+
+OpenMeet features Shokz’s signature open-ear design, freeing you from the discomfort and stuffiness of traditional on-ear and over-ear headsets for all-day comfort.
+
+WATCH THE FILM
+
+OpenMeet's open-ear design keeps you cool and comfortable from your morning catch-ups to your evening wrap-ups.
+
+## Light and Easy Wearing.
+
+At just 78g1, OpenMeet is featherlight, delivering truly effortless comfort for all-day wear.
+
+OPEN-EAR DESIGN
+
+## Stay Connected to Your World.
+
+Shokz’s signature open-ear design keeps you connected to your work and aware of your surroundings, from colleagues to household sounds.
+
+MICROPHONE
+
+## Your Voice is Always Center-Stage.
+
+An advanced dual-microphone system, powered by Qualcomm’s cVc (Clear Voice Capture) noise reduction, isolates your voice and reduces background noise by 98.6% 2 for clear calls, even in busiest settings. Optimized EQ and gain control further ensure you’re heard loud and clear.
+
+Feel the Difference
+
+OpenMeet Mic Quality
+
+Real-World sounds
+
+AUDIO QUALITY
+
+## Capture Every Detail.
+
+DualPitch™ Technology fuses bone and air conduction for rich, immersive sound with minimal distortion and maximum audio fidelity—delivering unmatched, professional-grade audio.
+
+## Low Sound Leakage.
+
+LeakSlayer™ 3.0 Technology minimizes sound leakage, using advanced vibration control to keep your audio private.
+
+## Re-engineered Bone Conduction Core.
+
+PremiumPitch™ 3.0 Technology, developed over 4 years, extends high frequencies beyond 20kHz for unparalleled clarity and immersion—delivering crisp highs, rich mids, and deep bass with exceptional audio quality.
+
+## Advanced Speaker.
+
+Powered by an advanced Qualcomm chip, 11mm × 18mm custom speaker, and 4 amplifiers, OpenMeet delivers rich, immersive audio while preserving natural open-ear awareness.
+
+## User-friendly. Integrated operability
+
+Dedicated Call Button
+
+Features a standalone call button for answering and ending calls, completely independent of the audio playback controls.Minimizes interference and ensures smooth transitions between listening to music and managing your calls, enhancing efficiency in the workplace.
+
+intuitive haptic multifunction button
+
+Designed for professional office use. Press down to play or pause audio, swipe up to increase volume, and swipe down to lower it. Effortlessly manage your media, keeping you focused on every task.
+
+Independent Mute Button.
+
+A dedicated mute button for the microphone allows you to easily mute while on calls.
+
+## All-Day Battery for All-Day Productivity.
+
+Enjoy up to 15 hours3 of use with USB-C fast charging—just 5 minutes gives you 2 hours of talk time4, keeping you connected all day. Or plug your OpenMeet in to charge and keep your calls going without interruptions.
+
+Up to 15 hours of use with USB-C fast charging.
+
+Just 5 minutes gives you 2 hours of talk time.
+
+## Walk and Talk with Stable Bluetooth Connection.
+
+Bluetooth v5.4 provides a stable connection with a 30m (98 ft) range, keeping you connected as you move.
+
+## Compact Design.
+
+A sleek, compact design offers powerful performance in an ultra-portable size, complete with a carrying case—ideal for mobile professionals.
+
+## Plug and Play for Seamless Switching.
+
+With the Loop120 adapter, OpenMeet offers plug-and-play ease. Enjoy Windows 8+ and macOS 10.15+ compatibility with a more stable wireless connection than direct Bluetooth pairing, ensuring uninterrupted productivity.
+
+## Shokz Connect and Shokz App.
+
+With Shokz Connect and the Shokz App, you can easily view and manage your headset status on your computer and phone, offering comprehensive management functions and supporting firmware upgrades. Note:OpenMeet requires the Loop120 Wireless Adapter to use Shokz Connect.
+
+Download Shokz Connect
+
+[EXPLORE SHOKZ CONNECT](https://uk.shokz.com/products/openmeet)
+
+[FOR MAC](https://appus.shokz.com.cn/mac/shokz-connect-latest-mac.dmg) [FOR WINDOWS](https://appus.shokz.com.cn/win/shokz-connect-latest-win.exe)
+
+Download Shokz App
+
+EQ Modes
+
+Optimize your sound and choose between 2 preset EQs: Standard Mode, Vocal Booster Mode.
+
+MultiPoint Pairing
+
+MultiPoint Pairing allows you to seamlessly connect with up to 2 devices simultaneously and remembers up to 8 for hassle-free pairing.
+
+## What's In The Box
+
+OpenMeet (UC)
+
+Hard Case *1
+
+USB2.0 CM-CM Data Cable *1
+
+Manual *1
+
+Legal Statement *1
+
+Cushions *2 Pairs
+
+Shokz Loop120 USB-A Wireless Adapter *1
+
+## Thoughtful Details Designed for Office Use.
+
+LeakSlayer™ 3.0 Technology
+
+USB-C fast charging
+
+cVc noise reduction Boom Mic
+
+Independent Mute Button.
+
+15 Hours of Talk Time
+
+Plug and Play for Seamless Switching.
+
+LeakSlayer™ 3.0 Technology
+
+USB-C fast charging
+
+cVc noise reduction Boom Mic
+
+Independent Mute Button.
+
+15 Hours of Talk Time
+
+Plug and Play for Seamless Switching.
+
+10th Generation Bone Conduction Technology
+
+BluetoothⓇ V5.4
+
+Battery
+
+Battery Life
+
+14 Hours of Talk Time15 Hours of Listen Time
+
+Charge Time
+
+1.5 hours
+
+Standby time
+
+Up to 14 days
+
+Quick Charge
+
+5-min Charging2 Hours of Talk Time
+
+Maximum Charging Voltage
+
+5.0 V ± 5%
+
+Charging Port
+
+USB-C
+
+Battery Capacity
+
+215mAh
+
+Connection performance
+
+Bluetooth Versions
+
+BluetoothⓇ V5.4
+
+Compatible Codecs
+
+SBC
+
+Wireless Range
+
+98 feet
+
+Design
+
+Moisture Detector
+
+/
+
+Weight
+
+78g
+
+Materials
+
+Stainless Steel, Silicone, Plastic
+
+Sound
+
+Frequency Response
+
+20Hz~20KHz
+
+Sensitivity
+
+Bone conduction driver: 91dB±3dB Air conduction driver: 96dB±3dB
+
+Microphone
+
+Microphone Sensitivity
+
+-38dB ± 1dB
+
+SHOW FULL SPECS >
+
+Hide Full Specs >
+
+Compare
+
+New Arrival
+
+Communication
+
+Color
+
+Price
+
+￡229.99
+
+￡199.99
+
+Technology
+
+10th Generation Bone Conduction Technology
+
+Compared to the 9th generation, the 10th generation has better mids and highs.
+
+7th Generation Bone Conduction Technology
+
+PremiumPitch™ 2.0 Compared to the 6th generation, the 7th generation has higher waterproostandard and 50% less sound leakage.
+
+Battery Life
+
+14 Hours of Talk Time 15 Hours of Listen Time
+
+16 hours
+
+Charge Time
+
+1.5 hours
+
+1 hour
+
+Sweat & Water Resistant
+
+/
+
+IP55 Sweatproof
+
+This rating applies to items that are protected against ingress from jets of liquid and ingress from dust.
+
+Weight
+
+78 ± 1 g
+
+35g+2.1g
+
+Materials
+
+Stainless Steel, Silicone, Plastic
+
+Full Titanium
+
+Launch Time
+
+2025
+
+2025
+
+New Arrival
+
+Communication
+
+Color
+
+Price
+
+￡199.99
+
+£159.95
+
+Technology
+
+10th Generation Bone Conduction Technology
+
+Compared to the 9th generation, the 10th generation has better mids and highs.
+
+7th Generation Bone Conduction Technology
+
+PremiumPitch™ 2.0 Compared to the 6th generation, the 7th generation has higher waterproostandard and 50% less sound leakage.
+
+Battery Life
+
+14 Hours of Talk Time 15 Hours of Listen Time
+
+16 hours
+
+Charge Time
+
+1.5 hours
+
+1 hour
+
+Sweat & Water Resistant
+
+/
+
+IP55 Sweatproof
+
+This rating applies to items that are protected against ingress from jets of liquid and ingress from dust.
+
+Weight
+
+78g
+
+35g
+
+Materials
+
+Stainless Steel, Silicone, Plastic
+
+Full Titanium
+
+Launch Time
+
+2025
+
+2025
+
+[LEARN MORE >](https://uk.shokz.com/pages/compare-products)
+
+## FAQ
+
+What are the main differences between OpenMeet and OpenMeet UC?
+
+Product
+
+OpenMeet
+
+OpenMeet UC
+
+Shokz App
+
+√
+
+√
+
+Shokz Connect
+
+×
+
+√
+
+Zoom Certified
+
+×
+
+√
+
+Wireless Adapter
+
+×
+
+√
+
+How do I pair OpenMeet UC with my PC?
+
+Please follow these steps: 1. During the first pairing, the wireless adapter will automatically enter pairing mode when plugged into the PC's USB port. At this time, the adapter will flash red and blue lights alternately. 2. Put the headset into pairing mode and bring it close to the wireless adapter within 2 minutes. 3. When the headset successfully pair with the wireless adapter, the adapter will display a solid cyan light. To play music or take calls on the headset, please ensure the “Loop120 by Shokz” is both identified as the default input and output devices in your operating system’s audio settings.
+
+How do I mute/unmute the microphone？
+
+To mute the microphone, click the mute button once during the call. The Loop120 will show solid red. To unmute the microphone, click the mute button once during the call.
+
+How to connect OpenMeet UC to Shokz Connect?
+
+1. Plug Shokz Loop 120 into the PC. 2. OpenMeet pairs and connects with Shokz Loop120. 3. When the Shokz Connect interface displays "Loop120" and "OpenMeet," it means the connection was successful.
+
+How do I reset my wireless adapter?
+
+You can go to the Shokz Connect to reset your wireless adapter. Resetting your wireless adapter will restore your device to factory default settings and clear the Bluetooth pairing list. The wireless adapter will restart, but your firmware version will remain unchanged.
+
+Can I use the Shokz Loop110 with my OpenMeet?
+
+You can use Loop110 to connect with OpenMeet, but some features of Shokz Connect will not be available in OpenMeet.
+
+How to adjust the headpiece of my OpenMeet?
+
+You can adjust the headpiece by sliding the telescopic rod up or down.
+
+How many sizes does the pressure relief cushion come in?
+
+The pressure relief cushion comes in three sizes: S, M, and L.
+
+What device and operating system does Shokz App require?
+
+Shokz App is compatible with mobile phones only, other devices like laptops, PC, tablets PC/Pad are not supported yet. The OS of your mobile would require at least iOS13.0 / Android 8.0 or above.
+
+How do I pair OpenMeet with my mobile device?
+
+1. Start with your headset turned off. 2. Press and hold the Multifuction Button until the LED Indicator flashes red and blue alternately. 3. Select "OpenMeet by Shokz" on your device's Bluetooth settings.
+
+How do I pair OpenMeet with multiple devices?
+
+The OpenMeet come with multipoint pairing enabled by default. After connecting the first device, use the same pairing procedure to connect the second device.
+
+The multifunction button is not working.
+
+Please try pressing it firmly. If the problem still exists, kindly email at customer.service@shokz.com.
+
+## Manuals/Guides
+
+[User Guide](https://cdn.shopify.com/s/files/1/0074/1890/4612/files/OpenMeet_UC-User_guide.pdf?v=1739243178)
+
+[How to Video >](https://uk.help.shokz.com/s/product-detail?Id=a0GJ10000010LthMAE)
+
+Note: OpenMeet requires the Loop120 Wireless Adapter to use Shokz Connect. 1.Data from the Shokz testing laboratory shows that actual weight may vary by ±1g due to product configuration and manufacturing processes; please refer to the physical product. 2.According to tests conducted by the Shokz laboratories in an intersection scenario with wideband calls, under normal wearing conditions with noise pressure levels at the head ranging from 65-72dB (A), an average signal-to-noise ratio improvement of 36.8dB can be provided, which corresponds to a reduction of 98.6% in environmental noise. Call experiences may vary based on usage habits, environment, and application software; please refer to actual experiences. 3.15 hours of use data is sourced from Shokz professional laboratory. Under standard atmospheric pressure conditions, when the headset is fully charged, the music volume is set to 60%, and the standard EQ mode is used (with all other functions set to default), the music playback time can last up to 15 hours. With the volume set to 50% and an equal talk-to-listen ratio, the talk time can last up to 14 hours. If the Busylight is turned on, the endurance is approximately 11 hours. Actual usage time may vary depending on volume, connected devices, and usage habits; please refer to actual usage. 4.Fast charge data is sourced from the Shokz professional laboratory. Under default settings, with the headset playing music until automatic shutdown at 25°C, charging the headset for 5 minutes before immediately unplugging the charging cable, can achieve 2 hours of talk time while maintaining a 50% talk-to-listen ratio, with “Busy” light off. Actual endurance after charging may vary based on volume, audio source, environmental interference, product features, and usage habits.
+
+Note: OpenMeet requires the Loop120 Wireless Adapter to use Shokz Connect. 1.Data from the Shokz testing laboratory shows that actual weight may vary by ±1g due to product configuration and manufacturing processes; please refer to the physical product. 2.According to tests conducted by the Shokz laboratories in an intersection scenario with wideband calls, under normal wearing conditions with noise pressure levels at the head ranging from 65-72dB (A), an average signal-to-noise ratio improvement of 36.8dB can be provided, which corresponds to a reduction of 98.6% in environmental noise. Call experiences may vary based on usage habits, environment, and application software; please refer to actual experiences. 3.15 hours of use data is sourced from Shokz professional laboratory. Under standard atmospheric pressure conditions, when the headset is fully charged, the music volume is set to 60%, and the standard EQ mode is used (with all other functions set to default), the music playback time can last up to 15 hours. With the volume set to 50% and an equal talk-to-listen ratio, the talk time can last up to 14 hours. If the Busylight is turned on, the endurance is approximately 11 hours. Actual usage time may vary depending on volume, connected devices, and usage habits; please refer to actual usage. 4.Fast charge data is sourced from the Shokz professional laboratory. Under default settings, with the headset playing music until automatic shutdown at 25°C, charging the headset for 5 minutes before immediately unplugging the charging cable, can achieve 2 hours of talk time while maintaining a 50% talk-to-listen ratio, with “Busy” light off. Actual endurance after charging may vary based on volume, audio source, environmental interference, product features, and usage habits.
+
+ 
+
+Let's Be Open!
+
+With nothing inside or over your ears, enjoy total awareness while you listen.
+
+ 
+
+[ALL PRODUCTS >](https://uk.shokz.com/collections/all) [TECHNOLOGY >](https://uk.shokz.com/pages/technology)
+
+ 
+
+[Race London. Win Big.](https://uk.shokz.com/pages/london-marathon)
+
+Stay Tuned In!
+
+Subscribe for first access to the latest updates, products, and promotions.
+
+[HOME](https://uk.shokz.com/)> [PRODUCTS](https://uk.shokz.com/collections/all-products-1)> [OPENMEET](https://uk.shokz.com/products/openmeet)
+
+Select Your Country/Region
+
+Asia Pacific
+
+[中国大陆简体中文](https://www.shokz.com.cn/)
+
+[日本日本語](https://jp.shokz.com/)
+
+[대한민국한국어](https://shokz.co.kr/)
+
+[AustraliaEnglish](https://shokz.com.au/)
+
+[Việt NamTiếng Việt](https://shokz.com.vn/)
+
+[Southeast AsiaEnglish](https://asia.shokz.com/)
+
+Europe
+
+[DeutschlandDeutsch](https://de.shokz.com/)
+
+[FranceFrançais](https://fr.shokz.com/)
+
+[NederlandNederlands](https://nl.shokz.com/)
+
+[United KingdomEnglish](https://uk.shokz.com/)
+
+[ČeskoČeština](https://www.shokz.cz/)
+
+[Italialingua italiana](https://it.shokz.com/)
+
+[Españaespañol](https://es.shokz.com/)
+
+[Polskajęzyk polski](https://shokz.pl/)
+
+[TürkiyeTürkçe](https://shokz.com.tr/)
+
+North America
+
+[United StatesEnglish](https://shokz.com/)
+
+[CanadaEnglish](https://ca.shokz.com/)
+
+support.uk@shokz.com
+
+Monday - Sunday 3:00AM - 12.00PM(CEST)
+
+PRODUCTS
+
+[All Product](https://uk.shokz.com/collections/all-products) [Sports Headphones](https://uk.shokz.com/collections/sports) [Refurbished Products](https://uk.shokz.com/collections/refurbished-products)
+
+ABOUT US
+
+[Our Story](https://uk.shokz.com/pages/brands) [Newsroom](https://uk.shokz.com/pages/newsroom) [Press](https://uk.shokz.com/pages/press) [Blog](https://uk.shokz.com/blogs/all) [Our Technology](https://uk.shokz.com/pages/technology) [Shokz Athletes](https://uk.shokz.com/pages/shokz-athletes)
+
+SUPPORT
+
+[Contact Us](https://uk.help.shokz.com/s/submit-case-form?recordType=Consultancy&_gl=1*1nylvwq*_gcl_au*MTAxMDAwODk2OC4xNzU3NDY3NTE4*_ga*NTA0MjcxMjM4LjE3NTc0Njc1MTY.*_ga_SF96052XJD*czE3NTc0ODYyMjEkbzQkZzEkdDE3NTc0ODY2ODMkajYwJGwwJGg0NDcyNDgwMDI.) [Help Center](https://uk.help.shokz.com/s/?_gl=1*jzit4i*_gcl_au*MTAxMDAwODk2OC4xNzU3NDY3NTE4*_ga*NTA0MjcxMjM4LjE3NTc0Njc1MTY.*_ga_SF96052XJD*czE3NTc0ODYyMjEkbzQkZzEkdDE3NTc0ODY3MDckajM2JGwwJGg0NDcyNDgwMDI.) [Warranty Claim](https://uk.help.shokz.com/s/submit-rma-form?_gl=1*12gk2xb*_gcl_au*MTAxMDAwODk2OC4xNzU3NDY3NTE4*_ga*NTA0MjcxMjM4LjE3NTc0Njc1MTY.*_ga_SF96052XJD*czE3NTc0ODYyMjEkbzQkZzEkdDE3NTc0ODY3MTMkajMwJGwwJGg0NDcyNDgwMDI.) [Find A Store](https://uk.shokz.com/pages/retailers) [Pay With Klarna](https://uk.shokz.com/pages/klarna-faqs)
+
+POLICY
+
+[Shipping Policy](https://uk.shokz.com/pages/shipping-policy) [Warranty Policy](https://uk.shokz.com/pages/warranty-policy) [Return & Refund Policy](https://uk.shokz.com/pages/return-refund-policy) [Terms of Service](https://uk.shokz.com/pages/terms-of-service) [Privacy Policy](https://uk.shokz.com/pages/shokz-privacy-policy) [Vulnerability Disclosure Policy](https://uk.shokz.com/pages/safety-updates-and-announcements) [Product Security Support Policy](https://uk.shokz.com/pages/product-support-policy-summary) [PSTI Statement of Compliance](https://uk.shokz.com/pages/psti-soc) [Accessibility Statement](https://uk.shokz.com/pages/accessibility-statement) [Shokz Cookie Policy](https://uk.shokz.com/pages/shokz-cookies-policy)
+
+PROGRAM
+
+[Become an Affiliate](https://uk.shokz.com/pages/affiliate-program) [Shokz for Business](https://uk.shokz.com/pages/shokz-for-business) [Student Discount](https://uk.shokz.com/pages/studentbeans-discount?_pos=1&_sid=5effbae89&_ss=r)
+
+United Kingdom/English
+
+ 
+
+ Search
+

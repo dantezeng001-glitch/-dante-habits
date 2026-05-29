@@ -1,0 +1,13 @@
+---
+pid: 28288
+cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\Target Run Pro2"
+command: "dir \"d:\\Users\\016551\\Downloads\\\" | Select-String \"AI 听记\""
+started_at: 2026-04-24T02:30:36.564Z
+running_for_ms: 35028    
+---
+
+---
+exit_code: 0
+elapsed_ms: 36023
+ended_at: 2026-04-24T02:31:12.587Z
+---

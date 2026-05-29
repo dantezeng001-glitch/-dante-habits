@@ -1,0 +1,4 @@
+timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-05-28T15:35	baseline	ai-solution-router	-	67.1	baseline	-	��ʼ����;asset_type=skill;target_path=ai-solution-router_v5.zip	full_test
+2026-05-28T15:55	v6-multi-dim	ai-solution-router	67.1	85.3	keep	����+�߽�+��Դ+frontmatter+IO+������	6�ָĶ�,ƽ̨������ʵ,Route Confirmation��Ч	full_test
+2026-05-28T16:03	v7-architecture	ai-solution-router	85.3	91.0	keep	����ܹ�+ָ�������+ʵ�����	demo-build��Ϊ��չģ��;����Decision Summary�ظ�;edge caseʵ��ͨ��	full_test

@@ -1,0 +1,29 @@
+<!--
+  Dante Shokz PPT · header-chrome.html
+  ────────────────────────────────────────────────────────
+  组件：页眉 chrome（每页左上角"中文 · ENGLISH"标签）
+  位置：top:32px, left:96px
+  来源：原 deck 全部正文页（封面除外）
+
+  可改字段：
+    1. <span> 内的文本 —— 改为本页的"中文 · ENGLISH"
+       例：个人简介 · PROFILE / 案例 ① · 月银白 SOP · 上半页 / 未来规划 · FUTURE PLAN
+
+  不可改：
+    - top:32.0px、left:96.0px、height:22.0px（页眉锁定位置）
+    - font-size:11.0pt（字号锁）
+    - color:#666666（页眉灰色锁）
+    - font-family Consolas/Courier New（等宽字体锁）
+    - 容器宽度可微调（如标签更长），但保持 ≤ 400px
+
+  说明：
+    - "·" 用全角中点，前后各一个半角空格
+    - ENGLISH 部分一律大写
+    - 不要加 emoji / icon
+-->
+
+<div class="shp" data-name="hdr-l" style="left:96.0px;top:32.0px;width:300px;height:22.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left">
+    <span style="font-size:11.0pt;color:#666666;font-family:'Consolas','Courier New',monospace">替换为本页主题 · REPLACE WITH ENGLISH</span>
+  </p>
+</div>

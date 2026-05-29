@@ -1,0 +1,12 @@
+[
+  {
+    "id": "D1",
+    "prompt": "只评估一个技能文件，按 Darwin 8 维 rubric 打分并生成测试 prompts，不做修改。",
+    "expected": "先产出 2-3 个典型测试 prompts，再给出维度1-8评分、total_score、weakest_dimension，并把维度8标成 dry_run 或 full_test。"
+  },
+  {
+    "id": "D2",
+    "prompt": "优化 md-cleanup 这个 skill，但这一轮只能改一个维度，先告诉我改哪里、为什么，再等我确认。",
+    "expected": "锁定最低维度，提出单点修改和预期提分，并在真正编辑前停下来等待用户确认。"
+  }
+]

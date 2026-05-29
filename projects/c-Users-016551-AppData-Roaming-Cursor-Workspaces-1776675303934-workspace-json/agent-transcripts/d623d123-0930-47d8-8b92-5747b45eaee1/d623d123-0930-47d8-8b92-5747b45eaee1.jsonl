@@ -1,0 +1,5 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n@专有名词解释库 for DM&KOL/DM&KOL营销专业术语库.xlsx @专有名词解释库 for DM&KOL/DM&KOL营销专业术语库.md 自查一下内容及对应解释是否有问题\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":" I need to review the DM&KOL marketing terminology library to verify the content and explanations are accurate."}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":" I should verify that the xlsx file matches what's in the markdown file to ensure consistency across both formats."}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":" I need to trace back to the Python script that generates this glossary file and cross-reference it against the command naming specs and other documentation to verify everything's accurate."}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":" I'm pulling up the content-integrity-guard skill to apply it to this audit task."}]}}

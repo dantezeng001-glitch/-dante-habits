@@ -1,0 +1,20 @@
+{
+  "source_patterns": [
+    "*.xlsx",
+    "*.xlsm",
+    "**/*.xlsx",
+    "**/*.xlsm"
+  ],
+  "exclude_patterns": [
+    "cursor_excel/**",
+    ".cursor/**",
+    ".vscode/**",
+    "**/~$*.xlsx",
+    "**/~$*.xlsm",
+    "~$*.xlsx",
+    "~$*.xlsm"
+  ],
+  "output_dir": "cursor_excel",
+  "preview_rows": 20,
+  "preview_columns": 12
+}

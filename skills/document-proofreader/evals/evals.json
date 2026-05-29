@@ -1,0 +1,103 @@
+{
+  "skill_name": "packaging-copy-proofreader",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "以这个 WBS 的《包装卖点文案》sheet 为母本，源是中文列、目标是英文终版列，校对这个包装封套文件。英文写的是 27 hours，中文卖点写的是续航 25 小时。",
+      "expected_output": "Should treat the confirmed baseline as authority, classify the runtime difference as Accuracy / parameter mismatch (参数不一致), assign high severity, cite the baseline fragment (中文 25 小时) as evidence, and assign confidence based on whether the baseline directly proves it. Should propose 应改为 25 hours or 建议同步.",
+      "assertions": [
+        "Classifies as Accuracy dimension / parameter mismatch sub-type",
+        "Assigns high severity",
+        "Cites the baseline fragment (25 小时) as evidence",
+        "Reports a confidence value separate from severity",
+        "Proposes a concrete correction"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "母本中文卖点上周改成了「降噪通话」，但英文目标列还是 clear calls。母本就是这个 sheet，源中文、目标英文。帮我校对。",
+      "expected_output": "Should classify as Sync / source not synchronized (源文案未同步 / 中文未同步), flag the target as reflecting older content, cite the updated baseline fragment, and recommend syncing the English copy. Should not treat it as a pure terminology issue.",
+      "assertions": [
+        "Classifies as Sync dimension / source not synchronized",
+        "Identifies the target as out-of-date relative to the updated baseline",
+        "Cites the updated baseline fragment as evidence",
+        "Recommends synchronizing the target copy"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "母本是《包装卖点文案》sheet，只覆盖正面卖点。但目标封套里还有一段法律声明和进口商地址，帮我一起校对了。",
+      "expected_output": "Should recognize the legal statement and importer address fall outside the confirmed selling-point baseline, classify them as Scope / out-of-baseline-scope (不在本轮基准范围), pause, and ask the user to supply or confirm the matching legal baseline. Should NOT judge the legal text as right or wrong against the selling-point sheet.",
+      "assertions": [
+        "Recognizes content is outside the confirmed baseline scope",
+        "Classifies as Scope dimension / out-of-baseline-scope",
+        "Pauses and asks for the matching baseline",
+        "Does not judge the out-of-scope content as an error"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "这句英文 enjoy ultimate sound 你觉得对吗？母本里我没看到对应的卖点原文，但你帮我判断一下。",
+      "expected_output": "Should refuse to declare it an error without a baseline fragment that proves the issue. Should downgrade to Scope / needs confirmation (需确认) at low confidence, and explain what baseline evidence would resolve it. May note ultimate is a strong-claim watchword worth confirming, but must not fabricate a baseline or an official correction.",
+      "assertions": [
+        "Does not declare an error without baseline evidence",
+        "Downgrades to needs confirmation (需确认)",
+        "Assigns low confidence",
+        "Explains what evidence would resolve it",
+        "Does not fabricate a baseline or official translation"
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "我这份目标文件里 earbuds 和 earphones 混着用，包装正面、说明书、app 卡好几个地方都有。母本没指定官方译法。帮我校对。",
+      "expected_output": "Should classify as Consistency / terminology inconsistency (术语不统一) and CLUSTER all occurrences into a single finding with an affected-location list, rather than emitting one row per occurrence. Should state that without an official term this is a consistency suggestion, not a final official translation.",
+      "assertions": [
+        "Classifies as Consistency dimension / terminology inconsistency",
+        "Clusters all occurrences into one finding with affected-location list",
+        "Does not emit one row per occurrence",
+        "States it is a consistency suggestion, not an official translation"
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "帮我校对一下这个包装文件有没有问题。",
+      "expected_output": "Baseline, scope, and source-target relationship are unspecified. Should run the intake checkpoint and confirm the five items (baseline master, baseline location/limits, source-target relationship, target content, batch mode) before doing a real proofreading pass. Should not silently assume Product Info or any sheet is the baseline.",
+      "assertions": [
+        "Runs the intake checkpoint before proofreading",
+        "Asks for baseline master and exact location/scope",
+        "Asks for the source-target relationship",
+        "Does not assume a default baseline sheet"
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "母本中文写「IP54 防泼溅」，英文目标列写 fully waterproof。这是同一行的翻译。帮我判断严重程度和你有多确定。",
+      "expected_output": "Should classify as Accuracy / parameter mismatch (or expression-strength escalation), assign high severity (compliance/strong-claim risk), and assign HIGH confidence because the baseline fragment (IP54 防泼溅) directly contradicts fully waterproof. Should report severity and confidence as two separate values, not collapse into a single middle rating.",
+      "assertions": [
+        "Classifies the protection claim as an Accuracy issue",
+        "Assigns high severity for the strong/compliance claim",
+        "Assigns high confidence backed by the baseline fragment",
+        "Reports severity and confidence as two distinct dimensions"
+      ],
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "这是一个软件本地化文件，源是英文 UI 字符串，目标是德文。母本就是英文源。帮我校对德文有没有问题，别套包装那套参数检查。",
+      "expected_output": "Should handle a non-packaging scenario using the generic five-dimension model, NOT load packaging-specific parameter or strong-claim watchlists. Should treat the English source as baseline, check the German strings for accuracy, sync, consistency, and tone, and use generic sub-types rather than packaging labels.",
+      "assertions": [
+        "Handles the localization scenario with the generic five-dimension model",
+        "Does not force packaging-specific sub-types or parameter checks",
+        "Treats the confirmed English source as baseline",
+        "Checks German strings for accuracy, sync, consistency, and tone"
+      ],
+      "files": []
+    }
+  ]
+}

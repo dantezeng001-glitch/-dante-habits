@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PRODUCT NAME] — Chinese Tech Style Product Page</title>
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-body: #bbbbbb;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --cta-primary: #ffffff;
+            --cta-text: #000000;
+            --border: #333333;
+            --footnote: #666666;
+            --product-color: #667eea;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --max-width: 1200px;
+            --max-width-narrow: 800px;
+            --section-padding: 100px 0;
+            --section-min-height: 100vh;
+            --container-px: 24px;
+            --grid-gap: 48px;
+            --radius-button: 32px;
+            --radius-card: 16px;
+            --radius-card-large: 20px;
+            --radius-pill: 100px;
+            --radius-small: 8px;
+            --transition-standard: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--container-px); }
+        sup { font-size: 0.7em; vertical-align: super; color: var(--text-secondary); }
+        ::selection { background: rgba(255,255,255,0.2); }
+
+        .btn-cta-primary {
+            display: inline-block; padding: 14px 40px; border-radius: var(--radius-button);
+            background: var(--cta-primary); color: var(--cta-text);
+            font-size: 16px; font-weight: 600; text-decoration: none; border: none;
+            cursor: pointer; transition: opacity var(--transition-standard);
+        }
+        .btn-cta-primary:hover { opacity: 0.85; }
+        .btn-cta-secondary {
+            display: inline-block; padding: 14px 40px; border-radius: var(--radius-button);
+            background: transparent; color: var(--text-primary);
+            border: 1px solid var(--border); font-size: 16px; font-weight: 500;
+            text-decoration: none; cursor: pointer; transition: border-color var(--transition-standard);
+        }
+        .btn-cta-secondary:hover { border-color: var(--text-secondary); }
+
+        .tech-version-tag {
+            display: inline-block; padding: 4px 14px; border: 1px solid var(--border);
+            border-radius: var(--radius-pill); font-size: 13px; font-weight: 600;
+            color: var(--text-secondary); margin-bottom: 20px; letter-spacing: 0.5px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* ======================== HERO ======================== */
+        .hero-immersive {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; background: var(--bg-primary); text-align: center;
+            overflow: hidden; padding: 120px 0 80px;
+        }
+        .hero-bg-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(102,126,234,0.12) 0%, transparent 70%);
+            filter: blur(80px); pointer-events: none;
+        }
+        .hero-immersive .container { position: relative; z-index: 1; }
+        .hero-title { font-size: clamp(48px, 8vw, 72px); font-weight: 800; line-height: 1.05; margin-bottom: 16px; }
+        .hero-subtitle { font-size: clamp(18px, 3vw, 28px); font-weight: 400; color: var(--text-secondary); margin-bottom: 32px; }
+        .tech-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+        .pill {
+            padding: 6px 16px; border: 1px solid var(--border); border-radius: var(--radius-pill);
+            font-size: 13px; font-weight: 500; color: var(--text-secondary); background: rgba(255,255,255,0.05);
+        }
+        .hero-product-image {
+            max-width: 560px; margin: 0 auto 48px; aspect-ratio: 4/3;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--text-secondary);
+        }
+        .hero-cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ======================== FEATURE FULL-SCREEN ======================== */
+        .feature-fullscreen {
+            min-height: var(--section-min-height); display: flex; align-items: center;
+            padding: var(--section-padding); text-align: center;
+        }
+        .feature-fullscreen .container { max-width: var(--max-width-narrow); }
+        .feature-fullscreen h2 {
+            font-size: clamp(32px, 5vw, 48px); font-weight: 700; line-height: 1.15; margin-bottom: 20px;
+        }
+        .feature-fullscreen p {
+            font-size: 17px; line-height: 1.7; color: var(--text-body); max-width: 640px; margin: 0 auto 40px;
+        }
+        .feature-visual {
+            max-width: 800px; margin: 0 auto 40px; aspect-ratio: 16/9; border-radius: var(--radius-card);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--text-secondary); background: rgba(255,255,255,0.03);
+        }
+        .feature-data { display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
+
+        /* ======================== FEATURE SPLIT ======================== */
+        .feature-split-dark {
+            min-height: var(--section-min-height); display: flex; align-items: center;
+            padding: var(--section-padding);
+        }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: center; }
+        .split-text { text-align: left; }
+        .split-text h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .split-text p { font-size: 17px; line-height: 1.7; color: var(--text-body); margin-bottom: 32px; }
+        .split-data-inline { display: flex; gap: 48px; }
+        .split-visual {
+            aspect-ratio: 4/3; border-radius: var(--radius-card-large);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--text-secondary); background: rgba(255,255,255,0.03);
+        }
+
+        /* ======================== DATA CALLOUT ======================== */
+        .data-callout-section { padding: var(--section-padding); }
+        .data-callout-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; text-align: center;
+        }
+        .data-number {
+            font-size: clamp(64px, 10vw, 120px); font-weight: 800; line-height: 1; margin-bottom: 12px;
+            background: linear-gradient(180deg, #fff 60%, rgba(255,255,255,0.6) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .data-number-medium { font-size: clamp(48px, 7vw, 72px); font-weight: 800; line-height: 1; margin-bottom: 8px; }
+        .data-label { font-size: 15px; font-weight: 400; color: var(--text-secondary); line-height: 1.4; }
+        .data-basis { font-size: 12px; color: var(--footnote); margin-top: 6px; }
+
+        /* ======================== PREDECESSOR COMPARISON ======================== */
+        .predecessor-section {
+            min-height: var(--section-min-height); display: flex; align-items: center;
+            padding: var(--section-padding); text-align: center;
+        }
+        .predecessor-section h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin-bottom: 12px; }
+        .predecessor-subtitle { font-size: 16px; color: var(--text-secondary); margin-bottom: 60px; }
+        .comparison-bars { max-width: 700px; margin: 0 auto; text-align: left; }
+        .bar-row { margin-bottom: 32px; }
+        .bar-label { display: block; font-size: 14px; font-weight: 500; color: var(--text-secondary); margin-bottom: 12px; }
+        .bar-track { display: flex; flex-direction: column; gap: 8px; }
+        .bar-prev, .bar-current {
+            height: 36px; border-radius: 4px; display: flex; align-items: center;
+            padding: 0 16px; font-size: 13px; font-weight: 600;
+        }
+        .bar-prev { background: rgba(255,255,255,0.08); color: var(--text-secondary); }
+        .bar-current { background: var(--text-primary); color: var(--bg-primary); }
+
+        /* ======================== BATTERY ======================== */
+        .battery-section {
+            min-height: var(--section-min-height); display: flex; align-items: center;
+            padding: var(--section-padding); text-align: center;
+        }
+        .battery-hero-number {
+            font-size: clamp(80px, 15vw, 160px); font-weight: 800; line-height: 1; margin: 24px 0 16px;
+            background: linear-gradient(180deg, #fff 40%, rgba(255,255,255,0.5) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .battery-subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 48px; }
+        .battery-equation { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 32px; }
+        .eq-block { text-align: center; }
+        .eq-number { display: block; font-size: 48px; font-weight: 800; }
+        .eq-unit { display: block; font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+        .eq-sign { font-size: 36px; font-weight: 300; color: var(--text-secondary); }
+        .battery-note { font-size: 14px; color: var(--footnote); }
+
+        /* ======================== CERTIFICATION BAR ======================== */
+        .cert-bar { padding: 60px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .cert-logos { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; align-items: center; }
+        .cert-item { text-align: center; }
+        .cert-icon {
+            width: 56px; height: 56px; margin: 0 auto 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; color: var(--text-secondary); opacity: 0.7;
+        }
+        .cert-item span { font-size: 12px; color: var(--text-secondary); }
+
+        /* ======================== PHILOSOPHY ======================== */
+        .philosophy-section { padding: var(--section-padding); text-align: center; }
+        .philosophy-section h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin-bottom: 60px; }
+        .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; text-align: left; }
+        .pillar-number { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 16px; }
+        .philosophy-pillar h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+        .philosophy-pillar p { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+
+        /* ======================== COMPARE TABLE ======================== */
+        .compare-section { padding: var(--section-padding); text-align: center; }
+        .compare-section h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin-bottom: 48px; }
+        .compare-table-wrapper { overflow-x: auto; }
+        .compare-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .compare-table th, .compare-table td { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .compare-table th { font-weight: 600; padding-bottom: 24px; }
+        .compare-table td:first-child { text-align: left; font-weight: 500; color: var(--text-secondary); min-width: 140px; }
+        .compare-product-img {
+            width: 80px; height: 80px; margin: 0 auto 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; color: var(--text-secondary);
+        }
+
+        /* ======================== FAQ ======================== */
+        .faq-section { padding: var(--section-padding); }
+        .faq-section h2 { text-align: center; font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin-bottom: 48px; }
+        .faq-list { max-width: var(--max-width-narrow); margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+        .faq-q {
+            padding: 20px 0; font-weight: 600; font-size: 16px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            user-select: none;
+        }
+        .faq-q::after { content: "+"; font-size: 24px; color: var(--text-secondary); transition: transform var(--transition-standard); }
+        .faq-item.open .faq-q::after { content: "\2212"; }
+        .faq-a {
+            max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 15px; color: var(--text-body); line-height: 1.7;
+        }
+        .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
+
+        /* ======================== FOOTNOTES ======================== */
+        .footnotes-block { padding: 48px 0; border-top: 1px solid var(--border); }
+        .footnotes-list { list-style: decimal; padding-left: 48px; max-width: var(--max-width); margin: 0 auto; }
+        .footnotes-list li { font-size: 12px; color: var(--footnote); line-height: 1.6; margin-bottom: 6px; }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 1024px) {
+            .split-grid { grid-template-columns: 1fr; }
+            .split-text { text-align: center; }
+            .split-data-inline { justify-content: center; }
+            .data-callout-grid { grid-template-columns: repeat(2, 1fr); }
+            .philosophy-grid { grid-template-columns: 1fr; text-align: center; }
+            .feature-fullscreen, .feature-split-dark, .predecessor-section, .battery-section {
+                min-height: auto;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 36px; }
+            .hero-subtitle { font-size: 18px; }
+            .data-callout-grid { grid-template-columns: 1fr; gap: 32px; }
+            .data-number { font-size: 48px; }
+            .battery-hero-number { font-size: 64px; }
+            .eq-number { font-size: 36px; }
+            .comparison-bars { padding: 0 var(--container-px); }
+            .bar-prev, .bar-current { font-size: 12px; padding: 0 12px; }
+            .cert-logos { gap: 24px; }
+            .compare-table th, .compare-table td { padding: 12px 10px; font-size: 12px; }
+            .hero-cta-group { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================== HERO-IMMERSIVE ======================== -->
+<section class="hero-immersive">
+    <div class="hero-bg-glow"></div>
+    <div class="container">
+        <h1 class="hero-title">[PRODUCT NAME]</h1>
+        <p class="hero-subtitle">[Sensory Tagline — e.g. "Hear Beyond Sensation"]</p>
+        <div class="tech-pills">
+            <span class="pill">LHDC 5.0</span>
+            <span class="pill">Bone Conduction Mic</span>
+            <span class="pill">Dual Dynamic Driver</span>
+            <span class="pill">Intelligent ANC 3.0</span>
+            <span class="pill">Dynaudio Co-tuned</span>
+            <span class="pill">IP55</span>
+        </div>
+        <div class="hero-product-image">[Image: floating product render — large, centered, transparent background]</div>
+        <div class="hero-cta-group">
+            <a href="#" class="btn-cta-primary">Buy Now</a>
+            <a href="#" class="btn-cta-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CORE FEATURE 1: SOUND (Full-Screen) ======================== -->
+<section class="feature-fullscreen" style="background: var(--bg-secondary);">
+    <div class="container">
+        <span class="tech-version-tag">DualStream Driver 2.0</span>
+        <h2>Feel Every Breath the Singer Takes.</h2>
+        <p>Dual 14.2mm ultra-linear dynamic drivers with a 0.0095mm titanium composite diaphragm — thinner than a human hair. The custom acoustic chamber is re-engineered from the ground up, delivering 2× bass depth and crystalline treble detail across the full 20Hz–40kHz spectrum.<sup>1</sup></p>
+        <div class="feature-visual">[Image: driver unit exploded view / acoustic cutaway]</div>
+        <div class="feature-data">
+            <div class="data-cell" style="text-align:center;">
+                <div class="data-number-medium">0.0095mm</div>
+                <div class="data-label">titanium composite diaphragm</div>
+            </div>
+            <div class="data-cell" style="text-align:center;">
+                <div class="data-number-medium">2×</div>
+                <div class="data-label">bass depth vs previous gen<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CORE FEATURE 2: ANC (Full-Screen) ======================== -->
+<section class="feature-fullscreen" style="background: var(--bg-primary);">
+    <div class="container">
+        <span class="tech-version-tag">Intelligent ANC 3.0</span>
+        <h2>Silence, Redefined.</h2>
+        <p>Third-generation adaptive noise cancellation with dual-mic feed-forward/feedback hybrid architecture. Real-time environmental scanning adjusts depth 200 times per second. Three manual modes — Deep, Comfort, Wind Shield — plus fully automatic adaptation.<sup>3</sup></p>
+        <div class="feature-visual">[Image: ANC waveform visualization / noise cancellation diagram]</div>
+        <div class="feature-data">
+            <div class="data-cell" style="text-align:center;">
+                <div class="data-number-medium">-45dB</div>
+                <div class="data-label">peak noise reduction<sup>4</sup></div>
+            </div>
+            <div class="data-cell" style="text-align:center;">
+                <div class="data-number-medium">+67%</div>
+                <div class="data-label">depth vs [Previous Model]<sup>5</sup></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CORE FEATURE 3: CALLS (Split) ======================== -->
+<section class="feature-split-dark" style="background: var(--bg-secondary);">
+    <div class="container">
+        <div class="split-grid">
+            <div class="split-text">
+                <span class="tech-version-tag">Pure Voice 2.0</span>
+                <h2>Crystal Calls, Any Environment.</h2>
+                <p>Bone-conduction voice pickup sensor combined with dual beamforming microphones. Eliminates wind noise up to 40km/h while preserving natural vocal timbre. AI-powered noise suppression trained on 100M+ real-world audio samples.<sup>6</sup></p>
+                <div class="split-data-inline">
+                    <div class="data-cell">
+                        <div class="data-number-medium">3×</div>
+                        <div class="data-label">voice clarity vs previous gen<sup>7</sup></div>
+                    </div>
+                </div>
+            </div>
+            <div class="split-visual">[Image: bone mic cutaway / call scenario]</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== PREDECESSOR COMPARISON ======================== -->
+<section class="predecessor-section" style="background: var(--bg-primary);">
+    <div class="container">
+        <h2>A Generational Leap.</h2>
+        <p class="predecessor-subtitle">vs [Previous Model Name]</p>
+        <div class="comparison-bars">
+            <div class="bar-row">
+                <span class="bar-label">Noise Cancellation Depth</span>
+                <div class="bar-track">
+                    <div class="bar-prev" style="width: 60%;"><span>[Previous Model]</span></div>
+                    <div class="bar-current" style="width: 100%;"><span>+67%</span></div>
+                </div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Audio Resolution</span>
+                <div class="bar-track">
+                    <div class="bar-prev" style="width: 50%;"><span>[Previous Model]</span></div>
+                    <div class="bar-current" style="width: 100%;"><span>2× depth</span></div>
+                </div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Battery Life</span>
+                <div class="bar-track">
+                    <div class="bar-prev" style="width: 67%;"><span>[Previous Model]</span></div>
+                    <div class="bar-current" style="width: 100%;"><span>+50%</span></div>
+                </div>
+            </div>
+            <div class="bar-row">
+                <span class="bar-label">Bluetooth Transmission</span>
+                <div class="bar-track">
+                    <div class="bar-prev" style="width: 25%;"><span>[Previous Model]</span></div>
+                    <div class="bar-current" style="width: 100%;"><span>4× efficiency</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CORE FEATURE 4: CONNECTIVITY (Split, reversed) ======================== -->
+<section class="feature-split-dark" style="background: var(--bg-secondary);">
+    <div class="container">
+        <div class="split-grid">
+            <div class="split-visual">[Image: Bluetooth connection diagram / multi-device scene]</div>
+            <div class="split-text">
+                <span class="tech-version-tag">LHDC 5.0</span>
+                <h2>4× Transmission. Zero Interruption.</h2>
+                <p>Next-generation LHDC 5.0 codec delivers 96kHz/24bit Hi-Res wireless audio with 4× the transmission efficiency of standard Bluetooth. Dual-device multipoint connection with seamless switching.<sup>8</sup></p>
+                <div class="split-data-inline">
+                    <div class="data-cell">
+                        <div class="data-number-medium">96kHz</div>
+                        <div class="data-label">Hi-Res wireless audio<sup>9</sup></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CORE FEATURE 5: DESIGN (Full-Screen) ======================== -->
+<section class="feature-fullscreen" style="background: var(--bg-primary);">
+    <div class="container">
+        <span class="tech-version-tag">Ergonomic Design</span>
+        <h2>Engineered to Disappear.</h2>
+        <p>Weight-distributed titanium alloy frame calibrated across 10,000 ear-shape data points. Three sizes of liquid silicone ear tips with memory foam core achieve a custom-fit seal. 5.2g per ear — forget you're wearing them.<sup>10</sup></p>
+        <div class="feature-visual">[Image: wearing shot / ear-fit detail / materials breakdown]</div>
+    </div>
+</section>
+
+<!-- ======================== DATA CALLOUT PANEL ======================== -->
+<section class="data-callout-section" style="background: var(--bg-tertiary);">
+    <div class="container">
+        <div class="data-callout-grid">
+            <div class="data-cell">
+                <div class="data-number">2×</div>
+                <div class="data-label">bass depth</div>
+                <div class="data-basis">vs [Previous Model]</div>
+            </div>
+            <div class="data-cell">
+                <div class="data-number">+67%</div>
+                <div class="data-label">ANC depth</div>
+                <div class="data-basis">vs [Previous Model]</div>
+            </div>
+            <div class="data-cell">
+                <div class="data-number">50H</div>
+                <div class="data-label">total battery</div>
+                <div class="data-basis">with charging case</div>
+            </div>
+            <div class="data-cell">
+                <div class="data-number">96kHz</div>
+                <div class="data-label">Hi-Res wireless</div>
+                <div class="data-basis">LDAC / LHDC 5.0</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== BATTERY ======================== -->
+<section class="battery-section" style="background: var(--bg-primary);">
+    <div class="container">
+        <span class="tech-version-tag">All-Day Power</span>
+        <div class="battery-hero-number">50H</div>
+        <p class="battery-subtitle">total battery life with charging case<sup>11</sup></p>
+        <div class="battery-equation">
+            <div class="eq-block">
+                <span class="eq-number">10</span>
+                <span class="eq-unit">min charge</span>
+            </div>
+            <span class="eq-sign">=</span>
+            <div class="eq-block">
+                <span class="eq-number">4</span>
+                <span class="eq-unit">hrs playback</span>
+            </div>
+        </div>
+        <p class="battery-note">USB-C fast charge. Full charge in 1.5 hours.<sup>12</sup></p>
+    </div>
+</section>
+
+<!-- ======================== APP / MULTIPOINT (Split) ======================== -->
+<section class="feature-split-dark" style="background: var(--bg-secondary);">
+    <div class="container">
+        <div class="split-grid">
+            <div class="split-text">
+                <span class="tech-version-tag">Companion App</span>
+                <h2>Your Sound, Your Rules.</h2>
+                <p>Customize EQ presets, toggle ANC modes, update firmware, and configure touch controls — all from the companion app. Available on iOS 14+ and Android 9+.<sup>13</sup></p>
+            </div>
+            <div class="split-visual">[Image: app UI screenshot / phone with app open]</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== CERTIFICATION BAR ======================== -->
+<section class="cert-bar" style="background: var(--bg-tertiary);">
+    <div class="container">
+        <div class="cert-logos">
+            <div class="cert-item">
+                <div class="cert-icon">[Logo]</div>
+                <span>Hi-Res Audio Wireless</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">[Logo]</div>
+                <span>LDAC™</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">[Logo]</div>
+                <span>Co-tuned by Dynaudio</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">[Logo]</div>
+                <span>Red Dot Design Award</span>
+            </div>
+            <div class="cert-item">
+                <div class="cert-icon">[Logo]</div>
+                <span>IP55 Rated</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== BRAND PHILOSOPHY ======================== -->
+<section class="philosophy-section" style="background: var(--bg-secondary);">
+    <div class="container">
+        <h2>Our Philosophy</h2>
+        <div class="philosophy-grid">
+            <div class="philosophy-pillar">
+                <div class="pillar-number">01</div>
+                <h3>Connection</h3>
+                <p>Sound bridges the gap between people. We engineer audio that brings you closer to the music, the moment, and each other.</p>
+            </div>
+            <div class="philosophy-pillar">
+                <div class="pillar-number">02</div>
+                <h3>Singularity</h3>
+                <p>Each product is a singular pursuit of one thing done exceptionally well. No compromises, no filler features.</p>
+            </div>
+            <div class="philosophy-pillar">
+                <div class="pillar-number">03</div>
+                <h3>Human Centric</h3>
+                <p>Technology serves the human experience. Every gram, every decibel, every curve is calibrated to how you live.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== COMPARE TABLE ======================== -->
+<section class="compare-section" style="background: var(--bg-primary);">
+    <div class="container">
+        <h2>Find Your Match</h2>
+        <div class="compare-table-wrapper">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="compare-product-img">[Image]</div>
+                            <strong>[Flagship Model]</strong>
+                        </th>
+                        <th>
+                            <div class="compare-product-img">[Image]</div>
+                            <strong>[Mid-tier Model]</strong>
+                        </th>
+                        <th>
+                            <div class="compare-product-img">[Image]</div>
+                            <strong>[Entry Model]</strong>
+                        </th>
+                        <th>
+                            <div class="compare-product-img">[Image]</div>
+                            <strong>[Sport Model]</strong>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Price</td><td>$XXX</td><td>$XXX</td><td>$XX</td><td>$XXX</td></tr>
+                    <tr><td>Driver</td><td>Dual 14.2mm</td><td>12mm Dynamic</td><td>10mm Dynamic</td><td>12mm Dynamic</td></tr>
+                    <tr><td>ANC</td><td>Intelligent ANC 3.0</td><td>Adaptive ANC 2.0</td><td>Basic ANC</td><td>Adaptive ANC 2.0</td></tr>
+                    <tr><td>Battery (total)</td><td>50H</td><td>40H</td><td>30H</td><td>36H</td></tr>
+                    <tr><td>Codec</td><td>LDAC, LHDC 5.0</td><td>LDAC, AAC</td><td>AAC, SBC</td><td>LDAC, AAC</td></tr>
+                    <tr><td>IP Rating</td><td>IP55</td><td>IP54</td><td>IPX4</td><td>IP57</td></tr>
+                    <tr><td>Weight (per ear)</td><td>5.2g</td><td>5.8g</td><td>4.5g</td><td>6.1g</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== FAQ ======================== -->
+<section class="faq-section" style="background: var(--bg-secondary);">
+    <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q">What audio codecs are supported?</div>
+                <div class="faq-a">Supports LDAC, LHDC 5.0, AAC, and SBC. Hi-Res Audio Wireless certified with up to 96kHz/24bit transmission via LDAC or LHDC 5.0. Codec availability depends on your source device and OS version.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How does the adaptive ANC work?</div>
+                <div class="faq-a">The Intelligent ANC 3.0 system uses a dual-mic hybrid architecture (feed-forward + feedback) that scans ambient noise 200 times per second and adjusts cancellation depth in real time. Three manual modes — Deep, Comfort, Wind Shield — are available via the companion app.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is the actual battery life?</div>
+                <div class="faq-a">8 hours per single charge with ANC on (LDAC, 50% volume). Up to 10 hours with ANC off. The charging case provides 5 additional charges for up to 50 hours total. 10-minute fast charge delivers approximately 4 hours of playback.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Is it compatible with both iOS and Android?</div>
+                <div class="faq-a">Full Bluetooth 5.3 compatibility with iOS 14+ and Android 9+. The companion app is available on both platforms. Multipoint connection supports simultaneous pairing with 2 devices.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How does the bone conduction microphone improve call quality?</div>
+                <div class="faq-a">The bone conduction sensor picks up vocal vibrations directly through jaw contact, bypassing ambient noise entirely. Combined with dual beamforming microphones and AI noise suppression, it delivers clear voice transmission even in wind speeds up to 40km/h.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is the IP55 rating?</div>
+                <div class="faq-a">IP55 means protection against dust ingress and low-pressure water jets from any direction. Suitable for workouts and rain, but not designed for swimming or submersion.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What ear tip sizes are included?</div>
+                <div class="faq-a">Three sizes (S/M/L) of liquid silicone ear tips with memory foam core. The companion app includes an ear tip fit test to help you find the optimal seal for best ANC performance and comfort.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I customize touch controls?</div>
+                <div class="faq-a">Yes. Double-tap, triple-tap, and long-press actions are fully customizable via the companion app. Default mappings: double-tap for play/pause, triple-tap for next track, long-press for ANC mode toggle.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What does "Co-tuned by Dynaudio" mean?</div>
+                <div class="faq-a">The audio profile was collaboratively tuned with Dynaudio's acoustic engineers for balanced frequency response and natural timbre. Dynaudio participated in tuning and validation; the drivers are manufactured in-house.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How does it compare to [Previous Model]?</div>
+                <div class="faq-a">Key improvements: 67% deeper noise cancellation, 2× bass depth, 4× Bluetooth transmission efficiency, and 50% longer battery life. The driver, ANC system, microphone, and Bluetooth chipset are all new-generation components.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== FOOTNOTES ======================== -->
+<section class="footnotes-block" style="background: var(--bg-primary);">
+    <div class="container">
+        <ol class="footnotes-list">
+            <li id="fn1">Dual 14.2mm drivers use a titanium composite diaphragm measuring 0.0095mm. Frequency response: 20Hz–40kHz. Tested in anechoic chamber per IEC 60268-7.</li>
+            <li id="fn2">"2× bass depth" refers to low-frequency SPL measured at 50Hz, compared to [Previous Model] under identical test conditions.</li>
+            <li id="fn3">Intelligent ANC 3.0 uses dual-microphone hybrid feed-forward/feedback topology. Environmental scanning rate: 200 Hz. Three user-selectable modes plus auto mode.</li>
+            <li id="fn4">Peak noise reduction of -45dB measured at 200Hz using pink noise in laboratory conditions per ANSI S12.42.</li>
+            <li id="fn5">"67% deeper noise cancellation" based on broadband ANC measurement (100Hz–1kHz) comparing [Current Model] vs [Previous Model] under identical laboratory conditions.</li>
+            <li id="fn6">Bone-conduction microphone detects vocal vibrations via jaw contact. AI noise suppression model trained on 100M+ audio samples covering 150+ noise scenarios.</li>
+            <li id="fn7">"3× voice clarity" based on PESQ (Perceptual Evaluation of Speech Quality) score comparison vs [Previous Model] in 65dB ambient noise environment.</li>
+            <li id="fn8">LHDC 5.0 requires compatible source device. Transmission rate up to 900kbps. Dual-device multipoint connection supports simultaneous pairing with 2 Bluetooth devices; seamless switching may require compatible OS.</li>
+            <li id="fn9">96kHz/24bit Hi-Res wireless audio requires LDAC or LHDC codec and compatible source device. Actual audio quality depends on source material and connection stability.</li>
+            <li id="fn10">Weight: 5.2g per earbud (without ear tip). Ear shape analysis based on 10,000 anonymized ear canal measurement data points.</li>
+            <li id="fn11">Total 50-hour battery life = single charge (8hrs ANC on) + charging case (5 additional charges). Measured with AAC codec, ANC off, 50% volume at 25°C. Actual results vary.</li>
+            <li id="fn12">Fast charge: 10-minute USB-C charge provides approximately 4 hours of playback. Tested with ANC off, AAC codec, 50% volume. Full charge: approximately 1.5 hours (earbuds), 2 hours (case).</li>
+            <li id="fn13">Companion app available on iOS 14+ and Android 9+. Features and availability may vary by platform and region. Firmware updates delivered via app.</li>
+            <li id="fn14">IP55 rating tested per IEC 60529 under controlled laboratory conditions. Dust protection: limited ingress permitted. Water protection: low-pressure jets from any direction. Not designed for swimming or submersion.</li>
+            <li id="fn15">Dynaudio co-tuning: acoustic tuning and validation conducted in collaboration with Dynaudio acoustic engineers. Driver units manufactured by [Brand]. Dynaudio does not manufacture the drivers.</li>
+            <li id="fn16">Bluetooth 5.3 with support for LDAC, LHDC 5.0, AAC, and SBC codecs. Effective range: up to 15m (open space). Actual range may vary by environment and interference.</li>
+            <li id="fn17">Red Dot Design Award [Year]. Product evaluated on innovation, functionality, formal quality, and ergonomics.</li>
+            <li id="fn18">Product specifications and availability subject to change without notice. All trademarks are property of their respective owners. LDAC is a trademark of Sony Corporation. Hi-Res Audio is a trademark of Japan Audio Society.</li>
+        </ol>
+    </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+        this.parentElement.classList.toggle('open');
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!--
+  Dante Shokz PPT · retro-bar.html
+  ────────────────────────────────────────────────────────
+  组件：复盘条 / WARNING 条（橙色边框 + 左侧橙色徽章 + 右侧带强调正文）
+  适用：案例页底部一行复盘金句 / 反面案例的"自省"条 / 任何"我的一句话总结"
+  来源：原 deck P09 底部 + P10 底部 WARNING（变体）
+
+  位置：通常放在内容区底部（top:575 左右），全宽 1088
+  来源：原 deck P09
+
+  可改字段：
+    1. 徽章文字（"RETRO · 复盘" / "WARNING · 自我警觉" / "INSIGHT · 洞察"）
+    2. 正文段落（两行内，每行用 ① ② 编号 + 关键词橙色加粗）
+
+  不可改：
+    - 1088×80 全宽
+    - 边色 #FF7A3D 1.5pt
+    - 徽章橙底白字 10pt 等宽
+    - 徽章左侧位置 left:124.63
+    - 文字 left:255 起
+
+  使用方式：
+    - 放在 case 页底部留出一行的位置（top:575）
+    - 一页只用一条 retro-bar，不要叠
+-->
+
+<!-- 复盘条主体 -->
+<div class="shp" style="left:97.21px;top:575.0px;width:1088.0px;height:80px;background:#FFFFFF;border:1.5pt solid #FF7A3D;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+
+<!-- 左侧徽章背景 -->
+<div class="shp" style="left:124.63px;top:603.0px;width:118px;height:23.0px;background:#FF7A3D;display:flex;flex-direction:column;justify-content:center;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp"><br></p>
+</div>
+<!-- 徽章文字 -->
+<div class="shp" style="left:134.53px;top:608.0px;width:100px;height:15.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left"><span style="font-size:10.0pt;color:#FFFFFF;font-weight:700;font-family:'Consolas','Courier New',monospace">RETRO · 复盘</span></p>
+</div>
+
+<!-- 复盘正文（两行 ①② 编号） -->
+<div class="shp" style="left:255.0px;top:585.0px;width:920.0px;height:64.0px;display:flex;flex-direction:column;justify-content:flex-start;padding:2px 4px;box-sizing:border-box;overflow:hidden">
+  <p class="pp" style="text-align:left;line-height:1.5;margin:0">
+    <span style="font-size:10.5pt;color:#FF7A3D;font-weight:700;font-family:'Consolas','Courier New',monospace">① </span><span style="font-size:13.0pt;color:#050505">替换为第一条复盘——</span><span style="font-size:13.0pt;color:#FF7A3D;font-weight:700">关键词橙色</span><span style="font-size:13.0pt;color:#050505">——结论部分</span>
+  </p>
+  <p class="pp" style="text-align:left;line-height:1.5;margin:4px 0 0 0">
+    <span style="font-size:10.5pt;color:#FF7A3D;font-weight:700;font-family:'Consolas','Courier New',monospace">② </span><span style="font-size:13.0pt;color:#FF7A3D;font-weight:700">第二条复盘开头橙色强调</span><span style="font-size:13.0pt;color:#050505">——后续描述</span>
+  </p>
+</div>
+
+<!--
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  变体：WARNING 条（用于反面案例 / 自我警觉）
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  把上面的内容替换为：
+  - 主体 background 改为 #050505 Ink 底
+  - 边色保留 1.5pt #FF7A3D
+  - 加一个橙色 ! 大字（位置 left:124.5, top:572.25, 58.66x58.66）
+  - 文字改为白色 #FFFFFF，关键词保持 #FF7A3D 强调
+  - 徽章文字改为 "WARNING · 自我警觉"
+  参考 example/转正答辩_v3_动画版.html P10 末尾
+-->

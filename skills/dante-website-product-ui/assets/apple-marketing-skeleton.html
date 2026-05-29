@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PRODUCT NAME] — Apple Style Marketing Page</title>
+    <style>
+        :root {
+            --color-bg-dark: #000;
+            --color-bg-dark-alt: #1d1d1f;
+            --color-bg-light: #f5f5f7;
+            --color-bg-white: #fff;
+            --color-text-primary-dark: #f5f5f7;
+            --color-text-primary-light: #1d1d1f;
+            --color-text-secondary-dark: #86868b;
+            --color-text-secondary-light: #6e6e73;
+            --color-link: #2997ff;
+            --color-link-light: #0066cc;
+            --color-footnote: #6e6e73;
+            --color-btn-primary: #0071e3;
+            --color-btn-primary-hover: #0077ed;
+            --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-size-display: clamp(48px, 7vw, 96px);
+            --font-size-h1: clamp(40px, 5vw, 64px);
+            --font-size-h2: clamp(32px, 4vw, 56px);
+            --font-size-h3: clamp(24px, 3vw, 40px);
+            --font-size-h4: clamp(19px, 2vw, 28px);
+            --font-size-body: clamp(17px, 1.5vw, 21px);
+            --font-size-caption: 12px;
+            --font-size-stat: clamp(48px, 6vw, 96px);
+            --max-width-content: 980px;
+            --max-width-text: 700px;
+            --max-width-full: 1440px;
+            --section-gap: clamp(60px, 8vw, 120px);
+            --padding-inline: max(22px, 3vw);
+            --radius-button: 980px;
+            --radius-card: 18px;
+            --transition-fade: 0.6s cubic-bezier(0.28, 0.11, 0.32, 1);
+            --transition-quick: 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--color-text-primary-light); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        .container { max-width: var(--max-width-content); margin: 0 auto; padding: 0 var(--padding-inline); }
+        .container-narrow { max-width: var(--max-width-text); margin: 0 auto; padding: 0 var(--padding-inline); }
+
+        .section--dark { background: var(--color-bg-dark); color: var(--color-text-primary-dark); padding: var(--section-gap) 0; }
+        .section--dark p { color: var(--color-text-secondary-dark); }
+        .section--light { background: var(--color-bg-light); color: var(--color-text-primary-light); padding: var(--section-gap) 0; }
+        .section--light p { color: var(--color-text-secondary-light); }
+        .section--white { background: var(--color-bg-white); color: var(--color-text-primary-light); padding: var(--section-gap) 0; }
+        .section--white p { color: var(--color-text-secondary-light); }
+
+        .btn-primary {
+            display: inline-block; padding: 12px 24px; border-radius: var(--radius-button);
+            background: var(--color-btn-primary); color: #fff; font-size: 17px; font-weight: 400;
+            text-decoration: none; transition: background var(--transition-quick); border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--color-btn-primary-hover); }
+        .link-blue { color: var(--color-link-light); text-decoration: none; font-size: 17px; }
+        .link-blue:hover { text-decoration: underline; }
+        .link-blue::after { content: " >"; }
+        .section--dark .link-blue { color: var(--color-link); }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            background: var(--color-bg-dark); color: var(--color-text-primary-dark); overflow: hidden;
+        }
+        .hero h1 { font-size: var(--font-size-h1); font-weight: 700; margin-bottom: 8px; }
+        .hero-tagline { font-size: var(--font-size-h2); font-weight: 600; color: var(--color-text-secondary-dark); margin-bottom: 40px; }
+        .hero-image {
+            width: 100%; max-width: 800px; aspect-ratio: 4/3;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--color-text-secondary-dark); margin-top: 40px;
+        }
+
+        /* === FEATURE TICKER === */
+        .ticker-list { list-style: none; max-width: var(--max-width-text); margin: 0 auto; }
+        .ticker-list li { font-size: var(--font-size-body); line-height: 1.6; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ticker-list sup { font-size: 0.6em; vertical-align: super; }
+
+        /* === SPLIT LAYOUT === */
+        .split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .split-text h2 { font-size: var(--font-size-h2); font-weight: 600; margin-bottom: 16px; line-height: 1.1; }
+        .split-text h3 { font-size: var(--font-size-h3); font-weight: 600; margin-bottom: 12px; }
+        .split-text p { font-size: var(--font-size-body); line-height: 1.5; margin-bottom: 16px; max-width: var(--max-width-text); }
+        .split-visual {
+            border-radius: var(--radius-card); aspect-ratio: 4/3;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; padding: 24px;
+        }
+        .section--dark .split-visual { color: var(--color-text-secondary-dark); }
+        .section--light .split-visual { background: var(--color-bg-white); color: var(--color-text-secondary-light); }
+
+        /* === DATA CALLOUTS === */
+        .data-callouts { display: flex; justify-content: center; gap: 80px; padding: 48px 0; flex-wrap: wrap; }
+        .callout { text-align: center; }
+        .callout-number { font-size: var(--font-size-stat); font-weight: 700; line-height: 1; }
+        .callout-unit { font-size: 0.4em; font-weight: 600; }
+        .callout-label { font-size: 14px; margin-top: 8px; }
+        .section--dark .callout-label { color: var(--color-text-secondary-dark); }
+        .section--light .callout-label { color: var(--color-text-secondary-light); }
+
+        /* === SERVICE GRID === */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+        .service-card { text-align: center; padding: 32px 20px; }
+        .service-icon { font-size: 32px; margin-bottom: 16px; }
+        .service-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+        .service-card p { font-size: 14px; color: var(--color-text-secondary-light); }
+
+        /* === COMPARE TABLE === */
+        .section-title { text-align: center; font-size: var(--font-size-h2); font-weight: 600; margin-bottom: 48px; }
+        .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .compare-table th, .compare-table td { padding: 16px 20px; text-align: center; border-bottom: 1px solid #e0e0e0; }
+        .compare-table th { font-weight: 600; vertical-align: bottom; padding-bottom: 24px; }
+        .compare-badge { display: block; font-size: 11px; color: var(--color-link-light); margin-bottom: 8px; font-weight: 400; }
+        .compare-stat { font-size: 28px; font-weight: 700; }
+
+        /* === FOOTNOTES === */
+        .footnotes { padding: 40px 0; border-top: 1px solid #e0e0e0; }
+        .footnote-list { padding-left: 20px; max-width: var(--max-width-content); margin: 0 auto; }
+        .footnote-list li { font-size: var(--font-size-caption); color: var(--color-footnote); line-height: 1.5; margin-bottom: 8px; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1068px) {
+            .hero h1 { font-size: 48px; }
+            .hero-tagline { font-size: 36px; }
+        }
+        @media (max-width: 734px) {
+            .split { grid-template-columns: 1fr; gap: 32px; }
+            .data-callouts { gap: 40px; }
+            .service-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================== HERO (full-screen, dark, no CTA) ======================== -->
+<section class="hero">
+    <div class="container" style="position:relative;z-index:2;">
+        <h1>[PRODUCT NAME]</h1>
+        <h2 class="hero-tagline">[Tagline. Remastered.]</h2>
+    </div>
+    <div class="hero-image">[Image: product floating on dark background — cinematic hero shot]</div>
+</section>
+
+<!-- ======================== FEATURE TICKER ======================== -->
+<section class="section--dark">
+    <div class="container-narrow">
+        <ul class="ticker-list">
+            <li>[Quick feature 1 with quantified claim.]<sup>1</sup></li>
+            <li>[Quick feature 2.]</li>
+            <li>[New intelligent feature name.]<sup>2</sup></li>
+            <li>[Design highlight in brief.]</li>
+            <li>[Ecosystem / connectivity highlight.]</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ======================== DEEP-DIVE SECTION 1 (dark) ======================== -->
+<section class="section--dark">
+    <div class="container">
+        <div class="split">
+            <div class="split-text">
+                <h2>[Poetic headline with wordplay.]</h2>
+                <h3>[Technical sub-headline]</h3>
+                <p>[Body paragraph: technical detail wrapped in aspirational narrative. 2-3 sentences, ~50 words.]</p>
+            </div>
+            <div class="split-visual">[Image: product detail close-up]</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== DEEP-DIVE SECTION 2 (light, reversed) ======================== -->
+<section class="section--light">
+    <div class="container">
+        <div class="split" style="direction:rtl;">
+            <div class="split-text" style="direction:ltr;">
+                <h2>[Poetic headline — pun or rhyme.]</h2>
+                <p>[Body paragraph.]</p>
+                <a href="#" class="link-blue">Learn more</a>
+            </div>
+            <div class="split-visual" style="direction:ltr;">[Image: lifestyle or usage context]</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== DEEP-DIVE SECTION 3 (dark, with data callouts) ======================== -->
+<section class="section--dark">
+    <div class="container">
+        <div class="split">
+            <div class="split-text">
+                <h2>[Battery / performance headline.]</h2>
+                <p>[Body text about quantified feature.]</p>
+            </div>
+            <div class="split-visual">[Image]</div>
+        </div>
+        <div class="data-callouts">
+            <div class="callout">
+                <div class="callout-number">XX<span class="callout-unit">hrs</span></div>
+                <div class="callout-label">Listening time<sup>1</sup></div>
+            </div>
+            <div class="callout">
+                <div class="callout-number">X<span class="callout-unit">hrs</span></div>
+                <div class="callout-label">From just X minutes of charge</div>
+            </div>
+            <div class="callout">
+                <div class="callout-number">X.Xx</div>
+                <div class="callout-label">[Performance metric]<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== DEEP-DIVE SECTION 4 (light) ======================== -->
+<section class="section--light">
+    <div class="container">
+        <div class="split">
+            <div class="split-text">
+                <h2>[Comfort / design headline with wordplay.]</h2>
+                <p>[Body paragraph.]</p>
+            </div>
+            <div class="split-visual">[Image]</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== PURCHASE GUIDE ======================== -->
+<section class="section--white">
+    <div class="container">
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">[Icon]</div>
+                <h3>Make them yours.</h3>
+                <p>Personalize your [product] for free.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">[Icon]</div>
+                <h3>Get flexible delivery and easy pickup.</h3>
+                <p>Choose the option that's best for you.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">[Icon]</div>
+                <h3>Pay over time, interest-free.</h3>
+                <p>With Apple Card Monthly Installments.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">[Icon]</div>
+                <h3>Shop live with a Specialist.</h3>
+                <p>Get real-time guidance from an expert.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== COMPARE TABLE ======================== -->
+<section class="section--white">
+    <div class="container">
+        <h2 class="section-title">Compare</h2>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><span class="compare-badge">Currently viewing</span>[CURRENT PRODUCT]</th>
+                    <th>[COMPARISON PRODUCT]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Active Noise Cancellation</td><td>[Value]</td><td>[Value]</td></tr>
+                <tr><td>Battery Life</td><td class="compare-stat">[XX hrs]</td><td>[XX hrs]</td></tr>
+                <tr><td>Spatial Audio</td><td>[Value]</td><td>[Value]</td></tr>
+                <tr><td>Chip</td><td>[Value]</td><td>[Value]</td></tr>
+                <tr><td>Weight</td><td>[XX g]</td><td>[XX g]</td></tr>
+            </tbody>
+        </table>
+        <div style="text-align:center;margin-top:24px;">
+            <a href="#" class="link-blue">Compare all models</a>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== FOOTNOTES ======================== -->
+<section class="footnotes">
+    <div class="container">
+        <ol class="footnote-list">
+            <li id="fn1">[Footnote 1: Testing conditions and disclaimer.]</li>
+            <li id="fn2">[Footnote 2: Feature availability and requirements.]</li>
+        </ol>
+    </div>
+</section>
+
+</body>
+</html>

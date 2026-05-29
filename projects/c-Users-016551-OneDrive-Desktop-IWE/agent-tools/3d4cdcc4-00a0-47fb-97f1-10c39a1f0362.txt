@@ -1,0 +1,799 @@
+USER MANUAL
+Technology for life’s new rhythm
+ELITE 10
+GEN 2
+© 2024 GN Audio A/S. All rights reserved. Jabra® is a 
+trademark of GN Audio A/S. The Bluetooth® word mark and 
+logos are registered trademarks owned by the Bluetooth 
+SIG, Inc. and any use of such marks by GN Audio A/S is under 
+license. 
+Declaration of Conformity can be found on 
+www.jabra.com/doc
+Made in China
+MODEL: OTE180R / OTE180L 
+/ CPB185 
+Rev D
+3
+ENGLISH
+1. Welcome.........................................5
+2. Overview.........................................6
+2.1 Included accessories
+2.2 Optional accessories
+3. How to wear...................................8
+3.1 How to attach the EarGels
+4. How to charge............................ 10
+4.1 Charging the earbuds
+4.2 Fast charge the earbuds
+4.3 Charging the Smart case using USB
+4.4 Charging the Smart case using the Jabra 
+wireless charging pad
+5. What the LEDs mean ............... 14
+6. How to pair.................................. 16
+6.1 Pairing with a mobile device
+6.2 Swift Pair with Windows computer
+6.3 Google Fast Pair with AndroidTM devices
+7. How to use ................................. 22
+7.1 Power the earbuds off/on
+7.2 Music controls
+7.3 Call controls
+7.4 ANC, HearThrough and Voice assistant controls
+7.5 Advanced ANC
+4
+ENGLISH
+7.6 HearThrough
+7.7 Sidetone
+7.8 Automatic volume adjustment
+7.9 Mono earbud use
+7.10 Auto-pause music and calls
+7.11 Sleep mode
+7.12 Spatial Sound, Head Tracking and Stereo 
+Spatializer
+7.13 Audio streaming using the Smart case
+7.14 Bluetooth® LE audio
+7.15 MyControls
+7.16 Multiple call handling
+7.17 Voice assistant
+7.18 Audio notifications
+7.19 Update firmware
+7.20 Reset the earbuds
+8. Applications and firmware 
+update .......................................... 43
+8.1 Jabra Sound+
+9. Support........................................ 44
+9.1 FAQ and technical specifications
+9.2 How to care for your earbuds
+9.3 Replacement accessories
+9.4 Using replacement earbuds
+9.5 Using a replacement Smart case
+5
+ENGLISH
+1. Welcome
+Thank you for using the Jabra Elite 10 Gen 2. 
+We hope you will enjoy it!
+Here are some key features you will benefit 
+from the Jabra Elite 10 Gen 2:
+• Get inside the music. Improved spatial sound 
+& Dolby Atmos experience
+• Rich powerful bass with 10mm speakers
+• Stream spatial sound from in-flight 
+entertainment systems & more
+• Unbeatable all-day comfort with semi-open 
+design
+• Block out noise in the loudest places. Up to 
+2x stronger ANC than Elite 10 previous 
+generation 
+• Crystal-clear calls with 6-mic call technology
+6
+ENGLISH
+2. Overview
+LEFT EARBUD RIGHT EARBUD
+Microphones
+Microphones Microphones
+Left 
+button
+Right 
+button
+Smart case
+Charging port
+Earbuds battery LED
+Smart case battery LED
+Smart case button
+7
+ENGLISH
+2.1 Included accessories
+EarGels 
+L
+XL
+S M
+pre-mounted on 
+the earbuds
+USB-C to 
+USB-C/3.5mm 
+connector cable
+2.2 Optional accessories
+Optional accessories are available at jabra.com/ 
+accessories
+Wireless charging pad
+8
+ENGLISH
+3. How to wear
+Microphone
+Insert each earbud into your ear and ensure the 
+microphones are pointed towards your mouth.
+It is recommended to try all EarGel sizes with 
+sound and ANC on to find the right size for you. 
+Choose the EarGel size that feels comfortable 
+and that seals your ear canal to get the best 
+ANC and audio experience. The medium 
+EarGels are pre-mounted on the earbuds. 
+L XL
+S M
+9
+ENGLISH
+3.1 How to attach the EarGels
+Align the triangle on the EarGel and earbud 
+and firmly press together. To confirm the 
+EarGel is attached correctly, refer to the 
+following images. 
+L R
+L R
+L R
+10 ENGLISH
+4. How to charge
+Get up to 6 hours on a single charge when 
+playing music with ANC on, with a total charge 
+of up to 27 hours with the Smart case. If you use 
+the earbuds without ANC and HearThrough, 
+you’ll get even more battery, with up to 8 hours 
+in the earbuds when playing music, and a total 
+of 36 hours with the Smart case.
+4.1 Charging the earbuds
+Place the earbuds in the Smart case and close 
+the lid. It takes up to 3 hours to fully recharge 
+the earbuds. 
+When the Smart case is opened, the LED inside 
+the Smart case will light up red, yellow or green 
+to indicate the battery status of the earbuds. 
+The LED on the front of the Smart case 
+indicates the battery status of the Smart case.
+11 ENGLISH
+4.2 Fast charge the earbuds
+When the earbuds are at low battery, placing 
+them in the Smart case for 5 minutes will fast 
+charge the earbuds and give up to 1 hour of 
+music time. Fast charging the earbuds requires 
+that the Smart case has a minimum of 30% 
+battery.
+You can see the current battery level of the 
+earbuds and Smart case using the Jabra 
+Sound+ app when the earbuds are connected.
+12 ENGLISH
+4.3Charging the Smart case 
+using USB
+It takes up to 3 hours to fully charge the 
+earbuds and the Smart case using a USB-C 
+charging cable.
+USB-C
+The Smart case uses the standard USB voltage 
+of 5V +- 0.25V. It is not recommended to charge 
+the earbuds using a power supply with a higher 
+voltage.
+13 ENGLISH
+4.4 Charging the Smart case using the 
+Jabra wireless charging pad
+Place the Smart case in the center of the Jabra 
+wireless charging pad. The LED on the Smart 
+case will flash to indicate the Smart case is 
+placed correctly. It takes up to 3 hours to fully 
+charge the earbuds and the Smart case.
+PLACE IN CENTER
+14 ENGLISH
+5. What the LEDs mean
+ High battery
+Medium battery
+Low battery
+Audio streaming activated
+Critically low battery (earbuds not charging)
+Firmware update
+SMART CASE STATUS LED
+EARBUD STATUS LED
+ High battery
+Medium battery
+Low battery
+Resetting
+Pairing
+15 ENGLISH
+High battery
+Medium battery
+Low battery
+Fully charged
+High battery
+Medium battery
+Low battery
+Firmware updating
+ Firmware update error
+ Audio streaming activated
+Firmware updating
+ Firmware update error
+SMART CASE STATUS WITH USB CABLE
+SMART CASE STATUS WITH WIRELESS CHARGING PAD
+When fully charged, the LEDs on the Smart case and 
+wireless charging pad will turn off.
+16 ENGLISH
+6. How to pair
+6.1 Pairing with a mobile device
+USING THE EARBUDS
+3 Sec
+1.Power on the earbuds by removing them 
+from the Smart case. Alternatively, press and 
+hold (2 sec) the Left and Right buttons 
+simultaneously to power the earbuds on.
+2.Wear the earbuds and press and hold (3 sec) 
+the Left and Right buttons simultaneously 
+until you hear the pairing notification. The 
+earbuds will now be ready to pair.
+3.Follow the voice-guided pairing instructions 
+to pair with your mobile device.
+17 ENGLISH
+USING THE SMART CASE
+3 Sec
+1. Open the Smart case and keep the earbuds 
+inside.
+2. Press and hold (3 sec) the Smart case button
+to enter pairing mode. The LED inside the 
+Smart case will flash blue. The earbuds will 
+now be ready to pair.
+3. Go to the Bluetooth menu on your mobile 
+device and select the Jabra Elite 10 Gen 2 
+earbuds from the list. The earbuds will now 
+be paired.
+4. Remove the earbuds from the Smart case. 
+The Jabra Elite 10 Gen 2 earbuds are ready to 
+be used.
+18 ENGLISH
+6.2Swift Pair with Windows computer
+USING THE EARBUDS
+1.Power on the earbuds by removing them 
+from the Smart case. Alternatively, press and 
+hold (2 sec) the Left and Right buttons to 
+power the earbuds on.
+2.Wear the earbuds and press and hold (3 sec) 
+the Left and Right buttons simultaneously 
+until you hear the pairing notification. The 
+earbuds will now be ready to pair with your 
+Windows computer.
+3.Place the earbuds close to your Windows 
+computer (20cm/8in) and select Connect on 
+the Windows notification to start pairing.
+19 ENGLISH
+USING THE SMART CASE
+1.Open the Smart case and keep the earbuds 
+inside.
+2.Press and hold (3 sec) the Smart case button
+to enter pairing mode. The LED inside the 
+Smart case will flash blue. The earbuds will 
+now be ready to pair with your Windows 
+computer.
+3.Place the Smart case close to your Windows 
+computer (20cm/8in) and select Connect on 
+the Windows notification to start pairing.
+4.Remove the earbuds from the Smart case. 
+The Jabra Elite 10 Gen 2 earbuds are ready to 
+be used.
+Note: Swift Pair is available on Windows version 10 and 
+later. It may not be enabled by default.
+20 ENGLISH
+6.3 Google Fast Pair with AndroidTM
+devices
+USING THE EARBUDS
+Ensure the version of your AndroidTM device is 
+6.0 or higher.
+1.Power on the earbuds by removing them 
+from the Smart case. Alternatively, press and 
+hold (2 sec) the Left and Right buttons to 
+power the earbuds on.
+2.Wear the earbuds and press and hold (3 sec) 
+the Left and Right buttons simultaneously 
+until you hear the pairing notification. The 
+earbuds will now be ready to pair with your 
+AndroidTM device.
+3.Place the earbuds close to your AndroidTM
+device. 
+4.Select Connect on the notification to start 
+pairing. A notification on your AndroidTM
+device will tell you that the pairing is 
+successful.
+21 ENGLISH
+USING THE SMART CASE
+1.Open the Smart case and keep the earbuds 
+inside.
+2.Press and hold (3 sec) the Smart case button
+to enter pairing mode. The LED inside the 
+Smart case will flash blue. The earbuds will 
+now be ready to pair with your AndroidTM
+device.
+3.Select Connect on the notification to start 
+pairing. A notification on your AndroidTM 
+device will tell you that the pairing is 
+successful.
+4.Remove the earbuds from the Smart case. 
+The Jabra Elite 10 Gen 2 earbuds are ready to 
+be used.
+* Google and Android are trademarks of Google LLC. 
+22 ENGLISH
+7. How to use 
+Left button Right button
+7.1 Power the earbuds off/on
+To power off the earbuds, place them in the 
+Smart case.
+To power on the earbuds, remove them from 
+the Smart case.
+Alternatively, the earbuds can be manually 
+powered off by pressing the Left and Right 
+buttons on the earbuds simultaneously. To 
+power on, press and hold (2 sec) the Left or 
+Right buttons until you hear a tone in each 
+earbud.
+23 ENGLISH
+7.2 Music controls
+Left earbud Function Right earbud
+Play/pause 
+music
+Press the Right 
+button when not 
+on a call
+Volume up Press and hold 
+the Right button
+Press and hold 
+the Left button Volume down
+Next track
+Double-press 
+the Right button 
+when listening to 
+music
+Restart track or 
+previous track
+Triple-press the 
+Right button 
+when listening to 
+music 
+Repeat to skip to 
+the previous track
+Most functions can be reassigned using 
+MyControls in the Jabra Sound+ app.
+24 ENGLISH
+7.3 Call controls
+Left earbud Function Right earbud
+Press the Left or 
+Right button Answer call Press the Left or Right button
+Double-press 
+the Left or Right 
+button
+End/Reject call
+Double-press 
+the Left or Right 
+button
+Press the Left or 
+Right button
+Mute/unmute 
+microphone
+Press the Left or 
+Right button
+Volume up Press and hold 
+the Right button
+Press and hold the
+Left button Volume down
+Most functions can be reassigned using 
+MyControls in the Jabra Sound+ app.
+25 ENGLISH
+7.4 ANC, HearThrough and Voice 
+assistant controls
+Left earbud Function Right earbud
+Press the Left 
+button when not 
+on a call
+Switch 
+between 
+HearThrough 
+and ANC
+Double-press the 
+Left button when 
+not on a call
+Activate Voice 
+assistant
+Most functions can be reassigned using 
+MyControls in the Jabra Sound+ app.
+To include Off as a Sound mode option, go to 
+Headset settings > General in the Jabra 
+Sound+ app and select HearThrough, ANC & Off
+option.
+26 ENGLISH
+7.5 Advanced ANC
+Advanced ANC automatically reduces the 
+level of surrounding noise, adapts depending 
+on the shape of your ear and placement of 
+the earbuds, and adjusts accordingly in quiet, 
+loud or windy environments to provide an 
+optimal ANC experience. 
+Left button ANC
+Switch 
+between 
+HearThrough 
+and ANC
+Press the Left 
+button when not on 
+a call
+ANC sound mode can also be turned off using 
+the Jabra Sound+ app.
+27 ENGLISH
+7.6 HearThrough
+HearThrough lets you hear surrounding sounds 
+through the earbuds while wearing them. The 
+earbuds automatically adapt in windy 
+environments to ensure an optimal 
+HearThrough experience.
+Left button HearThrough
+Switch between 
+HearThrough 
+and ANC
+Press the Left button 
+when not on a call
+HearThrough sound mode can also be adjusted 
+and turned off using the Jabra Sound+ app.
+28 ENGLISH
+7.7 Sidetone
+Sidetone enables you to hear your own voice 
+when you are on a call. The benefit of Sidetone 
+is that it enables you to determine how loud 
+you are speaking.
+The earbuds automatically adapt in windy 
+environments to ensure an optimal Sidetone 
+experience.
+Sidetone is on by default during calls and can 
+be turned off/on and adjusted using the Jabra 
+Sound+ app. 
+By default, Sidetone cannot be turned off/on 
+using the earbuds. However, it can be added to 
+the earbuds using MyControls in the Jabra 
+Sound+ app.
+7.8 Automatic volume adjustment
+During a call, the volume will gradually increase 
+when going from a quiet environment to a 
+noisy environment. The volume adjustment 
+happens automatically in the earbuds.
+29 ENGLISH
+7.9 Mono earbud use
+The right or left earbud can be used individually 
+for music playback or for calls. To activate 
+mono earbud mode, place the unused earbud 
+into the Smart case. The earbud that is worn 
+will automatically switch to HearThrough.
+Left button Left earbud only
+Switch 
+between 
+HearThrough 
+(default) and 
+ANC
+Press the Left button 
+when listening to 
+music
+Answer call Press the Left button
+End/Reject 
+call
+Double-press the 
+Left button
+Mute/unmute 
+microphone
+Press the Left button 
+when on a call
+Activate Voice 
+assistant
+Double-press the Left 
+button when not on 
+a call
+Adjust volume
+Use the volume 
+controls on the 
+connected mobile 
+device
+30 ENGLISH
+Right button Right earbud only
+Play/pause 
+music
+Press the Right button 
+when listening to 
+music
+Answer call Press the Right button
+End/Reject 
+call
+Double-press the 
+Right button
+Mute/unmute 
+microphone
+Press the Right button 
+when on a call
+Next track
+Double-press the 
+Right button when 
+listening to music
+Restart track 
+or previous 
+track
+Triple-press the Right 
+button when listening 
+to music 
+Repeat to skip to the 
+previous track
+Adjust volume
+Use the volume 
+controls on the 
+connected mobile 
+device
+The left and right earbuds will automatically 
+relink when both are placed in your ear and 
+switch back to the previous sound mode used.
+31 ENGLISH
+7.10 Auto-pause music and calls
+When one of the earbuds is removed from your 
+ear, music will automatically pause.
+To resume the music, return the earbud to your 
+ear within 60 seconds. After 60 seconds, the 
+music can be manually resumed by pressing 
+the Right button.
+Auto-pause music and calls can be turned on/
+off in the Jabra Sound+ app.
+32 ENGLISH
+7.11 Sleep mode
+To conserve battery, the earbuds will 
+automatically power off when they are 
+disconnected from your mobile device for 15 
+minutes and are not in the Smart case, or when 
+not wearing them and they have been inactive 
+for 30 minutes.
+To exit sleep mode, press and hold (2 sec) the 
+button on each earbud. Alternatively, place the 
+earbuds in the Smart case and then remove 
+them from the Smart case.
+Sleep mode can be configured in the Jabra 
+Sound+ app.
+33 ENGLISH
+7.12 Spatial Sound, Head Tracking and 
+Stereo Spatializer
+Spatial Sound uses virtual surround sound in 
+your earbuds to optimize your audio for the 
+most immersive, lifelike sound experience.
+Spatial Sound is off by default and it can be 
+configured using the Jabra Sound+ app. When 
+Spatial Sound is on, it optimizes audio from 
+mobile devices connected via Bluetooth and 
+audio streaming using the Smart case.
+Spatial Sound for media 
+Sound+ 
+app
+Jabra Sound+
+Head Tracking recalibrates the soundscape 
+depending on your head movements to 
+simulate a 360° audio experience.
+Head Tracking can be turned on/off using the 
+Jabra Sound+ app.
+Stereo Spatializer provides a richer and more 
+natural listening experience with added clarity 
+and a wider soundscape when enjoying stereo 
+content.
+34 ENGLISH
+Stereo Spatializer is off by default and it can be 
+configured using the Jabra Sound+ app.
+Stereo Spatializer is not recommended for use 
+with Dolby Atmos content.
+7.13 Audio streaming using the 
+Smart case
+Audio streaming allows you to stream audio 
+from any device to your Jabra Elite 10 Gen 2 
+earbuds.
+1. Plug the Smart case into the device using 
+the cable provided. When plugging into a 
+3.5 mm port, attach the 3.5 mm jack to the 
+USB-C connector on the cable provided and 
+plug it into the device.
+35 ENGLISH
+2. Open the Smart case lid and remove the 
+earbuds.
+3. Press the Smart case button to stream 
+audio from the device to your earbuds. The 
+LED on the Smart case will flash white and 
+you will hear a tone notification in the 
+earbuds.
+4. Press the Smart case button again to stop 
+streaming.
+Check with the device’s manufacturer to 
+confirm that the port you are connected to 
+supports audio output.
+36 ENGLISH
+7.14 Bluetooth® LE audio
+LE audio enhances the performance of 
+standard Bluetooth® audio by providing lower 
+power consumption and hi-fi sound. LE audio 
+introduces AuracastTM for audio sharing with 
+multiple wireless headsets.
+The availability of LE audio may vary by device 
+and may only be supported on selected phone 
+models (Samsung and Google).
+Use LE Audio with your Android phone
+1. Ensure your Android phone is updated to the 
+latest operating system (Android 15 or later).
+2. Update your earbuds to the latest firmware 
+using the Jabra Sound+ app.
+3. Go to the Bluetooth menu on your Android 
+phone, select Jabra Elite 10 Gen 2 from the 
+list and delete the current pairing.
+4. Re-pair your earbuds with your Android 
+phone (refer to section 6.1).
+5. Go to the Bluetooth settings of your Jabra 
+Elite 10 Gen 2 on your Android phone and 
+turn on LE Audio.
+37 ENGLISH
+Use LE Audio with your Windows computer
+1. Ensure your computer is running Windows 
+11 (version 22H2 or later) and has Bluetooth 
+5.2 or later with LE Audio support.
+2. Update your earbuds to the latest firmware 
+using the Jabra Sound+ app.
+3. Go to the Bluetooth menu on your computer, 
+select Jabra Elite 10 Gen 2 from the list and 
+delete the current pairing.
+4. Re-pair your earbuds with your computer 
+(refer to section 6.2).
+38 ENGLISH
+7.15 MyControls
+MyControls is a feature in the Jabra Sound+ 
+app that enables you to reassign most functions 
+to each of the earbud buttons, offering you the 
+flexibility to configure the earbuds precisely to 
+your personal preference.
+By default, the functions listed below cannot 
+be controlled using the earbuds; however, 
+these functions can be added to the earbuds 
+using MyControls in the Jabra Sound+ app.
+• Sidetone on/off
+• Hold current call and answer incoming call
+• Switch between held call and current call
+39 ENGLISH
+7.16 Multiple call handling
+The earbuds can accept and handle multiple 
+calls at the same time.
+Multiple call handling
+End current call and 
+answer incoming call
+Press the
+Left or Right 
+button
+Reject incoming call, 
+when on a call
+Double-press 
+the Left or Right 
+button
+The advanced multiple call functions listed 
+below can be added to the earbuds using 
+MyControls in the Jabra Sound+ app.
+• Hold current call and answer incoming call
+• Switch between held call and current call
+40 ENGLISH
+7.17 Voice assistant
+Left button Voice assistant
+Activate 
+Voice 
+assistant
+Double-press the Left 
+button when not on 
+a call
+Voice assistant settings can be configured 
+using the Jabra Sound+ app.
+7.18 Audio notifications
+The earbuds indicate factory reset, battery 
+level, pairing and Bluetooth connection status 
+using audio notifications. You can select 
+between tone or voice notifications using the 
+Jabra Sound+ app.
+The supported languages are English, French, 
+German, Japanese, Mandarin Chinese and 
+Korean.
+41 ENGLISH
+7.19 Update firmware
+The Jabra Elite 10 Gen 2 can be updated to the 
+latest firmware version using the Jabra Sound+ 
+app. 
+If notifications are enabled in the Jabra Sound+ 
+app, you will receive an automatic notification 
+when a firmware update is available.
+If an error occurs during the firmware update, 
+the LED on the Smart case will slowly flash red. 
+To complete the update, connect the Smart 
+case to a power supply, remove the earbuds 
+from the Smart case and then place the 
+earbuds back in the Smart case and close the 
+lid. The firmware update will restart.
+42 ENGLISH
+7.20 Reset the earbuds
+Resetting the earbuds clears the list of paired 
+devices and resets all settings. 
+1.Place both earbuds in the Smart case.
+2.Press and hold (10 sec) the Left and Right 
+buttons on the earbuds simultaneously until 
+the LED inside the Smart case flashes pink.
+3.Close the lid of the Smart case for 5 seconds to 
+complete the reset.
+10 sec
+5 sec
+The earbuds will need to be re-paired to your 
+mobile device. 
+It is highly important to delete/forget the 
+pairing in the Bluetooth menu on your 
+previously paired device.
+43 ENGLISH
+8. Applications and 
+firmware update
+8.1 Jabra Sound+
+Jabra Sound+ is a mobile application that 
+allows you to configure and update the Jabra 
+Elite 10 Gen 2 based on your needs.
+44 ENGLISH
+9. Support
+9.1 FAQ and technical specifications
+The Jabra Elite 10 Gen 2 FAQ, cerfications and 
+technical specifications are available at jabra.com/
+support
+9.2 How to care for your earbuds
+• Always store the earbuds in the Smart case 
+and safely protected.
+• To prevent the depletion of the battery 
+lifetime or capacity, avoid storing the earbuds 
+in hot or cold environments, such as a closed 
+car in summer, or in winter conditions.
+• It is recommended to store the earbuds 
+between -20°C and 45°C (-4°F and 113°F).
+• Do not store the earbuds for extended 
+periods of time without recharging them 
+(max. three months).
+• If the earbuds or the Smart case become 
+dirty, it is recommended to clean them with a 
+soft, lint-free cloth that has been dampened 
+with clean water.
+• The Smart case uses the standard USB 
+voltage of 5v +- 0.25v. It is not recommended 
+to charge the earbuds using a power supply 
+with a higher voltage.
+• Do not remove the earbud silicone sleeve.
+45 ENGLISH
+9.3 Replacement accessories
+Replacement or additional accessories can be 
+purchased online at jabra.com/accessories 
+Left and right earbud set
+ Smart case EarGels 
+M
+S
+L
+XL
+46 ENGLISH
+Jabra wireless charging pad
+USB-C to USB-C/3.5mm connector cable
+9.4 Using replacement earbuds
+1. Place the replacement earbuds into the 
+Smart case and close the lid. 
+2. Open the Smart case lid and remove the 
+earbuds. 
+3. Wear the earbuds and follow the voice 
+instructions to pair to your mobile device.
+4. Update the earbud firmware using the Jabra 
+Sound+ app.
+47 ENGLISH
+9.5 Using a replacement Smart case
+Before using a replacement Smart case for the 
+first time, it will need to be synced with your 
+current earbuds and charged for 1 hour.
+1. To begin syncing, place your current earbuds 
+inside the replacement Smart case and close 
+the lid for 10 seconds. 
+2. If the LED on the Smart case flashes pink this 
+indicates that the firmware is being updated. 
+3. Wait until the LED stops flashing pink before 
+opening the Smart case.

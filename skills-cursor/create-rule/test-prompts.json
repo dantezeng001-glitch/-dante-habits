@@ -1,0 +1,12 @@
+[
+  {
+    "id": "CR1",
+    "prompt": "帮我在这个仓库里加一条始终生效的 rule，要求所有 Python 变更先跑 pytest，再给我一个 `.mdc` 文件内容。",
+    "expected": "先确认这是全局 rule，然后生成 `.cursor/rules/*.mdc`，frontmatter 含 `alwaysApply: true`，正文简洁且可执行。"
+  },
+  {
+    "id": "CR2",
+    "prompt": "给 React 组件单独加一条 rule，限定在 `src/components/**/*.tsx`，要求 props 必须显式类型化。",
+    "expected": "如果 glob 未完全明确先补问，再生成文件级 rule，frontmatter 使用 `globs` 且 `alwaysApply: false`。"
+  }
+]

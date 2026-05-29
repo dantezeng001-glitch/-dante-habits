@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PRODUCT NAME] — Sony Style Buy Page</title>
+    <style>
+        :root {
+            --color-bg-primary: #000;
+            --color-bg-secondary: #1a1a1a;
+            --color-bg-light: #f5f5f5;
+            --color-bg-white: #fff;
+            --color-text-primary-dark: #fff;
+            --color-text-secondary-dark: #999;
+            --color-text-primary-light: #1a1a1a;
+            --color-text-secondary-light: #666;
+            --color-accent-blue: #0070D2;
+            --color-promo-red: #e74c3c;
+            --color-border-dark: #333;
+            --color-border-light: #e0e0e0;
+            --color-rating: #f5a623;
+            --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --font-size-h1: 24px;
+            --font-size-h2: clamp(32px, 4vw, 40px);
+            --font-size-h3: clamp(24px, 3vw, 28px);
+            --font-size-body: clamp(16px, 1.2vw, 18px);
+            --font-size-price: clamp(28px, 3vw, 36px);
+            --font-size-caption: 13px;
+            --font-size-badge: 12px;
+            --font-size-stat: clamp(48px, 8vw, 80px);
+            --max-width-content: 1200px;
+            --max-width-text: 800px;
+            --padding-inline: max(24px, 4vw);
+            --grid-gap: 60px;
+            --radius-button: 6px;
+            --radius-card: 18px;
+            --radius-badge: 20px;
+            --radius-small: 4px;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            --transition-quick: 0.2s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-family); color: var(--color-text-primary-light); line-height: 1.5; -webkit-font-smoothing: antialiased; background: var(--color-bg-white); }
+        .container { max-width: var(--max-width-content); margin: 0 auto; padding: 0 var(--padding-inline); }
+        sup { font-size: 0.6em; vertical-align: super; }
+
+        .link-sony { color: var(--color-accent-blue); text-decoration: none; font-size: 14px; font-weight: 500; }
+        .link-sony:hover { text-decoration: underline; }
+
+        /* === PURCHASE HERO === */
+        .purchase-hero { background: var(--color-bg-white); padding: 48px 0 60px; }
+        .purchase-panel { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: start; }
+        .gallery-main {
+            aspect-ratio: 1; background: var(--color-bg-light); border-radius: var(--radius-card);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--color-text-secondary-light); margin-bottom: 16px;
+        }
+        .gallery-thumbs { display: flex; gap: 12px; }
+        .thumb {
+            width: 72px; height: 72px; border-radius: var(--radius-small);
+            border: 2px solid transparent; background: var(--color-bg-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; color: var(--color-text-secondary-light); cursor: pointer;
+        }
+        .thumb.active { border-color: var(--color-text-primary-light); }
+
+        .purchase-info h1 { font-size: var(--font-size-h1); font-weight: 700; margin-bottom: 8px; }
+        .purchase-model { font-size: 13px; color: var(--color-text-secondary-light); margin-bottom: 12px; }
+        .purchase-rating { margin-bottom: 16px; }
+        .stars { color: var(--color-rating); font-size: 16px; }
+        .rating-count { font-size: 14px; color: var(--color-accent-blue); margin-left: 8px; }
+        .purchase-price { margin-bottom: 8px; }
+        .price-current { font-size: var(--font-size-price); font-weight: 700; }
+        .price-original { font-size: 18px; color: var(--color-text-secondary-light); text-decoration: line-through; margin-left: 12px; }
+        .price-save { font-size: 16px; color: var(--color-promo-red); font-weight: 600; margin-left: 12px; }
+        .purchase-affirm { font-size: 14px; color: var(--color-text-secondary-light); margin-bottom: 24px; }
+        .purchase-affirm a { color: var(--color-accent-blue); text-decoration: none; }
+        .color-label { font-size: 14px; margin-bottom: 12px; }
+        .color-options { display: flex; gap: 12px; margin-bottom: 32px; }
+        .color-swatch {
+            width: 36px; height: 36px; border-radius: 50%; border: 2px solid transparent;
+            cursor: pointer; outline: none; transition: var(--transition-quick);
+        }
+        .color-swatch.active { border-color: var(--color-text-primary-light); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-text-primary-light); }
+        .btn-add-to-cart {
+            display: block; width: 100%; padding: 16px; font-size: 16px; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            background: var(--color-text-primary-light); color: var(--color-bg-white);
+            border: none; border-radius: var(--radius-button); cursor: pointer;
+            transition: background var(--transition-quick); margin-bottom: 16px;
+        }
+        .btn-add-to-cart:hover { background: #333; }
+        .link-where-to-buy { display: block; text-align: center; font-size: 14px; color: var(--color-accent-blue); text-decoration: none; }
+
+        /* === TAB NAVIGATION === */
+        .tab-nav {
+            display: flex; gap: 0; border-bottom: 1px solid var(--color-border-light);
+            background: var(--color-bg-white); position: sticky; top: 0; z-index: 100;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+        }
+        .tab-nav a {
+            padding: 16px 24px; font-size: 14px; font-weight: 500; white-space: nowrap;
+            color: var(--color-text-secondary-light); text-decoration: none;
+            border-bottom: 2px solid transparent; transition: var(--transition-quick);
+        }
+        .tab-nav a.active { color: var(--color-text-primary-light); border-bottom-color: var(--color-text-primary-light); }
+        .tab-nav a:hover { color: var(--color-text-primary-light); }
+
+        /* === FEATURE BADGES BAR === */
+        .feature-badges-bar { background: var(--color-bg-white); padding: 24px 0; border-bottom: 1px solid var(--color-border-light); }
+        .feature-badges {
+            display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; padding-bottom: 8px;
+        }
+        .feature-badge {
+            flex: 0 0 auto; display: flex; align-items: center; gap: 10px;
+            padding: 10px 20px; background: var(--color-bg-light);
+            border-radius: var(--radius-badge); white-space: nowrap;
+            scroll-snap-align: start; font-size: var(--font-size-badge); font-weight: 500;
+        }
+        .badge-icon { font-size: 18px; flex-shrink: 0; }
+
+        /* === BENEFITS BAR === */
+        .benefits-bar { background: var(--color-bg-light); padding: 16px 0; border-bottom: 1px solid var(--color-border-light); }
+        .benefits { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .benefit { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+        .benefit-icon { font-size: 18px; }
+
+        /* === OFFERS === */
+        .offers-section { padding: 40px 0; border-bottom: 1px solid var(--color-border-light); }
+        .offer-card {
+            display: flex; align-items: center; gap: 20px;
+            padding: 20px; background: var(--color-bg-light); border-radius: var(--radius-card);
+            margin-bottom: 16px;
+        }
+        .offer-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .offer-card p { font-size: 14px; color: var(--color-text-secondary-light); }
+
+        /* === ABOUT SECTION === */
+        .about-section { padding: 60px 0; border-bottom: 1px solid var(--color-border-light); }
+        .about-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+        .about-bullets { list-style: disc; padding-left: 20px; margin-bottom: 16px; }
+        .about-bullets li { font-size: var(--font-size-body); line-height: 1.6; margin-bottom: 8px; color: var(--color-text-secondary-light); }
+        .see-more-btn {
+            background: none; border: none; color: var(--color-accent-blue);
+            font-size: 14px; font-weight: 500; cursor: pointer; padding: 0;
+        }
+
+        /* === FEATURES DARK SECTION === */
+        .features-dark { background: var(--color-bg-primary); color: var(--color-text-primary-dark); padding: 100px 0; }
+        .features-dark p { color: var(--color-text-secondary-dark); }
+        .features-dark h2 { font-size: var(--font-size-h2); font-weight: 700; margin-bottom: 16px; line-height: 1.15; }
+        .features-dark h3 { font-size: var(--font-size-h3); font-weight: 700; margin-bottom: 12px; color: var(--color-text-secondary-dark); }
+
+        .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); align-items: center; }
+        .split-text p { font-size: var(--font-size-body); line-height: 1.6; margin-bottom: 24px; }
+        .split-visual {
+            aspect-ratio: 4/3; border-radius: var(--radius-card);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--color-text-secondary-dark); padding: 24px;
+        }
+
+        .feature-image-full {
+            width: 100%; max-width: 900px; margin: 48px auto 0; aspect-ratio: 16/9;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--color-text-secondary-dark);
+        }
+
+        .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+        .review-card {
+            background: var(--color-bg-secondary); border-radius: var(--radius-card);
+            padding: 32px; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .review-card blockquote {
+            font-size: 18px; font-weight: 400; line-height: 1.5;
+            color: var(--color-text-primary-dark); margin-bottom: 24px; font-style: italic;
+        }
+        .review-card cite { font-size: 14px; color: var(--color-text-secondary-dark); font-style: normal; }
+
+        .stat-row { display: flex; justify-content: center; gap: 80px; padding: 60px 0; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: var(--font-size-stat); font-weight: 700; line-height: 1; color: var(--color-text-primary-dark); }
+        .stat-unit { font-size: 0.4em; font-weight: 600; }
+        .stat-label { font-size: 14px; color: var(--color-text-secondary-dark); margin-top: 8px; }
+
+        /* === SPEC SECTION === */
+        .spec-section { background: var(--color-bg-white); padding: 80px 0; border-bottom: 1px solid var(--color-border-light); }
+        .spec-section h2 { font-size: var(--font-size-h2); font-weight: 700; margin-bottom: 48px; }
+        .spec-groups { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        .spec-group-title {
+            font-size: 18px; font-weight: 700; padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-text-primary-light); margin-bottom: 0;
+        }
+        .spec-table { width: 100%; border-collapse: collapse; }
+        .spec-table td { padding: 14px 0; font-size: 15px; border-bottom: 1px solid var(--color-border-light); vertical-align: top; }
+        .spec-table td:first-child { font-weight: 500; width: 40%; }
+        .spec-table td:last-child { color: var(--color-text-secondary-light); }
+
+        /* === REVIEWS SECTION === */
+        .reviews-section { padding: 60px 0; border-bottom: 1px solid var(--color-border-light); }
+        .reviews-section h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+        .reviews-summary { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
+        .reviews-avg { font-size: 48px; font-weight: 700; }
+        .reviews-meta .stars { font-size: 20px; }
+        .reviews-meta p { font-size: 14px; color: var(--color-text-secondary-light); margin-top: 4px; }
+        .user-review { padding: 24px 0; border-bottom: 1px solid var(--color-border-light); }
+        .user-review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .user-review-header .stars { font-size: 14px; }
+        .user-review-header .review-author { font-size: 14px; font-weight: 600; }
+        .user-review-header .review-date { font-size: 13px; color: var(--color-text-secondary-light); }
+        .user-review h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .user-review p { font-size: 15px; color: var(--color-text-secondary-light); line-height: 1.6; }
+
+        /* === COMPARE SECTION === */
+        .compare-section { background: var(--color-bg-white); padding: 80px 0; border-top: 1px solid var(--color-border-light); }
+        .compare-title { font-size: var(--font-size-h2); font-weight: 700; text-align: center; margin-bottom: 48px; }
+        .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
+        .compare-col { text-align: center; }
+        .compare-product-image {
+            aspect-ratio: 1; background: var(--color-bg-light); border-radius: var(--radius-card);
+            margin-bottom: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--color-text-secondary-light);
+        }
+        .compare-col h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .compare-price { font-size: 16px; color: var(--color-text-secondary-light); margin-bottom: 8px; }
+        .compare-specs-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .compare-specs-table th, .compare-specs-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--color-border-light); }
+        .compare-specs-table th { font-weight: 700; font-size: 15px; padding-bottom: 20px; }
+        .compare-specs-table td:first-child { text-align: left; font-weight: 500; }
+
+        /* === FOOTNOTES === */
+        .footnotes { padding: 40px 0; border-top: 1px solid var(--color-border-light); background: var(--color-bg-white); }
+        .footnote-list { padding-left: 24px; max-width: var(--max-width-content); margin: 0 auto; }
+        .footnote-list li { font-size: 11px; color: var(--color-text-secondary-light); line-height: 1.5; margin-bottom: 6px; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1068px) {
+            .purchase-panel { grid-template-columns: 1fr; }
+            .split { grid-template-columns: 1fr; gap: 32px; }
+            .reviews-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 734px) {
+            .feature-badges { flex-wrap: nowrap; }
+            .benefits { flex-direction: column; align-items: flex-start; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .compare-grid { grid-template-columns: 1fr; }
+            .compare-specs-table { font-size: 12px; }
+            .stat-row { gap: 40px; }
+            .gallery-thumbs { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================== PURCHASE HERO ======================== -->
+<section class="purchase-hero">
+    <div class="container">
+        <div class="purchase-panel">
+            <div class="purchase-gallery">
+                <div class="gallery-main">[Image: product main angle, white background]</div>
+                <div class="gallery-thumbs">
+                    <div class="thumb active">[Thumb 1]</div>
+                    <div class="thumb">[Thumb 2]</div>
+                    <div class="thumb">[Thumb 3]</div>
+                    <div class="thumb">[Thumb 4]</div>
+                </div>
+            </div>
+            <div class="purchase-info">
+                <h1>[PRODUCT FULL NAME] Wireless Noise Canceling Headphones</h1>
+                <div class="purchase-model">Model: [MODEL NUMBER]</div>
+                <div class="purchase-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-count">4.8 (2,847 reviews)</span>
+                </div>
+                <div class="purchase-price">
+                    <span class="price-current">$[PRICE]</span>
+                    <span class="price-original">$[ORIGINAL PRICE]</span>
+                    <span class="price-save">Save $[AMOUNT]</span>
+                </div>
+                <div class="purchase-affirm">
+                    Starting at $[XX]/mo with <strong>Affirm</strong>. <a href="#">Learn more</a>
+                </div>
+                <div class="color-selector">
+                    <p class="color-label">Color: <strong>[Default Color]</strong></p>
+                    <div class="color-options">
+                        <button class="color-swatch active" style="background:#1a1a1a;" aria-label="Black"></button>
+                        <button class="color-swatch" style="background:#c5bfb5;" aria-label="Silver"></button>
+                        <button class="color-swatch" style="background:#2c3e50;" aria-label="Midnight Blue"></button>
+                    </div>
+                </div>
+                <button class="btn-add-to-cart">ADD TO CART</button>
+                <a href="#" class="link-where-to-buy">Where To Buy</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== TAB NAVIGATION ======================== -->
+<nav class="tab-nav">
+    <div class="container" style="display:flex;gap:0;">
+        <a href="#about" class="active">About</a>
+        <a href="#features">Features</a>
+        <a href="#specs">Specs</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#questions">Questions</a>
+        <a href="#support">Support</a>
+        <a href="#warranty">Warranty</a>
+    </div>
+</nav>
+
+<!-- ======================== FEATURE BADGES BAR ======================== -->
+<div class="feature-badges-bar">
+    <div class="container">
+        <div class="feature-badges">
+            <div class="feature-badge"><span class="badge-icon">[🔇]</span><span>Industry-leading NC</span></div>
+            <div class="feature-badge"><span class="badge-icon">[🔊]</span><span>LDAC Hi-Res Audio</span></div>
+            <div class="feature-badge"><span class="badge-icon">[🔋]</span><span>40hr Battery</span></div>
+            <div class="feature-badge"><span class="badge-icon">[🎙]</span><span>Crystal Clear Calls</span></div>
+            <div class="feature-badge"><span class="badge-icon">[📶]</span><span>Multipoint Connect</span></div>
+            <div class="feature-badge"><span class="badge-icon">[⚡]</span><span>V2 Processor</span></div>
+            <div class="feature-badge"><span class="badge-icon">[🎵]</span><span>360 Reality Audio</span></div>
+            <div class="feature-badge"><span class="badge-icon">[💬]</span><span>Speak-to-Chat</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================== BENEFITS BAR ======================== -->
+<div class="benefits-bar">
+    <div class="container">
+        <div class="benefits">
+            <div class="benefit"><span class="benefit-icon">[↩]</span><span>Easy Returns</span></div>
+            <div class="benefit"><span class="benefit-icon">[👤]</span><span>My Sony Rewards</span></div>
+            <div class="benefit"><span class="benefit-icon">[🚚]</span><span>Free Shipping</span></div>
+            <div class="benefit"><span class="benefit-icon">[💳]</span><span>0% APR Financing</span></div>
+            <div class="benefit"><span class="benefit-icon">[%]</span><span>5% Back with Sony Card</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================== OFFERS ======================== -->
+<section class="offers-section">
+    <div class="container">
+        <div class="offer-card">
+            <div>[Icon: trade-in]</div>
+            <div>
+                <h3>Trade In & Save</h3>
+                <p>Get up to $[XX] credit when you trade in eligible headphones. <a href="#" class="link-sony">Learn more</a></p>
+            </div>
+        </div>
+        <div class="offer-card">
+            <div>[Icon: music]</div>
+            <div>
+                <h3>3 Months Free Spotify Premium</h3>
+                <p>Included with your purchase. New subscribers only. <a href="#" class="link-sony">See details</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== ABOUT THIS ITEM ======================== -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2>About This Item</h2>
+        <ul class="about-bullets">
+            <li>[Core benefit 1: Industry-leading noise canceling powered by the Integrated Processor V2 — blocks more ambient sound than any previous Sony headphone.]<sup>1</sup></li>
+            <li>[Core benefit 2: Exceptional sound quality with a custom 40mm driver and support for LDAC Hi-Res Audio — hear every detail the artist intended.]</li>
+            <li>[Core benefit 3: Up to 40 hours of battery life with NC on, and 3 hours of playback from just 5 minutes of quick charging.]<sup>2</sup></li>
+        </ul>
+        <button class="see-more-btn">See More</button>
+    </div>
+</section>
+
+<!-- ======================== FEATURES (dark embedded marketing) ======================== -->
+<section class="features-dark" id="features">
+    <div class="container">
+
+        <!-- Deep-Dive 1: NC -->
+        <div style="text-align:center;margin-bottom:100px;">
+            <h2>[Silence the world around you.]</h2>
+            <p style="max-width:var(--max-width-text);margin:16px auto 48px;">
+                [Technical body: the V2 processor, eight microphones, real-time adaptation.
+                Describe the specific noise-canceling improvement and user benefit.]<sup>1</sup>
+            </p>
+            <div class="feature-image-full">[Image: close-up of ear cup microphone array]</div>
+            <div class="stat-row">
+                <div class="stat-item">
+                    <div class="stat-number">7x</div>
+                    <div class="stat-label">faster ambient sensing vs. [PREDECESSOR]<sup>3</sup></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deep-Dive 2: Sound Quality -->
+        <div class="split" style="margin-bottom:100px;">
+            <div class="split-text">
+                <h2>[Sound that moves you.]</h2>
+                <h3>[Custom 40mm driver unit]</h3>
+                <p>
+                    [Technical body: describe the new driver, diaphragm material,
+                    frequency response, LDAC Hi-Res Audio support. Connect to
+                    listening experience — deeper bass, cleaner highs, wider soundstage.]
+                </p>
+            </div>
+            <div class="split-visual">[Image: driver unit detail or product side angle]</div>
+        </div>
+
+        <!-- Deep-Dive 3: Battery -->
+        <div style="text-align:center;margin-bottom:100px;">
+            <h2>[Power that lasts.]</h2>
+            <div class="stat-row">
+                <div class="stat-item">
+                    <div class="stat-number">40<span class="stat-unit">hrs</span></div>
+                    <div class="stat-label">Battery life with NC on<sup>2</sup></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3<span class="stat-unit">hrs</span></div>
+                    <div class="stat-label">From 5 min quick charge</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50<span class="stat-unit">hrs</span></div>
+                    <div class="stat-label">Battery life with NC off<sup>4</sup></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Reviews -->
+        <h3 style="font-size:var(--font-size-h3);font-weight:700;text-align:center;margin-bottom:48px;color:var(--color-text-primary-dark);">What the experts say</h3>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <blockquote>"[Expert review quote about noise canceling — 1-2 sentences.]"</blockquote>
+                <cite>— [Publication], [Year]</cite>
+            </div>
+            <div class="review-card">
+                <blockquote>"[Expert review quote about sound quality — 1-2 sentences.]"</blockquote>
+                <cite>— [Publication], [Year]</cite>
+            </div>
+            <div class="review-card">
+                <blockquote>"[Expert review quote about overall product — 1-2 sentences.]"</blockquote>
+                <cite>— [Publication], [Year]</cite>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================== SPECIFICATIONS ======================== -->
+<section class="spec-section" id="specs">
+    <div class="container">
+        <h2>Specifications</h2>
+        <div class="spec-groups">
+            <div class="spec-group">
+                <h3 class="spec-group-title">Size & Weight</h3>
+                <table class="spec-table">
+                    <tr><td>Weight</td><td>[Approx. XXX g (XX.XX oz)]</td></tr>
+                    <tr><td>Driver Unit</td><td>[XX mm, dome type (CCAW Voice coil)]</td></tr>
+                    <tr><td>Frequency Response</td><td>[4 Hz – 40,000 Hz (LDAC)]</td></tr>
+                </table>
+            </div>
+            <div class="spec-group">
+                <h3 class="spec-group-title">General</h3>
+                <table class="spec-table">
+                    <tr><td>Wearing Style</td><td>[Over-ear (Closed)]</td></tr>
+                    <tr><td>Noise Canceling</td><td>[Yes (Integrated Processor V2)]</td></tr>
+                    <tr><td>Ambient Sound Mode</td><td>[Yes (20-level adjustment)]</td></tr>
+                    <tr><td>Speak-to-Chat</td><td>[Yes]</td></tr>
+                    <tr><td>Adaptive Sound Control</td><td>[Yes]</td></tr>
+                </table>
+            </div>
+            <div class="spec-group">
+                <h3 class="spec-group-title">Battery</h3>
+                <table class="spec-table">
+                    <tr><td>Battery Life (NC ON)</td><td>[Up to XX hours]<sup>2</sup></td></tr>
+                    <tr><td>Battery Life (NC OFF)</td><td>[Up to XX hours]<sup>4</sup></td></tr>
+                    <tr><td>Charging Time</td><td>[Approx. X.X hours (full charge)]</td></tr>
+                    <tr><td>Quick Charge</td><td>[X min charge = X hours playback]</td></tr>
+                    <tr><td>Charging Port</td><td>[USB Type-C]</td></tr>
+                </table>
+            </div>
+            <div class="spec-group">
+                <h3 class="spec-group-title">Bluetooth</h3>
+                <table class="spec-table">
+                    <tr><td>Version</td><td>[Bluetooth X.X]</td></tr>
+                    <tr><td>Supported Codecs</td><td>[SBC, AAC, LDAC, LC3]</td></tr>
+                    <tr><td>Multipoint</td><td>[Yes (X devices)]</td></tr>
+                    <tr><td>Range</td><td>[Approx. XX m / XX ft (open line of sight)]</td></tr>
+                    <tr><td>Profiles</td><td>[A2DP, AVRCP, HFP, HSP]</td></tr>
+                </table>
+            </div>
+            <div class="spec-group">
+                <h3 class="spec-group-title">Noise Canceling</h3>
+                <table class="spec-table">
+                    <tr><td>Processor</td><td>[Integrated Processor V2]</td></tr>
+                    <tr><td>Microphones</td><td>[X (feed-forward + feed-back)]</td></tr>
+                    <tr><td>NC Modes</td><td>[Auto, Manual (20 levels), Off]</td></tr>
+                    <tr><td>Wind Noise Reduction</td><td>[Yes]</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== REVIEWS & QUESTIONS ======================== -->
+<section class="reviews-section" id="reviews">
+    <div class="container">
+        <h2>Reviews & Questions</h2>
+        <div class="reviews-summary">
+            <div class="reviews-avg">[X.X]</div>
+            <div class="reviews-meta">
+                <div class="stars">★★★★★</div>
+                <p>[X,XXX] ratings</p>
+            </div>
+        </div>
+        <div class="user-review">
+            <div class="user-review-header">
+                <span class="stars">★★★★★</span>
+                <span class="review-author">[Reviewer Name]</span>
+                <span class="review-date">[Date]</span>
+            </div>
+            <h4>[Review Title]</h4>
+            <p>[Review body text — 2-4 sentences describing user experience with the product.]</p>
+        </div>
+        <div class="user-review">
+            <div class="user-review-header">
+                <span class="stars">★★★★☆</span>
+                <span class="review-author">[Reviewer Name]</span>
+                <span class="review-date">[Date]</span>
+            </div>
+            <h4>[Review Title]</h4>
+            <p>[Review body text — 2-4 sentences.]</p>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== COMPARE MODELS ======================== -->
+<section class="compare-section">
+    <div class="container">
+        <h2 class="compare-title">Compare Models</h2>
+        <div class="compare-grid">
+            <div class="compare-col">
+                <div class="compare-product-image">[Image: CURRENT PRODUCT]</div>
+                <h3>[CURRENT MODEL]</h3>
+                <p class="compare-price">$[PRICE]</p>
+                <a href="#" class="link-sony">Learn More</a>
+            </div>
+            <div class="compare-col">
+                <div class="compare-product-image">[Image: PREVIOUS MODEL]</div>
+                <h3>[PREVIOUS MODEL]</h3>
+                <p class="compare-price">$[PRICE]</p>
+                <a href="#" class="link-sony">Learn More</a>
+            </div>
+            <div class="compare-col">
+                <div class="compare-product-image">[Image: RELATED MODEL]</div>
+                <h3>[RELATED MODEL]</h3>
+                <p class="compare-price">$[PRICE]</p>
+                <a href="#" class="link-sony">Learn More</a>
+            </div>
+        </div>
+        <table class="compare-specs-table">
+            <thead><tr><th></th><th>[MODEL 1]</th><th>[MODEL 2]</th><th>[MODEL 3]</th></tr></thead>
+            <tbody>
+                <tr><td>Type</td><td>[Over-ear]</td><td>[Over-ear]</td><td>[In-ear]</td></tr>
+                <tr><td>Noise Canceling</td><td>[Industry Leading]</td><td>[Excellent]</td><td>[Industry Leading]</td></tr>
+                <tr><td>Battery Life</td><td>[XX hrs]</td><td>[XX hrs]</td><td>[X + XX hrs]</td></tr>
+                <tr><td>Driver</td><td>[XX mm]</td><td>[XX mm]</td><td>[X.X mm]</td></tr>
+                <tr><td>Bluetooth</td><td>[X.X]</td><td>[X.X]</td><td>[X.X]</td></tr>
+                <tr><td>Multipoint</td><td>[Yes]</td><td>[Yes]</td><td>[Yes]</td></tr>
+                <tr><td>Quick Charge</td><td>[X min → X hrs]</td><td>[X min → X hrs]</td><td>[X min → X hrs]</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ======================== FOOTNOTES (30+) ======================== -->
+<section class="footnotes">
+    <div class="container">
+        <ol class="footnote-list">
+            <li id="fn1">[Noise canceling performance compared to [PREDECESSOR]. Based on internal Sony testing conducted in [Month Year] using [test methodology]. Actual results may vary depending on environmental conditions and individual ear shape.]</li>
+            <li id="fn2">[Battery life (NC ON) measured with [codec] codec, DSEE off, at moderate volume (~[XX] dB). Actual results may vary depending on content played, device settings, usage conditions, and environmental factors.]</li>
+            <li id="fn3">[Ambient sound sensing speed compared to [PREDECESSOR]. Based on internal Sony testing measuring processing latency under controlled conditions.]</li>
+            <li id="fn4">[Battery life (NC OFF) measured with SBC codec at moderate volume. Actual battery life may be shorter depending on settings and usage.]</li>
+            <li id="fn5">[LDAC requires compatible source device. 990 kbps transmission rate requires LDAC-compatible device and a connection that supports the bitrate.]</li>
+            <li id="fn6">[Quick charge provides approximately [X] hours of playback from [X] minutes of USB Type-C charging. Actual results may vary depending on conditions.]</li>
+            <li id="fn7">[Multipoint connection supports up to [X] devices simultaneously. Some features may be limited during multipoint use.]</li>
+            <li id="fn8">[Adaptive Sound Control requires Sony Headphones Connect app (available on iOS 16 / Android 9 and later). Features may vary by device.]</li>
+            <li id="fn9">[360 Reality Audio requires compatible streaming service and content. Available on select services. Ear analysis via Sony Headphones Connect app recommended for optimal experience.]</li>
+            <li id="fn10">[Speak-to-Chat feature activates when user's voice is detected. May activate in noisy environments with voice-like sounds. Sensitivity can be adjusted in app.]</li>
+            <li id="fn11">[Bluetooth range is approximate. Actual range may vary depending on obstacles, interference, and device compatibility.]</li>
+            <li id="fn12">[Weight specification is approximate and may vary by color option.]</li>
+            <li id="fn13">[Frequency response of [X Hz – XX,000 Hz] achieved via LDAC connection. Standard Bluetooth connection frequency response may differ.]</li>
+            <li id="fn14">[Google Fast Pair requires Android 6.0+ and Google Play services. Feature availability may vary by region.]</li>
+            <li id="fn15">[Microsoft Swift Pair requires Windows 10 version 1803 or later.]</li>
+            <li id="fn16">[Find My Device feature requires compatible Find My network. Available on select platforms.]</li>
+            <li id="fn17">[USB audio requires USB Type-C to USB Type-C cable (included). Hi-Res Audio via USB requires compatible source.]</li>
+            <li id="fn18">[Wearing detection uses [sensor type]. Auto-pause/resume may not function in all use cases.]</li>
+            <li id="fn19">[Voice assistant availability depends on device and region. Not all voice assistants supported in all markets.]</li>
+            <li id="fn20">[Touch control customization available via Sony Headphones Connect app. Default gestures may vary.]</li>
+            <li id="fn21">[NFC one-touch connection requires NFC-enabled device. Compatible with Android devices.]</li>
+            <li id="fn22">[Audio codec priority: LDAC > AAC > SBC. Actual codec used depends on source device capabilities.]</li>
+            <li id="fn23">[Noise canceling optimizer adjusts NC performance based on atmospheric pressure and wearing conditions. Requires app activation.]</li>
+            <li id="fn24">[Equalizer settings available in Sony Headphones Connect app. Custom EQ supports [X]-band adjustment.]</li>
+            <li id="fn25">[DSEE Extreme upscaling applies to compressed audio sources. Effectiveness varies by source quality and codec.]</li>
+            <li id="fn26">[Precise Voice Pickup Technology uses [X] beam-forming microphones and AI-based noise reduction for voice calls.]</li>
+            <li id="fn27">[Foldable/swivel design for compact storage. Carrying case included. Dimensions when folded: [L × W × H].]</li>
+            <li id="fn28">[Compatible with Sony Headphones Connect app version [X.X] or later. App available free on iOS App Store and Google Play.]</li>
+            <li id="fn29">[Product color availability may vary by region and retailer. Not all colors available at all retailers.]</li>
+            <li id="fn30">[Specifications and features subject to change without notice. Visit sony.com for the most current information.]</li>
+            <li id="fn31">[All trademarks are the property of their respective owners. LDAC is a trademark of Sony Group Corporation.]</li>
+            <li id="fn32">[Affirm financing subject to credit approval. Monthly payment amounts shown are estimates. See affirm.com for details.]</li>
+        </ol>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Solution Router"
+  short_description: "Find the right AI tool path for a user's real task."
+  default_prompt: "Use this skill to ask me one question at a time until you understand my real need with 95% confidence, then recommend the simplest suitable AI tool or tool combination: AI Chat, Skill, Workflow, Knowledge Base/RAG, AI browser agent, or AI coding agent. Generate the concrete prompt/spec/workflow/RAG plan/handoff I need."

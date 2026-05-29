@@ -1,0 +1,417 @@
+Head tracker HID protocol | Android Open Source Project
+
+# Head tracker HID protocol
+
+The head tracker human interface device (HID) protocol, available for devices running Android 13 and higher, allows for a head-tracking device to be connected to an Android device through USB or Bluetooth and be exposed to the Android framework and apps through the [sensors](https://source.android.com/docs/core/interaction/sensors) framework. This protocol is used for controlling an audio virtualizer effect (3D audio). This page uses the terms device and host in their Bluetooth sense, where device means the head-tracking device and host means the Android host.
+
+Device manufacturers must configure their Android devices to enable support for the head tracker HID protocol. For more detailed information about configuration, see the [Dynamic Sensors README](https://cs.android.com/android/platform/superproject/+/android-latest-release:hardware/libhardware/modules/sensors/dynamic_sensor/README.md).
+
+This page assumes familiarity with the following resources:
+
+- [Device Class Definition for HID](https://www.usb.org/sites/default/files/hid1_11.pdf)
+- [HID Usage Tables for USB](https://www.usb.org/sites/default/files/hut1_22.pdf)
+- [HID Sensor Usages](https://www.usb.org/sites/default/files/hutrr39b_0.pdf)
+
+## Top-level structure
+
+The Android framework identifies the head tracker device as a HID device.
+
+For a complete example of a valid HID descriptor, see Appendix 1: Example of a HID Descriptor.
+
+At the top level, the head tracker device is an app collection with the`Sensors` page (`0x20`) and the`Other: Custom` usage (`0xE1`). Inside this collection are several data fields (inputs) and properties (features).
+
+## Properties and data fields
+
+This section describes the properties and data fields in an application collection of a head tracker device.
+
+### Property: Sensor Description (0x0308)
+
+The Sensor Description (`0x0308`) property is a read-only ASCII (8-bit) string property that must contain the following values:
+
+Head tracker version 1.0:
+
+```
+#AndroidHeadTracker#1.0
+
+```
+
+Head tracker version 2.0 (available in Android 15 or higher), which includes support for LE audio:
+
+```
+#AndroidHeadTracker#2.0#x
+
+```
+
+The`x` is an integer (`1`,`2`,`3`) indicating the support transport:
+
+- 1: ACL
+- 2: ISO
+- 3: ACL + ISO
+
+No null-terminator is expected, meaning that the total size of this property is 23 8-bit characters for version 1.0.
+
+This property serves as a discriminator to avoid collisions with other custom sensors.
+
+### Property: Persistent Unique ID (0x0302)
+
+The Persistent Unique ID (`0x0302`) property is a read-only array of 16 elements, 8 bit each (total 128 bit). No null terminator is expected. This property is optional.
+
+This property allows head-tracking devices that are integrated in audio devices to reference the audio device that they're attached to. The following schemes are supported.
+
+#### Standalone head tracker
+
+If the Persistent Unique ID (`0x0302`) property doesn't exist or is set to all zeros, it means that the head tracker device isn't permanently attached to an audio device and can be used separately, for example, by letting the user manually associate the head tracker device with a separate audio device.
+
+#### Reference using Bluetooth MAC address
+
+| Octet | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Value | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | B | T | Bluetooth MAC |
+
+In this scheme, the first 8 octets must be`0`, octets 8 and 9 must contain the ASCII values`B` and`T` respectively, and the following 6 octets are interpreted as a Bluetooth MAC address, assuming the head tracker device applies to any audio device having this MAC address. This address must be the identity address, even if the device uses a random MAC address to establish connections. Dual-mode devices connecting over Bluetooth classic (v1.0 HID format) and Bluetooth LE (v2.0 HID format) must expose two HID descriptors with the same identity address. Dual-mode devices with separated left and right devices must expose Bluetooth LE HID using the primary dual mode device instead of the LE-only secondary device.
+
+#### Reference using UUID
+
+Whenever the most significant bit (MSB) of octet 8 is set (`≥0x80`), the field is interpreted as a UUID, as specified in [RFC-4122](https://datatracker.ietf.org/doc/html/rfc4122). The corresponding audio device provides the same UUID, which is registered on the Android framework, through an unspecified mechanism that is specific to the type of transport used.
+
+### Property: Reporting State (0x0316)
+
+The Reporting State (`0x0316`) property is a read/write property that has the standard semantics as defined in the HID specification. The host uses this property to indicate to the device which events to report. Only the values No Events (`0x0840`) and All Events (`0x0841`) are used.
+
+The initial value for this field must be No Events and it must never be modified by the device, only by the host.
+
+### Property: Power State (0x0319)
+
+The Power State (`0x0319`) property is a read/write property that has the standard semantics as defined in the HID specification. The host uses this property to indicate to the device which power state it must be in. Only the values Full Power (`0x0851`) and Power Off (`0x0855`) are used.
+
+The initial value for this field is determined by the device and must never be modified by the device, only by the host.
+
+### Property: Report Interval (0x030E)
+
+The Report Interval (`0x030E`) property is a read/write property that has the standard semantics as defined in the HID specification. The host uses this property to indicate to the device how often to report its data readings. Units are seconds. The valid range for this value is determined by the device and described using the Physical Min/Max mechanism. At least 50 Hz reporting rate must be supported, and the recommended maximum reporting rate is 100 Hz. Therefore, the minimum report interval must be less than or equal to 20 ms, and is recommended to be greater than or equal to 10 ms.
+
+### Property: Vendor-reserved LE Transport (0xF410)
+
+The Vendor-reserved LE Transport (`0xF410`) property is a read/write property that has the standard semantics as defined in the HID specification. The host uses this property to indicate the selected transport (ACL or ISO). Only the values ACL (`0xF800`) and ISO (`0xF801`) are used, and both must be included in the logical collection.
+
+This property is configured prior to the power or reporting states.
+
+### Data field: Custom Value 1 (0x0544)
+
+The Custom Value 1 (`0x0544`) field is an input field used for reporting the actual head-tracking information. It's a 3-element array, interpreted according to the normal HID rules for physical values as specified in section 6.2.2.7 of the HID specification. The valid range for each element is [-π, π] rad. Units are always radians.
+
+The elements are interpreted as:`[rx, ry, rz]`, such that`[rx, ry, rz]` is a [rotation vector](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation#Rotation_vector), representing the transform from the reference frame to the head frame. Magnitude must be in the [0..π] range.
+
+The reference frame is arbitrary, but it's generally fixed and must be right handed. A small amount of drift is acceptable. The head axes are:
+
+- X from left ear to right
+- Y from the back of the head to the nose (back to front)
+- Z from the neck to the top of the head
+
+### Data field: Custom Value 2 (0x0545)
+
+The Custom Value 2 (`0x0545`) field is an input field used for reporting the actual head-tracking information. It's a 3-element fixed-point array, interpreted according to the normal HID rules for physical values. Units are always radians/second.
+
+The elements are interpreted as:`[vx, vy, vz]`, such that`[vx, vy, vz]` is a [rotation vector](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation#Rotation_vector), representing the angular velocity of the head frame (relative to itself).
+
+### Data field: Custom Value 3 (0x0546)
+
+The Custom Value 3 (`0x0546`) field is an input field used for tracking discontinuities in the reference frame. It's a scalar integer 8 bit in size. It must be incremented (with wraparound) by the device every time the frame of reference is changed, for example, if an orientation filter algorithm used for determining the orientation had its state reset. This value is interpreted according to the normal HID rules for physical values. However, the physical value and units don’t matter. The only information relevant to the host is a changed value. To avoid numeric issues related to loss of precision while converting from logical to physical units, it's recommended to set the values for physical min, physical max, and unit exponent to zero for this field.
+
+## Report structure
+
+The grouping of properties into reports (by assignment of report IDs) is flexible. For efficiency, we recommend separating the read-only properties from the read/write properties.
+
+For the data fields, the Custom Value 1, 2, and 3 fields must be in the same report and be in only one report for a given device (app collection).
+
+## Send input reports
+
+The device must periodically and asynchronously (through HID INPUT messages) send input reports when all these conditions are met:
+
+- The Power State property is set to Full Power.
+- The Reporting State property is set to All Events.
+- The Reporting Interval property is non-zero.
+
+The Reporting Interval property determines how often to send the reports. When any of the conditions above isn't met, the device must not send any reports.
+
+## Forward and backward compatibility
+
+The head tracker HID protocol uses a versioning scheme that allows for updates, while allowing interoperability between a host and a device that use different versions of the protocol. Versions for the protocol are identified by two numbers, major and minor, which have distinct semantics as described in the following sections.
+
+The versions supported by a device can be determined by examining its Sensor Description (`0x0308`) property.
+
+### Minor version compatibility
+
+Changes to the minor version are backward compatible with earlier minor versions that are based on the same major version. In updates to the minor version, the host ignores additional data fields and properties. For example, a device using protocol version 1.6 is compatible with a host that supports protocol version 1.x, including version 1.5.
+
+### Major version compatibility
+
+Non-backward-compatible changes are allowed for changes to major versions. To support multiple major versions for interoperability with old and new hosts, devices can specify multiple app collections in their report descriptors. For example:
+
+```
+const unsigned char ReportDescriptor[] = {
+    HID_USAGE_PAGE_SENSOR,
+    HID_USAGE_SENSOR_TYPE_OTHER_CUSTOM,
+
+    HID_COLLECTION(HID_APPLICATION),
+        // Feature report 2 (read-only).
+        HID_REPORT_ID(2),
+
+        // Magic value: "#AndroidHeadTracker#1.5"
+        HID_USAGE_SENSOR_PROPERTY_SENSOR_DESCRIPTION,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(23),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+      ...
+
+    HID_END_COLLECTION,
+
+    HID_COLLECTION(HID_APPLICATION),
+        // Feature report 12 (read-only).
+        HID_REPORT_ID(12),
+
+        // Magic value: "#AndroidHeadTracker#2.4"
+        HID_USAGE_SENSOR_PROPERTY_SENSOR_DESCRIPTION,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(23),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+      ...
+
+    HID_END_COLLECTION,
+};
+
+```
+
+In this case, the host can enumerate all the different app collections advertised by the device, examining their Sensor Description property to determine the protocol versions that they each implement, then picking the latest protocol version that the host supports. When chosen, the host works with the single protocol that was chosen for the lifetime of the device connection.
+
+## Appendix: Example of a HID descriptor
+
+The following example illustrates a typical valid HID descriptor. It uses the commonly used C macros, provided in [HID Sensor Usages](https://www.usb.org/sites/default/files/hutrr39b_0.pdf)(section 4.1).
+
+```
+const unsigned char ReportDescriptor[] = {
+    HID_USAGE_PAGE_SENSOR,
+    HID_USAGE_SENSOR_TYPE_OTHER_CUSTOM,
+    HID_COLLECTION(HID_APPLICATION),
+        // Feature report 2 (read-only).
+        HID_REPORT_ID(2),
+
+        // Magic value: "#AndroidHeadTracker#1.0"
+        HID_USAGE_SENSOR_PROPERTY_SENSOR_DESCRIPTION,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(23),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+        // UUID.
+        HID_USAGE_SENSOR_PROPERTY_PERSISTENT_UNIQUE_ID,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(16),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+        // Feature report 1 (read/write).
+        HID_REPORT_ID(1),
+
+        // 1-bit on/off reporting state.
+        HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(1),
+        HID_REPORT_SIZE(1),
+        HID_REPORT_COUNT(1),
+        HID_COLLECTION(HID_LOGICAL),
+            HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE_NO_EVENTS,
+            HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE_ALL_EVENTS,
+            HID_FEATURE(HID_DATA_ARR_ABS),
+        HID_END_COLLECTION,
+
+        // 1-bit on/off power state.
+        HID_USAGE_SENSOR_PROPERTY_POWER_STATE,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(1),
+        HID_REPORT_SIZE(1),
+        HID_REPORT_COUNT(1),
+        HID_COLLECTION(HID_LOGICAL),
+            HID_USAGE_SENSOR_PROPERTY_POWER_STATE_D4_POWER_OFF,
+            HID_USAGE_SENSOR_PROPERTY_POWER_STATE_D0_FULL_POWER,
+            HID_FEATURE(HID_DATA_ARR_ABS),
+        HID_END_COLLECTION,
+
+        // 6-bit reporting interval, with values [0x00..0x3F] corresponding to [10ms..100ms].
+        HID_USAGE_SENSOR_PROPERTY_REPORT_INTERVAL,
+        HID_LOGICAL_MIN_8(0x00),
+        HID_LOGICAL_MAX_8(0x3F),
+        HID_PHYSICAL_MIN_8(10),
+        HID_PHYSICAL_MAX_8(100),
+        HID_REPORT_SIZE(6),
+        HID_REPORT_COUNT(1),
+        HID_USAGE_SENSOR_UNITS_SECOND,
+        HID_UNIT_EXPONENT(0xD),  // 10^-3
+        HID_FEATURE(HID_DATA_VAR_ABS),
+
+        // Input report 1
+
+        // Orientation as rotation vector (scaled to [-pi..pi] rad).
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_1,
+        HID_LOGICAL_MIN_16(0x01, 0x80), // LOGICAL_MINIMUM (-32767)
+        HID_LOGICAL_MAX_16(0xFF, 0x7F), // LOGICAL_MAXIMUM (32767)
+        HID_PHYSICAL_MIN_32(0x60, 0x4F, 0x46, 0xED),  // -314159265
+        HID_PHYSICAL_MAX_32(0xA1, 0xB0, 0xB9, 0x12),  // 314159265
+        HID_UNIT_EXPONENT(0x08),  // 10^-8
+        HID_REPORT_SIZE(16),
+        HID_REPORT_COUNT(3),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+        // Angular velocity as rotation vector (scaled to [-32..32] rad/sec).
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_2,
+        HID_LOGICAL_MIN_16(0x01, 0x80), // LOGICAL_MINIMUM (-32767)
+        HID_LOGICAL_MAX_16(0xFF, 0x7F), // LOGICAL_MAXIMUM (32767)
+        HID_PHYSICAL_MIN_8(0xE0),
+        HID_PHYSICAL_MAX_8(0x20),
+        HID_UNIT_EXPONENT(0x00),  // 10^0
+        HID_REPORT_SIZE(16),
+        HID_REPORT_COUNT(3),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+        // Reference frame reset counter.
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_3,
+        HID_LOGICAL_MIN_16(0x00, 0x00), // LOGICAL_MINIMUM (0)
+        HID_LOGICAL_MAX_16(0xFF, 0x00), // LOGICAL_MAXIMUM (255)
+        HID_PHYSICAL_MIN_8(0x00),
+        HID_PHYSICAL_MAX_8(0x00),
+        HID_UNIT_EXPONENT(0x00),  // 10^0
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(1),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+    HID_END_COLLECTION,
+};
+
+```
+
+## Appendix 2: Example of a v2.0 HID descriptor
+
+The following example illustrates a v2.0 HID descriptor for a device supporting only the Bluetooth LE ACL transport.
+
+```
+const unsigned char ReportDescriptor[] = {
+    HID_USAGE_PAGE_SENSOR,
+    HID_USAGE_SENSOR_TYPE_OTHER_CUSTOM,
+    HID_COLLECTION(HID_APPLICATION),
+        // Feature report 2 (read-only).
+        HID_REPORT_ID(2),
+
+        // Magic value: "#AndroidHeadTracker#2.0#1"
+        HID_USAGE_SENSOR_PROPERTY_SENSOR_DESCRIPTION,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(25),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+        // UUID.
+        HID_USAGE_SENSOR_PROPERTY_PERSISTENT_UNIQUE_ID,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(0xFF),
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(16),
+        HID_FEATURE(HID_CONST_VAR_ABS),
+
+        // Feature report 1 (read/write).
+        HID_REPORT_ID(1),
+
+        // 1-bit on/off reporting state.
+        HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(1),
+        HID_REPORT_SIZE(1),
+        HID_REPORT_COUNT(1),
+        HID_COLLECTION(HID_LOGICAL),
+            HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE_NO_EVENTS,
+            HID_USAGE_SENSOR_PROPERTY_REPORTING_STATE_ALL_EVENTS,
+            HID_FEATURE(HID_DATA_ARR_ABS),
+        HID_END_COLLECTION,
+
+        // 1-bit on/off power state.
+        HID_USAGE_SENSOR_PROPERTY_POWER_STATE,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(1),
+        HID_REPORT_SIZE(1),
+        HID_REPORT_COUNT(1),
+        HID_COLLECTION(HID_LOGICAL),
+            HID_USAGE_SENSOR_PROPERTY_POWER_STATE_D4_POWER_OFF,
+            HID_USAGE_SENSOR_PROPERTY_POWER_STATE_D0_FULL_POWER,
+            HID_FEATURE(HID_DATA_ARR_ABS),
+        HID_END_COLLECTION,
+
+        // 6-bit reporting interval, with values [0x00..0x3F] corresponding to [10ms..100ms].
+        HID_USAGE_SENSOR_PROPERTY_REPORT_INTERVAL,
+        HID_LOGICAL_MIN_8(0x00),
+        HID_LOGICAL_MAX_8(0x3F),
+        HID_PHYSICAL_MIN_8(10),
+        HID_PHYSICAL_MAX_8(100),
+        HID_REPORT_SIZE(6),
+        HID_REPORT_COUNT(1),
+        HID_USAGE_SENSOR_UNITS_SECOND,
+        HID_UNIT_EXPONENT(0xD),  // 10^-3
+        HID_FEATURE(HID_DATA_VAR_ABS),
+
+        // 1-bit transport selection
+        HID_USAGE_SENSOR_PROPERTY_VENDOR_LE_TRANSPORT,
+        HID_LOGICAL_MIN_8(0),
+        HID_LOGICAL_MAX_8(1),
+        HID_REPORT_SIZE(1),
+        HID_REPORT_COUNT(1),
+        HID_COLLECTION(HID_LOGICAL),
+            HID_USAGE_SENSOR_PROPERTY_VENDOR_LE_TRANSPORT_ACL,
+            HID_USAGE_SENSOR_PROPERTY_VENDOR_LE_TRANSPORT_ISO,
+            HID_FEATURE(HID_DATA_ARR_ABS),
+        HID_END_COLLECTION,
+
+        // Input report 1
+
+        // Orientation as rotation vector (scaled to [-pi..pi] rad).
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_1,
+        HID_LOGICAL_MIN_16(0x01, 0x80), // LOGICAL_MINIMUM (-32767)
+        HID_LOGICAL_MAX_16(0xFF, 0x7F), // LOGICAL_MAXIMUM (32767)
+        HID_PHYSICAL_MIN_32(0x60, 0x4F, 0x46, 0xED),  // -314159265
+        HID_PHYSICAL_MAX_32(0xA1, 0xB0, 0xB9, 0x12),  // 314159265
+        HID_UNIT_EXPONENT(0x08),  // 10^-8
+        HID_REPORT_SIZE(16),
+        HID_REPORT_COUNT(3),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+        // Angular velocity as rotation vector (scaled to [-32..32] rad/sec).
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_2,
+        HID_LOGICAL_MIN_16(0x01, 0x80), // LOGICAL_MINIMUM (-32767)
+        HID_LOGICAL_MAX_16(0xFF, 0x7F), // LOGICAL_MAXIMUM (32767)
+        HID_PHYSICAL_MIN_8(0xE0),
+        HID_PHYSICAL_MAX_8(0x20),
+        HID_UNIT_EXPONENT(0x00),  // 10^0
+        HID_REPORT_SIZE(16),
+        HID_REPORT_COUNT(3),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+        // Reference frame reset counter.
+        HID_USAGE_SENSOR_DATA_CUSTOM_VALUE_3,
+        HID_LOGICAL_MIN_16(0x00, 0x00), // LOGICAL_MINIMUM (0)
+        HID_LOGICAL_MAX_16(0xFF, 0x00), // LOGICAL_MAXIMUM (255)
+        HID_PHYSICAL_MIN_8(0x00),
+        HID_PHYSICAL_MAX_8(0x00),
+        HID_UNIT_EXPONENT(0x00),  // 10^0
+        HID_REPORT_SIZE(8),
+        HID_REPORT_COUNT(1),
+        HID_INPUT(HID_DATA_VAR_ABS),
+
+    HID_END_COLLECTION,
+};
+
+```

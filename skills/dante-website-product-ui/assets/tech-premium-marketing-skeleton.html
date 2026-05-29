@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[PRODUCT NAME] — Sony Style Marketing Page</title>
+    <style>
+        :root {
+            --black: #000000;
+            --deep-gray: #1a1a1a;
+            --mid-gray: #888;
+            --light-gray: #e5e5e5;
+            --off-white: #f5f5f5;
+            --white: #ffffff;
+            --accent: #0073e6;
+            --section-padding: 100px 0;
+            --max-width: 1100px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--white); background: var(--black); line-height: 1.6; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+
+        /* === HERO === */
+        .hero { padding: 120px 0 80px; text-align: center; background: var(--black); }
+        .hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+        .hero .tagline { font-size: 20px; color: var(--mid-gray); margin-bottom: 32px; }
+        .hero .cta-link { color: var(--accent); font-size: 16px; text-decoration: none; font-weight: 500; }
+        .hero .cta-link:hover { text-decoration: underline; }
+
+        /* === FEATURE SECTION (DARK) === */
+        .feature-dark { padding: var(--section-padding); background: var(--deep-gray); }
+        .feature-dark + .feature-dark { background: var(--black); }
+        .feature-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .feature-text h2 { font-size: 36px; font-weight: 700; margin-bottom: 12px; line-height: 1.15; }
+        .feature-text .tech-label { font-size: 14px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .feature-text p { font-size: 16px; color: var(--mid-gray); line-height: 1.7; margin-bottom: 16px; }
+        .feature-visual {
+            background: var(--black); border-radius: 12px; aspect-ratio: 4/3;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; color: var(--mid-gray); text-align: center; padding: 24px;
+        }
+
+        /* === MEDIA QUOTE === */
+        .media-quote { padding: 40px 0; text-align: center; background: var(--black); border-top: 1px solid #333; border-bottom: 1px solid #333; }
+        .media-quote blockquote { font-size: 20px; font-style: italic; color: var(--light-gray); max-width: 700px; margin: 0 auto 12px; }
+        .media-quote cite { font-size: 14px; color: var(--mid-gray); font-style: normal; }
+
+        /* === STATS ROW === */
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .stat-card { text-align: center; padding: 32px 16px; }
+        .stat-card .number { font-size: 48px; font-weight: 800; color: var(--white); }
+        .stat-card .label { font-size: 13px; color: var(--mid-gray); margin-top: 8px; }
+
+        /* === SPECS (LIGHT SECTION) === */
+        .specs-section { padding: var(--section-padding); background: var(--off-white); color: var(--black); }
+        .specs-section h2 { font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 48px; }
+        .specs-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .specs-table th, .specs-table td { padding: 14px 20px; text-align: left; border-bottom: 1px solid #ddd; }
+        .specs-table th { font-weight: 600; width: 200px; color: #333; }
+        .specs-table td { color: #666; }
+
+        /* === WHERE TO BUY === */
+        .buy-section { padding: 60px 0; text-align: center; background: var(--black); }
+        .buy-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-block; background: var(--accent); color: var(--white);
+            padding: 14px 40px; border-radius: 4px; font-size: 16px; font-weight: 600;
+            text-decoration: none; transition: background 0.2s;
+        }
+        .btn-primary:hover { background: #005bb5; }
+
+        /* === FOOTNOTES === */
+        .footnotes { padding: 40px 0; background: var(--deep-gray); }
+        .footnotes p { font-size: 11px; color: #666; line-height: 1.6; margin-bottom: 6px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .feature-content { grid-template-columns: 1fr; gap: 32px; }
+            .stats-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+    <div class="container">
+        <h1>[PRODUCT NAME]</h1>
+        <p class="tagline">[Emotional tagline. Tech premium positioning.]</p>
+        <a href="#" class="cta-link">Where To Buy ›</a>
+    </div>
+</section>
+
+<!-- ======================== MEDIA QUOTE ======================== -->
+<section class="media-quote">
+    <div class="container">
+        <blockquote>"[Media review quote about the product]"</blockquote>
+        <cite>— [Publication Name]</cite>
+    </div>
+</section>
+
+<!-- ======================== FEATURE SECTION 1 ======================== -->
+<section class="feature-dark">
+    <div class="container">
+        <div class="feature-content">
+            <div class="feature-text">
+                <p class="tech-label">[TECHNOLOGY NAME™]</p>
+                <h2>[Emotional Hook].<br>[Technical Substance].</h2>
+                <p>[Three-layer narrative: emotional → technical → quantified comparison with predecessor.]</p>
+            </div>
+            <div class="feature-visual">[Image: product detail / exploded view]</div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-card"><div class="number">7x</div><div class="label">faster processing</div></div>
+            <div class="stat-card"><div class="number">12</div><div class="label">microphones</div></div>
+            <div class="stat-card"><div class="number">1.5x</div><div class="label">more noise cancelled</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== FEATURE SECTION 2 ======================== -->
+<section class="feature-dark">
+    <div class="container">
+        <div class="feature-content">
+            <div class="feature-visual">[Image: lifestyle / studio scene]</div>
+            <div class="feature-text">
+                <p class="tech-label">[TECHNOLOGY NAME™]</p>
+                <h2>[Feature Headline].</h2>
+                <p>[Body paragraph with technical detail.]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================== SPECS (LIGHT) ======================== -->
+<section class="specs-section">
+    <div class="container">
+        <h2>Specifications</h2>
+        <table class="specs-table">
+            <tr><th>Driver Unit</th><td>[XX mm]</td></tr>
+            <tr><th>Frequency Response</th><td>[XX Hz – XX kHz]</td></tr>
+            <tr><th>Battery Life</th><td>[Up to XX hours]</td></tr>
+            <tr><th>Charging Time</th><td>[X hours]</td></tr>
+            <tr><th>Weight</th><td>[XX g]</td></tr>
+            <tr><th>Bluetooth</th><td>[X.X]</td></tr>
+            <tr><th>Noise Canceling</th><td>[Yes/No — type]</td></tr>
+        </table>
+    </div>
+</section>
+
+<!-- ======================== WHERE TO BUY ======================== -->
+<section class="buy-section">
+    <div class="container">
+        <h2>Where To Buy</h2>
+        <a href="#" class="btn-primary">Find a Retailer</a>
+    </div>
+</section>
+
+<!-- ======================== FOOTNOTES ======================== -->
+<section class="footnotes">
+    <div class="container">
+        <p>* [Footnote 1: test conditions and disclaimer]</p>
+        <p>* [Footnote 2: ...]</p>
+    </div>
+</section>
+
+</body>
+</html>

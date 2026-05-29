@@ -1,0 +1,1018 @@
+Buy Samsung Galaxy Buds 3 Pro Earbuds | Samsung Ireland
+
+# Galaxy Buds3 Pro
+
+Galaxy Buds3 Pro Silver
+
+Product Ratings : 4.4 (Number of Ratings :2357) SM-R630NZAAEUA
+
+{{priceAnchor.priceWrapper.info.noLineOrignal}}
+
+{{priceAnchor.priceWrapper.info.totalPrice}}
+
+{{priceAnchor.priceWrapper.info.totalPriceMonthly}}
+
+{{priceAnchor.priceWrapper.info.ceExchangePrice}}
+
+{{priceAnchor.priceWrapper.info.orignalPriceAddText}}
+
+{{priceAnchor.priceWrapper.info.lowestWasPricetext}}
+
+Original Price : {{priceAnchor.priceWrapper.info.orignalPrice}}
+
+{{priceAnchor.priceWrapper.info.savePrice}}
+
+{{priceAnchor.priceWrapper.info.disclaimer}}
+
+- Features
+- Spec
+- Support
+
+## Galaxy Buds3 Pro
+
+Previous
+
+Next
+
+Previous Next
+
+## Gallery popup
+
+View more
+
+- Zoom in
+- Zoom out
+
+- Move Thumbnail Image down
+- Move Thumbnail Image up
+- Move Thumbnail Image right
+- Move Thumbnail Image left
+
+Close
+
+Galaxy Buds3 Pro
+
+Close
+
+0%
+
+Dimension
+
+Spin the angle
+
+AR
+
+View with Augmented Reality
+
+Please scan the QR Code with your mobile device, and place the product image in desired place.
+
+### Choose your device
+
+Galaxy Buds3
+
+Galaxy Buds3 Pro
+
+### Choose your Colour
+
+Color :
+
+Silver
+
+White
+
+### Choose your Between
+
+Galaxy Buds3 Pro
+
+{{price.priceWrapper.info.salePriceFormatted}}
+
+Galaxy Buds3 Pro Silver
+
+{{item.name}}
+
+{{item.summaryPrice}}
+
+Samsung Reward points
+
+{{rewards.formatted.totalPoint}}
+
+* Actual Samsung Rewards points earned may differ from the estimate provided.
+
+Charger not included Charger 2.5-4.5w
+
+{{price.priceWrapper.info.totalPrice}} {{price.priceWrapper.info.vatText}}
+
+{{price.priceWrapper.info.orignalPriceAddText}}
+
+{{price.priceWrapper.info.lowestWasPricetext}}
+
+Was Price Price Was Price {{price.priceWrapper.info.orignalPrice}} Price {{price.priceWrapper.info.savePrice}}
+
+Earn 5% back in rewards
+
+{{price.priceWrapper.info.walkoutQtyText}}
+
+{{price.priceWrapper.info.homeDeliveryQtyText}}
+
+{{price.priceWrapper.info.salesPitch}}
+
+{{price.priceWrapper.info.text}}
+
+{{price.priceWrapper.info.text2}}
+
+{{price.priceWrapper.info.text3}}
+
+{{price.priceWrapper.info.shippingOrBack}}
+
+{{price.priceWrapper.info.taxPriceDisplay}}
+
+{{between.purchase.text}}
+
+{{between.nonPurchase.text}}
+
+### {{upgrade.title}}
+
+{{upgrade.description}}
+
+{{upgrade.yesAttr.text}} {{upgrade.yesAttr.subText}}
+
+{{upgrade.noAttr.text}}
+
+{{upgradeResult.displayModelName}}
+
+{{upgradeResult.discountText1}}
+
+{{upgradeResult.description1}}
+
+{{upgradeResult.description2}}
+
+{{upgradeResult.description1}}
+
+{{upgradeResult.description2}}
+
+### {{offerFinance.title}}
+
+{{offerFinance.description}}
+
+### {{galaxyForever.title}}
+
+{{galaxyForever.description}}
+
+{{galaxyForever.yesAttr.text}} {{galaxyForever.yesAttr.subText}}
+
+{{galaxyForever.noAttr.text}}
+
+{{galaxyForeverResult.displayModelName}}
+
+{{galaxyForeverResult.discountText1}}
+
+{{galaxyForeverResult.description1}}
+
+{{galaxyForeverResult.description2}}
+
+### Choose your color
+
+Customizable bezels sold separately
+
+No color (Default)
+
+### Choose your skin color
+
+Customizable skin sold separately
+
+White (included)
+
+{{item.name}}
+
+{{item.name}}
+
+Out Of Stock
+
+#### Modern type
+
+{{item.name}}
+
+{{item.name}}
+
+Out Of Stock
+
+#### Beveled type
+
+Type information details
+
+{{item.name}}
+
+{{item.name}}
+
+Out Of Stock
+
+#### Skin color
+
+{{item.name}}
+
+{{item.name}}
+
+Out Of Stock
+
+{{shippingOrBack.shippingOrBack}}
+
+{{deliveryMessage.deliveryMessage}}
+
+### {{tradeIn.title}}
+
+{{tradeIn.description}}
+
+{{tradeIn.yesAttr.text}} {{tradeIn.yesAttr.subText}} {{tradeIn.yesAttr.text}} {{tradeIn.yesAttr.subText}}
+
+You have maximum number of Trade-in in cart already. If you wish to add in Trade-in, please remove from cart.
+
+{{tradeInResult.displayModelName}}
+
+{{tradeInResult.discountText1}}
+
+{{tradeInResult.discountText2}}
+
+{{tradeInResult.discountText3}}
+
+{{tradeInResult.discountText4}}
+
+{{tradeInResult.discountText5}}
+
+{{tradeInResult.discountText6}}
+
+{{tradeInResult.specialDiscountText}}
+
+{{tradeInResult.description}}
+
+{{tradeInResult.contentText}}
+
+### Dealer stock quantity
+
+You can check the stock quantity for each region
+
+Please select city
+
+Only {0} left in stock.
+
+Sorry, this product is not currently available in selected city.
+
+### {{assuredBuyBack.title}}
+
+None
+
+{{assuredBuyBack.yesAttr.text}} {{assuredBuyBack.yesAttr.subText}}
+
+### {{newAssuredBuyBack.title}}
+
+{{newAssuredBuyBack.description}}
+
+Please select Samsung Assured Buyback or no coverage
+
+{{item.title}} {{item.priceDisplay}}
+
+{{newAssuredBuyBack.noAttr.text}}
+
+### {{care.title}}
+
+{{care.description}}
+
+Please select Samsung Care+ or No to continue
+
+None
+
+{{item.optionName}} {{item.optionSalePrice}} al mese {{item.optionSalePrice}} {{item.optionOriPrice}} {{item.optionSavePrice}}
+
+{{item.specialText}}
+
+### {{warranty.title}}
+
+{{warranty.description}}
+
+{{warranty.yesAttr.text}} {{warranty.yesAttr.subText}}
+
+{{warranty.noAttr.text}}
+
+{{warrantyResult.displayModelName}}
+
+{{warrantyResult.discountText1}}
+
+{{warrantyResult.description1}}
+
+### {{warrantyVd.title}}
+
+{{warrantyVd.description}}
+
+{{warrantyVd.yesAttr.text}}
+
+{{warrantyVd.noAttr.text}}
+
+{{warrantyVdResult.title}}
+
+{{warrantyVdResult.priceDisplay}}
+
+### {{delivery.headline}}
+
+{{delivery.label}}
+
+{{delivery.errorMessage}}
+
+{{deliveryResult.priorityText}}
+
+{{deliveryResult.mainText}}
+
+{{deliveryResult.subText}} Standard installation charges may apply. [Click here](https://images.samsung.com/is/content/samsung/assets/in/info/installation/Delivery-Service-TnC.pdf) for more details.
+
+{{deliveryResult.decText}}
+
+{{item.disclaimer}}
+
+### {{tariffOption.headline}}
+
+{{tariffOption.description}}
+
+{{tariffOption.yesAttr.text}}
+
+{{tariffOption.noAttr.text}}
+
+{{tariffOptionResult.displayModelName}}
+
+{{tariffOptionResult.discountText1}}
+
+{{tariffOptionResult.description1}}
+
+{{tariffOptionResult.description2}}
+
+{{tariffOptionResult.description}}
+
+{{tariffOptionResult.price}}
+
+{{tariffOptionResult.disclaimer}}
+
+### {{embedAddon.title}}
+
+{{embedAddon.description}}
+
+{{item.name}}
+
+{{item.iconTitle}}
+
+{{item.name}}
+
+{{item.modelCode}}
+
+{{item.description}}
+
+{{item.finalPrice}}
+
+{{item.originalPrice}} {{item.savePrice}} Out Of Stock
+
+{{item.iconTitle}}
+
+{{item.name}}
+
+{{item.modelCode}}
+
+{{item.description}}
+
+- {{item.dotList1}}
+- {{item.dotList2}}
+- {{item.dotList3}}
+
+{{item.finalPrice}}
+
+{{item.originalPrice}} {{item.savePrice}} Out Of Stock
+
+{{message.item.offerTitle}}
+
+? {{message.item.offerTooltip}} Close
+
+{{message.item.tcCTAText}}
+
+{{message.item.periodText}}
+
+{{finance.item.emiText}}
+
+? {{finance.item.offerTooltip}} Close
+
+Image simulated. Available colours of Galaxy Buds3 Pro may vary by country or carrier. Galaxy Buds3 Pro supports Galaxy AI features such as interpreter and Live Translate when paired with compatible Samsung Galaxy devices. Availability of Galaxy AI features may vary by device model. See samsung.com for details.
+
+## Galaxy AIis here
+
+Galaxy AI is here for your all-new Galaxy Buds3 Pro Redefine your listening experience. Hear each note in crystal-clear clarity, with 24-bit CODEC. Minimise distortion with our first-ever, dual amp on Galaxy Buds. Capture a high range of intricate details with enhanced 2-way speaker — featuring a planar tweeter, a first on Galaxy Buds. Take your listening experience to the next level with Galaxy AI-boosted Noise Control and real-time interpretation. See your Buds in a new light. , ,
+
+Play
+
+play
+
+## Iconic design with Blade Lights , ,
+
+A pair of silver coloured Galaxy Buds3 Pro earbuds in a closed case.
+
+Previous Next
+
+## Lighting the all-new Galaxy Buds , ,
+
+### Ergonomically designed for supreme sound
+
+Experience our all-new design engineered for optimal sound. Our re-imagined Galaxy Buds3 Pro feature small, angled heads for a comfortable fit and to streamline your audio experience while accented Blade Lights let you to express yourself. Highlighting the blade design is a sleek case with a transparent cover and delicate curved shape, equipped with USB-C and wireless charging capabilities. , , ,
+
+A pair of silver Galaxy Buds3 Pro appear in a closed case which opens up. Once open, the earbuds slide up with the Blade Lights on and hover over the open case.
+
+play
+
+### Colour
+
+Silver Case
+
+### Flawless control at your fingertips
+
+Leave your phone in your pocket and conveniently control your earbuds by using simple gestures. Even with a swift swipe, rest assured your Galaxy Buds3 Pro stay securely in your ears.
+
+Swipe Content
+
+A finger swipes across the blade of a single, Galaxy Buds3 Pro earbud.
+
+play
+
+## Redefining sound
+
+Multiple particles form a streak of light and change into the Blade Light on Galaxy Buds3 Pro which is shown being worn
+
+play
+
+### Clear-cut sound in each note
+
+Immerse yourself in the elaborate details — from the deep rumble of the bass to the clear, crisp highs of the trebles — with enhanced 2-way speaker. Hear the vibrato of instruments with minimal distortion through our first-ever dual amp.
+
+- Wind Shield
+- Blade Lights
+- Swipe
+- Pinch Control
+
+#### Dual Amplifier
+
+Powered by our first-ever, independently controlled woofer and tweeter, Galaxy Buds3 Pro diminishes interference between speakers — allowing you to experience a broader spectrum of sound and balance across various frequencies. ,
+
+#### Enhanced 2-Way Speaker
+
+Discover an orchestra of sound — the full-bodied bass of the cello from the woofer to the subtle tremble of strings through a planar tweeter — coming together in harmony to evoke waves of emotion and unveil the minute details that would've gone unnoticed. ,
+
+### Stunning, studio-like sound
+
+Retain ultra high quality audio from the recording studio to your Galaxy Buds3 Pro. The Samsung Seamless Codec compresses and encodes up to 24bit / 96kHz audio. Then, decodes on the Galaxy Buds3 Pro, maintaining the 24bit / 96kHz, high-fidelity sound so you can hear the intricate details, just as it was intended. ,
+
+16 bit / 44.1 kHz
+
+24 bit / 96 kHz Samsung Seamless Codec
+
+## Galaxy AIis here for your all-new Buds , , , , ,
+
+### Galaxy AI adjusts sound to your fit
+
+Delve into your personal soundscape with Galaxy AI-assisted Adaptive EQ/Adaptive ANC. Based on individual ear shape and wearing habits, our AI-boosted algorithm analyses sound detected through the inner and outer mics in real-time. Then, Galaxy AI optimises your listening experience by adjusting the sound to conform to your fit with pinpoint precision. ,
+
+### Adaptive Noise Control. Tune into what matters
+
+Keep your Galaxy Buds3 Pro on and continue to engage with the world around you. Using Galaxy AI, Galaxy Buds3 Pro identifies and prevents unnecessary noise intuitively. Then, it optimises your audio experience by re-adjusting the balance between ANC and Ambient mode to correspond to your surroundings. So you can listen to your favourite tunes, uninterrupted. , , ,
+
+A Galaxy Buds3 Pro earbud in silver is on the middle of the page with large particles moving in a spiral formation toward the earbud. It continues to appear on the right of the earbud sans particles. The particles and spiral vanish, showing the single Galaxy Buds3 Pro earbud with 2 images on each side.
+
+play
+
+Noise
+
+With Adaptive Noise Control, eliminate unwanted external noise - such as traffic, and enjoy the right mix of ANC and Ambient sound, allowing you to focus on hearing what you want to hear.
+
+Conversation
+
+Carry on a conversation and Voice Detect will switch the ANC and Ambient sound on/off accordingly — so you can hear loud and clear without needing to take off your Galaxy Buds3 Pro.
+
+Alarm/Siren
+
+Listen to your playlist in peace with Siren Detect. Galaxy Buds3 Pro blocks off unnecessary external noise, except for alarms and sirens, to warn you to steer clear of harm’s way.
+
+With Adaptive Noise Control, eliminate unwanted external noise - such as traffic, and enjoy the right mix of ANC and Ambient sound, allowing you to focus on hearing what you want to hear.
+
+### Break language barriers at the blink of an AI
+
+With Galaxy AI, understand the world like never before. See the translation on your Samsung Galaxy smartphone, and simultaneously hear your conversation interpreted in real-time through your Galaxy Buds3 Pro. Discover what it means to be truly free of language barriers. , , , , , ,
+
+Hola. todos La lección de hoy será sobre la inflación.
+
+Hello. everyone Today’s lesson will be about inflation.
+
+To access listening mode, simply pinch and hold your earbuds and your Galaxy Buds3 Pro will continue to interpret as the speaker is talking. To access conversation mode, place the phone mic toward the speaker, short press your Galaxy Buds3 Pro and listen to your conversation translated in real-time. Once the app is open, the Interpreter feature will start up with the mode last used.
+
+## Jump right in with TV 360 Audio
+
+Dive into a spatial sound experience. 360 Audio is a feature that identifies the exact direction of the sound as you tilt your head, providing surround sound for a more vivid listening and viewing experience. , ,
+
+## PC Auto Switch keeps the synergy going
+
+PC Auto Switch on Galaxy Buds3 Pro detects audio activity and transfers the connection to your favourite Samsung Galaxy devices, so you can work and play seamlessly. ,
+
+From left to right is a Samsung Galaxy Book laptop, Galaxy Buds3 Pro and Z Fold6. A call from the Z Fold6 appears on the Samsung Galaxy Book laptop. After answering the call on Z Fold6, PC Auto Switch changes the Galaxy Buds3 Pro audio output from the laptop to the smartphone.
+
+play
+
+## Share your sound with those around via Auracast
+
+With Auracast broadcast technology, share your audio stream with an unlimited number of devices. Effortlessly transform your Samsung TV, Samsung Galaxy smartphone or tablet into a radio source to start engaging with others. , , , ,
+
+## Convenient control with just a command
+
+Control your audio settings without needing to touch your phone. Simply say a command, such as "next song" or "volume up" and let Galaxy Buds3 Pro do the rest. , , , ,
+
+## Your personalised sound sanctuary
+
+Mindfulness comes with daily practice. At the press of a button, teleport to a worry-free world of your own with Samsung Health powered by Calm. Alleviate stress with peaceful melodies from nature, improve your focus with white noise or relax with ASMR-related for a happier, healthier you. , ,
+
+Z Fold6 is open with a Galaxy Buds3 Pro earbud on the right and Samsung Health and Calm application icons on the bottom. In the back is an image of an office which changes to 5 images of nature once the Mindfulness application is open. From left to right are trees, a river, raindrops falling, palm trees and a bonfire.
+
+play
+
+## Charged for action
+
+*Wireless Charging Support
+
+### Constantly connected
+
+Keep your music and audio flowing, whenever and wherever you’re going. , , , ,
+
+#### Play time
+
+Up to
+
+ANC Off
+
+7 / 30 h
+
+Up to
+
+ANC On
+
+6 / 26 h
+
+#### Bluetooth
+
+V 5.4
+
+#### Water Resistance
+
+IP57
+
+#### Weight
+
+Earbuds
+
+5.4 g
+
+Case
+
+46.5 g
+
+## Your next Buds are calling , ,
+
+### Buds3 Pro
+
+- Silver
+- White
+
+### Buds3
+
+- Silver
+- White
+
+### Buds FE
+
+- Graphite
+- Mystic White
+
+Buds3 Pro
+
+Buds3
+
+Buds FE
+
+Speaker
+
+2 way speaker
+
+Speaker
+
+1 way speaker
+
+Speaker
+
+1 way speaker
+
+Ultra High Quality Sound (24bit / 96kHz)
+
+Yes
+
+Ultra High Quality Sound (24bit / 96kHz)
+
+Yes
+
+Ultra High Quality Sound (24bit / 96kHz)
+
+No
+
+ANC
+
+Yes
+
+ANC
+
+Yes
+
+ANC
+
+Yes
+
+Adaptive Noise Control
+
+Yes
+
+Adaptive Noise Control
+
+No
+
+Adaptive Noise Control
+
+No
+
+Adaptive EQ/ANC
+
+Yes
+
+Adaptive EQ/ANC
+
+Yes
+
+Adaptive EQ/ANC
+
+No
+
+Blade Lights
+
+Yes
+
+Blade Lights
+
+No
+
+Blade Lights
+
+No
+
+Ambient Sound
+
+Yes
+
+Ambient Sound
+
+No
+
+Ambient Sound
+
+Yes
+
+360 Audio
+
+Yes
+
+360 Audio
+
+Yes
+
+360 Audio
+
+No
+
+Durability
+
+IP57
+
+Durability
+
+IP57
+
+Durability
+
+IPX2
+
+Samsung Find
+
+Yes
+
+Samsung Find
+
+Yes
+
+Samsung Find
+
+Yes
+
+Bluetooth Ver.
+
+5.4
+
+Bluetooth Ver.
+
+5.4
+
+Bluetooth Ver.
+
+5.2
+
+Auto Switch
+
+Yes
+
+Auto Switch
+
+Yes
+
+Auto Switch
+
+Yes
+
+Play time
+
+Up to 7.0/30hr (ANC Off) Up to 6.0/26hr (ANC On)
+
+Play time
+
+Up to 6.0/30hr (ANC Off) Up to 5.0/24hr (ANC On)
+
+Play time
+
+Up to 8.5/30hr (ANC Off) Up to 6.0/21hr (ANC On)
+
+Next
+
+View More Collapse
+
+C C
+
+1. Images simulated for illustrative purposes
+2. Interpreter requires Samsung Account login. Certain languages may require language pack download. Service availability may vary by language.Accuracy of results is not guaranteed. Availability and supported features may vary by country, region or carrier. Availability of supported languages may vary.
+3. Audio interpretation is only available when wearing Buds and connected to a Samsung Galaxy smartphone. Interpreter feature is not directly provided by Buds themselves. If Buds are unavailable, the interpreted content is provided on the screen of your Samsung Galaxy smartphone.
+4. Blade Lights only available on Samsung Galaxy Buds3 Pro.
+5. Specific Blade Light modes can be configured under Settings.
+6. Ultra high quality audio up to 24bit/96kHz’ is available on Galaxy S24 series, S23 series, Z Fold6, Z Flip6, Z Fold5, Z Flip5 and Tab S9 series with One UI 6.1.1 or above.Additional devices may be supported in the future.
+7. Adaptive Noise Control is off, Voice Detect is off and Siren Detect is off by default, and can be configured in the Galaxy Wearable app.
+8. The Adaptive Noise Control, Voice Detect and Siren Detect features are only available on Samsung Galaxy Buds3Pro.
+9. Images simulated for illustrative purposes. Sequences shortened and simulated. Actual UI may be different.
+10. Galaxy AI features are supported on Galaxy S24 series, Galaxy S23 series, Galaxy Z Fold5 series, Galaxy Z Flip5 series, Galaxy S23 FE, Galaxy S22 series, Galaxy Z Fold4 series and Galaxy Z Flip4 series as of May 2024
+11. Available colours may vary by country or carrier.
+12. In-box items include the Galaxy Buds3 Pro, a charging case, three sets of ear tips for the left and right ear (S, M(default), L), a USB cable and a quick start guide.
+13. Galaxy Buds3 Pro is the first Galaxy Buds with 2-Way Speaker featuring a planar tweeter and Dual Amp.
+14. Ultra high quality audio up to 24bit/96kHz’ is available on Galaxy S24 series, S23 series ,Z Fold6 , Z Flip6, Z Fold5, Z Flip5 and Tab S9 series with One UI 6.1.1 or above.Additional devices may be supported in the future.
+15. Samsung Account login may be required to use certain Samsung AI features.
+16. Samsung does not make any promises, assurances or guarantees as to the accuracy, completeness or reliability of the output provided by AI features.
+17. Galaxy AI features provided by Samsung are free. Future releases may include features that are offered on a paid basis. Different terms may apply for AI features provided by third parties.
+18. ANC(Active Noise Canceling) is on by default.
+19. 'Default setting' refers to the original setting for the Galaxy Buds3 Pro when it was first released, simply with the power turned on.
+20. Devices sold separately.
+21. Samsung Galaxy devices may require the latest software update to properly support Galaxy AI features.
+22. The default setting of the Pinch and Hold gesture is set to Noise Control. In order to change the Interpreter to Listening Mode, the settings must be configured on the Galaxy Wearable app
+23. 360 Audio is only available on Samsung Galaxy smartphones and Galaxy Tab devices with Android One UI version 3.1 or later, and selected Samsung TV models. Supported Samsung TV models include: Neo QLED 8K (QN900D, QN800D), Neo QLED 4K (QN95D, QN90D, QN87D, QN85D) OLED (S95D, S90D, S85D), QLED (Q80D, Q70D). Support for 360 Audio and head tracking may vary depending on the application and content.
+24. Direct Multi-channel is available on Samsung Galaxy smartphones and Galaxy Tab devices with Android One UI version 4.1.1 or later.
+25. Auto Switch feature is only available on Samsung Galaxy Book series with One UI 6.0 or later, Samsung Galaxy smartphones and Galaxy Tab devices with One UI 4.1.1 or later and Galaxy Watch4 series or later. Samsung Galaxy devices must be logged in to Samsung Account to enable the Auto Switch feature. Auto Switch feature for Samsung TV is only available on Samsung TVs launched Feb ’22 or later after getting a firmware update from Jul ’22. Auto Switch with TV is only available for making and receiving phone calls.
+26. Devices with Auracast Source ability are available only on Samsung Galaxy smartphones, tablets with Android One UI version 6.1 or later, and select TV models. Supported Galaxy smartphone and tablet models include: S24+, S24, S24 Ultra, Galaxy Z Flip6, Galaxy Z Fold6,Galaxy Z Flip5, Galaxy Z Fold5, S23+, S23 (except FE edition), S23 Ultra, Tab S9+, Tab S9+ 5G, Tab S9, Tab S9 Ultra, Tab S9 Ultra 5G, Tab S9 FE+, Tab S9 FE+ 5G, Tab S9 FE, Tab S9 FE 5G and Tab S9 5G. Supported TV models include: 2024 NeoQLED 8K QND800, QND900, 2023 Neo QLED 8K and 2023 MICRO LED models.
+27. Devices with Auracast Assistant ability are available only on Samsung Galaxy smartphones, tablets with Android One UI version 5.1.1 or later. Supported Galaxy smartphone and tablet models include: S24+, S24, S24 Ultra, S23+, S23, S23 Ultra, Z Fold6, Z Flip6,Z Fold5, Z Flip5, Z Fold4, Z Flip4, A54 5G, A55 5G, M54 5G, Tab S9+, Tab S9+ 5G, Tab S9, Tab S9 Ultra, Tab S9 Ultra 5G, Tab S9 FE+, Tab S9 FE+ 5G, Tab S9 FE, Tab S9 FE 5G, Tab S9 5G and Tab Active 5G.
+28. Connecting 2 or more devices to Auracast is limited to Samsung Galaxy devices.
+29. The quality of the Auracast audio stream may vary depending on the application, network connection and other factors.
+30. Voice Command is limited to fixed commands and is only available in Korean and English.
+31. Commands continue in the chosen language spec
+32. Additional language packs may be supported in the future.
+33. Some content may incur additional charges. Samsung Account log in is required for Samsung Health.
+34. With ANC on/off, earbuds and case provide up to 30 hours of play time on a full charge. Based on internal testing. Play time tested by pairing a pre-production Galaxy Buds3 Pro to a recently released Galaxy smartphone with default settings. Actual battery life may vary and depend on usage conditions, settings, number of times charged, Bluetooth signal strength, and other factors. 'Play time' refers to when the Galaxy Buds3 Pro are connected to the phone, streaming music. Actual Play time may vary based on settings.
+35. IP57 is based on laboratory test conditions for submersion in up to 1 meter of fresh water for up to 30 minutes.
+36. Not advised for beach or pool use. Charging case is not water resistant. If the earbuds are damaged, they are not guaranteed to be water resistant. If the earbuds or your hands are wet, they must be dried thoroughly prior to handling or placing into the charging case. If placed into the charging case without drying, the earbuds may be damaged.
+37. Provided charging case is to charge the Galaxy Buds3 Pro.
+38. The Galaxy Wearable application can only be downloaded on smartphones with Android 10.0 or above and minimum 1.5GB Memory.
+39. Actual battery life may vary and depend on usage conditions, settings, number of times charged, Bluetooth signal strength, and other factors.
+40. Actual Play time may vary based on settings.
+
+## Buy direct. Get more.
+
+Previous
+
+Next
+
+## Specifications
+
+### Overview
+
+Bluetooth Version
+
+Bluetooth v5.4
+
+Sensors
+
+Accelerometer, Gyro Sensor, Hall Sensor, Pressure Sensor, Proximity Sensor, Touch Sensor, VPU(Voice Pickup Unit)
+
+Earbud Weight (g)
+
+5.4
+
+### Audio and Video
+
+Number of MIC
+
+6
+
+Speaker
+
+Enhanced 2-way
+
+Ambient Sound
+
+Yes
+
+Adaptive Noise Control
+
+Yes
+
+Active Noise Cancellation
+
+Yes
+
+Voice Detect
+
+Yes
+
+360 Audio
+
+Yes
+
+Siren Detect
+
+Yes
+
+Audio Codec
+
+AAC, SBC, SSC(Samsung Seamless Codec), SSC-UHQ
+
+Adaptive EQ
+
+Yes
+
+Adaptive ANC
+
+Yes
+
+Super Wide Band
+
+Yes
+
+### Connectivity
+
+Bluetooth Version
+
+Bluetooth v5.4
+
+Bluetooth Profiles
+
+A2DP, AVRCP, HFP, PBP, TMAP
+
+LE Audio
+
+Yes
+
+Auto Switch
+
+Yes
+
+### Sensors
+
+Accelerometer, Gyro Sensor, Hall Sensor, Pressure Sensor, Proximity Sensor, Touch Sensor, VPU(Voice Pickup Unit)
+
+### Physical specification
+
+Earbud Dimension (HxWxD, mm)
+
+18.1 x 19.8 x 33.2
+
+Earbud Weight (g)
+
+5.4
+
+Case Dimension (HxWxD, mm)
+
+48.7 x 58.9 x 24.4
+
+Case Weight (g)
+
+46.5
+
+Durability
+
+IP57
+
+### Usage Time (ANC On)
+
+Talk Time (Hours, ANC On)
+
+Up to 4.5
+
+Total Talk Time (Hours, ANC On)
+
+Up to 20
+
+Music Play Time (Hours, ANC On)
+
+Up to 6
+
+Total Music Play Time (Hours, ANC On)
+
+Up to 26
+
+### Usage Time (ANC Off)
+
+Talk Time (Hours, ANC Off)
+
+Up to 5
+
+Total Talk Time (Hours, ANC Off)
+
+Up to 22
+
+Music Play Time (Hours, ANC Off)
+
+Up to 7
+
+Total Music Play Time (Hours, ANC Off)
+
+Up to 30
+
+### Battery
+
+Earbud Battery Capacity (mAh, Typical)
+
+53.0
+
+Case Battery Capacity (mAh, Typical)
+
+515
+
+### Services and Applications
+
+Samsung Find
+
+Yes
+
+Bixby Voice Wake-up
+
+Yes
+
+Neck Stretch Reminder
+
+Yes
+
+Voice Command
+
+Yes
+
+## User manual & downloads
+
+User Manual
+
+ver 1.4 | 0.46 MB
+
+15.07.2025
+
+ENGLISH
+
+Safety Guide
+
+ver 1.3 | 3.57 MB
+
+11.07.2024
+
+MULTI LANGUAGE
+
+Previous
+
+Next
+
+## Solutions & Tips
+
+- [Galaxy AI on the Galaxy Buds3 Pro and Buds3](https://www.samsung.com/ie/support/mobile-devices/galaxy-ai-on-the-galaxy-buds3-pro-and-buds3/)
+- [How to use Pinch Control, Earbuds control and troubleshoot your Galaxy Buds3 and Buds3 Pro](https://www.samsung.com/ie/support/mobile-devices/how-to-use-pinch-control-earbuds-control-and-troubleshoot-your-galaxy-buds3-and-buds3-pro/)
+- [Why your Galaxy Buds3/Buds3 Pro make a screeching sound when you hold them](https://www.samsung.com/ie/support/mobile-devices/why-your-galaxy-buds3-buds3-pro-make-a-screeching-sound-when-you-hold-them/)
+- [Wearing the Galaxy Buds](https://www.samsung.com/ie/support/mobile-devices/wearing-the-galaxy-buds/)
+- [How to pair Galaxy Buds using Bluetooth in Samsung One UI 8](https://www.samsung.com/ie/support/mobile-devices/how-to-pair-galaxy-buds-using-bluetooth-in-samsung-one-ui-8/)
+
+## Product support
+
+Find answers to the questions you have about our products
+
+Product support
+
+Get the most from Samsung device and services.
+
+Go to Top

@@ -1,0 +1,42 @@
+<!--
+  Dante Shokz PPT · inline-badge.html
+  ────────────────────────────────────────────────────────
+  组件：inline 思考/任务徽章
+  适用：嵌入段落，把段落标注为"思考"或"任务"或"洞察"等元数据类型
+  来源：原 deck P06 等
+
+  设计：
+    - 黑底 #050505 + 白字 7pt 等宽 = "思考" / "INSIGHT" / "FACT"
+    - 橙底 #FF7A3D + 白字 7pt 等宽 = "任务" / "ACTION" / "TODO"
+
+  用法：直接 inline 在段落里使用，前后有半角空格
+
+  可改字段：
+    1. 徽章文字
+    2. 后续段落正文
+
+  不可改：
+    - 7pt 字号
+    - 等宽字体
+    - display:inline-block + padding:0 5px + margin-right:5px
+    - vertical-align:1px + line-height:1.35
+
+  注意：
+    - 一段里最多 1 个 inline 徽章；多了视觉散乱
+    - 徽章后留半角空格再开始正文
+-->
+
+<!-- ═══ 示例 1：黑底"思考"徽章 ═══ -->
+<p class="pp" style="text-align:left;line-height:1.32;margin:0">
+  <span style="display:inline-block;background:#050505;color:#FFFFFF;padding:0 5px;font-size:7.0pt;font-family:'Consolas','Courier New',monospace;margin-right:5px;letter-spacing:0.5px;vertical-align:1px;line-height:1.35">思考</span><span style="font-size:10.5pt;color:#050505;font-weight:700">关键判断主语</span><span style="font-size:10.5pt;color:#050505"> —— 后续解释或论证</span>
+</p>
+
+<!-- ═══ 示例 2：橙底"任务"徽章 ═══ -->
+<p class="pp" style="text-align:left;line-height:1.32;margin:0">
+  <span style="display:inline-block;background:#FF7A3D;color:#FFFFFF;padding:0 5px;font-size:7.0pt;font-family:'Consolas','Courier New',monospace;margin-right:5px;letter-spacing:0.5px;vertical-align:1px;line-height:1.35">任务</span><span style="font-size:10.5pt;color:#050505">交付 </span><span style="font-size:10.5pt;color:#050505;font-weight:700">具体可执行的事项</span><span style="font-size:10.5pt;color:#050505">，附带条件或限制</span>
+</p>
+
+<!-- ═══ 示例 3：用作通用 metadata 标签 ═══ -->
+<p class="pp" style="text-align:left;line-height:1.32;margin:0">
+  <span style="display:inline-block;background:#666666;color:#FFFFFF;padding:0 5px;font-size:7.0pt;font-family:'Consolas','Courier New',monospace;margin-right:5px;letter-spacing:0.5px;vertical-align:1px;line-height:1.35">背景</span><span style="font-size:10.5pt;color:#050505">这是中性的背景信息标签——用灰底</span>
+</p>

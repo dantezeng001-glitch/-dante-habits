@@ -1,0 +1,101 @@
+---
+pid: 42536
+cwd: |
+  C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO
+---
+>>
+>> 三种"重开终端"的方式（任选一种）
+>> 方式 1：直接关掉再开（最稳，推荐）
+>> 把当前所有 PowerShell / CMD / Cursor 内嵌终端窗口的 × 全部点掉。
+>> 重新打开一个：
+>> 按 Win + X，选 "终端" 或 "Windows PowerShell"
+>> 或者按 Win + R，输入 powershell 回车
+>> 在新窗口里输入 claude 测试。
+>> 方式 2：在 Cursor 里重开（你正在用 Cursor）
+>> 在 Cursor 顶部菜单点 Terminal → Kill Terminal（或终端面板右上角的垃圾桶图标）
+>> 再点 Terminal → New Terminal（或按 Ctrl + ` ）
+>> 在新终端里跑 claude。
+>> 方式 3：不关窗口，临时刷新（应急）
+>> 如果你懒得关窗口，可以在当前 PowerShell 里直接跑这一行，把环境变量手动拉到当前会话：
+>>
+>> $env:ANTHROPIC_BASE_URL = [Environment]::GetEnvironmentVariable("ANTHROPIC_BASE_URL","User")
+>> $env:ANTHROPIC_AUTH_TOKEN = [Environment]::GetEnvironmentVariable("ANTHROPIC_AUTH_TOKEN","User")
+>> $env:ANTHROPIC_API_KEY = [Environment]::GetEnvironmentVariable("ANTHROPIC_API_KEY","User")
+>> $env:ANTHROPIC_MODEL = [Environment]::GetEnvironmentVariable("ANTHROPIC_MODEL","User")
+>> 然后就可以在当前窗口直接 claude 了。但只对当前窗口有效，下次还是建议关掉重开。
+>>
+>> 怎么判断"重开成功了"
+>> 在新窗口跑这条命令，能看到你之前填的值就说明读到了：
+>>
+>> echo $env:ANTHROPIC_BASE_URL
+>> echo $env:ANTHROPIC_AUTH_TOKEN
+>> 如果输出空白 → 说明环境变量没设进去，要回去重新跑那几行 [Environment]::SetEnvironmentVariable(...)。
+>>
+>> 要不要现在就一起把 API Key 配了？你只要把 Key 发我，我帮你写好命令、跑完测试，你就不用自己折腾重开了。        
+>>
+>> 显示是这样的
+>>
+>> 看到了——这是新开的 PowerShell 没把 npm 的全局目录加到 PATH 里，所以找不到 claude。这是 Windows 装 Node.js 后的常见现象（旧窗口缓存的 PATH）。
+>>
+>> 我先确认一下 claude 实际装在哪里，然后用永久方式修好。
+>>
+>> 确认了：claude 装在 C:\Users\016551\AppData\Roaming\npm，但你新开的 PowerShell 的 PATH 里没这个目录。我把它永 久加到用户 PATH 里，以后所有新窗口都能识别。
+>>
+>> PATH 里其实已经有 C:\Users\016551\AppData\Roaming\npm 了——这是 Node 安装器自动加的。问题在于：你截图里那个 PowerShell 窗口是在 Node 安装之前打开的，它缓存的是旧 PATH，所以读不到。
+>>
+>> 解决办法（三选一，按推荐顺序）
+>> 方法 1（最稳）：把那个终端关掉，重新开一个
+>> 在你截图那个终端里：
+>>
+>> 输入 exit 回车（或者直接点终端右上角的 垃圾桶图标 🗑️ 杀掉）
+>> 在 Cursor 顶部菜单 Terminal → New Terminal（或按 Ctrl + Shift + ` ）
+>> 在新终端里跑：
+>> claude --version
+>> 应该会显示 2.1.112 (Claude Code)。
+>>
+>> 方法 2：用完整路径直接跑（不需要重开）
+>> 在当前那个终端里直接运行：
+>>
+>> & "$env:APPDATA\npm\claude.cmd" --version
+所在位置 行:6 字符: 7
++ "重开终端"指的是关掉现在用的命令行窗口，再开一个新的——这样新窗口才能读到刚才设置的环境变量。
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+表达式或语句中包含意外的标记“指的是关掉现在用的命令行窗口，再开一个新的——这样新窗口才能读到刚才设置的环境变量    
+。”。
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+
+PS C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO> & "$env:APPDATA\npm\claude.cmd" --version
+'"node"' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 145
++ ... m.Environment]::GetEnvironmentVariable("Path","User"); claude --versi ...
++                                                            ~~~~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO>
+
+
+
+
+                                                                      claude
+claude : 无法加载文件 C:\Users\016551\AppData\Roaming\npm\claude.ps1，因为在此系统上禁止运行脚本。有关详细信息，
+请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 1
++ claude
++ ~~~~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO> claude
+claude : 无法加载文件 C:\Users\016551\AppData\Roaming\npm\claude.ps1，因为在此系统上禁止运行脚本。有关详细信息，
+请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 1
++ claude
++ ~~~~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO>
+ *  History restored 
+
+PS C:\Users\016551\OneDrive\Desktop\科技树\营销传播活动\202604 NT-AO>
