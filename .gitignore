@@ -1,0 +1,36 @@
+# >>> CURSOR MANAGED BLOCK >>>
+# This repo only syncs personal work-habit content (rules + scripts +
+# generic skills). Everything else under .cursor is ignored by default.
+# Ignore everything, then allowlist only what is safe to publish.
+*
+
+# Allowlisted: personal work-habit content
+!.gitignore
+!README.md
+!rules/
+!rules/**
+!scripts/
+!scripts/**
+!skills/
+!skills/**
+# <<< CURSOR MANAGED BLOCK <<<
+
+# >>> USER PRIVACY OVERRIDE >>>
+# Kept AFTER the managed block so these stay ignored even if Cursor
+# regenerates its block to un-ignore agent/session state. NEVER sync
+# business content, internal materials, agent session state, or caches.
+projects/
+plans/
+plugins/
+skills-cursor/
+subagents/
+commands/
+agent-transcripts/
+agent-notes/
+agent-tools/
+terminals/
+.sync.log
+
+# Business-contaminated skill (real company/project data) — do not publish
+skills/ai-product-manager/
+# <<< USER PRIVACY OVERRIDE <<<

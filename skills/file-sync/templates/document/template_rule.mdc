@@ -1,0 +1,14 @@
+---
+description: Prefer synced PDF and presentation artifacts for document-based work
+alwaysApply: true
+---
+
+# Document Sync Workflow
+
+When a request involves PDF, PPT, PPTX, slides, decks, brochures, spec sheets, presentations, reports, whitepapers, or scanned documents:
+
+- Read `cursor_docs/index.md` first.
+- Then read the relevant synced artifacts under `cursor_docs/` before opening binary documents directly.
+- Prefer `.md` for quick understanding, `.txt` for raw extracted text, and `.json` for structured metadata.
+- Treat `cursor_docs/` as the source of truth for AI analysis inside Cursor.
+- If synced artifacts are missing or clearly stale, ask the user to run the `Docs: sync once` task or restart the folder watcher.

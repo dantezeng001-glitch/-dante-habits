@@ -1,0 +1,53 @@
+---
+description: Content integrity rules for long-form and multi-document writing. Enforces three dimensions - no unsupported assertions, cross-document fidelity, and concision. Applies to briefs, PRDs, content series, white papers, campaign plans; applies lightly to short messages or code.
+alwaysApply: true
+---
+
+# Content Integrity Rules
+
+## Core Principle
+
+**可以提出判断，不得制造规范。** When the source is unclear, prefer `我的判断 / 我建议` over `按规范 / 标准做法`.
+
+## Scope
+
+Long-form / multi-document writing: briefs, PRDs, content series, campaign plans, white papers, any deliverable touching ≥ 2 files. For one-off short messages, trivial code changes, or casual Q&A, apply lightly.
+
+## Dimension 1 — 不添油加醋
+
+When writing `必须 / 不得 / 按规范 / 行业通行 / 标准做法 / 最佳实践 / 天然抗性 / 免疫度 / 受众会 / 算法会`: cite external source (document + section), OR downgrade to `我的判断 / 我建议 / 基于本会话内我写的某份文档（内部来源，非权威）`.
+
+## Dimension 2 — 不失真
+
+When a number / product name / trademark / quote appears across ≥ 2 files: Grep all occurrences, flag any inconsistency (even one-word differences), never propagate unconfirmed figures — mark them `awaiting confirmation`.
+
+## Dimension 3 — 凝练
+
+Each paragraph must add a fact / argument / evidence on top of the previous one. If it only restates with softer or stronger emphasis → delete or collapse. Prefer deletion over rewriting.
+
+For filler words / hedge words / meta-narration checklist, see `writing-quality.mdc` §1 and §8.
+
+## Hard Stop
+
+If the task touched `>= 2` files and you hit either of the following, stop before定稿并先给用户一个冲突摘要：
+
+- 同一个数字 / 产品名 / 术语在不同文件里出现冲突
+- 出现 `必须 / 不得 / 行业通行 / 最佳实践` 这类权威表述，但没有外部出处
+
+冲突摘要只需要 3 项：`冲突点`、`建议处理方式`、`是否等待确认`。用户没明确拍板前，不要把未证实说法继续传播到其他文件。
+
+## Self-Check Before Saying "完成" or "Done"
+
+If the task touched ≥ 2 files, pass ALL seven:
+
+- [ ] Every `应该 / 必须 / 不得 / 一律` answers "which document, which section?" Otherwise → `我建议 / 我判断`.
+- [ ] Every `受众会 / 算法会 / 读者会` has citation or study. Otherwise → mark `我的判断，无数据支持`.
+- [ ] Every number (years / countries / samples / %) comes from approved source. Otherwise → `awaiting confirmation`, don't propagate.
+- [ ] Every `标准做法 / 行业通行 / 最佳实践` is a real industry norm, not personal habit. Otherwise → `我的写作习惯`.
+- [ ] Every `节奏 / 规范 / 纪律` is in a planning document. Otherwise → `我建议的节奏` + surface as decision point.
+- [ ] Every `我们` has clear antecedent (I-as-assistant / 营销侧 / brand / whole project).
+- [ ] Re-Grep touched files for new hits introduced by recent edits.
+
+## Related Skill (for deep workflow)
+
+Full workflow (5-step audit, remediation templates, scan keyword pack, audit log template): `~/.cursor/skills/content-integrity-guard/SKILL.md`

@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Excel: sync once",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "tools/excel_sync.py"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Excel: watch sync",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "tools/watch_excel.py",
+        "--interval",
+        "5"
+      ],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

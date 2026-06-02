@@ -1,0 +1,17 @@
+[
+  {
+    "id": "FS1",
+    "prompt": "项目里新放了一个扫描版 PDF 和一个 XLSX，帮我同步成可读的 Markdown。",
+    "expected": "先检查依赖和 OCR，再走抽取、Step0 OCR、md-cleanup、断行合并和最终审计的完整链路。"
+  },
+  {
+    "id": "FS2",
+    "prompt": "把这个同步工作流装进一个已有 `.vscode/tasks.json` 和 `.cursor/rules` 的新项目里，别覆盖原配置。",
+    "expected": "先检查现有结构与依赖，再按模板安装并谨慎 merge 任务与规则，最后验证 index 产物。"
+  },
+  {
+    "id": "FS3",
+    "prompt": "把 `report.md` 导出成 Word 和 PDF，并告诉我输出路径。",
+    "expected": "识别 MD 到 DOCX/PDF 分支，调用对应脚本并验证输出文件存在后再汇报路径。"
+  }
+]

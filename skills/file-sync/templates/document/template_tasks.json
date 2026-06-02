@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docs: sync once",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "tools/document_sync.py"
+      ],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docs: watch sync",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "tools/watch_documents.py",
+        "--interval",
+        "5"
+      ],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

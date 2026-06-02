@@ -1,0 +1,23 @@
+{
+  "source_patterns": [
+    "*.pdf",
+    "*.ppt",
+    "*.pptx",
+    "**/*.pdf",
+    "**/*.ppt",
+    "**/*.pptx"
+  ],
+  "exclude_patterns": [
+    "cursor_docs/**",
+    ".cursor/**",
+    ".vscode/**",
+    "**/~$*.pptx",
+    "~$*.pptx"
+  ],
+  "output_dir": "cursor_docs",
+  "pdf_preview_pages": 8,
+  "ppt_preview_slides": 12,
+  "enable_ocr_fallback": true,
+  "ocr_languages": "chi_sim+eng",
+  "convert_legacy_ppt": true
+}

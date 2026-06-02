@@ -1,0 +1,15 @@
+---
+description: Prefer synced Excel artifacts for table-based work
+alwaysApply: true
+---
+
+# Excel Sync Workflow
+
+When a request involves Excel, tables, campaign data, budgets, timelines, SKU grids, or structured tabular content:
+
+- Read `cursor_excel/index.md` first.
+- Then read the relevant synced artifacts under `cursor_excel/` before opening any `.xlsx` file directly.
+- Prefer `.md` for quick understanding, `.csv` for raw rows, and `.json` for structured records.
+- Treat `cursor_excel/` as the source of truth for AI analysis inside Cursor.
+- If synced artifacts are missing or clearly stale, ask the user to run the `Excel: sync once` task or restart the folder watcher.
+- Do not assume Excel content is current unless `cursor_excel/index.md` exists and looks recently generated.
