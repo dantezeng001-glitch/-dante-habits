@@ -1,0 +1,6 @@
+---
+pid: 29100
+cwd: |
+  C:\Users\016551\OneDrive\Desktop\骨传导\SwimPro\06_子项目_游泳IMC活动领英技术文档
+---
+PS C:\Users\016551\OneDrive\Desktop\骨传导\SwimPro\06_子项目_游泳IMC 活动领英技术文档>

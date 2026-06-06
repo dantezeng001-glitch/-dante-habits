@@ -1,0 +1,46 @@
+---
+pid: 19944
+cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\copywrite 前端"
+command: "npm run dev 2>&1"
+started_at: 2026-06-05T07:00:43.027Z
+running_for_ms: 776554   
+---
+
+> copywrite-frontend@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.42.147.85:3000
+- Environments: .env.local
+✓ Ready in 1137ms
+
+ GET / 200 in 415ms (next.js: 233ms, application-code: 182ms)
+ POST /api/polish 502 in 31.6s (next.js: 126ms, application-code: 31.5s)
+ POST /api/polish 502 in 56s (next.js: 5ms, application-code: 56s)
+ GET / 200 in 125ms (next.js: 75ms, application-code: 51ms)
+ POST /api/polish 200 in 3.5min (next.js: 60ms, application-code: 3.5min)
+ GET / 200 in 94ms (next.js: 65ms, application-code: 29ms)
+ GET / 200 in 166ms (next.js: 84ms, application-code: 82ms)
+ GET / 200 in 48ms (next.js: 3ms, application-code: 44ms)
+ GET / 200 in 26ms (next.js: 5ms, application-code: 22ms)
+✓ Compiled in 1416ms
+ GET / 200 in 1443ms (next.js: 1398ms, application-code: 45ms)
+✓ Compiled in 54ms
+ GET / 200 in 156ms (next.js: 115ms, application-code: 41ms)
+✓ Compiled in 54ms
+ GET / 200 in 140ms (next.js: 108ms, application-code: 32ms)
+✓ Compiled in 69ms
+ GET / 200 in 173ms (next.js: 126ms, application-code: 47ms)
+✓ Compiled in 120ms
+ GET / 200 in 248ms (next.js: 170ms, application-code: 78ms)
+ GET / 200 in 36ms (next.js: 4ms, application-code: 33ms)
+  Reload env: .env.local
+ GET / 200 in 104ms (next.js: 68ms, application-code: 36ms)
+ GET / 200 in 179ms (next.js: 7ms, application-code: 172ms)
+
+---
+exit_code: 1
+elapsed_ms: 780214
+ended_at: 2026-06-05T07:13:43.241Z
+---

@@ -1,0 +1,15 @@
+---
+pid: 24112
+cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\copywrite 前端"
+command: "node -e \"async function t(mode){const s=Date.now();const r=await fetch('http://localhost:3000/api/polish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({input:'Run fast',sourceLang:'auto',targetLang:'same',styleIds:[],channel:'广告语',mode})});const d=await r.json();console.log(mode,'=>',((Date.now()-s)/1000).toFixed(1)+'s','| http',r.status,'| 变体',d.variants?.length,'| 示例:',d.variants?.[0]?.text||d.error);}(async()=>{await t('fast');await t('normal');})();\""
+started_at: 2026-06-05T07:14:11.231Z
+running_for_ms: 100046   
+---
+fast => 21.8s | http 200 | 变体 4 | 示例: Run fast, feel free.
+normal => 67.7s | http 200 | 变体 4 | 示例: Fast and aware.
+
+---
+exit_code: 0
+elapsed_ms: 100732
+ended_at: 2026-06-05T07:15:51.963Z
+---
