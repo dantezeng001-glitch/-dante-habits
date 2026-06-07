@@ -3,7 +3,7 @@ pid: 16988
 cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\copywrite 前端"
 command: "npm run dev 2>&1"
 started_at: 2026-06-05T07:13:57.512Z
-running_for_ms: 133435865
+running_for_ms: 219335267
 ---
 
 > copywrite-frontend@0.1.0 dev
