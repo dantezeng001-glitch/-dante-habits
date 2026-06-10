@@ -1,0 +1,6 @@
+---
+pid: 48764
+cwd: |
+  C:\Users\016551\OneDrive\Desktop\流程建设\统一表述知识库 翻译
+---
+PS C:\Users\016551\OneDrive\Desktop\流程建设\统一表述知识库 翻译>
