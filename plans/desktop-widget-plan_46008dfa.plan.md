@@ -4,25 +4,25 @@ overview: 在现有仓库内新增一个独立的 Tauri 桌面挂件 app(desktop
 todos:
   - id: env-setup
     content: 在打包机安装 Rust 工具链 + Tauri CLI(一次性),在 desktop/ 初始化 Tauri v2 骨架(src-tauri + 纯 HTML/JS 前端,无打包器)
-    status: in_progress
+    status: completed
   - id: window
     content: tauri.conf.json 配置无边框/置顶/透明/可缩放悬浮窗;data-tauri-drag-region 拖动;tauri-plugin-window-state 记忆位置/大小
-    status: pending
+    status: completed
   - id: tray
     content: 托盘图标与菜单:显示/隐藏挂件、立即刷新、开机自启(tauri-plugin-autostart)、退出;拦截窗口关闭改为隐藏到托盘
-    status: pending
+    status: completed
   - id: data
     content: 原生侧拉取 /api/digest?ai=1(tauri-plugin-http 或 Rust command,绕开浏览器 CORS),经命令/事件下发前端;tauri-plugin-single-instance 单实例
-    status: pending
+    status: completed
   - id: renderer
     content: 前端:默认视图为编辑摘要(ai.executiveSummary + executiveBullets),其下分区切换 + 紧凑卡片(zhTitle/source/ageHours/priorityLabel),点击经 opener 打开原文;套用 Dante Shokz 视觉(Ink 深底 + 橙色强调 + 等宽标签 + 直角粗边框)
-    status: pending
+    status: completed
   - id: states-cache
     content: 加载/失败/降级态 + 启动拉一次、每 60 分钟轮询;离线缓存(plugin-fs 写 appData,断网读缓存并打"数据可能过期"标记);打开外链仅放行 http/https
-    status: pending
+    status: completed
   - id: package
     content: tauri build 产出 Windows 安装包/exe;config.json 走 resources/appConfig 可改不重打包;另一台 Win11 机器验证双击可用(WebView2 已内置)
-    status: pending
+    status: in_progress
 isProject: false
 ---
 

@@ -1,0 +1,344 @@
+[v1.2.0] FrostedGlass - Now more customizable - Rainmeter Forums
+[![Rainmeter Forums](./styles/elegance/theme/images/logo.png)](./index.php?sid=76916426e8682e67ff2e683d6bc3931c)
+Rainmeter Forums
+[Skip to content](#start_here)
+**Search[**Advanced search](./search.php?sid=76916426e8682e67ff2e683d6bc3931c)
+* [Quick links](#)
+* * [**Rainmeter Home](https://www.rainmeter.net)
+* [**Documentation](http://docs.rainmeter.net)
+* [**WebIRC](https://web.libera.chat/#rainmeter)
+* [**RSS Feed](https://forum.rainmeter.net/feed?sid=76916426e8682e67ff2e683d6bc3931c)
+* * [**Unanswered topics](./search.php?search_id=unanswered&sid=76916426e8682e67ff2e683d6bc3931c)
+* [**Active topics](./search.php?search_id=active_topics&sid=76916426e8682e67ff2e683d6bc3931c)
+* * [**Search](./search.php?sid=76916426e8682e67ff2e683d6bc3931c)
+* [Forums](./index.php?sid=76916426e8682e67ff2e683d6bc3931c)
+* [**Light mode](javascript:void(0);)
+* [**Dark mode](javascript:void(0);)
+* [**FAQ](https://forum.rainmeter.net/help/faq?sid=76916426e8682e67ff2e683d6bc3931c)
+* [Login](./ucp.php?mode=login&redirect=viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c)
+* [Register](./ucp.php?mode=register&sid=76916426e8682e67ff2e683d6bc3931c)
+* [Search](./search.php?sid=76916426e8682e67ff2e683d6bc3931c)
+* [Login](./ucp.php?mode=login&redirect=viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c)
+* [Register](./ucp.php?mode=register&sid=76916426e8682e67ff2e683d6bc3931c)
+**It is currently April 29th, 2025, 4:18 pm
+* [**Board index](./index.php?sid=76916426e8682e67ff2e683d6bc3931c)[Community Support](./viewforum.php?f=10&sid=76916426e8682e67ff2e683d6bc3931c)[Plugins & Addons](./viewforum.php?f=18&sid=76916426e8682e67ff2e683d6bc3931c)[Community Plugins & Addons](./viewforum.php?f=128&sid=76916426e8682e67ff2e683d6bc3931c)
+* [**Search](./search.php?sid=76916426e8682e67ff2e683d6bc3931c)
+## [[v1.2.0] FrostedGlass - Now more customizable](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c)
+Share and get help with Plugins and Addons
+[Post Reply**](./posting.php?mode=reply&t=44887&sid=76916426e8682e67ff2e683d6bc3931c)
+****
+* [**Print view](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&view=print)
+**Search[**Advanced search](./search.php?sid=76916426e8682e67ff2e683d6bc3931c)
+17 posts
+* 1
+* [2](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&start=10)
+* [**Next](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&start=10)
+[![User avatar](./download/file.php?avatar=68557_1739070418.png)](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)
+[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[65](./search.php?author_id=68557&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**January 25th, 2023, 2:56 am
+### [[v1.2.0] FrostedGlass - Now more customizable](#p230575)
+* [**Quote](./posting.php?mode=quote&p=230575&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230575&sid=76916426e8682e67ff2e683d6bc3931c#p230575)by**[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**»December 23rd, 2024, 5:27 am
+**FrostedGlass v1.2.0**
+FrostedGlass is a Rainmeter plugin that brings modern, sleek visual effects to your desktop. By applying effects like blur, acrylic, mica, and more, it enhances the appearance of your widgets and skins with a frosted, glass-like finish. Whether you're aiming for a subtle blur or a bold acrylic effect, FrostedGlass allows you to customize the look and feel of your Rainmeter setup with ease.
+**Only for Win 10/11.**| Transparency Effects should be enabled from Windows Settings |[Source Code Here](https://github.com/KazukiGames82/FrostedGlass)
+[![1Sdq9BA.png](./download/file.php?id=32682&t=1&sid=76916426e8682e67ff2e683d6bc3931c "1Sdq9BA.png (199.87 KiB) Viewed 3590 times")](./download/file.php?id=32682&sid=76916426e8682e67ff2e683d6bc3931c&mode=view)
+![](./images/upload_icons/zip.gif)[FrostedGlass Plugin\_1.2.0.rmskin](./download/file.php?id=32681&sid=76916426e8682e67ff2e683d6bc3931c)(1.07 MiB) Downloaded 250 times
+-***theAzack9***-***Khanhas***-***Meti0X7CB***-***AmberW***-***KazukiGames82***-
+**Documentation**
+**Basic Options**
+* **DarkMode**:*Default Value*:**0**
+* This option determines whether the Mica effect will use a dark mode theme.
+* Valid values are:
+* **0**: Mica effect will not use dark mode.
+* **1**: Activates dark mode for the Mica effect.**RequiredWindows 11 21H2or latest.**
+* **MicaOnFocus**:*Default Value*:**0**
+* This option controls whether a solid color will be used when the skin loses focus while the Mica effect is active.
+* Valid values are:
+* **0**: No solid color will be applied when the skin loses focus, but other factors can cause the color to be opaque.
+* **1**: A solid color will appear when the skin loses focus.**RequiredWindows 11 22H2or latest.**
+* **IgnoreWarnings**:*Default Value*:**0**
+* This option controls whether warning logs related to compatibility issues in the plugin.
+* Valid values are:
+* **0**: Show warning messages if any compatibility issues are detected.
+* **1**: Suppress warning messages.
+* **Disabled**:*Default Value*:**0**
+* Valid values are:
+* **0**: Enables the use of all effects.
+* **1**: Disables all effects.
+Code:[Select all](#)
+```
+`[FrostedGlass]
+Measure=Plugin
+Plugin=FrostedGlass
+DarkMode=0
+MicaOnFocus=0
+IgnoreWarnings=1
+Disabled=0`
+```
+**Advanced Options:**
+* **Type**:*Default Value*:**Blur**
+* This option determines what visual effect will be applied to the skin background.
+* Valid values are:
+* **None**: Removes or does not apply any accent.
+* **Backdrop**: Applies an opaque background color to the skin, using the color defined by the Backdrop option.
+* **TraslucentBackdrop**: Applies the background color defined by the Backdrop option with transparency.
+* **Blur**: Adds a blur effect.
+* **Acrylic**: Mimics the translucent, glossy look of acrylic material, with the background slightly blurred but still partially visible.
+* **Mica**: Applies a Mica effect, which gives a slightly frosted, semi-transparent glass-like appearance.
+* **MicaAcrylic**: Combines the Mica effect with an acrylic finish.
+* **MicaAlt**: An alternative Mica effect, which may offer a slightly different texture or visual finish compared to the standard Mica effect.**Note:BackdropandTraslucentBackdropdo not use blur effects.**
+**Note 2:BlurandAcrylichas the same effect in Windows 11.**
+**RequiredWindows 11 21H2or latest to useAcrylic.**
+**RequiredWindows 11 22H2or latest to useMica,MicaAcrylicorMicaAlt.**
+* **Effect**:*Default Value*:**None**
+* This option adds a special effect when combined with different accents.
+* Valid values are:
+* **Luminance**: Adds a brightness adjustment for the background.
+* **Fullscreen**: Expands the accent to cover the entire screen.**Note: These effects are not available forMica Effects.**
+* **Border**:*Default Value*:**None**
+* This option allows you to set which sides of the skin will have a border with a small shadow.
+* Valid values are:
+* **None**: No border applied.
+* **All**: Applies borders on all sides.
+* **Top**,**Left**,**Right**,**Bottom**.**Tip: You can use|to use multiples values asLeft | Right.**
+* **Backdrop**
+* This option determines the color and transparency used for the background.
+* Valid values are:
+* **RRR,GGG,BBB,AAA**: The color is specified using three values for Red, Green, Blue and Alpha, separated by commas. Ex:255,0,0,128(Red).
+* **RRGGBBAA**: The color is defined by a 6/8-digit hex code. Ex:#FF000096(Red) | Note:#will be ignored so you can leave it as is.
+* Deprecated values are:**[BWC]**
+* **DarkBase**,**Dark**,**Dark1**,**Dark2**,**Dark3**,**Dark4**,**Dark5**.
+* **LightBase**,**Light**,**Light1**,**Light2**,**Light3**,**Light4**,**Light5**.**Note: The default value for the alpha value is 0.**
+**Note 2: Backdrop option is not detected byType=Blur.**
+* **Corner**:*Default Value*:**None**
+* This option is used to apply rounded corners to the skin, giving a more polished and aesthetically pleasing look.
+* Valid values are:
+* **None**: No rounded corners.
+* **Round**: Applies a standard 8px rounded corner.
+* **RoundWs**: Same asRound, but with less shadow for a more subtle effect.
+* **RoundSmall**: Applies smaller rounded corners with a radius of 4px.**RequiredWindows 11 21H2or latest.**
+* **BorderVisible**:*Default Value*:**1**
+* This option controls the visibility of the rounded border for the skin.
+* Valid values are:
+* **0**: Disables the visibility of the rounded border.
+* **1**: Enables the visibility of the rounded border.**RequiredWindows 11 21H2or latest.**
+* **BorderColor**
+* This option is responsible for setting and redrawing the color of the rounded border for the skin.
+* Valid values are:
+* **Backdrop**: Applies an opaque rounded border color to the skin, using the color defined by the Backdrop option.
+* **RRR,GGG,BBB**: The color is specified using three values for Red, Green and Blue, separated by commas. Ex:255,0,0(Red).
+* **RRGGBB**: The color is defined by a 6-digit hex code. Ex:#FF0000(Red) | Note:#will be ignored so you can leave it as is.**RequiredWindows 11 21H2or latest.**
+Code:[Select all](#)
+```
+`[FrostedGlass]
+Measure=Plugin
+Plugin=FrostedGlass
+Type=Blur
+Effect=None
+Border=Top | Bottom
+Backdrop=255,0,0,55
+Corner=Round
+BorderVisible=1
+BorderColor=FF0000`
+```
+**Plugin Commands:**
+* **Blur Commands:**This command can be used to enable/disable all other options, other command will not work if the current accent is disabled.
+* **ToggleBlur**
+* **EnableBlur**
+* **DisableBlur**
+* **Corner Commands:**
+* **ToggleCorner**
+* **EnableCorner**
+* **DisableCorner**
+* **Border Commands:**
+* **ToggleBorders**
+* **EnableBorders**
+* **DisableBorders**
+* **Mica On Focus Commands:**
+* **ToggleFocus**
+* **EnableFocus**
+* **DisableFocus**
+* **Dark Mode Commands:**
+* **ToggleMode**
+* **LightMode**
+* **DarkMode**
+Code:[Select all](#)
+```
+`[!CommandMeasure FrostedGlassMeasure "ToggleBlur"]`
+```
+**How to use properly Mica Effects?**
+* Using**MicaOnFocus**:Use**OnFocusAction & OnUnFocusAction**options to update FrostedGlass plugin to detech any change in the skin.
+Code:[Select all](#)
+```
+`[Rainmeter]
+OnFocusAction=[!UpdateMeasure FrostedGlass]
+OnUnFocusAction=[!UpdateMeasure FrostedGlass]
+[FrostedGlass]
+Measure=Plugin
+Plugin=FrostedGlass
+MicaOnFocus=1
+Type=MicaAcrylic
+UpdateDivider=-1`
+```
+**Credits**
+**Original Creator and Distributor:**
+***theAzack9:***
+Original author of the FrostedGlass plugin, responsible for the initial design and original distribution of the plugin.
+**Contributor:**
+***Khanhas:***
+Added compatibility for rounded corners.
+**Compilation and Distribution:**
+***Meti0X7CB:***
+Compiled Khanhas code and distributed an version of the plugin.
+**Discovery of Undocumented Function:**
+***AmberW:***
+Discovered an undocumented function, improving the understanding and functionality of the plugin.
+**Maintenance and Improvements:**
+***KazukiGames82:***
+Current maintainer of the project, continuing to add new features and improvements to the FrostedGlass plugin.
+Last edited by[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)on March 22nd, 2025, 8:38 pm, edited 4 times in total.
+[**Top](#top)
+[![User avatar](./download/file.php?avatar=9756_1428182894.jpg)](./memberlist.php?mode=viewprofile&u=9756&sid=76916426e8682e67ff2e683d6bc3931c)
+[sl23](./memberlist.php?mode=viewprofile&u=9756&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[2322](./search.php?author_id=9756&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**February 17th, 2011, 7:45 pm**City, Country:**a Galaxy S7 far far away
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230580)
+* [**Quote](./posting.php?mode=quote&p=230580&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230580&sid=76916426e8682e67ff2e683d6bc3931c#p230580)by**[sl23](./memberlist.php?mode=viewprofile&u=9756&sid=76916426e8682e67ff2e683d6bc3931c)**»December 23rd, 2024, 8:47 am
+Great work! Thanks.
+I would also like to say how impressive the instructions are that you've written. It's much easier to understand than many others.![:thumbup:](./images/smilies/ay.gif "Thumbs Up")
+[**Top](#top)
+[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[1081](./search.php?author_id=68250&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**December 28th, 2022, 9:30 pm**City, Country:**México
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230694)
+* [**Quote](./posting.php?mode=quote&p=230694&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230694&sid=76916426e8682e67ff2e683d6bc3931c#p230694)by**[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**»December 28th, 2024, 4:17 am
+Hey pretty good! Thanks, looks pretty nice.
+It might be me doing something wrong but the border option doesn't seem to do anything. All Top, Left, Right, Bottom, All and None options get the same effect, which is the border on all sides, also "None" doesn't disable it, only setting BorderVisible to 0 disables it. I'm on Windows 11 23H2.
+[**Top](#top)
+[![User avatar](./download/file.php?avatar=68557_1739070418.png)](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)
+[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[65](./search.php?author_id=68557&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**January 25th, 2023, 2:56 am
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230695)
+* [**Quote](./posting.php?mode=quote&p=230695&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230695&sid=76916426e8682e67ff2e683d6bc3931c#p230695)by**[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**»December 28th, 2024, 4:27 am
+[> > RicardoTM
+](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)> > wrote: [**](./viewtopic.php?p=230694&sid=76916426e8682e67ff2e683d6bc3931c#p230694)> > December 28th, 2024, 4:17 am
+> It might be me doing something wrong but the border option doesn't seem to do anything. All Top, Left, Right, Bottom, All and None options get the same effect, which is the border on all sides, also "None" doesn't disable it, only setting BorderVisible to 0 disables it. I'm on Windows 11 23H2.
+Borderoption is used only for squared borders which is incompatible while using any corner; UsingCorneroption brings an rounded border provided by Windows API, and that rounded border can use the next optionsBorderVisibleandBorderColor.
+[**Top](#top)
+[![User avatar](./download/file.php?avatar=85_1241815338.gif)](./memberlist.php?mode=viewprofile&u=85&sid=76916426e8682e67ff2e683d6bc3931c)
+[jsmorley](./memberlist.php?mode=viewprofile&u=85&sid=76916426e8682e67ff2e683d6bc3931c)Developer**Posts:**[23820](./search.php?author_id=85&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**April 19th, 2009, 11:02 pm**City, Country:**Fort Hunt, Virginia, USA
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230696)
+* [**Quote](./posting.php?mode=quote&p=230696&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230696&sid=76916426e8682e67ff2e683d6bc3931c#p230696)by**[jsmorley](./memberlist.php?mode=viewprofile&u=85&sid=76916426e8682e67ff2e683d6bc3931c)**»December 28th, 2024, 4:37 am
+I don't know if this has been mentioned, but you need to have "Transparency Effects" turned on in Windows for this plugin to work.
+[![1.jpg](./download/file.php?id=32727&t=1&sid=76916426e8682e67ff2e683d6bc3931c "1.jpg (25.16 KiB) Viewed 3450 times")](./download/file.php?id=32727&sid=76916426e8682e67ff2e683d6bc3931c&mode=view)
+[**Top](#top)
+[![User avatar](./download/file.php?avatar=68557_1739070418.png)](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)
+[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[65](./search.php?author_id=68557&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**January 25th, 2023, 2:56 am
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230697)
+* [**Quote](./posting.php?mode=quote&p=230697&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230697&sid=76916426e8682e67ff2e683d6bc3931c#p230697)by**[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**»December 28th, 2024, 4:40 am
+[> > jsmorley
+](./memberlist.php?mode=viewprofile&u=85&sid=76916426e8682e67ff2e683d6bc3931c)> > wrote: [**](./viewtopic.php?p=230696&sid=76916426e8682e67ff2e683d6bc3931c#p230696)> > December 28th, 2024, 4:37 am
+> I don't know if this has been mentioned, but you need to have "Transparency Effects" turned on in Windows for this plugin to work.
+Good catch, i forget that detail, thanks, i will add it.![:oops:](./images/smilies/ah.gif "Embarrassed")
+[**Top](#top)
+[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[1081](./search.php?author_id=68250&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**December 28th, 2022, 9:30 pm**City, Country:**México
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p230705)
+* [**Quote](./posting.php?mode=quote&p=230705&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=230705&sid=76916426e8682e67ff2e683d6bc3931c#p230705)by**[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**»December 28th, 2024, 3:03 pm
+[> > KazukiGames82
+](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)> > wrote: [**](./viewtopic.php?p=230695&sid=76916426e8682e67ff2e683d6bc3931c#p230695)> > December 28th, 2024, 4:27 am
+> > Border
+> option is used only for squared borders which is incompatible while using any corner; Using > Corner
+> option brings an rounded border provided by Windows API, and that rounded border can use the next options > BorderVisible
+> and > BorderColor
+> .
+Ahh got you![:thumbup:](./images/smilies/ay.gif "Thumbs Up")thanks.
+[**Top](#top)
+[jadiazrod](./memberlist.php?mode=viewprofile&u=65087&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[130](./search.php?author_id=65087&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**February 1st, 2022, 7:07 pm
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p233126)
+* [**Quote](./posting.php?mode=quote&p=233126&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=233126&sid=76916426e8682e67ff2e683d6bc3931c#p233126)by**[jadiazrod](./memberlist.php?mode=viewprofile&u=65087&sid=76916426e8682e67ff2e683d6bc3931c)**»February 5th, 2025, 10:10 pm
+Hello Guys
+This plugin is amazing !!!
+Just one question....
+I've lost the Right border/shadow once I changed the Plugin type... is that the way is expected to work...?
+Here is the code I'm using
+Code:[Select all](#)
+```
+`[Rainmeter]
+Update=-1
+Author=Nobody
+BackgroundMode=2
+Solidcolor=0,0,0,1
+;SkinWidth=190
+;SkinHeight=150
+[FrostedGlass]
+Measure=Plugin
+Plugin=FrostedGlass
+Type=MicaAcrylic
+BlurEnabled=0
+Border=right
+[Variables]
+Offset=-189
+OffsetSub=-110
+OffsetSub2=-110
+SlideAmount=8
+SlideAmountSub=8
+OpenMenu=0
+OpenMenu1=0
+FontColorPassive=255,255,255,255
+SolidColorTransparent=0,0,0,1
+SolidColorFilled=55,25,25,100
+W=5
+[MeterPanel]
+Meter=Shape
+Shape=Rectangle (0 + #Offset#),0,190,#WorkAreaHeight#,8 | StrokeWidth 0 | Stroke Color 0,0,0,0 | Fill Color 255,255,255,70
+MouseOverAction=[!CommandMeasure MeasureSlider "Stop 2"][!CommandMeasure MeasureSlider "Execute 1"]
+MouseLeaveAction=[!CommandMeasure MeasureSlider "Stop 1"][!CommandMeasure MeasureSlider "Execute 2"]
+Group=Sliders DynamicVariables=1`
+```
+![Dock.png](./download/file.php?id=33361&sid=76916426e8682e67ff2e683d6bc3931c)
+[**Top](#top)
+[![User avatar](./download/file.php?avatar=68557_1739070418.png)](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)
+[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[65](./search.php?author_id=68557&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**January 25th, 2023, 2:56 am
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p233127)
+* [**Quote](./posting.php?mode=quote&p=233127&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=233127&sid=76916426e8682e67ff2e683d6bc3931c#p233127)by**[KazukiGames82](./memberlist.php?mode=viewprofile&u=68557&sid=76916426e8682e67ff2e683d6bc3931c)**»February 5th, 2025, 10:15 pm
+Its because in your code u used
+Code:[Select all](#)
+```
+`BlurEnabled=0`
+```
+, that will disable any effect used into the plugin, if you want to keep the border option, uses
+Code:[Select all](#)
+```
+`BlurEnabled=1
+Type=None`
+```
+[**Top](#top)
+[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**Posts:**[1081](./search.php?author_id=68250&sr=posts&sid=76916426e8682e67ff2e683d6bc3931c)**Joined:**December 28th, 2022, 9:30 pm**City, Country:**México
+### [Re: [v1.2.0] FrostedGlass - Now more customizable](#p233129)
+* [**Quote](./posting.php?mode=quote&p=233129&sid=76916426e8682e67ff2e683d6bc3931c)
+[Post](./viewtopic.php?p=233129&sid=76916426e8682e67ff2e683d6bc3931c#p233129)by**[RicardoTM](./memberlist.php?mode=viewprofile&u=68250&sid=76916426e8682e67ff2e683d6bc3931c)**»February 5th, 2025, 10:26 pm
+Hey Kazuki, first of all thanks for your work, it's excellent.
+I have a doubt about disabling this which actually keeps me from including it on skins. The problem is I don't understand how disabling works. The way it works right now seems to have different ways to disable one or another effect. I was expecting to simply disable the measure to actually disable the plugin which seems to not be the case here.
+So, how does disabling works? Why disabling the measure doesn't disables the plugin? I say this because it makes it difficult to give users a control panel where they can opt to enable this plugin and then configure it to their like. Or if they don't want it then simply disable it.
+[**Top](#top)
+[Post Reply**](./posting.php?mode=reply&t=44887&sid=76916426e8682e67ff2e683d6bc3931c)
+****
+* [**Print view](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&view=print)
+****
+Display:All posts1 day7 days2 weeks1 month3 months6 months1 yearSort by:AuthorPost timeSubjectDirection:AscendingDescending
+17 posts
+* 1
+* [2](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&start=10)
+* [**Next](./viewtopic.php?t=44887&sid=76916426e8682e67ff2e683d6bc3931c&start=10)
+[**Return to “Community Plugins & Addons”](./viewforum.php?f=128&sid=76916426e8682e67ff2e683d6bc3931c)
+* [**Board index](./index.php?sid=76916426e8682e67ff2e683d6bc3931c)
+* All times areUTC
+* [**Delete cookies](https://forum.rainmeter.net/user/delete_cookies?sid=76916426e8682e67ff2e683d6bc3931c)
+* [**Contact us](./memberlist.php?mode=contactadmin&sid=76916426e8682e67ff2e683d6bc3931c)
+Powered by[phpBB](https://www.phpbb.com/)® Forum Software © phpBB Limited
+Style by[Arty](http://www.artodia.com/)- Update phpBB 3.3 by MrGaby
+Hosting courtesy of[The Open Source Lab at Oregon State University](http://osuosl.org/)
+[](#)### [](#)

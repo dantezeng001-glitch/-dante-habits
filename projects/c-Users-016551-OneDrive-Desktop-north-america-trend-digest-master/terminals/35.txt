@@ -1,6 +1,0 @@
----
-pid: 7456
-cwd: |
-  C:\Users\016551\OneDrive\Desktop\流程建设\north-america-trend-digest-master
----
-PS C:\Users\016551\OneDrive\Desktop\流程建设\north-america-trend-digest-master>
