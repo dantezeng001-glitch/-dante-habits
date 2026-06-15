@@ -1,0 +1,814 @@
+# Commit: farion1231/cc-switch@ce9c238
+
+- Repository: farion1231/cc-switch | A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Gemini CLI & Hermes Agent. Only official website: ccswitch.io | 82K stars | Rust
+
+## docs: add OpenClaw coverage and complete settings docs for user manual
+
+- Author: [@farion1231](https://github.com/farion1231)
+- Date: 2026-03-02T15:16:58Z
+- SHA: ce9c23833ad9b0684bebbd988932e5ffcb052f73
+- Changes: +300 -61 (15 files)
+
+- Add OpenClaw as the 5th supported app across all doc chapters (1-3, 5)
+- Add OpenClaw provider presets table to 2.1-add.md (30 presets)
+- Add OpenClaw config section to 5.1-config-files.md (JSON5 format)
+- Complete 1.5-settings.md with missing sections: app visibility,
+
+skill sync method, terminal settings, proxy tab, WebDAV cloud sync,
+ backup/restore, and log configuration
+
+- Fix deeplink parser.rs to accept 'opencode' and 'openclaw' app types
+- Update 5.3-deeplink.md with new app type parameters
+- Remove incorrect OpenCode references from proxy docs (4.1-4.4)
+
+---
+
+## Files Changed
+
+| File | Status | Add | Del |
+| --- | --- | --- | --- |
+| docs/user-manual/1-getting-started/1.1-introduction.md | modified | +3 | -2 |
+| docs/user-manual/1-getting-started/1.3-interface.md | modified | +3 | -2 |
+| docs/user-manual/1-getting-started/1.5-settings.md | modified | +142 | -21 |
+| docs/user-manual/2-providers/2.1-add.md | modified | +38 | -3 |
+| docs/user-manual/3-extensions/3.1-mcp.md | modified | +2 | -0 |
+| docs/user-manual/3-extensions/3.2-prompts.md | modified | +2 | -0 |
+| docs/user-manual/3-extensions/3.3-skills.md | modified | +25 | -17 |
+| docs/user-manual/4-proxy/4.1-service.md | modified | +1 | -1 |
+| docs/user-manual/4-proxy/4.2-takeover.md | modified | +1 | -2 |
+| docs/user-manual/4-proxy/4.3-failover.md | modified | +1 | -2 |
+| docs/user-manual/4-proxy/4.4-usage.md | modified | +1 | -1 |
+| docs/user-manual/5-faq/5.1-config-files.md | modified | +63 | -1 |
+| docs/user-manual/5-faq/5.3-deeplink.md | modified | +2 | -2 |
+| docs/user-manual/README.md | modified | +1 | -1 |
+| src-tauri/src/deeplink/parser.rs | modified | +15 | -6 |
+
+---
+
+## Diffs
+
+### docs/user-manual/1-getting-started/1.1-introduction.md
+
+```diff
+@@ -2,14 +2,14 @@
+ 
+ ## 什么是 CC Switch
+ 
+-CC Switch 是一款跨平台桌面应用，专为使用 AI 编程工具的开发者设计。它帮助你统一管理 **Claude Code**、**Codex**、**Gemini CLI**、**OpenCode** 四大 AI 编程工具的配置。
++CC Switch 是一款跨平台桌面应用，专为使用 AI 编程工具的开发者设计。它帮助你统一管理 **Claude Code**、**Codex**、**Gemini CLI**、**OpenCode** 和 **OpenClaw** 五大 AI 编程工具的配置。
+ 
+ ## 解决什么问题
+ 
+ 在日常开发中，你可能会遇到这些痛点：
+ 
+ - **多供应商切换麻烦**：使用不同的 API 供应商（官方、中转服务商），需要手动修改配置文件
+-- **配置分散难管理**：Claude、Codex、Gemini、OpenCode 各有独立的配置文件，格式不同
++- **配置分散难管理**：Claude、Codex、Gemini、OpenCode、OpenClaw 各有独立的配置文件，格式不同
+ - **无法监控用量**：不知道 API 调用了多少次，花了多少钱
+ - **服务不稳定**：单一供应商出问题时，整个工作流中断
+ 
+@@ -43,6 +43,7 @@ CC Switch 通过统一的界面解决这些问题。
+ | **Codex** | OpenAI 的代码生成工具 |
+ | **Gemini CLI** | Google 的 AI 命令行工具 |
+ | **OpenCode** | 开源 AI 编程终端工具 |
++| **OpenClaw** | 开源 AI 编程助手（多供应商网关） |
+ 
+ ## 支持的平台
+ 
+```
+
+### docs/user-manual/1-getting-started/1.3-interface.md
+
+```diff
+@@ -11,7 +11,7 @@
+ | ① | Logo | 点击访问 GitHub 项目页 |
+ | ② | 设置按钮 | 打开设置页面（快捷键 `Cmd/Ctrl + ,`） |
+ | ③ | 代理开关 | 启动/停止本地代理服务 |
+-| ④ | 应用切换器 | 切换 Claude / Codex / Gemini / OpenCode |
++| ④ | 应用切换器 | 切换 Claude / Codex / Gemini / OpenCode / OpenClaw |
+ | ⑤ | 功能区 | Skills / Prompts / MCP 入口 |
+ | ⑥ | 添加按钮 | 添加新供应商 |
+ 
+@@ -23,6 +23,7 @@
+ - **Codex** - 管理 Codex 配置
+ - **Gemini** - 管理 Gemini CLI 配置
+ - **OpenCode** - 管理 OpenCode 配置
++- **OpenClaw** - 管理 OpenClaw 配置
+ 
+ 切换后，供应商列表会显示对应应用的配置。
+ 
+@@ -99,7 +100,7 @@ CC Switch 在系统托盘显示图标，提供快速操作入口。
+ | 菜单项 | 功能 |
+ |--------|------|
+ | 打开主界面 | 显示主窗口并聚焦 |
+-| 应用分组 | 按 Claude/Codex/Gemini/OpenCode 分组显示供应商 |
++| 应用分组 | 按 Claude/Codex/Gemini/OpenCode/OpenClaw 分组显示供应商 |
+ | 供应商列表 | 点击切换，当前启用的显示勾选标记 |
+ | 退出 | 完全退出应用 |
+ 
+```
+
+### docs/user-manual/1-getting-started/1.5-settings.md
+
+```diff
+@@ -11,21 +11,21 @@
+ 
+ CC Switch 支持三种语言：
+ 
+-| 语言 | 说明 |
+-|------|------|
++| 语言     | 说明     |
++| -------- | -------- |
+ | 简体中文 | 默认语言 |
+-| English | 英文界面 |
+-| 日本語 | 日文界面 |
++| English  | 英文界面 |
++| 日本語   | 日文界面 |
+ 
+ 切换语言后立即生效，无需重启。
+ 
+ ## 主题设置
+ 
+-| 选项 | 说明 |
+-|------|------|
++| 选项     | 说明                        |
++| -------- | --------------------------- |
+ | 跟随系统 | 自动匹配系统的深色/浅色模式 |
+-| 浅色 | 始终使用浅色主题 |
+-| 深色 | 始终使用深色主题 |
++| 浅色     | 始终使用浅色主题            |
++| 深色     | 始终使用深色主题            |
+ 
+ ## 窗口行为
+ 
+@@ -39,10 +39,10 @@ CC Switch 支持三种语言：
+ 
+ ### 关闭行为
+ 
+-| 选项 | 说明 |
+-|------|------|
++| 选项         | 说明                         |
++| ------------ | ---------------------------- |
+ | 最小化到托盘 | 点击关闭按钮时隐藏到系统托盘 |
+-| 直接退出 | 点击关闭按钮时完全退出应用 |
++| 直接退出     | 点击关闭按钮时完全退出应用   |
+ 
+ 推荐使用「最小化到托盘」，方便通过托盘快速切换供应商。
+ 
+@@ -58,6 +58,37 @@ CC Switch 支持三种语言：
+ 
+ > ⚠️ **注意**：此选项会写入 `~/.claude/settings.json` 的 `skipIntroduction` 字段。
+ 
++### 应用可见性
++
++选择在应用切换器中显示哪些应用。每个应用可以独立开关，但至少保留一个。
++
++可配置的应用：Claude、Codex、Gemini、OpenCode、OpenClaw。
++
++> 💡 **使用场景**：如果你只使用 Claude Code 和 Codex CLI，可以隐藏其他应用，保持界面简洁。
++
++### Skills 同步方式
++
++设置技能安装到各应用目录时的同步方式：
++
++| 方式              | 说明                                                 |
++| ----------------- | ---------------------------------------------------- |
++| 软链接（Symlink） | 创建符号链接指向技能源文件，占用空间小，更新实时同步 |
++| 复制（Copy）      | 将技能文件完整复制到目标目录                         |
++
++> 💡 **推荐**：默认使用软链接方式。如果遇到权限问题，可切换为复制方式。
++
++### 终端设置
++
++选择 CC Switch 打开终端时使用的终端应用程序。
++
++支持的终端（按平台）：
++
++| 平台    | 终端选项                                                           |
++| ------- | ------------------------------------------------------------------ |
++| macOS   | Terminal、iTerm2、Alacritty、Kitty、Ghostty、WezTerm               |
++| Windows | CMD、PowerShell、Windows Terminal                                  |
++| Linux   | GNOME Terminal、Konsole、Xfce4 Terminal、Alacritty、Kitty、Ghostty |
++
+ ## 目录配置
+ 
+ ### 应用配置目录
+@@ -68,11 +99,13 @@ CC Switch 自身数据的存储位置，默认为 `~/.cc-switch/`。
+ 
+ 可以自定义各 CLI 工具的配置目录：
+ 
+-| 配置 | 默认值 | 说明 |
+-|------|--------|------|
+-| Claude 目录 | `~/.claude/` | Claude Code 配置目录 |
+-| Codex 目录 | `~/.codex/` | Codex 配置目录 |
+-| Gemini 目录 | `~/.gemini/` | Gemini CLI 配置目录 |
++| 配置          | 默认值         | 说明                 |
++| ------------- | -------------- | -------------------- |
++| Claude 目录   | `~/.claude/`   | Claude Code 配置目录 |
++| Codex 目录    | `~/.codex/`    | Codex 配置目录       |
++| Gemini 目录   | `~/.gemini/`   | Gemini CLI 配置目录  |
++| OpenCode 目录 | `~/.opencode/` | OpenCode 配置目录    |
++| OpenClaw 目录 | `~/.openclaw/` | OpenClaw 配置目录    |
+ 
+ > ⚠️ **注意**：修改目录后需要重启应用，且对应的 CLI 工具也需要配置相同的目录。
+ 
+@@ -98,13 +131,97 @@ CC Switch 自身数据的存储位置，默认为 `~/.cc-switch/`。
+ 
+ > ⚠️ **注意**：导入会覆盖现有配置，建议先导出当前配置作为备份。
+ 
++## 代理设置
++
++设置 → 代理 Tab
++
++代理 Tab 集中管理所有代理相关功能：
++
++### 本地代理
++
++启动/停止本地代理服务，配置监听地址和端口。详见 [4.1 代理服务](../4-proxy/4.1-service.md)。
++
++### 故障转移
++
++按应用（Claude/Codex/Gemini）配置故障转移队列和自动切换策略。详见 [4.3 故障转移](../4-proxy/4.3-failover.md)。
++
++### 定价矫正器
++
++配置模型定价矫正规则，用于代理计费统计的校准。
++
++### 全局出站代理
++
++配置 CC Switch 的出站 HTTP/HTTPS 代理，适用于需要通过代理访问外部 API 的场景。
++
++## 高级设置
++
++设置 → 高级 Tab
++
++### 配置目录
++
++自定义各应用的配置文件目录。详见下方「目录配置」章节。
++
++### 数据管理
++
++导入/导出配置备份。详见下方「数据管理」章节。
++
++### 备份与恢复
++
++管理自动备份：
++
++| 配置     | 说明                       |
++| -------- | -------------------------- |
++| 备份间隔 | 自动备份的时间间隔（小时） |
++| 保留数量 | 保留的备份份数             |
++
++支持查看备份列表和从备份恢复。
++
++### 云同步（WebDAV）
++
++通过 WebDAV 协议在多台设备间同步配置。
++
++| 配置项   | 说明                                  |
++| -------- | ------------------------------------- |
++| 服务预设 | 坚果云 / Nextcloud / 群晖 / 自定义    |
++| 服务地址 | WebDAV 服务器 URL                     |
++| 用户名   | 登录用户名                            |
++| 密码     | 登录密码（应用专用密码）              |
++| 远程目录 | 远程存储路径（默认 `cc-switch-sync`） |
++| 配置名称 | 设备配置文件名（默认 `default`）      |
++| 自动同步 | 开启后自动上传变更                    |
++
++操作：
++
++- **测试连接**：验证 WebDAV 配置是否正确
++- **保存**：保存配置并自动测试
++- **上传**：将本地数据上传到远程
++- **下载**：从远程下载数据到本地
++
++> ⚠️ **注意**：上传会覆盖远程数据，下载会覆盖本地数据。操作前请确认。
++
++### 日志配置
++
++| 配置项   | 说明                                |
++| -------- | ----------------------------------- |
++| 启用日志 | 开启/关闭应用日志记录               |
++| 日志级别 | error / warn / info / debug / trace |
++
++日志级别说明：
++
++- **error** - 仅记录错误
++- **warn** - 记录警告和错误
++- **info** - 记录一般信息（推荐）
++- **debug** - 记录调试信息
++- **trace** - 记录所有详细信息
++
+ ## 关于页面
+ 
+ 设置 → 关于 Tab
+ 
+ ### 版本信息
+ 
+ 显示当前 CC Switch 版本号，支持：
++
+ - 查看发布说明
+ - 检查更新
+ - 下载并安装新版本
+@@ -113,11 +230,13 @@ CC Switch 自身数据的存储位置，默认为 `~/.cc-switch/`。
+ 
+ 自动检测已安装的 CLI 工具版本：
+ 
+-| 工具 | 检测内容 |
+-|------|----------|
+-| Claude | 当前版本、最新版本 |
+-| Codex | 当前版本、最新版本 |
+-| Gemini | 当前版本、最新版本 |
++| 工具     | 检测内容           |
++| -------- | ------------------ |
++| Claude   | 当前版本、最新版本 |
++| Codex    | 当前版本、最新版本 |
++| Gemini   | 当前版本、最新版本 |
++| OpenCode | 当前版本、最新版本 |
++| OpenClaw | 当前版本、最新版本 |
+ 
+ 点击「刷新」按钮可重新检测。
+ 
+@@ -129,6 +248,8 @@ CC Switch 自身数据的存储位置，默认为 `~/.cc-switch/`。
+ npm i -g @anthropic-ai/claude-code@latest
+ npm i -g @openai/codex@latest
+ npm i -g @google/gemini-cli@latest
++npm i -g opencode@latest
++npm i -g openclaw@latest
+ ```
+ 
+ 点击「复制」按钮可复制到剪贴板。
+```
+
+### docs/user-manual/2-providers/2.1-add.md
+
+```diff
+@@ -5,7 +5,7 @@
+ 点击主界面右上角的 **+** 按钮，打开添加供应商面板。
+ 
+ 面板分为两个 Tab：
+-- **应用专属供应商**：仅用于当前选中的应用（Claude/Codex/Gemini/OpenCode）
++- **应用专属供应商**：仅用于当前选中的应用（Claude/Codex/Gemini/OpenCode/OpenClaw）
+ - **统一供应商**：跨应用共享的配置
+ 
+ ## 使用预设添加
+@@ -114,6 +114,41 @@
+ 
+ > 💡 预设列表持续更新中，以应用内实际显示为准。
+ 
++#### OpenClaw 预设
++
++| 预设名称 | 说明 |
++|----------|------|
++| DeepSeek | DeepSeek 模型 |
++| 智谱 GLM | 智谱 AI 的 GLM 模型 |
++| 智谱 GLM en | 智谱 AI（英文版） |
++| Qwen Coder | 通义千问编码模型 |
++| Kimi k2.5 | Moonshot Kimi-k2.5 模型 |
++| Kimi For Coding | Kimi 编程专用模型 |
++| MiniMax | MiniMax 模型 |
++| MiniMax en | MiniMax（英文版） |
++| KAT-Coder | KAT-Coder 模型 |
++| Longcat | Longcat AI |
++| DouBaoSeed | 豆包 Seed 模型 |
++| BaiLing | 百灵 AI |
++| Xiaomi MiMo | 小米 MiMo 模型 |
++| AiHubMix | AiHubMix 聚合服务 |
++| DMXAPI | DMXAPI 中转服务 |
++| OpenRouter | 聚合路由服务 |
++| ModelScope | 魔搭社区 |
++| SiliconFlow | 硅基流动 |
++| SiliconFlow en | 硅基流动（英文版） |
++| Nvidia | Nvidia AI 服务 |
++| PackyCode | PackyCode 中转服务 |
++| Cubence | Cubence 服务 |
++| AIGoCode | AIGoCode 服务 |
++| RightCode | RightCode 服务 |
++| AICodeMirror | AICodeMirror 服务 |
++| AICoding | AICoding 服务 |
++| CrazyRouter | CrazyRouter 服务 |
++| SSSAiCode | SSSAiCode 服务 |
++| AWS Bedrock | AWS Bedrock 服务 |
++| OpenAI Compatible | OpenAI 兼容接口 |
++
+ ## 自定义配置
+ 
+ 选择「自定义」预设后，需要手动编辑 JSON 配置。
+@@ -204,7 +239,7 @@ requires_openai_auth = true
+ 
+ ## 统一供应商
+ 
+-统一供应商可以跨 Claude/Codex/Gemini/OpenCode 共享配置，适用于支持多种 API 格式的中转服务。
++统一供应商可以跨 Claude/Codex/Gemini/OpenCode/OpenClaw 共享配置，适用于支持多种 API 格式的中转服务。
+ 
+ ### 创建统一供应商
+ 
+@@ -214,7 +249,7 @@ requires_openai_auth = true
+    - 名称
+    - API Key
+    - 端点地址
+-4. 勾选要同步的应用（Claude/Codex/Gemini/OpenCode）
++4. 勾选要同步的应用（Claude/Codex/Gemini/OpenCode/OpenClaw）
+ 5. 保存
+ 
+ ### 同步机制
+```
+
+### docs/user-manual/3-extensions/3.1-mcp.md
+
+```diff
+@@ -105,6 +105,8 @@ MCP (Model Context Protocol) 是一种协议，允许 AI 工具访问外部数
+ | Gemini | 同步到 Gemini CLI | `~/.gemini/settings.json` 的 `mcpServers` |
+ | OpenCode | 同步到 OpenCode | `~/.opencode/config.json` 的 `mcpServers` |
+ 
++> ⚠️ **注意**：OpenClaw 暂不支持 MCP 服务器管理。MCP 功能目前仅支持 Claude、Codex、Gemini 和 OpenCode 四个应用。
++
+ ### 开关实现机制
+ 
+ 当开启某个应用的开关时，CC Switch 会：
+```
+
+### docs/user-manual/3-extensions/3.2-prompts.md
+
+```diff
+@@ -82,6 +82,7 @@ Prompts 功能用于管理系统提示词预设。系统提示词会影响 AI 
+ | Codex | `~/.codex/AGENTS.md` |
+ | Gemini | `~/.gemini/GEMINI.md` |
+ | OpenCode | `~/.opencode/AGENTS.md` |
++| OpenClaw | `~/.openclaw/AGENTS.md` |
+ 
+ ## 编辑预设
+ 
+@@ -140,6 +141,7 @@ Prompts 是按应用分开管理的：
+ - 切换到 Codex 时，显示 Codex 的预设
+ - 切换到 Gemini 时，显示 Gemini 的预设
+ - 切换到 OpenCode 时，显示 OpenCode 的预设
++- 切换到 OpenClaw 时，显示 OpenClaw 的预设
+ 
+ 如需在多个应用使用相同的提示词，需要分别创建。
+ 
+```
+
+### docs/user-manual/3-extensions/3.3-skills.md
+
+```diff
+@@ -5,13 +5,15 @@
+ Skills 是可复用的能力扩展，让 AI 工具获得特定领域的专业能力。
+ 
+ 技能以文件夹形式存在，包含：
++
+ - 提示词模板
+ - 工具定义
+ - 示例代码
+ 
+ ## 支持的应用
+ 
+ Skills 功能支持所有四种应用：
++
+ - **Claude Code**
+ - **Codex**
+ - **Gemini CLI**
+@@ -33,11 +35,11 @@ Skills 功能支持所有四种应用：
+ 
+ CC Switch 预配置了以下 GitHub 仓库：
+ 
+-| 仓库 | 说明 |
+-|------|------|
++| 仓库           | 说明                     |
++| -------------- | ------------------------ |
+ | Anthropic 官方 | Anthropic 提供的官方技能 |
+-| ComposioHQ | 社区维护的技能集合 |
+-| 社区精选 | 精选的高质量技能 |
++| ComposioHQ     | 社区维护的技能集合       |
++| 社区精选       | 精选的高质量技能         |
+ 
+ ![image-20260108010308060](../assets/image-20260108010308060.png)
+ 
+@@ -56,9 +58,9 @@ CC Switch 提供强大的搜索和过滤功能：
+ 
+ 使用下拉菜单按安装状态过滤：
+ 
+-| 选项 | 说明 |
+-|------|------|
+-| 全部 | 显示所有技能 |
++| 选项   | 说明               |
++| ------ | ------------------ |
++| 全部   | 显示所有技能       |
+ | 已安装 | 仅显示已安装的技能 |
+ | 未安装 | 仅显示未安装的技能 |
+ 
+@@ -67,6 +69,7 @@ CC Switch 提供强大的搜索和过滤功能：
+ #### 组合使用
+ 
+ 搜索和过滤可以组合使用：
++
+ - 先选择「已安装」过滤
+ - 再输入关键词搜索
+ - 结果显示匹配数量
+@@ -85,11 +88,11 @@ CC Switch 提供强大的搜索和过滤功能：
+ 
+ ### 安装位置
+ 
+-| 应用 | 安装目录 |
+-|------|----------|
+-| Claude | `~/.claude/skills/` |
+-| Codex | `~/.codex/skills/` |
+-| Gemini | `~/.gemini/skills/` |
++| 应用     | 安装目录              |
++| -------- | --------------------- |
++| Claude   | `~/.claude/skills/`   |
++| Codex    | `~/.codex/skills/`    |
++| Gemini   | `~/.gemini/skills/`   |
+ | OpenCode | `~/.opencode/skills/` |
+ 
+ ### 安装内容
+@@ -141,6 +144,7 @@ https://github.com/{owner}/{name}/tree/{branch}/{subdirectory}
+ ```
+ 
+ 示例：
++
+ ```
+ Owner: anthropics
+ Name: claude-skills
+@@ -160,11 +164,11 @@ Subdirectory: skills
+ 
+ 每个技能卡片显示：
+ 
+-| 信息 | 说明 |
+-|------|------|
+-| 名称 | 技能名称 |
+-| 描述 | 功能说明 |
+-| 来源 | 所属仓库 |
++| 信息 | 说明            |
++| ---- | --------------- |
++| 名称 | 技能名称        |
++| 描述 | 功能说明        |
++| 来源 | 所属仓库        |
+ | 状态 | 已安装 / 未安装 |
+ 
+ ## 技能更新
+@@ -178,22 +182,26 @@ Subdirectory: skills
+ ### 技能列表为空
+ 
+ 可能原因：
++
+ - 网络问题，无法访问 GitHub
+ - 仓库配置错误
+ 
+ 解决方法：
++
+ - 检查网络连接
+ - 点击「刷新」重试
+ - 检查仓库配置
+ 
+ ### 安装失败
+ 
+ 可能原因：
++
+ - 网络问题
+ - 磁盘空间不足
+ - 权限问题
+ 
+ 解决方法：
++
+ - 检查网络连接
+ - 检查磁盘空间
+ - 检查目录权限
+```
+
+### docs/user-manual/4-proxy/4.1-service.md
+
+```diff
+@@ -181,7 +181,7 @@ GOOGLE_GEMINI_BASE_URL=http://127.0.0.1:15721
+ | 字段 | 说明 |
+ |------|------|
+ | 时间 | 请求时间 |
+-| 应用 | Claude/Codex/Gemini/OpenCode |
++| 应用 | Claude / Codex / Gemini |
+ | 供应商 | 使用的供应商 |
+ | 模型 | 请求的模型 |
+ | Token | 输入/输出 token 数 |
+```
+
+### docs/user-manual/4-proxy/4.2-takeover.md
+
+```diff
+@@ -32,7 +32,6 @@
+ | Claude 接管 | 接管 Claude Code 的请求 |
+ | Codex 接管 | 接管 Codex 的请求 |
+ | Gemini 接管 | 接管 Gemini CLI 的请求 |
+-| OpenCode 接管 | 接管 OpenCode 的请求 |
+ 
+ 可以同时开启多个应用的接管。
+ 
+@@ -84,7 +83,7 @@ GOOGLE_GEMINI_BASE_URL=http://127.0.0.1:15721
+ 
+ 代理收到请求后：
+ 
+-1. 识别请求来源（Claude/Codex/Gemini/OpenCode）
++1. 识别请求来源（Claude/Codex/Gemini）
+ 2. 查找该应用当前启用的供应商
+ 3. 将请求转发到供应商的实际端点
+ 4. 记录请求日志
+```
+
+### docs/user-manual/4-proxy/4.3-failover.md
+
+```diff
+@@ -26,11 +26,10 @@
+ 
+ ### 选择应用
+ 
+-页面顶部有四个 Tab：
++页面顶部有三个 Tab：
+ - Claude
+ - Codex
+ - Gemini
+-- OpenCode
+ 
+ 选择要配置的应用。
+ 
+```
+
+### docs/user-manual/4-proxy/4.4-usage.md
+
+```diff
+@@ -123,7 +123,7 @@
+ 
+ | 筛选项 | 选项 |
+ |--------|------|
+-| 应用类型 | 全部 / Claude / Codex / Gemini / OpenCode |
++| 应用类型 | 全部 / Claude / Codex / Gemini |
+ | 状态码 | 全部 / 200 / 400 / 401 / 429 / 500 |
+ | 供应商 | 文本搜索 |
+ | 模型 | 文本搜索 |
+```
+
+### docs/user-manual/5-faq/5.1-config-files.md
+
+```diff
+@@ -51,7 +51,8 @@
+   "claudeConfigDir": null,
+   "codexConfigDir": null,
+   "geminiConfigDir": null,
+-  "opencodeConfigDir": null
++  "opencodeConfigDir": null,
++  "openclawConfigDir": null
+ }
+ ```
+ 
+@@ -208,6 +209,67 @@ GEMINI_MODEL=gemini-pro
+ └── ...
+ ```
+ 
++## OpenClaw 配置
++
++### 配置目录
++
++默认：`~/.openclaw/`
++
++### 主要文件
++
++```
++~/.openclaw/
++├── openclaw.json     # 主配置文件（JSON5 格式）
++├── AGENTS.md         # 系统提示词
++└── skills/           # 技能目录
++    └── ...
++```
++
++### openclaw.json
++
++OpenClaw 使用 JSON5 格式配置文件，主要包含以下部分：
++
++```json5
++{
++  // 模型供应商配置
++  models: {
++    mode: "merge",
++    providers: {
++      "custom-provider": {
++        baseUrl: "https://api.example.com/v1",
++        apiKey: "your-api-key",
++        api: "openai-completions",
++        models: [{ id: "model-id", name: "Model Name" }]
++      }
++    }
++  },
++  // 环境变量
++  env: {
++    ANTHROPIC_API_KEY: "sk-..."
++  },
++  // Agent 默认模型配置
++  agents: {
++    defaults: {
++      model: {
++        primary: "provider/model"
++      }
++    }
++  },
++  // 工具配置
++  tools: {},
++  // 工作区文件配置
++  workspace: {}
++}
++```
++
++| 字段 | 说明 |
++|------|------|
++| `models.providers` | 供应商配置（映射为 CC Switch 的"供应商"） |
++| `env` | 环境变量配置 |
++| `agents.defaults` | Agent 默认模型设置 |
++| `tools` | 工具配置 |
++| `workspace` | 工作区文件管理 |
++
+ ## 配置优先级
+ 
+ CC Switch 修改配置时的优先级：
+```
+
+### docs/user-manual/5-faq/5.3-deeplink.md
+
+```diff
+@@ -39,7 +39,7 @@ ccswitch://v1/import?resource={type}&app={app}&name={name}&...
+ | 参数 | 必填 | 说明 |
+ |------|------|------|
+ | `resource` | 是 | 资源类型：`provider` / `mcp` / `prompt` / `skill` |
+-| `app` | 是 | 应用类型：`claude` / `codex` / `gemini` / `opencode` |
++| `app` | 是 | 应用类型：`claude` / `codex` / `gemini` / `opencode` / `openclaw` |
+ | `name` | 是 | 名称 |
+ 
+ **供应商参数**（resource=provider）：
+@@ -79,7 +79,7 @@ ccswitch://v1/import?resource={type}&app={app}&name={name}&...
+ 
+ | 参数 | 必填 | 说明 |
+ |------|------|------|
+-| `apps` | 是 | 应用列表（逗号分隔，如 `claude,codex,gemini`） |
++| `apps` | 是 | 应用列表（逗号分隔，如 `claude,codex,gemini,opencode`） |
+ | `config` | 是 | MCP 服务器配置（JSON 格式） |
+ | `enabled` | 否 | 是否启用（布尔值） |
+ 
+```
+
+### docs/user-manual/README.md
+
+```diff
+@@ -1,6 +1,6 @@
+ # CC Switch 用户手册
+ 
+-> Claude Code / Codex / Gemini CLI / OpenCode 全方位辅助工具
++> Claude Code / Codex / Gemini CLI / OpenCode / OpenClaw 全方位辅助工具
+ 
+ ## 目录结构
+ 
+```
+
+### src-tauri/src/deeplink/parser.rs
+
+```diff
+@@ -79,9 +79,12 @@ fn parse_provider_deeplink(
+         .clone();
+ 
+     // Validate app type
+-    if app != "claude" && app != "codex" && app != "gemini" {
++    if !matches!(
++        app.as_str(),
++        "claude" | "codex" | "gemini" | "opencode" | "openclaw"
++    ) {
+         return Err(AppError::InvalidInput(format!(
+-            "Invalid app type: must be 'claude', 'codex', or 'gemini', got '{app}'"
++            "Invalid app type: must be 'claude', 'codex', 'gemini', 'opencode', or 'openclaw', got '{app}'"
+         )));
+     }
+ 
+@@ -185,9 +188,12 @@ fn parse_prompt_deeplink(
+         .clone();
+ 
+     // Validate app type
+-    if app != "claude" && app != "codex" && app != "gemini" {
++    if !matches!(
++        app.as_str(),
++        "claude" | "codex" | "gemini" | "opencode" | "openclaw"
++    ) {
+         return Err(AppError::InvalidInput(format!(
+-            "Invalid app type: must be 'claude', 'codex', or 'gemini', got '{app}'"
++            "Invalid app type: must be 'claude', 'codex', 'gemini', 'opencode', or 'openclaw', got '{app}'"
+         )));
+     }
+ 
+@@ -254,9 +260,12 @@ fn parse_mcp_deeplink(
+     // Validate apps format
+     for app in apps.split(',') {
+         let trimmed = app.trim();
+-        if trimmed != "claude" && trimmed != "codex" && trimmed != "gemini" {
++        if !matches!(
++            trimmed,
++            "claude" | "codex" | "gemini" | "opencode" | "openclaw"
++        ) {
+             return Err(AppError::InvalidInput(format!(
+-                "Invalid app in 'apps': must be 'claude', 'codex', or 'gemini', got '{trimmed}'"
++                "Invalid app in 'apps': must be 'claude', 'codex', 'gemini', 'opencode', or 'openclaw', got '{trimmed}'"
+             )));
+         }
+     }
+```

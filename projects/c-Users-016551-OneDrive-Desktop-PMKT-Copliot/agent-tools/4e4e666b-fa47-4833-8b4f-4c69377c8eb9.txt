@@ -1,0 +1,1822 @@
+Releases · farion1231/cc-switch · GitHub
+
+08 Jun 15:53
+
+This commit was created on GitHub.com and signed with GitHub’s verified signature.
+
+GPG key ID: B5690EEEBB952194
+
+Verified
+
+Learn about vigilant mode.
+
+Compare
+
+# Choose a tag to compare
+
+CC Switch v3.16.2 Latest
+
+# CC Switch v3.16.2
+
+在 v3.16.1 的 Codex 稳定性补丁之后，这一版主要拓宽了数据的可携带性与用量观测能力——新增 S3 兼容云同步、OpenCode 会话用量同步、官方订阅额度模板——并继续加固 Codex 通过 Chat Completions 路由第三方供应商的稳健性，同时修复了一批 Windows / macOS 平台问题，新增 CherryIN、ZenMux 供应商，并全面刷新了三语用户手册。
+
+English →|日本語版 →
+
+---
+
+## 使用攻略
+
+这一版新增了云同步的 S3 后端和更多用量统计来源，如果你想用上，可以先看这些文档：
+
+- 设置：在设置页配置云同步（WebDAV / S3 兼容存储），用于在多台设备间备份和恢复供应商、MCP、提示词、技能等配置。
+- 用量统计：了解用量看板的数据来源（代理日志、Codex / Gemini / OpenCode 会话同步）与统计口径。
+
+---
+
+Warning
+
+## 唯一官方渠道声明（请务必阅读）
+
+CC Switch 是完全免费、开源的桌面应用，不会向用户收取任何费用。请仅通过下列官方渠道获取本软件：
+
+任何向你收费、要求充值、或索取登录凭据的"CC Switch"网站或客户端均为假冒。如果你被诱导支付了费用，请立即停止操作并通过 GitHub Issues 反馈。
+
+---
+
+## 概览
+
+CC Switch v3.16.2 是 v3.16.1 之后的一版维护更新。在上一版集中处理 Codex 官方鉴权与本地路由接管的安全问题之后，这一版把重心放在两件事上：一是拓宽数据的可携带性和用量观测——新增 S3 兼容云同步（WebDAV 之外的第二套云备份后端）、OpenCode 会话用量同步，以及面向官方订阅的额度统计模板；二是继续打磨 Codex 通过 Chat Completions 路由第三方供应商时暴露出来的边角问题——流式截断判定、空 tools 下的`tool_choice`、自定义工具元数据、推理 token 统计、文件 / 音频附件转换等。
+
+此外，本版还修复了一批本地代理的稳健性问题（临时端口解析、接管占位符还原死循环、Anthropic`system`消息归一化、上游 413 文案、Claude Desktop 的`[1m]`模型路由），处理了若干 Windows / macOS 平台体验问题，并新增 CherryIN、ZenMux 两个供应商，同时全面刷新了三语用户手册。
+
+发布日期：2026-06-07
+
+更新规模：41 commits | 132 files changed | +11,116 / -1,636 lines
+
+---
+
+## 重点内容
+
+- S3 兼容云同步：在 WebDAV 之外新增 S3 兼容对象存储作为第二套云备份后端，内置 AWS S3、MinIO、Cloudflare R2、阿里云 OSS、腾讯云 COS、华为 OBS 等一键预设。
+- 更多用量统计来源：新增 OpenCode 会话用量同步，以及面向 Claude / Codex / Gemini 官方订阅的额度统计模板（显式开关、默认关闭）。
+- Codex Chat Completions 路由继续加固：修复流式截断误判、空 tools 下`tool_choice`被拒、自定义工具元数据丢失、推理 token 统计缺失，并支持文件 / 音频附件转换与`/v1/models`探活端点。
+- 本地代理更稳：修复临时端口（port 0）解析、接管占位符还原死循环、Anthropic`system`消息归一化、上游 413 文案，以及 Claude Desktop 1M 上下文模型路由。
+- 平台与供应商：修复 Windows 托盘 / 任务栏图标、子目录技能更新、macOS 输入自动大写等问题，并新增 CherryIN、ZenMux 供应商。
+
+---
+
+## 新功能
+
+### S3 兼容云同步
+
+云同步现在支持 S3 兼容对象存储作为 WebDAV 之外的第二套后端，签名采用自实现的 AWS Signature V4，以兼容尽可能多的服务。设置页提供 AWS S3、MinIO、Cloudflare R2、阿里云 OSS、腾讯云 COS、华为 OBS 以及自定义 endpoint 的一键预设，支持连接测试、手动上传 / 下载，以及在配置变更时自动同步（providers、endpoint、MCP、提示词、技能、设置、代理等配置表，不含用量日志这类高频写入数据）。开启 S3 同步会停用正在运行的 WebDAV 同步，反之亦然（#1351）。
+
+### OpenCode 会话用量同步
+
+新增 OpenCode 作为用量统计来源，从 OpenCode 本地 SQLite 数据库读取每条消息的 token、成本和模型数据并导入用量记录，并提供独立的「OpenCode」应用筛选页签和「OpenCode Session」数据来源标签。数据库路径会遵循`OPENCODE_DB`和`XDG_DATA_HOME`（在所有平台默认`~/.local/share/opencode`），只导入已完成的消息，并在判断新鲜度时把 WAL 文件一并计入，避免刚写入的会话被跳过（#3215）。
+
+### 官方订阅额度模板
+
+由于部分用户担心发起用量查询的 IP 和发起应用内请求的不一致导致封号风险，因此为 Claude / Codex / Gemini 官方供应商新增一个显式、可选的「官方订阅」用量模板，通过 CLI / OAuth 凭据查询套餐额度，替代此前对官方供应商的隐式自动查询。该模板默认关闭，需要在用量脚本弹窗里开启，并可配置刷新间隔。使用此功能建议开启代理的 TUN 模式。
+
+### 文本模型图片回退整流器
+
+新增一个代理整流器：当路由到的模型仅支持文本（显式声明，或由内置的模型名启发式判定），或上游拒绝图片输入时，会把 Anthropic 图片块替换为`[Unsupported Image]`占位标记，避免对话被中断。设置页提供该回退功能的开关，并单独提供一个开关控制启发式检测（可关闭以避免误判多模态模型）。
+
+### ZenMux Token Plan 供应商
+
+新增 ZenMux 作为 Token Plan 类的 Coding Plan 供应商，可在用量脚本弹窗里手动填写 API key 和 base URL，并以美元口径富展示已用 / 额度（#2709）。
+
+### CherryIN 预设
+
+新增 CherryIN 聚合网关作为快捷配置预设，覆盖全部 7 个受管应用——Claude Code / Claude Desktop / OpenClaw / Hermes 使用 Anthropic 格式端点（open.cherryin.net），OpenCode 使用`@ai-sdk/anthropic`（`/v1`），Codex 使用 OpenAI 兼容端点，Gemini CLI 使用 Gemini 兼容端点，附带官方品牌图标，位置紧挨 AiHubMix（#3643）。
+
+### Codex CLI 模型探活端点 /v1/models
+
+本地代理现在会响应 Codex CLI 启动时探测的`GET /v1/models`，返回 CC Switch 托管的 Codex 模型目录。同时加入了过期目录守卫：解析 live 的`config.toml`，仅当`model_catalog_json`仍指向 CC Switch 持有的目录文件时才提供，避免把上一个供应商遗留的目录暴露给 Codex（#3818）。
+
+### Codex Chat 文件与音频附件
+
+Codex 的 Responses→Chat 转换现在会把`input_file`（携带`file_id`或内联`file_data`）和`input_audio`内容部分映射为 Chat Completions 的对应形态，并补发此前会被丢弃的顶层`input_*`项，让文件和音频附件能够送达只支持 Chat 的 Codex 上游。
+
+---
+
+## 变更
+
+### 用量看板 Hero 重新设计
+
+把用量看板的 Hero 区与汇总卡片重排为更紧凑的布局，将真实 token 总量、请求数和成本合并到顶部一行展示（#3426）。
+
+### SSSAiCode 端点刷新
+
+把 SSSAiCode 预设的官网、注册和 API base URL 更新到`sssaicodeapi.com`域名，并刷新其端点候选节点（默认`node-hk.sssaicodeapi.com`，另含`node-hk.sssaiapi.com`和`node-cf.sssaicodeapi.com`），覆盖全部 7 个应用预设。
+
+---
+
+## 修复
+
+### Codex Chat 流式截断判定
+
+当 Chat Completions 上游在没有`finish_reason`或`[DONE]`的情况下结束流时，CC Switch 不再把它当作正常完成：只有流真正结束才正常收尾；已产出部分内容时发出 incomplete（`max_output_tokens`）响应；完全没有产出时发出失败的`stream_truncated`事件。晚到的推理内容也会回填到仍在进行的流式工具调用上。
+
+### Codex Chat 空 tools 下的 tool_choice
+
+Responses→Chat 转换现在会在最终 tools 数组缺失或为空（包括所有工具被过滤掉）时一并丢弃`tool_choice`和`parallel_tool_calls`，避免严格的 OpenAI 兼容上游（vLLM、企业网关）以"When using`tool_choice`,`tools` must be set."报 503/400（#3640）。
+
+### Codex 自定义工具元数据保留
+
+自定义 Codex 工具（如自由格式的`apply_patch`工具）现在会把完整的原始定义——包括 format 和 grammar 元数据——以紧凑、顺序稳定的 JSON 块嵌入生成的 Chat 函数描述中，而不是替换成通用占位符，从而在 Chat Completions 上游上仍可正常使用（#3644）。
+
+### Codex Chat 用量缺少 reasoning_tokens
+
+Chat→Responses 的用量转换现在总会包含`output_tokens_details.reasoning_tokens`（默认 0），即使供应商省略`completion_tokens_details`或返回非对象也是如此，满足 Codex CLI 的严格要求，避免反复的响应解析失败和重试（#3514）。
+
+### Codex 自定义工具 / 搜索工具的跨轮推理
+
+Codex Chat 历史里的跨轮推理缓存现在覆盖完整的工具调用集合（`function_call`、`custom_tool_call`、`tool_search_call`）及其输出，而不再仅限普通函数调用，因此`apply_patch`和工具搜索调用在通过`previous_response_id`恢复时能保留各自的`reasoning_content`。
+
+### 临时端口（port 0）解析
+
+当代理被配置为监听 0 端口（由系统分配）时，接管流程现在会先启动代理以拿到真实端口，再写入 live 配置和数据库，避免客户端 URL 指向无效的`:0`地址；若还没解析出具体端口，Claude Desktop 的网关 URL 会被直接拒绝。
+
+### 代理占位符备份 / 恢复死循环
+
+如果上一次停止代理时未能还原原始 live 配置、把代理占位符遗留在了 live 中，再次接管时不会再用代理配置覆盖掉正常备份，恢复时也不会把占位符写回 live：两条路径都会识别占位符状态并以当前供应商为真相来源重建 live，修复了代理开关变成空操作、客户端被钉死在本地代理地址的问题（#3689）。
+
+### 代理接管期间误拦截供应商切换
+
+在本地路由接管期间，现在只有显式归类为官方的供应商会被禁止切换，而不会再把端点存在 meta 里、或字段尚未填写的自定义供应商一并禁用。被禁用的「启用」按钮现在以更轻量的提示气泡替代原先的红色「已拦截」标记。
+
+### localhost 监听地址归一化
+
+保存代理时如果监听地址填的是`localhost`，现在会先归一化为`127.0.0.1`再持久化，避免绑定不一致（#3016）。
+
+### Anthropic system 消息归一化
+
+对 Anthropic 格式的供应商，`messages`数组里的 system 角色条目现在会被折叠并合并到顶层`system`字段（保留原顺序以及已有的顶层 system），避免严格上游拒绝非首位的 system 消息；OpenAI Chat 路由不受影响（#3775）。
+
+### Claude Desktop 1M 上下文模型路由
+
+Claude Desktop 在 1M 上下文 beta 激活时会给模型名追加`[1m]`标记（如`claude-opus-4-8[1m]`）。代理现在会在路由匹配前先剥掉该后缀，让精确、别名、旧名和角色关键词匹配都能正确命中，修复了对话中途切换到 1M 模型时的`route_unknown`（HTTP 400）失败；诊断用的`route_unknown`错误里仍保留原始模型名。
+
+### Codex 413 错误文案
+
+当 Codex 上游网关以 HTTP 413 拒绝过大的请求体时，代理现在返回专门的提示，说明这是供应商服务端的请求体大小限制（而非 CC Switch 本地限制），并给出可操作的恢复步骤（运行`/compact`、移除大段日志或内联图片，或请供应商调高限制），不再原样回显上游的 HTML 错误页。
+
+### 代理面板错误详情
+
+### Copilot 无限空白检测阈值
+
+把流式无限空白的中断阈值从 20 调高到 500 个连续空白字符，避免参数里含深层缩进代码（Python、YAML、Rust、Markdown）的正常工具调用被误判中断，同时仍能捕获真正的 Copilot 无限空白 bug（#2647）。
+
+### 订阅档位托盘渲染
+
+通过统一的档位到标签映射，修复官方订阅档位在托盘和额度展示上的渲染问题：Claude / Codex 不再漏掉 7 天窗口，Gemini Pro / Flash / Flash-Lite 档位不再泄露原始机器名，多窗口套餐（如 Opus + Sonnet）现在按最差利用率展示而非取第一个匹配。
+
+### Claude 流式 input_tokens 虚高
+
+部分 Anthropic 兼容的流式供应商（如 Qwen、MiniMax）会在`message_start`里把完整上下文当作`input_tokens`上报，重复计入了已经单独统计的缓存部分，导致显示的缓存命中率被人为拉低。现在解析器会优先采用`message_delta`中更小的正`input_tokens`，并采用同一 usage 块里配套的缓存计数；原生 Claude 和 OpenRouter 转换路径不变。
+
+### 智谱配额查询端点路由
+
+智谱 Coding Plan 的配额查询此前被硬编码到`api.z.ai`，导致使用大陆预设（`open.bigmodel.cn`）的用户在国际端点不可达时查不到用量。现在配额请求会路由到与用户所配 base URL 匹配的主机（#3702）。
+
+### MiniMax 余额接口与定价
+
+适配 MiniMax Coding Plan 配额的新余额接口（新接口返回剩余百分比字段，而非旧解析器依赖、会导致档位为空、托盘不再显示用量的用量计数），过滤掉非编程模型（如视频），兼容无周限额的套餐，并为 MiniMax M3 模型补充了默认定价（#3518）。
+
+### GLM Coding Plan 端点与模型拉取
+
+把智谱 / Z.AI 的 GLM Coding Plan 预设修正到`/api/coding/paas/v4`端点（覆盖 Codex、OpenCode、OpenClaw、Hermes），并让模型列表探测对已经以`/v{N}`版本段结尾的 base URL 改为先查`{base}/models`（保留`/v1/models`作为兜底），让「拉取模型」按钮不再在带版本号的端点上 404（#3524）。
+
+### Codex 模型目录路径可移植性
+
+Codex 现在只把相对文件名`cc-switch-model-catalog.json`写入`config.toml`，而不是绝对路径（Codex CLI 会从配置目录解析它），修复了在 WSL 和符号链接环境下绝对路径无法转换、导致模型目录失效的问题（#3614）。
+
+### APINebula 的 OpenCode SDK
+
+APINebula 的 OpenCode 预设现在加载`@ai-sdk/openai-compatible`而非`@ai-sdk/openai`，让请求使用该中转期望的 OpenAI Chat Completions 格式，而不是只支持 chat-completions 的上游会失败的 Responses API。
+
+### Windows 退出后托盘图标残留
+
+在 Windows 上退出 CC Switch 可能会留下一个失效的托盘图标，直到鼠标划过才消失。现在应用会在退出前显式移除托盘图标，让它随进程结束干净消失（#3797）。
+
+### Windows 任务栏图标
+
+在运行时显式设置 Windows AppUserModelID，并给安装器生成的桌面和开始菜单快捷方式写入相同的 ID 和产品图标，让 CC Switch 在任务栏上显示正确图标并正确归组（#3457）。
+
+### Windows 子目录技能的更新检查
+
+在 Windows 上扫描已安装技能时，把反斜杠路径分隔符归一化为正斜杠，让嵌套在子目录里的技能（如`skills/my-skill`）能被更新检查匹配到，而不是被静默跳过（#3430）。
+
+### macOS 输入自动大写
+
+为共享的文本 Input 组件关闭自动完成、自动纠错、自动大写和拼写检查，让 macOS 不再对配置字段里输入的首字母自动大写或自动纠正（#3626）。
+
+### Codex VS Code 会话预览
+
+从 VS Code 发起的 Codex 请求，其会话预览在注入请求前存在 markdown 标题时，可能显示选区或打开文件的内容而非真实...
+
+### Contributors
+
+Eter365, ZHLHZHU, and 22 other contributors
+
+Assets 18
+
+sha256:89c4acd4b7c62a6b6fd315354b319cde1b6821f79e79be48e9ac4d496f4144d8
+
+87 MB 2026-06-08T15:53:01Z
+
+sha256:8235425f947f38e9e0b1b0476bdb9f7e8845b4d68883eb05898420b2ba44a13c
+
+424 Bytes 2026-06-08T15:53:01Z
+
+sha256:4720735eba410bacff670b54ce366880955563b2e365340311466efd27522305
+
+13.7 MB 2026-06-08T15:53:01Z
+
+sha256:d9f9c53e2a9a4c73b2e743921fd800e2d36928f40f9a492fb6c14cb09bdd445a
+
+13.7 MB 2026-06-08T15:53:01Z
+
+sha256:baf51d1d8d7d8fd0458b0d85dd56ae5922cdc29fc65ea2f5228d7d39d277013f
+
+89.2 MB 2026-06-08T15:53:01Z
+
+sha256:50becc3695607bcb053ba2ed0407c1b3d2e783e8bf978d6f87f9decfa7151ade
+
+424 Bytes 2026-06-08T15:53:01Z
+
+sha256:d989e7e36998339613b657152378569179bcaf47e81f561cf0443fa830b97ed2
+
+14.1 MB 2026-06-08T15:53:01Z
+
+sha256:919dad4c642679fba8f9ef1e729a3d15e94416f1cfef01baf7a4cf4741f1ee40
+
+14.1 MB 2026-06-08T15:53:01Z
+
+sha256:004a28e79f60f34840e32ed54c394c1ffdb55f25e90dfdf8cc5c3435fb987d8b
+
+29.1 MB 2026-06-08T15:53:01Z
+
+sha256:e175a232646721f91d2ff5261338fc25b45b96a12911d9cb7f72174c037b7a0f
+
+29.6 MB 2026-06-08T15:53:01Z
+
+2026-06-08T15:27:32Z
+
+2026-06-08T15:27:32Z
+
+Show all 18 assets
+
+👍 143 😄 24 🎉 27 ❤️ 14 👀 21
+
+193 people reacted
+
+01 Jun 12:51
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.16.1
+
+Codex 稳定性补丁：由于部分用户反映不希望改变配置文件的写入方式，因此为 Codex 增强模式添加开关并默认关闭。开启此开关后，你可以在使用第三方 API 的情况下继续使用 Codex 的手机远程操作、官方插件等功能；本版本也包含一系列稳定性修复。
+
+English →|日本語版 →
+
+---
+
+## 使用攻略
+
+如果你希望在使用第三方 API 的时候解锁官方订阅才可以使用的远程操作 Codex、解锁官方插件，或希望在 Codex 中使用 DeepSeek / Kimi / GLM / MiniMax 等 Chat Completions 上游，建议先看这些文档：
+
+- 使用第三方 API 时保留 Codex 远程操作和官方插件：说明如何先完成官方登录，再开启 Codex 应用增强，让官方登录态留在`auth.json`，同时把模型流量切到第三方 API。
+- 在 Codex 中使用 DeepSeek：本地路由实战攻略：从添加 Codex 供应商、开启本地路由，到验证请求转发的完整路径。
+- 添加 Codex 供应商：Chat Completions 路由与模型映射：覆盖「需要本地路由映射」、模型映射表与思考能力配置。
+- 本地代理服务与本地路由：了解代理服务、接管 live 配置、以及相关风险提示。
+
+---
+
+Warning
+
+## 唯一官方渠道声明（请务必阅读）
+
+CC Switch 是完全免费、开源的桌面应用，不会向用户收取任何费用。请仅通过下列官方渠道获取本软件：
+
+任何向你收费、要求充值、或索取登录凭据的"CC Switch"网站或客户端均为假冒。如果你被诱导支付了费用，请立即停止操作并通过 GitHub Issues 反馈。
+
+---
+
+## 概览
+
+CC Switch v3.16.1 是 v3.16.0 之后的一版 Codex 稳定性补丁。v3.16.0 让第三方 Codex 供应商通过 Chat Completions 路由成为一等公民；这一版则主要处理真实使用中暴露出的几个高风险边角：官方 ChatGPT / Codex OAuth 登录态在第三方供应商切换或本地路由接管期间被覆盖，Codex 模型目录在 live 回填、热切换、关闭接管恢复或编辑当前供应商时被清空，以及 Codex 的`tool_search`、插件 / 连接器命名空间、自定义工具在 Chat Completions 上游路径中没有完整恢复为 Responses 事件。
+
+这版也加固了本地路由接管的所有权判断：切换供应商和开启 / 关闭接管现在按应用串行执行，判断 live 文件是否由代理接管时不再只看滞后的`enabled`或代理服务是否正在运行，而是结合备份和 live 中的代理占位符。这样可以避免刚开启接管、代理临时停止，或热切换时的普通 live 写入把代理托管配置覆盖掉。
+
+发布日期：2026-06-01
+
+更新规模：23 commits | 62 files changed | +5,603 / -1,113 lines
+
+---
+
+## 重点内容
+
+- Codex OAuth 与第三方供应商切换更安全：新增可选的官方认证保留设置；开启后，第三方供应商 token 写入`config.toml`，官方 ChatGPT / Codex OAuth 登录继续留在`auth.json`。
+- Codex 模型目录不再被静默清空：`modelCatalog`以数据库为真相来源，live 回填、供应商切换、接管关闭恢复、编辑弹窗都会避免用丢失投影的 live 配置覆盖数据库。
+- Codex Chat 工具 / 插件路由恢复：Chat Completions 上游返回的`tool_search`、已加载命名空间工具、自定义工具会重新映射回 Codex Responses 形态；流式自定义工具现在发出原生`response.custom_tool_call_input.*`事件。
+- 本地路由接管与热切换更稳：供应商切换和接管开关按 app 串行，热切换会刷新 Codex live 中的供应商显示信息，但 endpoint 仍保持指向本地代理。
+- 诊断与平台兼容性修复：Codex 代理错误返回更丰富上下文；Codex CLI 模型模板发现支持更多平台并提供 GPT-5.5 静态兜底；Windows 工具版本探测修复乱码与误判。
+
+---
+
+## 新功能
+
+### Codex 官方认证保留设置
+
+新增一个可选设置，用于在切换第三方 Codex 供应商时保留官方 ChatGPT / Codex OAuth 登录态。开启后，CC Switch 会把第三方供应商的 API key 放进 Codex`config.toml`的 provider-scoped`experimental_bearer_token`，而不是覆盖`auth.json`里的官方登录缓存。
+
+由于部分用户不希望此功能改变配置文件的写入方式，因此该设置默认关闭，保持 v3.16.0 之前的兼容行为。需要同时使用官方 Codex 登录和第三方供应商的用户，可以在“设置 → Codex 应用增强”里手动开启。
+
+### Codex DeepSeek 路由指南
+
+新增中 / 英 / 日三语的 Codex DeepSeek 路由指南，包含供应商路由要求、DeepSeek Codex 供应商表单配置，以及本地路由接管的截图说明。
+
+---
+
+## 变更
+
+### Codex 认证保留默认改为 opt-in
+
+官方认证保留设置默认关闭。这样第三方 Codex 供应商切换继续沿用旧行为，避免已有用户在不知情的情况下改变`auth.json`/`config.toml`的写入方式。
+
+### Codex 切换供应商后提示重启
+
+Codex 的模型目录与部分配置在客户端启动时加载。现在成功切换 Codex 供应商后，界面会提示用户重启 Codex，让模型目录和配置变化真正生效。
+
+### 供应商切换与接管开关串行化
+
+Codex / Claude / Gemini 的供应商切换与本地路由接管开关现在共享 per-app 锁，避免两个流程同时修改 live 配置和备份。判断 live 是否由代理接管时，也会优先看 live 备份与`PROXY_MANAGED`占位符，而不是只看代理服务是否正在运行。
+
+### Codex 热切换刷新显示信息
+
+在本地路由接管期间热切换 Codex 供应商时，CC Switch 会刷新 live 配置中的 provider id、模型和显示名称，让 Codex 客户端菜单能跟随当前供应商；同时 base URL 仍保持本地代理地址，避免真实上游 endpoint 泄回 live 文件。
+
+---
+
+## 修复
+
+### Codex 接管期间编辑弹窗误显示 live OAuth
+
+当 Codex 处于本地路由接管状态时，live`auth.json`/`config.toml`已被代理临时改写。编辑当前供应商如果继续读取 live，就会把代理占位符或官方 OAuth 登录误显示成供应商配置。现在编辑弹窗会明确提示：此处显示的是数据库中存储的供应商配置，而不是代理托管的 live 文件；即使代理服务暂时停止，只要该 app 仍处于接管状态，也会按接管逻辑处理。
+
+### Codex OAuth 在接管期间被清空或覆盖
+
+修复多条 preserve-mode 接管路径，它们此前可能清空或覆盖官方 ChatGPT / Codex OAuth`auth.json`。现在接管检测会识别`config.toml`里的`PROXY_MANAGED`，清理流程只移除代理占位符 token，第三方供应商错误归类为 official 时也不会再走官方 auth 覆盖路径。供应商同步与切换会把 live 备份和占位符视为接管所有权信号，避免正常 live 写入覆盖刚接管或代理暂停时的代理配置。
+
+### Codex 模型目录数据丢失
+
+修复`modelCatalog`在 live 回填、当前供应商编辑弹窗、供应商切换、关闭接管恢复等场景被清空的问题。快照备份会保留已有`model_catalog_json`指针；由供应商重建的备份会从数据库真相来源重新生成目录投影；编辑当前供应商时会优先使用数据库里的模型目录，而不是信任可能已经丢失投影的 live 反解结果。
+
+同时，供应商切换现在会始终刷新生成的 Codex 模型目录 JSON（#3360，感谢@Postroggy）。
+
+### Codex Chat 工具、插件和自定义工具恢复
+
+修复第三方 Codex 供应商走 Chat Completions 路由时，`tool_search`、已加载的 MCP / connector 命名空间工具、自定义工具无法完整恢复为 Codex Responses 形态的问题。非流式与流式 Chat 响应现在都会根据原始 Responses 请求恢复正确的工具类型、namespace、call id 与参数；自定义工具流式输出会发出原生的`response.custom_tool_call_input.delta`和`response.custom_tool_call_input.done`事件。
+
+### Codex 代理错误诊断更完整
+
+Codex 转发失败时，现在返回包含 provider、model、endpoint、上游 HTTP 状态、稳定`cc_switch_*`错误码和规范 HTTP 状态的 JSON 错误。这样排查「到底是哪个供应商、哪个 endpoint、哪种上游错误」会清楚很多。
+
+### Codex 原生余额 / Coding Plan 查询凭据
+
+修复原生余额与 Coding Plan 查询时跨 app 错用凭据的问题。现在每个 app 会解析自己的供应商凭据，不再把其他应用面的认证假设带进查询流程（#3355，感谢@SiskonEmilia）。
+
+### Codex CLI 发现与模型目录模板兜底
+
+修复第三方 Codex 模型目录投影对 Codex CLI 发现路径过窄的问题。现在后端会在多平台常见安装位置寻找 Codex CLI，并在仍找不到模板时使用内置 GPT-5.5 模型目录模板兜底（#3382，感谢@chofuhoyu）。
+
+### Claude Desktop 官方供应商添加失败
+
+修复添加 Claude Desktop 官方供应商时报错的问题（#3405，感谢@Eunknight）。
+
+### Kimi / Moonshot 工具思考历史规范化
+
+把 Kimi / Moonshot 加入 Anthropic 兼容工具思考历史 normalizer。后续轮次现在能正确重放 reasoning 与 tool-call 上下文，避免因为历史消息形态不符合上游要求而失败（#3377，感谢@Neon-Wang）。
+
+### Windows 工具版本探测
+
+修复 Windows 上`.cmd`/`.bat`版本命令被错误加引号，以及本地化命令输出被解码成乱码的问题。此前这些问题会让可运行的工具显示为「已安装但无法运行」。
+
+---
+
+## 升级提醒
+
+### 官方 OAuth 保留需要手动开启
+
+如果你希望官方 ChatGPT / Codex OAuth 登录长期保留在`auth.json`，同时又频繁切换第三方 Codex 供应商，请在设置中开启 Codex 官方认证保留。默认关闭是为了保持老用户的兼容行为。
+
+### 修改模型映射后仍需重启 Codex
+
+Codex 在启动时读取`model_catalog_json`。因此即使 v3.16.1 已修复模型目录被清空的问题，只要你修改了模型映射表，仍然需要重启 Codex 才能让`/model`菜单刷新。
+
+### 接管期间编辑的是存储配置，不是 live 文件
+
+本地路由接管开启后，live`auth.json`/`config.toml`会临时指向 CC Switch 代理。此时编辑供应商时看到的是数据库里保存的供应商配置，属于预期行为；关闭接管后，CC Switch 会按备份或数据库真相来源恢复 live 配置。
+
+---
+
+## 风险提示
+
+本版本继续沿用此前版本对反向代理类功能的风险提示。
+
+Codex OAuth 反向代理：使用 ChatGPT 订阅的 Codex OAuth 反代可能违反 OpenAI 服务条款，详情见 v3.13.0 release notes。
+
+Codex 第三方供应商 Chat 路由：通过 CC Switch 本地代理把 Codex 请求转换并转发到第三方供应商时，各供应商对计费、合规与数据留存的约束不同，请在使用前阅读目标供应商的服务条款。
+
+Claude Desktop 第三方供应商代理切换：通过 CC Switch 内置代理网关把 Claude Desktop 的请求转到第三方供应商时，同样需要遵守目标供应商的计费、合规与数据留存约束。
+
+用户启用上述功能即表示自行承担相关风险。CC Switch 不对因使用这些功能而导致的任何账号限制、警告或服务暂停承担责任。
+
+---
+
+## 致谢
+
+感谢以下贡献者在 v3.16.1 中提交修复：
+
+也感谢所有在 v3.16.0 发布后反馈 Codex OAuth、模型目录、本地路由接管和 Chat Completions 工具调用问题的用户。很多补丁都来自这些真实使用场景里的复现线索。
+
+---
+
+## 下载与安装
+
+### 系统要求
+
+| 系统 | 最低版本 | 架构 |
+| --- | --- | --- |
+| Windows | Windows 10 及以上 | x64 |
+| macOS | macOS 12 (Monterey) 及以上 | Intel (x64) / Apple Silicon (arm64) |
+| Linux | 见下表 | x64 / ARM64 |
+
+### Windows
+
+| 文件 | 说明 |
+| --- | --- |
+| `CC-Switch-v3.16.1-Windows.msi` | 推荐 - MSI 安装包，支持自动更新 |
+| `CC-Switch-v3.16.1-Windows-Portable.zip` | 便携版，解压即用，不写入注册表 |
+
+### macOS
+
+| 文件 | 说明 |
+| --- | --- |
+| `CC-Switch-v3.16.1-macOS.dmg` | 推荐 - DMG 安装包，拖入 Applications 即可 |
+| `CC-Switch-v3.16.1-macOS.zip` | 解压后拖入 Applications，Universal Binary |
+| `CC-Switch-v3.16.1-macOS.tar.gz` | 用于 Homebrew 安装和自动更新 |
+
+Homebrew 安装：
+
+```
+brew install --cask cc-switch
+```
+
+更新：
+
+```
+brew upgrade --cask cc-switch
+```
+
+### Linux
+
+Linux 资产同时提供 x86_64 和 ARM64（`aarch64`）两种架构。资产文件名中包含架构标识，请按你机器的`uname -m`输出选择对应版本：
+
+- `CC-Switch-v3.16.1-Linux-x86_64.AppImage`/`.deb`/`.rpm`
+- `CC-Switch-v3.16.1-Linux-arm64.AppImage`/`.deb`/`.rpm`
+
+| 发行版 | 推荐格式 | 安装方式 |
+| --- | --- | --- |
+| Ubuntu / Debian / Linux Mint / Pop!_OS | `.deb` | `sudo dpkg -i CC-Switch-*.deb`或`sudo apt install ./CC-Switch-*.deb` |
+| Fedora / RHEL / CentOS / Rocky Linux | `.rpm` | `sudo rpm -i CC-Switch-*.rpm`或`sudo dnf install ./CC-Switch-*.rpm` |
+| openSUSE | `.rpm` | `sudo zypper install ./CC-Switch-*.rpm` |
+| Arch Linux / Manjaro | `.AppImage` | 添加执行权限后直接运行，或使用 AUR |
+| 其他发行版 / 不确定 | `.AppImage` | `chmod +x CC-Switch-*.AppImage && ./CC-Switch-*.AppImage` |
+
+### Contributors
+
+Eunknight, SiskonEmilia, and 3 other contributors
+
+Assets 18
+
+👍 232 😄 26 🎉 5 ❤️ 19 🚀 15 👀 24
+
+268 people reacted
+
+29 May 16:20
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.16.0 —— 谨以纪念此版本开发期间死去的5个 Claude Max 订阅
+
+为 Codex 增加 Chat Completions -> Response 格式转换（你可以在 Codex 里使用 DeepSeek, Kimi, GLM 了！）、Codex 供应商身份与历史统一、应用管理面板全方位增强、合作伙伴预设扩张、默认模型 / 定价矩阵升级到 GPT-5.5 与 Claude Opus 4.8、代理与格式转换鲁棒性强化
+
+English →|日本語版 →
+
+---
+
+Warning
+
+## 唯一官方渠道声明（请务必阅读）
+
+CC Switch 是完全免费、开源的桌面应用，不会向用户收取任何费用。最近发现多个山寨网站冒用 CC Switch 名义诱导用户付费、收集账号信息，部分已造成实际经济损失。请仅通过下列官方渠道获取本软件：
+
+任何向你收费、要求充值、或索取登录凭据的"CC Switch"网站或客户端均为假冒。如果你被诱导支付了费用，请立即停止操作并通过 GitHub Issues 反馈，让我们能尽快下线相关山寨站点。
+
+---
+
+## 使用攻略
+
+本版本最主打的两块能力是 Codex 第三方供应商 Chat Completions 路由与应用内受管 CLI 工具管理。如果你想让 DeepSeek、Kimi、MiniMax 这类只支持 OpenAI Chat 协议的供应商在 Codex 里直接可用，或者想在应用内一站式安装 / 升级 CLI 工具，建议先读这两篇：
+
+- 在 Codex 中使用 DeepSeek, Kimi, GLM 这种 chat 格式 API 供应商攻略
+- 添加 Codex 供应商：Chat Completions 路由与模型映射—— 覆盖「需要本地路由映射」开关、模型映射表、思考能力（reasoning）自适应识别的完整流程。
+- 设置 → 关于：受管 CLI 工具管理—— 覆盖版本检测、单独升级 / 全部升级、冲突诊断、按安装来源锚定的升级命令。
+
+---
+
+## 概览
+
+CC Switch v3.16.0 自 v3.15.0 以来的开发核心，是把第三方 Codex 供应商通过 Chat Completions 路由升级为一等公民。Codex 原生只认 OpenAI Responses API 与 GPT 系列模型，本版本让 CC Switch 的本地代理把 Codex 发出的 Responses 请求转换为上游的 Chat Completions，再把 JSON 与 SSE 流式响应重建回 Responses 形态，沿途保留`reasoning_content`/ 内联` `块 / 流式推理摘要 / 工具调用 /`previous_response_id`续接状态，并把错误信封规范化、在 Stream Check 中正确探测 Chat 格式供应商。配套上货 22 个带显式模型目录的 Chat 路由预设（DeepSeek、智谱 GLM、Kimi、MiniMax、StepFun、百度千帆、百炼、ModelScope、Longcat、百灵、小米 MiMo、火山 Agentplan、BytePlus、豆包 Seed、SiliconFlow、Novita AI、Nvidia 等）。
+
+Codex 第三方供应商的身份与历史这一版被统一并加固：所有第三方供应商现在归并到稳定的`custom` model-provider 桶，并提供一次性设备迁移来改写历史 JSONL 会话与`state_5.sqlite`线程表（原文件备份在`~/.cc-switch/backups/`下），避免因供应商 id 变化导致过往会话"凭空消失"；同时修复了 live 读取 / 切换过程中 OAuth 登录态、用户选中的目录模型、用户自定义 provider id 被覆盖的问题。
+
+本版本还新增了应用内受管 CLI 工具生命周期：设置页的「关于」Tab 升级为 Claude / Codex / Gemini / OpenCode / OpenClaw / Hermes 的工具管理面板，支持静默安装 / 更新、全部升级、冲突诊断、按安装来源锚定的升级，以及对 WSL 的处理和"已安装但跑不起来"状态的可见化。
+
+供应商生态与模型矩阵同步刷新：新增 APIKEY.FUN、APINebula、AtlasCloud、SudoCode、小米 MiMo Token Plan、Claude Desktop 官方预设；跨应用刷新合作伙伴链接与默认模型 / 定价；默认 Claude Opus 模型线升级到 4.8，适用处的 GPT 默认升级到 5.5。此外还在用量可观测性、繁体中文本地化、文档、以及代理 / 格式转换的鲁棒性上做了大量打磨与修复。
+
+发布日期：2026-05-29
+
+更新规模：101 commits | 221 files changed | +27,063 / -3,052 lines
+
+---
+
+## 重点内容
+
+- Codex Chat Completions 路由：Codex 供应商现在可以由仅支持 OpenAI Chat Completions 的上游提供服务。CC Switch 把 Codex 的 Responses 请求转成 Chat Completions、把 JSON 与 SSE 响应重建回 Responses 形态、保留 reasoning /` `/ 工具调用状态、规范化错误信封，并在 Stream Check 中正确探测 Chat 格式供应商
+- Codex 第三方供应商身份与历史统一并更安全：第三方 Codex 供应商现在共用稳定的`custom` model-provider 桶，配一次性迁移改写历史 JSONL 会话与`state_5.sqlite`线程，并修复 live 读取 / 切换时 OAuth 登录态、用户选中的目录模型、用户自定义 provider id 的保留
+- 受管 CLI 工具管理：「关于」页升级为 Claude / Codex / Gemini / OpenCode / OpenClaw / Hermes 的工具管理面板，含安装 / 更新动作、全部升级、冲突诊断、按来源锚定的升级、WSL 处理，以及"已安装但跑不起来"状态可见化
+- 供应商生态与模型矩阵刷新：新增 APIKEY.FUN、APINebula、AtlasCloud、SudoCode、小米 MiMo Token Plan、Claude Desktop 官方预设；跨应用刷新合作伙伴链接与默认模型 / 定价；默认 Claude Opus 升级到 4.8、适用处 GPT 默认升级到 5.5
+- 用量与文档打磨：用量看板在日志写入时即时响应更新，修复自定义用量脚本摘要与 subagent 会话日志计费，繁体中文 UI 本地化落地，新增德文 README 与扩充后的 Claude Desktop / Codex Chat / 工具管理手册
+- 代理与转换硬化：修复 Codex Chat 推理 / 缓存 / usage 边角情况、DeepSeek Anthropic 工具思考历史、Claude 兼容的空`tool_calls`流、受管账号接管鉴权、MiMo 推理输出、Gemini Native 工具调用重放，以及多条易 panic 的代理路径
+
+---
+
+## 新功能
+
+### Codex Chat Completions 路由
+
+Codex 供应商现在可以由只会说 OpenAI Chat Completions API 的上游提供服务。CC Switch 的本地代理把 Codex 发出的 Responses 请求转换为 Chat Completions，并把 Chat 响应（JSON 与 SSE 两种）重建回 Responses 形态，沿途保留`reasoning_content`、内联` `块、流式推理摘要、工具调用，以及`previous_response_id`续接。一个有界的 Codex Chat 历史缓存会在工具输出之前恢复对应的工具调用。
+
+💡 特别感谢@EldenPdx的 PR#2804：本功能的 Chat ↔ Responses 格式转换实现参考了他在该 PR 中的实现。
+
+### 22 个带 Chat 路由的 Codex 第三方供应商预设
+
+为主流中国开源模型启用了 Chat Completions 路由并带显式模型目录——DeepSeek、智谱 GLM（+ 英文站）、Kimi、MiniMax（+ 英文站）、StepFun（+ 英文站）、百度千帆 Coding Plan、百炼（Bailian）、ModelScope、Longcat、百灵（BaiLing）、小米 MiMo（+ Token Plan）、火山 Agentplan、BytePlus、豆包 Seed、SiliconFlow（+ 英文站）、Novita AI、Nvidia。每个预设都声明了自己的上下文窗口，便于 UI 给模型映射行确定尺寸。
+
+### Codex 模型映射表
+
+Codex 供应商表单现在提供模型目录（每行：模型 + 显示名 + 上下文窗口），它是上游模型列表的唯一真相来源，并投影到`~/.codex/cc-switch-model-catalog.json`。
+
+### Stream Check 支持 Codex Chat 供应商
+
+Stream Check 现在对 Chat 格式的 Codex 供应商改用 Chat 形态的请求体打`/chat/completions`，而不是`/v1/responses`；并把 URL 回退顺序与生产环境的`CodexAdapter`对齐（仅 origin 的 base URL 先打`/v1/ `），这样裸路径上的非 404 错误不会再把一个正常工作的供应商误判为不可用。
+
+### Codex Chat 思考能力（Reasoning）自适应
+
+当 Codex 供应商走 Chat Completions 路由时，CC Switch 现在会自动识别上游的推理接口——依据是供应商的名称、base URL 和模型名——并注入正确的思考参数（`thinking:{type}`、`enable_thinking`、`reasoning_split`、顶层`reasoning_effort`，或 OpenRouter 的原生`reasoning:{effort}`对象），无需手动配置。聚合 / 托管平台（OpenRouter、SiliconFlow）按平台优先匹配，因为同一个模型在不同平台上可能暴露不同的推理控制。只暴露"思考开 / 关"开关的供应商（Kimi、GLM、Qwen、MiniMax、MiMo、SiliconFlow）会丢弃 effort 等级而不是透传一个不支持的字段——因此在 Codex 里调节这类供应商的思考等级不会有任何效果——而有真实 effort 档位的供应商（DeepSeek、OpenRouter，以及 StepFun 仅`step-3.5-flash-2603`）则会把等级透传上去。OpenRouter 特别使用原生`reasoning:{effort}`对象，把`max`钳到`xhigh`（它的枚举里没有`max`），并显式转发`effort:"none"`以便关闭推理。
+
+### Codex Goal Mode 与远程压缩控制
+
+Codex 配置编辑现在为第三方供应商暴露一个 Goal Mode 开关和一个远程压缩（Remote Compaction）开关；新建的 Codex 模板默认`disable_response_storage = true`，同时仍允许显式开启 goal 支持。
+
+### 小米 MiMo Token Plan 预设
+
+新增小米 MiMo Token Plan 预设，规格与官方文档对齐（#2803，感谢@BlueOcean223）。
+
+### Claude Desktop 官方预设
+
+新增一个 Claude Desktop 官方预设，用于恢复原生 Claude Desktop 登录，并附带本地化的 Claude Desktop 使用指南（中 / 英 / 日）。
+
+### 受管 CLI 工具生命周期
+
+为受管 CLI 工具新增静默安装 / 更新命令、最新版本检查、单工具与批量动作、全部升级，以及跨 PATH、Homebrew、npm、pnpm、bun、volta、fnm、nvm、scoop、WinGet、Windows 原生路径和 WSL 的多安装诊断。
+
+### 按来源感知的工具诊断
+
+设置 / 关于 页面现在可以诊断冲突的工具安装、为每条路径展示具体的安装来源与版本，并生成由后端规划、锚定到真实安装来源的升级命令。
+
+### 实时用量刷新
+
+后端现在在代理日志、会话日志同步或汇总写入用量数据时发出`usage-log-recorded`事件；用量看板监听该事件并立即让查询失效，而不是等到下一个轮询周期（#3027，感谢@in30mn1a）。
+
+### 繁体中文本地化
+
+新增`zh-TW` UI 本地化与一个设置语言选项（#3093，感谢@LaiYueTing）。
+
+### 德文 README
+
+新增`README_DE.md`并从现有 README 的语言切换器中链接到它（#2994，感谢@flitzrrr）。
+
+### 新合作伙伴预设
+
+跨各受支持的应用面新增 APIKEY.FUN、APINebula、AtlasCloud、SudoCode 合作伙伴预设，含合作伙伴文案、图标与 README 条目。
+
+---
+
+## 变更
+
+### Codex 第三方供应商统一进 "custom" 历史桶
+
+Codex 按`model_provider`过滤可恢复历史，因此在供应商专属 id 之间切换会让过去的会话看起来"消失"了。所有第三方供应商现在归并到单一稳定的`custom`桶（保留`openai`/`ollama`这类预留的内置 id），并配一次性设备迁移：改写历史 JSONL 会话与`state_5.sqlite`线程表，原文件备份到`~/.cc-switch/backups/codex-history-provider-migration-v1/`。
+
+### Codex 供应商表单简化
+
+从 Codex 表单中移除了 API Format 选择器（`wire_api`永远是`responses`，该选择器会误导用户以为能改协议）；模型映射表现在是唯一真相来源，不再有隐藏的默认条目；表单注明改动目录后需要重启 Codex，因为`model_catalog_json`在启动时加载。表单只保留「需要本地路由映射」开关。
+
+### Codex 本地路由开关提示重写
+
+把「关 / 开」两段提示从"场景描述"改写为"动作指引"（什么时候该开），并在中 / 英 / 日三语同步。
+
+### Codex Live 配置保留
+
+Codex live 配置读取不再强制改写用户的`model_provider`字段；供应商作用域的`experimental_bearer_token`处理现在会在第三方供应商之间切换时保留 OAuth 登录态。
+
+### 工具安装 / 升级策略
+
+受管工具安装现在优先使用官方原生安装器（在有的情况下），适当时回退到包管理器，对兼容工具先跑 self-update，把升级锚定到检测到的安装来源，并在工作进行中锁定重复的批量动作。
+
+### 「关于」页升级为工具管理
+
+设置的「关于」页现在呈现已安装 / 最新版本、安装与更新动作、冲突诊断、WSL shell 偏好，以及对损坏或跑不起来工具更清晰的状态。
+
+### 默认模型与定价刷新
+
+默认 Claude Opus 模型升级到 4.8，适用处把基于 GPT 的预设与模板迁到 GPT-5.5，刷新定价种子，把 Claude Desktop 模型映射与 Claude Code 的三角色档位对齐，并重命名 OpenCode 的 Go 预设以去掉一个陈旧的模型后缀。
+
+### 合作伙伴链接刷新
+
+更新了胜算云推荐链接、Atlas Cloud 的 UTM 链接，以及跨各 README 语言版本与供应商元数据中的合作伙伴文案。
+
+### Homebrew 官方 Cask 安装
+
+由于 CC Switch 已进入 Homebrew 官方仓库，安装简化为`brew install --cask cc-switch`；各 README 中移除了对私有 tap 的要求。
+
+### 共享前端工具
+
+用一个共享的`deepClone` helper 替换 JSON stringify / parse 的深拷贝写法，并抽取了一个共享的`useTauriEvent` hook（#3140，感谢@ChongBiaoZhang）。
+
+---
+
+## 修复
+
+### Codex Chat 错误响应转换为 Responses 信封
+
+Codex Chat → Responses 桥接此前会原样透传上游错误体，导致 Codex 客户端无法识别 MiniMax 的`base_resp`、裸 OpenAI Chat 错误，或纯文本 / HTML 错误页。现在错误会被规整为标准的`{error: {message, type, code, param}}`信封并保留原始 HTTP 状态码；非 JSON 体会被包裹并在 UTF-8 字符边界截断到 1KB。同时修复了一个既存的 append-vs-insert bug，它会在重写后的 JSON 体上产生重复的`Content-Type`头。
+
+### Codex 流中段 system 消息折叠
+
+MiniMax 的 OpenAI 兼容端点会严格拒绝任何非首位的`system`消息（错误 2013）。现在所有`system`片段会被折叠为单条首位消息（按原顺序拼接），对宽松后端也是无损的。
+
+### Codex 模型目录重启后被清空
+
+编辑当前激活的 Codex 供应商会触发一次省略了`modelCatalog`的 live 读取，于是随后的保存会静默销毁用户配置的模型映射。Live 读取现在会反向解析磁盘上的目录投影，往返出与保存路径写入的相同形状。
+
+### Codex 模型目录无限渲染循环
+
+打断了目录表格与其父状态之间的双向同步环路——它在添加或编辑条目时会导致 UI 严重抖动。
+
+### Codex Chat 保留用户选中的目录模型
+
+客户端从目录里选中的模型（例如通过`/model`）不再被`config.toml`的默认模型覆盖。
+
+### Codex Chat 推理与缓存稳定性
+
+在 Codex 省略或改写`previous_response_id`时恢复一个唯一的 call-id 回退；停止从`previous_response_id`派生缓存身份；并在工具转换中对可解析的 JSON 字符串载荷做规范化，以便前缀缓存稳定复用。
+
+### Codex Chat 流式 usage 恢复
+
+Responses → Chat 转换现在会在请求为流式时注入`stream_options.include_usage`（并入客户端提供的任何`stream_options`），这样 Kimi、MiniMax 这类 OpenAI 兼容上游会重新吐出尾部的 usage 块。此前它们在 Codex Chat 路径上的流式 token / 成本 / 缓存统计都被记成了零。
+
+### Codex Chat 工具调用推理回填
+
+Kimi / Moonshot、DeepSeek 这类思考模型会拒绝携带`tool_calls`但`reasoning_content`为空的 assistant 消息。当跨轮历史恢复未命中时（代理重启、`call_id`含糊，或某轮上游没有推理），现在会在最后一遍补回一个...
+
+### Contributors
+
+luw2007, doutuifei, and 19 other contributors
+
+Assets 18
+
+👍 211 😄 46 🎉 20 ❤️ 28 👀 17
+
+261 people reacted
+
+16 May 03:42
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.15.0
+
+Claude Desktop becomes a first-class managed surface with third-party provider switching via proxy gateway, role-based model mapping, major reverse-proxy hardening, Codex OAuth live model discovery, and a filter-driven usage dashboard Hero card
+
+中文版 →|日本語版 →
+
+---
+
+Warning
+
+## Only Official Channels (Please Read)
+
+CC Switch is a fully free and open-source desktop app, and we do not charge users any fees. Multiple imposter websites have recently been spotted impersonating CC Switch to solicit payments and harvest account credentials, with some users already reporting financial losses. Please only obtain the software through the official channels listed below:
+
+Any "CC Switch" website or client that asks you for payment, top-ups, or login credentials is fake. If you have been tricked into paying, stop the transaction immediately and file a report through GitHub Issues so we can take down the imposter site as quickly as possible.
+
+---
+
+## Claude Desktop Guide
+
+The headline feature in this release is the first-class Claude Desktop management panel. If you already have many providers configured for Claude Code, start here:
+
+Use CC Switch to configure, manage, and switch Claude Desktop providers in one place
+
+The guide walks through one-click import from Claude Code, adding Claude Desktop-specific providers, direct mode vs. model-mapping mode, showing the hidden local-routing toggle, and returning to Claude Desktop's official sign-in mode.
+
+---
+
+## Overview
+
+CC Switch v3.15.0 is a major release following the v3.14.x line, centered on promoting Claude Desktop to a first-class managed surface. It ships third-party provider switching through the in-app proxy gateway, role-based model mapping (`sonnet`/`opus`/`haiku`) with a`supports1m` long-context flag, Copilot/Codex OAuth provider reuse, a redesigned Claude Code import flow, app-switcher differentiation between "Claude Code" and "Claude Desktop", and 44 provider presets translated from the Claude Code catalog into the new Claude Desktop surface.
+
+Around proxy reliability, this release performs a systematic hardening pass: P0–P3 patches across routing / lifecycle / retry / failover / rectifier paths; pooled HTTPS connection reuse for non-Anthropic backends to cut per-request latency; cache hit-rate improvements for Codex and OpenAI Responses (emit`prompt_cache_key` only when a real client-provided session identity exists, canonicalize JSON keys in outgoing request bodies plus`tool_call` arguments and`tool_result` content, and thread`session_id` into the usage logger); correct Anthropic ↔ OpenAI`tool_choice` mapping; Vertex AI full URLs are no longer truncated; Gemini request models are now extracted from the URI path; takeover detection is tightened; and IPv6 listen addresses are supported. ChatGPT Codex OAuth providers no longer depend on hardcoded model lists — CC Switch now fetches a live model list from the ChatGPT backend on demand.
+
+Claude Code's model mapping is now role-based (`sonnet`/`opus`/`haiku`) with display names and a new`supports1m` boolean flag, replacing the legacy`[1M]` suffix and decoupling routing decisions from raw model IDs. The usage dashboard adds a filter-driven Hero card that exposes cache-normalized real total tokens and cache hit rate, updated live as the active date range / provider / model filters change; paired with a fix for cache-cost semantics and the noisy pricing warning storm that fired on every request. Robustness improvements in the OpenAI Responses API usage parsing path mean missing or malformed upstream`usage` no longer crashes the VSCode Claude Code extension with a`null` output.
+
+The provider ecosystem expands further: new BytePlus, Volcengine Agentplan, ClaudeAPI, ClaudeCN, RunAPI, RelaxyCode, PatewayAI, and Baidu Qianfan Coding Plan partner presets; DouBao Seed is promoted to partner status; and provider cards now surface a "routing support" badge so users can tell at a glance which providers can be served through Local Routing. This release also fixes a long tail of issues across Codex sessions, OAuth, Claude Desktop forms, Linux segfaults, terminal fallbacks, and ships several GitHub Actions dependency bumps.
+
+Release date: 2026-05-16
+
+Stats: 127 commits | 211 files changed | +17,980 insertions | -2,748 deletions
+
+---
+
+## Highlights
+
+- Claude Desktop Becomes a First-Class Managed Surface: Third-party provider switching through the in-app proxy gateway, role-based model mapping (`sonnet`/`opus`/`haiku`) with a`supports1m` long-context flag, Copilot/Codex OAuth provider reuse, and 44 provider presets translated from the Claude Code catalog. Note: 20 Claude Desktop presets now default to direct mode instead of proxy mode — verify connectivity after upgrade if you previously relied on proxy routing.
+- Major Reverse-Proxy Hardening: P0–P3 lifecycle / retry / failover / rectifier patches; pooled HTTPS reuse for non-Anthropic backends; Codex / Responses cache hit-rate improvements; correct Anthropic ↔ OpenAI`tool_choice` mapping; Vertex AI URL preservation; Gemini path-based model extraction; refined takeover detection; IPv6 listen address support.
+- Provider Ecosystem Expansion: New BytePlus, Volcengine Agentplan, ClaudeAPI, ClaudeCN, RunAPI, RelaxyCode, PatewayAI, and Baidu Qianfan Coding Plan partner presets; DouBao Seed promoted to partner status; routing-support badges on provider cards.
+- Role-Based Model Mapping with 1M Flag: Role-based`sonnet`/`opus`/`haiku` routing with display names and a`supports1m` flag replaces the legacy`[1M]` suffix.
+- Codex OAuth Live Model Discovery: ChatGPT Codex providers fetch the live model list from the ChatGPT backend on demand.
+- Usage Dashboard Filter-Driven Hero: Surfaces cache-normalized real total tokens and cache hit rate, updated live as date / provider / model filters change.
+- DeepSeek Tool Calls + Zero-Usage Final Delta: DeepSeek tool calls now return`reasoning_content` alongside`tool_calls`(#2543, thanks@bling-yshs); the final`message_delta` always includes a usage block (even when zero) so strict Anthropic clients no longer crash on`null`(#2485, thanks@Myoontyee).
+- OpenAI Responses API Usage Parsing Robustness: Missing or malformed upstream`usage` no longer crashes the VSCode Claude Code extension (#2422, thanks@magucas).
+
+---
+
+## Added
+
+### Claude Desktop Third-Party Provider Switching via Proxy Gateway
+
+CC Switch now treats Claude Desktop as a first-class managed surface alongside Claude Code / Codex / Gemini / OpenCode / OpenClaw / Hermes.
+
+- New dedicated Claude Desktop panel that brokers third-party providers to Claude Desktop through CC Switch's in-app proxy gateway
+- Routing-support badge on cards for providers that need Local Routing
+- Role-based model route mapping locked to`sonnet`/`opus`/`haiku`
+- Copilot / Codex OAuth providers can be reused in the Claude Desktop panel
+- Redesigned Claude Code settings import flow
+- App switcher visually distinguishes "Claude Code" from "Claude Desktop", and the app visibility settings use the "Claude Code" label
+- 44 Claude Desktop provider presets translated from the Claude Code preset catalog
+
+### Routing Support Badges on Provider Cards
+
+Provider cards in both the Claude Code and Codex panels now show a routing-support badge so users can tell at a glance which providers can be served through Local Routing.
+
+### Codex OAuth Live Model List
+
+ChatGPT Codex providers no longer rely on a hardcoded model selection — CC Switch fetches a live model list from the ChatGPT backend on demand.
+
+### Role-Based Model Mapping with 1M Flag
+
+Claude Code model mapping is now role-based (`sonnet`/`opus`/`haiku`) with display names and a`supports1m` boolean flag, replacing the legacy`[1M]` suffix and decoupling routing from raw model IDs.
+
+### Filter-Driven Usage Hero
+
+The usage dashboard's Hero summary is now filter-driven, updating live as the active date range / provider / model filters change; it surfaces cache-normalized real total tokens and cache hit rate so the Hero figures line up with the detail list below.
+
+### Provider Form "Save Anyway" Prompt
+
+Softened provider form input validation by turning non-blocking input issues into a "save anyway" prompt, so a harmless field issue no longer blocks saving (#2307, thanks@allenxln).
+
+### Universal Provider Duplicate Action
+
+Added a "duplicate" button for universal providers from the provider list (#2416, thanks@hubutui).
+
+### Persisted Tauri Window State
+
+Window position and size now persist across launches (#2377, thanks@BillSaul).
+
+### Tray Icon Tooltip
+
+The system tray icon now surfaces a status tooltip on hover (#2417, thanks@Coconut-Fish).
+
+### Warp Terminal Session Launch
+
+Added support for launching Warp and executing a saved session inside i...
+
+### Contributors
+
+fuleinist, hubutui, and 20 other contributors
+
+Assets 18
+
+👍 284 😄 38 🎉 27 ❤️ 22 🚀 28 👀 16
+
+326 people reacted
+
+23 Apr 13:41
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.14.1
+
+Tray usage visibility, Codex OAuth stability fixes, Skills import/install reliability, and removal of the Hermes config health scanner
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.14.1 is a patch release following v3.14.0, focused on Codex OAuth reverse-proxy stability, tray usage visibility, Skills import / install reliability, Gemini session restore paths, and simplifying Hermes configuration health handling.
+
+For the first time, the system tray surfaces cached usage for the current Claude / Codex / Gemini provider directly in its submenus — including subscription summaries and usage-script summaries with color-coded utilization markers. For Chinese coding-plan providers like Kimi / Zhipu / MiniMax, the tray additionally renders a 5-hour + weekly window layout in the`🟢 h12% w80%` style (worst utilization drives the emoji), semantically identical to the official subscription badges. Creating a Claude provider whose`ANTHROPIC_BASE_URL` matches a known coding-plan host now auto-injects`meta.usage_script` so the tray lights up without opening the Usage Script modal.
+
+Several Codex OAuth reverse-proxy stability issues are addressed this release: client-provided session IDs are now used as both`prompt_cache_key` and the Codex session header to avoid UUID-driven cache churn; non-streaming Anthropic clients receive proper JSON responses even when the ChatGPT Codex upstream forces OpenAI Responses SSE; and Stream Check now builds probes with the same`store: false`, encrypted reasoning include, and provider FAST mode setting as production requests, eliminating the "check fails but it actually works" mismatch. Paired with a new explicit FAST mode toggle, users can now opt into`service_tier="priority"` on Codex OAuth-backed Claude providers, trading latency against ChatGPT quota consumption on their own terms.
+
+Additionally, the in-app Hermes config health scanner and its warning banner are removed (along with the`scan_hermes_config_health` command,`HermesHealthWarning` type, and`HermesWriteOutcome.warnings` payload), refocusing the Hermes surface on active provider display, switching defaults, memory editing, and launching the Hermes Web UI — deep configuration health is now Hermes's own responsibility.
+
+Release Date: 2026-04-23
+
+Update Scale: 13 commits | 48 files changed | +1,883 / -808 lines
+
+---
+
+## Highlights
+
+- Tray Usage Visibility: Claude / Codex / Gemini tray submenus show cached usage for the current provider, including subscription and script-based summaries with color markers; refreshes are throttled, limited to visible apps, and synchronized back into React Query (#2184, thanks@TuYv)
+- Tray Coding-Plan Usage (Kimi / Zhipu / MiniMax): The tray renders 5-hour + weekly window usage using the`🟢 h12% w80%` layout; Claude providers whose base URL matches a known host auto-inject`meta.usage_script`
+- Codex OAuth FAST Mode: New explicit FAST mode toggle for Codex OAuth-backed Claude providers; when enabled, converted Responses requests send`service_tier="priority"`. Off by default (#2210, thanks@JesusDR01)
+- Codex OAuth Stability: Fixed reverse-proxy cache routing (#2218, thanks@majiayu000), Responses SSE aggregation (#2235, thanks@xpfo-go), and Stream Check parity with production (#2210, thanks@JesusDR01)
+- Hermes Config Health Scanner Removed: Refocuses the Hermes surface on provider management, memory editing, and launching the Web UI — no longer duplicates deep configuration health judgments
+- Skills Import / Install Reliability: Import dialog disables actions while pending and deduplicates results by ID (#2211, thanks@TuYv); model quick-set / one-click config applies against the latest form state (#2249, thanks@Coconut-Fish); root-level`SKILL.md` repo installs are stable (#2231, thanks@santugege)
+- Gemini Session Restore Paths: Session scanning reads`.project_root` metadata and passes the original project directory back into restore flows (#2240, thanks@tisonkun)
+- Session / Settings Layout Polish: Hardened the scroll-area viewport with width containment to fix horizontal overflow; tightened app bottom and settings footer spacing (#2201, thanks@Coconut-Fish)
+
+---
+
+## Added
+
+### Tray Usage Visibility
+
+- System tray submenus now show cached usage for the current Claude / Codex / Gemini provider (#2184, thanks@TuYv)
+- Includes subscription quota summaries and usage-script summaries with color-coded utilization markers
+- Tray-triggered refreshes are throttled, limited to visible apps, and synchronized back into React Query so the main window and tray share the same usage data
+
+### Tray Coding-Plan Usage (Kimi / Zhipu / MiniMax)
+
+- The tray renders 5-hour + weekly window usage for Chinese coding-plan providers
+- Uses the same`🟢 h12% w80%` two-window layout as official subscription badges (worst utilization drives the emoji color)
+- Creating a Claude provider whose`ANTHROPIC_BASE_URL` matches a known coding-plan host auto-injects`meta.usage_script`, so the tray lights up without opening the Usage Script modal
+- Existing`usage_script` values are preserved on update, never clobbering user customizations
+
+### Codex OAuth FAST Mode
+
+- New explicit FAST mode toggle for Codex OAuth-backed Claude providers (#2210, thanks@JesusDR01)
+- When enabled, converted Responses requests send`service_tier="priority"` for lower latency
+- Off by default to avoid unexpectedly increasing ChatGPT quota consumption
+
+---
+
+## Changed
+
+### Session and Settings Layout Polish
+
+- Hardened the scroll-area viewport with width containment to fix horizontal overflow (#2201, thanks@Coconut-Fish)
+- Tightened app bottom and settings footer spacing so long session / settings views fit more cleanly
+
+---
+
+## Removed
+
+### Hermes Config Health Scanner
+
+- Removed the in-app Hermes config health scanner and its warning banner
+- Removed the`scan_hermes_config_health` command,`HermesHealthWarning` type, and`HermesWriteOutcome.warnings` payload
+- The CC Switch Hermes surface now focuses on its core job: active provider display, default provider switching, memory editing, and launching the Hermes Web UI for deep configuration
+
+---
+
+## Fixed
+
+### Codex OAuth Cache Routing
+
+- Use the client-provided session ID as both`prompt_cache_key` and the Codex session header, preserving explicit cache keys (#2218, thanks@majiayu000)
+- Stop generating UUIDs that caused cache-identity churn, stabilizing the ChatGPT Codex reverse-proxy cache identity
+
+### Codex OAuth Responses SSE Aggregation
+
+- Non-streaming Anthropic clients now receive proper JSON even when the ChatGPT Codex upstream forces OpenAI Responses SSE (#2235, thanks@xpfo-go)
+- CC Switch aggregates the upstream SSE events before running the non-streaming transform
+
+### Codex OAuth Stream Check Parity
+
+- Stream Check now builds Codex OAuth probe requests with the same`store: false`, encrypted reasoning include, and provider FAST mode setting as production proxy traffic (#2210, thanks@JesusDR01)
+- Eliminates the "check fails but it actually works" mismatch
+
+### Codex Model Extraction
+
+- Reading the`model` field from Codex config now uses TOML parsing instead of first-line regex matching (#2227, thanks@nmsn)
+- Multiline TOML is handled correctly
+
+### Model Quick-Set / One-Click Config
+
+- Model quick-set now applies against the latest provider form config (#2249, thanks@Coconut-Fish)
+- Fixes stale form state preventing one-click configuration from succeeding
+
+### Skills Import Duplicates
+
+- The Skills import dialog disables actions while import is pending (#2211, thanks@TuYv)
+- The installed-skills cache deduplicates imported results by ID, preventing double-clicks from adding duplicate installed entries (#2139)
+
+### Root-Level Skill Repos
+
+- Skill install and update flows now consistently resolve three source patterns: direct nested paths, install-name recursive search, and repository-root`SKILL.md` sources (#2231, thanks@santugege)
+
+### Gemini Session Restore Paths
+
+- Gemini session scanning now reads`.project_root` metadata (#2240, thanks@tisonkun)
+- Restore flows can pass the original project directory when available
+
+### Provider Hover Names
+
+- Provider icons now expose the provider name on hover for inline SVG, image URL, and fallback initials render paths (#2237, thanks@tisonkun)
+
+---
+
+## Notes & Caveats
+
+- Hermes Health Scanner Removed: If you were relying on CC Switch to surface deep Hermes YAML configuration issues, switch to the "Launch Hermes Web UI" toolbar button and inspect them in Hermes's own panel. Day-to-day provider management, switching, memory editing, and MCP / Skills sync continue to be handled by CC Switch.
+- Codex OAuth FAST Mode Off by Default: Only turn it on if you accept potentially increased ChatGPT quota consumption in exchange for lower latency.
+- Tray Cached Usage: Refreshes are throttled and limited to the currently visible app to avoid unnecessary upstream API calls; values are synchronized into React Query so the main window and tray stay in sync.
+
+---
+
+## Download & Installation
+
+Visit Releases to download the appropriate version.
+
+### System Requirements
+
+| OS | Minimum Version | Architecture |
+| --- | --- | --- |
+| Windows | Windows 10 or later | x64 |
+| macOS | macOS 12 (Monterey) or later | Intel (x64) / Apple Silicon (arm64) |
+| Linux | See table below | x64 ... |
+
+### Contributors
+
+JesusDR01, tisonkun, and 6 other contributors
+
+Assets 18
+
+👍 254 😄 33 ❤️ 2 🚀 2 👀 19
+
+284 people reacted
+
+22 Apr 06:52
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.14.0
+
+Hermes Agent becomes the 6th managed app, Claude Opus 4.7 rolls out across the preset matrix, Gemini Native API proxy, "Local Routing" rename, and application-level window controls
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.14.0 is a major release centered on onboarding Hermes Agent as the 6th first-class managed app and rolling out Claude Opus 4.7 across the full aggregator and Bedrock preset matrix. Hermes support covers a database v9 → v10 migration, a complete Rust command surface, YAML-backed`~/.hermes/config.yaml` read/write with atomic backups, MCP sync, Skills sync, SQLite + JSONL session management, and dedicated frontend panels including a Memory editor. All four API protocols aligned with Hermes Agent 0.10.0 (`chat_completions`,`anthropic_messages`,`codex_responses`,`bedrock_converse`) are selectable. Providers owned by the user-authored`providers:` dict are rendered as read-only cards, and deep YAML configuration is delegated directly to the Hermes Web UI.
+
+Beyond Hermes, this release adds a Gemini Native API proxy (`api_format = "gemini_native"`) so the proxy can forward directly to Google's`generateContent` endpoint with full streaming, schema conversion, and shadow request support; renames the legacy "Local Proxy Takeover" to Local Routing across UI copy, README, and docs in all three locales; introduces application-level window controls, an opt-in setting that materially improves the experience on Linux Wayland where compositor-drawn buttons can become inert; and bundles late additions for launching`hermes dashboard` from the toolbar, a LemonData preset across all six apps, a DDSHub Codex endpoint, plus several Hermes health-check and Usage modal fixes.
+
+On the session side, the message list is virtualized via`@tanstack/react-virtual` so conversations with thousands of records scroll smoothly and long messages collapse by default; the Usage dashboard adds a date range picker (Today / 1d / 7d / 14d / 30d + custom date-time calendar) and a page-jump input; Stream Check error classification now surfaces color-coded toasts with refreshed default probe models and an explicit "model not found" branch; and switching to official providers is blocked while Local Routing is active to avoid account-suspension risk. The pricing database is reseeded from v8 → v9 with ~50 new model entries (Claude 4.7, Opus 4.7 Adaptive Thinking, Grok 4, Qwen 3.5/3.6, MiniMax M2.5/M2.7, Doubao Seed 2.0 series, GLM-5/5.1 and others) and corrected stale prices.
+
+Release Date: 2026-04-21
+
+Update Scale: 100 commits | 219 files changed | +20,548 / -3,569 lines
+
+---
+
+## Highlights
+
+- Hermes Agent Support (6th Managed App): Database v9 → v10 migration, full Rust command surface, YAML read/write with atomic backups, MCP sync, Skills sync, SQLite + JSONL session management, dedicated frontend panels, and four API protocols (`chat_completions`/`anthropic_messages`/`codex_responses`/`bedrock_converse`)
+- Claude Opus 4.7 Rollout: Adaptive thinking whitelisting, per-million pricing seed, Bedrock SKU (`anthropic.claude-opus-4-7`/`global.anthropic.claude-opus-4-7`, dropping the legacy`-v1` suffix); all aggregator and Bedrock presets migrated to Opus 4.7 as the default Opus model
+- Claude`max` Effort Tier: Effort dropdown upgraded from`high` to`max`
+- Gemini Native API Proxy: New`api_format = "gemini_native"` forwards directly to Google's`generateContent` with full streaming / schema conversion / shadow request support
+- GitHub Copilot Enterprise Server: GHES authentication and endpoint configuration for Copilot-backed Claude providers
+- Copilot Premium Consumption Deep Optimization: Proactive thinking-block stripping before forwarding,`tool_result` classification fix, subagent detection,`x-interaction-id` billing merge, orphan`tool_result` sanitization, and default warmup downgrade — a systematic reduction in premium interaction consumption
+- Session List Virtualization: Long conversations scroll smoothly and long messages collapse by default to reduce text layout cost
+- Codex / OpenClaw Session Title Extraction: Meaningful title extraction with 2-line display; strips OpenClaw`message_id` suffix noise
+- Usage Date Range Picker: Today / 1d / 7d / 14d / 30d preset tabs + custom date-time calendar; page-jump input on paginated lists
+- Stream Check Error Classification: Color-coded error toasts; refreshed default probe models; explicit "model not found" detection
+- Block Official Provider Switching During Local Routing: Routing official API traffic through the local proxy carries account-suspension risk — switches are blocked with a warning toast
+- Pricing Database Refresh (v8 → v9): ~50 new model entries and corrected stale prices
+- Application-Level Window Controls: Opt-in setting to render CC Switch's own min/max/close buttons, materially improving Linux Wayland experience
+- Hermes in Unified Skills Management: Skill install, enable, and filter now cover Hermes
+- Hermes / OpenClaw Config Directory Override: Point CC Switch at a custom`~/.hermes/config.yaml` or`openclaw.json` location
+- Launch Hermes Dashboard from Toolbar: When the Hermes Web UI probe fails, the toolbar entry offers to run`hermes dashboard` in the user's preferred terminal
+- New Partner Presets: LemonData across all six apps; DDSHub Codex endpoint; StepFun Step Plan
+
+---
+
+## Added
+
+### Hermes Agent Support (6th Managed App)
+
+CC Switch now treats Hermes Agent as a first-class managed app alongside Claude / Codex / Gemini / OpenCode / OpenClaw.
+
+- Database Migration v9 → v10: Adds`enabled_hermes` columns to`mcp_servers` and`skills` tables (`DEFAULT 0`, auto-migrated, no data loss)
+- YAML Configuration Read/Write:`~/.hermes/config.yaml` read/write with atomic backups;`tests/hermes_roundtrip.rs` guards against dropped OAuth MCP`auth` blocks or pollution of unrelated YAML keys
+- Four API Protocols: Aligned with Hermes Agent 0.10.0 —`chat_completions`/`anthropic_messages`/`codex_responses`/`bedrock_converse`; new deeplinks default to`chat_completions`
+- User`providers:` Dict Read-Only Rendering: User-authored providers in the YAML appear as read-only cards in CC Switch; deep configuration delegates to the Hermes Web UI
+- Additive Switching: Unlike Claude / Codex's "override" style, all Hermes providers coexist in the same YAML
+
+### Hermes Memory Panel
+
+- New Memory panel for editing`MEMORY.md`/`USER.md` directly, with an enable switch, character-count limits, and a live save flow
+- Replaces the Prompts entry for Hermes
+
+### Hermes Provider Presets (~50)
+
+- Covers Nous Research, Shengsuanyun, OpenRouter, DeepSeek, Together AI, StepFun, Zhipu GLM, Bailian, Kimi, MiniMax, DouBao, BaiLing, ModelScope, KAT-Coder, PackyCode, Cubence, AIGoCode, RightCode, AICodeMirror, AICoding, CrazyRouter, SSSAiCode, Micu, CTok.ai, DDSHub, E-FlowCode, LionCCAPI, PIPELLM, Compshare, SiliconFlow, AiHubMix, DMXAPI, TheRouter, Novita, Nvidia, and Xiaomi MiMo
+
+### Launch Hermes Dashboard from Toolbar
+
+- When the Hermes Web UI probe fails, the toolbar entry opens a confirm dialog offering to run`hermes dashboard` in the user's preferred terminal
+- Spawned via a temp bash / batch script;`hermes dashboard` opens the browser itself once ready, so no polling is required
+- The Memory panel and Health banner keep the existing toast behavior
+- Also corrects the stale`hermes web` hint in the offline toast (the real command is`hermes dashboard`)
+- Linux terminal detection reordered to try`which` before stat'ing`/usr/bin`,`/bin`,`/usr/local/bin`
+
+### Claude Opus 4.7 Support
+
+- New Claude Opus 4.7 with adaptive thinking whitelisting, per-million pricing seed, and Bedrock SKU (`anthropic.claude-opus-4-7`/`global.anthropic.claude-opus-4-7`, dropping the legacy`-v1` suffix)
+- All aggregator and Bedrock presets migrated to Opus 4.7 as the default Opus model
+
+### Claude max Effort Tier
+
+- Claude effort dropdown upgraded from`high` to`max` for extended reasoning capacity
+
+### Gemini Native API Proxy
+
+- New`api_format = "gemini_native"` so the proxy can forward directly to Google's`generateContent` API (#1918, thanks@yovinchen)
+- Full streaming, schema conversion, and shadow request support
+- Adds`gemini_url.rs`,`gemini_schema.rs`,`gemini_shadow.rs`,`streaming_gemini.rs`, and`transform_gemini.rs` under the proxy providers module
+
+### GitHub Copilot Enterprise Server (GHES)
+
+- GHES authentication and endpoint configuration for Copilot-backed Claude providers (#2175, thanks@hotelbe)
+
+### Session List Virtualization
+
+- Virtualized the session list via`@tanstack/react-virtual` so long conversations (thousands of records) scroll smoothly
+- Long session messages are collapsed by default to reduce text layout cost
+
+### Codex / OpenClaw Session Title Extraction
+
+- Meaningful title auto-extraction for Codex and OpenClaw sessions with 2-line display
+- Strips OpenClaw`message_id` suffix noise
+
+### Usage Date Range Picker
+
+- New date range selector on the usage dashboard with preset tabs (Today / 1d / 7d / 14d / 30d) + custom date + time calendar (#2002, thanks@yovinchen)
+- Page-jump input added on paginated lists
+
+### Model Mapping Quick-Set
+
+- New quick-set button next to model mapping fields in provider forms for faster edits (#2179, thanks@lispking)
+
+### Stream Check Error Classification
+
+- Stream Check errors are classified and surfaced as color-coded toasts
+- Refreshed default probe models to match each vendor's current lineup
+- Explicit detection for "model not found" responses
+
+### Block Official Provider S...
+
+### Contributors
+
+lispking, mrFranklin, and 12 other contributors
+
+Assets 18
+
+👍 36
+
+36 people reacted
+
+10 Apr 16:14
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.13.0
+
+Lightweight Mode, Quota & Balance Visibility, Provider Model Auto-Fetch, Codex OAuth Reverse Proxy, and Tray Per-App Submenus
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.13.0 is a major feature release centered on observability, provider workflow ergonomics, and proxy compatibility. It adds inline quota and balance displays across official Claude / Codex / Gemini providers plus Token Plan, Copilot, and third-party balance APIs; introduces a Lightweight Mode that keeps CC Switch running from the system tray without a main window; delivers automatic model discovery via OpenAI-compatible`/v1/models` across all five supported applications; ships a Codex OAuth reverse proxy for ChatGPT subscribers; reorganizes the tray menu into per-app submenus; rebuilds the proxy forwarding stack on a Hyper-based client; and overhauls the Skills workflow with discovery, batch updates, storage-location toggling, and built-in skills.sh search and install. Additional improvements include full URL endpoint mode, enhanced token usage tracking, the Copilot interaction optimizer, a UTF-8 streaming chunk boundary fix for multi-byte output, a Linux startup UI responsiveness fix, and a friendlier new-user onboarding experience.
+
+Release Date: 2026-04-10
+
+Update Scale: 139 commits | 280 files changed | +31,627 / -3,042 lines
+
+---
+
+## Highlights
+
+- Lightweight Mode: Tray-only operating mode that destroys the main window on exit to tray and recreates it on demand, reducing CC Switch's desktop footprint to near zero when idle
+- Quota & Balance Visibility: Inline quota or balance readout across provider cards — official Claude / Codex / Gemini subscriptions, GitHub Copilot premium interactions, Codex OAuth, Token Plan providers (Kimi / Zhipu GLM / MiniMax), plus official balance queries for DeepSeek, StepFun, SiliconFlow, OpenRouter, and Novita AI
+- Provider Model Auto-Fetch: OpenAI-compatible`/v1/models` discovery across Claude, Codex, Gemini, OpenCode, and OpenClaw provider forms, with grouped dropdown selection and failure-specific error messages
+- Codex OAuth Reverse Proxy: ChatGPT Codex reverse proxy exposed as a new Claude provider card type, allowing users to use their ChatGPT subscription in Claude Code. Includes managed OAuth login and inline subscription quota display (⚠️ Risk Notice)
+- Tray Per-App Submenus: Reworked the tray menu into per-application submenus so it never overflows the screen and background provider switching scales to dozens of providers per app
+- Skills Discovery & Batch Updates: SHA-256-based skill update detection, per-skill and "Update All" batch actions,`skills.sh` search integration, and a storage-location toggle between CC Switch storage and`~/.agents/skills`
+- Session Workflow Upgrades: Batch session deletion, a directory picker before launching Claude terminal restore, usage import from Claude / Codex / Gemini session logs without proxy interception, precise Codex JSONL parsing, and per-app usage filtering
+- OpenCode / OpenClaw Stream Check Coverage: OpenCode detection via npm package mapping, OpenClaw`openai-completions` support, and the remaining OpenClaw protocol variants — with custom-header passthrough and auth-header detection fixes
+- Full URL Endpoint Mode: Provider option that treats`base_url` as a complete upstream endpoint, unblocking vendors that require nonstandard URL layouts
+- Hyper-based Proxy Forwarding Stack: Refactored proxy forwarding onto a Hyper-based client with transparent header forwarding, improved endpoint rewriting, and better support for dynamic upstream endpoints
+- Copilot Interaction Optimizer: Request classification and routing logic that reduces unnecessary GitHub Copilot premium interaction consumption
+- UTF-8 Stream Chunk Boundary Fix: All four SSE streaming paths now preserve incomplete multi-byte UTF-8 sequences across TCP chunks, eliminating intermittent U+FFFD garbled output via the Copilot reverse proxy
+- Linux Startup UI Fix: Fixed the long-standing issue where the window UI couldn't receive clicks on Linux until the user manually maximized and restored the window
+- First-Run Onboarding: One-time welcome dialog on fresh installs, automatic seeding of Claude / OpenAI / Google official presets, and auto-import of OpenCode / OpenClaw live configurations on startup
+- Claude Session Titles & Search Highlighting: Meaningful title extraction for Claude sessions using a priority chain (custom-title metadata → first user message → directory basename), plus keyword highlighting in Session Manager search results
+- URL-Based Provider Icons: Dual rendering mode supporting Vite URL imports for large SVGs and raster images (PNG, JPG, WebP), keeping small SVGs inlined
+- New Provider Presets: TheRouter, DDSHub, LionCCAPI, Shengsuanyun (胜算云), PIPELLM, and E-FlowCode across supported applications
+
+---
+
+## New Features
+
+### Lightweight Mode
+
+A tray-only operating mode that dramatically reduces CC Switch's desktop footprint when idle.
+
+- Destroys the main window on exit-to-tray instead of hiding it, freeing UI resources and memory
+- Recreates the window on demand when the user reopens CC Switch from the tray, a deeplink, or single-instance activation
+- Integrated into every window-re-show path: normal startup, deeplink, single_instance, tray`show_main`, and the lightweight-exit round-trip
+
+### Quota & Balance Visibility
+
+Added inline quota and balance readouts to provider cards so users can see remaining capacity without leaving the card.
+
+- Official subscriptions: Inline quota display for Claude, Codex, and Gemini official providers
+- GitHub Copilot: Premium interactions quota display on the Copilot provider card
+- Codex OAuth: ChatGPT subscription quota inline with the Codex OAuth provider card
+- Token Plan providers: Kimi, Zhipu GLM, and MiniMax usage progression display (requires manual activation to avoid confusion)
+- Third-party balances: Official balance queries for DeepSeek, StepFun, SiliconFlow, OpenRouter, and Novita AI (requires manual activation to avoid confusion)
+- Health-check and usage-config buttons are hidden for official providers to keep the card clean
+
+### Provider Model Auto-Fetch
+
+Added OpenAI-compatible model discovery to every provider form, removing the manual copy-paste loop for model IDs.
+
+- Queries the configured provider endpoint's`/v1/models`
+- Groups models in the dropdown by category for easier selection
+- Failure-specific error messages distinguish network / authentication / endpoint issues
+- Supported across all five applications: Claude, Codex, Gemini, OpenCode, and OpenClaw
+
+### Codex OAuth Reverse Proxy
+
+Added a reverse proxy path for ChatGPT subscribers who want to use their ChatGPT subscription in Claude Code.
+
+- Managed OAuth login flow with ChatGPT authentication
+- Surfaces as a new Claude provider card type alongside API-key providers
+- Inline subscription quota display
+- Integrated into the Auth Center for unified token management
+- See the ⚠️ Risk Notice below before enabling
+
+### Tray Per-App Submenus
+
+Reorganized the tray menu so providers are grouped under each application instead of living in a flat list.
+
+- Per-application submenus for Claude, Codex, Gemini, OpenCode, and OpenClaw
+- Prevents the tray menu from overflowing the screen when users have many providers
+- Background provider switching scales cleanly to long provider lists
+
+### Skills Discovery & Batch Updates
+
+Upgraded the Skills management panel into a complete discovery plus maintenance workflow.
+
+- SHA-256 update detection: Skills are content-hashed so the UI knows exactly which ones have upstream changes
+- Per-skill and batch updates: Individual "Update" buttons plus an animated "Update All" batch action
+- Storage-location toggle: Switch between CC Switch storage and`~/.agents/skills` without losing skill state
+- Public registry search:`skills.sh` search integrated directly into the dialog for discovering community skills
+
+### Session Workflow Upgrades
+
+Multiple session management improvements that reduce friction when working with Claude / Codex / Gemini sessions.
+
+- Batch session deletion: Select and delete multiple sessions at once from Session Manager (#1693, thanks@Alexlangl)
+- Directory picker before restore: Claude terminal restore now prompts for the working directory up front (#1752, thanks@yovinchen)
+- Usage from session logs without proxy: Usage data imported directly from Claude / Codex / Gemini session logs — no proxy interception required
+- Precise Codex JSONL parsing: Replaced estimated Codex usage with precise JSONL session-log parsing plus Codex model name normalization for consistent pricing lookup
+- Gemini CLI session log integration: Gemini usage now syncs accurately from Gemini CLI session logs
+- Per-app usage filtering: Filter the usage dashboard by Claude, Codex, or Gemini independently
+
+### OpenCode / OpenClaw Stream Check Coverage
+
+Extended the Stream Check panel to cover the full OpenCode and OpenClaw surface area.
+
+- OpenCode detection via npm package mapping
+- Support for the OpenClaw`openai-completions` protocol
+- Support for the remaining three OpenClaw protocol variants
+- Edge-case handling for custom-header passthrough, OpenClaw custom auth-header detection, Bedrock error messaging, and OpenCode default`baseURL` fallback
+
+### Full URL Endpoint Mode
+
+Added a provider option that treats`base_url` as a complete upstream endpoint instead of a base URL with path appending (#1561, thanks@yovinchen).
+
+- Proxy forwardi...
+
+### Contributors
+
+geekdada, cmzz, and 8 other contributors
+
+Assets 18
+
+👍 58 😄 2 🎉 4 🚀 5 👀 3
+
+67 people reacted
+
+24 Mar 07:44
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.12.3
+
+GitHub Copilot Reverse Proxy, macOS Code Signing & Notarization, Reasoning Effort Mapping, OpenCode SQLite Backend
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.12.3 is a major feature release that adds GitHub Copilot reverse proxy support with a dedicated Auth Center, introduces macOS code signing and Apple notarization for a seamless install experience, maps reasoning effort levels across providers, migrates OpenCode to a SQLite backend, enables Tool Search via the native`ENABLE_TOOL_SEARCH` environment variable toggle, and delivers a full skill backup/restore lifecycle. Additional improvements include proxy gzip compression, o-series model compatibility, Skills import rework, Ghostty terminal fix, Skills cache strategy optimization, Claude 4.6 context window update, and multiple bug fixes.
+
+Release Date: 2026-03-24
+
+Update Scale: 36 commits | 107 files changed | +9,124 / -802 lines
+
+---
+
+## Highlights
+
+- GitHub Copilot reverse proxy: Full Copilot proxy support with OAuth device flow authentication, token refresh, and request fingerprint emulation
+- Copilot Auth Center: Dedicated authentication management UI for GitHub Copilot OAuth flow with token status display and one-click refresh
+- macOS code signing & notarization: macOS builds are now code-signed and notarized by Apple, eliminating the "unidentified developer" warning entirely
+- Reasoning Effort mapping: Proxy-layer auto-mapping — explicit`output_config.effort` takes priority, falling back to`budget_tokens` thresholds (<4 000→low, 4 000–16 000→medium, ≥16 000→high) for o-series and GPT-5+ models
+- OpenCode SQLite backend: Added SQLite session storage for OpenCode alongside existing JSON backend; dual-backend scan with SQLite priority on ID conflicts
+- Codex 1M context window toggle: One-click checkbox to set`model_context_window = 1000000` with auto-populated`model_auto_compact_token_limit`
+- Disable Auto-Upgrade toggle: Added`DISABLE_AUTOUPDATER` env var checkbox in the Claude Common Config editor to prevent Claude Code from auto-upgrading
+- Tool Search env var toggle: Tool Search enabled via Claude 2.1.76+ native`ENABLE_TOOL_SEARCH` environment variable in the Common Config editor — no binary patching required
+- Skill backup/restore lifecycle: Skills are automatically backed up before uninstall; backup list with restore and delete management added
+- Proxy gzip compression: Non-streaming proxy requests now auto-negotiate gzip compression, reducing bandwidth usage
+- o-series model compatibility: Chat Completions proxy correctly uses`max_completion_tokens` for o1/o3/o4-mini models; Responses API kept on the correct`max_output_tokens` field
+- Skills import rework: Replaced implicit filesystem-based app inference with explicit`ImportSkillSelection` to prevent incorrect multi-app activation
+- Ghostty terminal support: Fixed Claude session restore in Ghostty terminal
+
+---
+
+## New Features
+
+### GitHub Copilot Reverse Proxy
+
+Added full reverse proxy support for GitHub Copilot, enabling Copilot-authenticated requests to be forwarded through CC Switch.
+
+- Implements OAuth device flow authentication for GitHub Copilot
+- Automatic token refresh and session management
+- Request fingerprint emulation for seamless compatibility
+- Integrated into the existing proxy infrastructure alongside Claude, Codex, and Gemini handlers
+
+### Copilot Auth Center
+
+A dedicated authentication management UI for GitHub Copilot.
+
+- OAuth device flow with code display and browser-based authorization
+- Token status display showing expiration and validity
+- One-click token refresh without re-authentication
+- Integrated into the settings panel for easy access
+
+### Reasoning Effort Mapping
+
+Proxy-layer auto-mapping of reasoning effort for OpenAI o-series and GPT-5+ models.
+
+- Two-tier resolution: explicit`output_config.effort` takes priority, falling back to thinking`budget_tokens` thresholds (<4 000→low, 4 000–16 000→medium, ≥16 000→high)
+- Covers both Chat Completions and Responses API paths with 17 unit tests
+
+### OpenCode SQLite Backend
+
+Added SQLite session storage support for OpenCode alongside the existing JSON backend.
+
+- Dual-backend scan with SQLite priority on ID conflicts
+- Atomic session deletion and path validation
+- JSON backend remains functional for backwards compatibility
+
+### Codex 1M Context Window Toggle
+
+Added a one-click toggle for Codex 1M context window in the config editor.
+
+- Checkbox sets`model_context_window = 1000000` in`config.toml`
+- Auto-populates`model_auto_compact_token_limit = 900000` when enabled
+- Unchecking removes both fields cleanly
+
+### Disable Auto-Upgrade Toggle
+
+Added a checkbox in the Claude Common Config editor to disable Claude Code auto-upgrades.
+
+- Sets`DISABLE_AUTOUPDATER=1` in the environment configuration when enabled
+- Displayed alongside Teammates mode, Tool Search, and High Effort toggles
+
+### Tool Search Environment Variable Toggle
+
+Tool Search is now enabled via the native`ENABLE_TOOL_SEARCH` environment variable introduced in Claude 2.1.76+.
+
+- Toggle available in the Common Config editor under environment variables
+- Sets`ENABLE_TOOL_SEARCH=1` in the Claude environment configuration
+- No binary patching required — uses Claude's built-in support
+
+### macOS Code Signing & Notarization
+
+macOS builds are now code-signed and notarized by Apple.
+
+- Application signed with a valid Apple Developer certificate
+- Notarized through Apple's notarization service for Gatekeeper approval
+- DMG installer also signed and notarized
+- Eliminates the "unidentified developer" warning on first launch
+
+### Skill Auto-Backup on Uninstall
+
+Skill files are now automatically backed up before uninstall to prevent accidental data loss.
+
+- Backups stored in`~/.cc-switch/skill-backups/` with all skill files and a`meta.json` containing original metadata
+- Old backups are automatically pruned to keep at most 20
+- Backup path is returned to the frontend and shown in the success toast
+
+### Skill Backup Restore & Delete
+
+Added management commands for skill backups created during uninstall.
+
+- List all available skill backups with metadata
+- Restore copies files back to SSOT, saves the DB record, and syncs to the current app with rollback on failure
+- Delete removes the backup directory after a confirmation dialog
+- ConfirmDialog gains a configurable zIndex prop to support nested dialog stacking
+
+---
+
+## Changes
+
+### Skills Cache Strategy Optimization
+
+Optimized the Skills cache invalidation strategy for better performance.
+
+- Reduced unnecessary cache refreshes during skill operations
+- Improved cache coherence between skill install/uninstall and list queries
+
+### Claude 4.6 Context Window Update
+
+Updated Claude 4.6 model preset with the latest context window size.
+
+- Reflects the expanded context window for Claude 4.6 models
+- Updated in provider presets for accurate model information display
+
+### MiniMax M2.7 Upgrade
+
+- Updated MiniMax provider preset to M2.7 model variant
+
+### Xiaomi MiMo Upgrade
+
+- Updated Xiaomi MiMo provider preset to the latest model version
+
+### AddProviderDialog Simplification
+
+- Removed redundant OAuth tab, reducing dialog from 3 tabs to 2 (app-specific + universal)
+
+### Provider Form Advanced Options Collapse
+
+- Model mapping, API format, and other advanced fields in the Claude provider form now auto-collapse when empty
+- Auto-expands when any value is set or when a preset fills them in; does not auto-collapse when manually cleared
+
+### Proxy Gzip Compression
+
+Non-streaming proxy requests now support gzip compression for reduced bandwidth usage.
+
+- Non-streaming requests let reqwest auto-negotiate gzip and transparently decompress responses
+- Streaming requests conservatively keep`Accept-Encoding: identity` to avoid decompression errors on interrupted SSE streams
+
+### o1/o3 Model Compatibility
+
+Proxy forwarding now handles OpenAI o-series model token parameters correctly.
+
+- Chat Completions path uses`max_completion_tokens` instead of`max_tokens` for o1/o3/o4-mini models (#1451, thanks@Hemilt0n)
+- Responses API path kept on the correct`max_output_tokens` field instead of incorrectly injecting`max_completion_tokens`
+
+### OpenCode Model Variants
+
+- Placed OpenCode model variants at top level instead of inside options for better discoverability (#1317)
+
+### Skills Import Flow
+
+The Skills import flow has been reworked for correctness and cleanup.
+
+- Replaced implicit filesystem-based app inference with explicit`ImportSkillSelection` to prevent incorrect multi-app activation when the same skill directory exists under multiple app paths
+- Added reconciliation to`sync_to_app` to remove disabled/orphaned symlinks
+- MCP`sync_all_enabled` now removes disabled servers from live config
+- Schema migration preserves a snapshot of legacy app mappings to avoid lossy reconstruction
+
+---
+
+## Bug Fixes
+
+### WebDAV Password Clearing
+
+- Fixed an issue where the WebDAV password was silently cleared when saving unrelated settings
+
+### Tool Message Parsing
+
+- Fixed incorrect parsing of tool-use messages in certain proxy response formats
+
+### Dark Mode Styling
+
+- Fixed dark mode rendering inconsistencies in UI components
+
+### Copilot Request Fingerprint
+
+- Fixed request fingerprint generation for Copilot proxy to match expected format
+
+### Provider Form Double Submit
+
+- Prevented duplicate submissions on rapid button clicks in provider add/edit forms (#1352, thanks@Hexi1997)
+
+### Ghostty Session Restore
+
+- Fixed Claude session restore in Ghostty terminal (#1506, thanks @...
+
+### Contributors
+
+makoMakoGo, Hexi1997, and 5 other contributors
+
+Assets 18
+
+👍 91 ❤️ 16
+
+96 people reacted
+
+12 Mar 16:02
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.12.2
+
+Common Config Protection During Proxy Takeover, Snippet Lifecycle Stability, Section-Aware Codex TOML Editing
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.12.2 is a reliability-focused patch release that addresses Common Config loss during proxy takeover and improves Codex TOML editing accuracy. Proxy takeover hot-switches and provider sync now update the restore backup instead of overwriting live config files; the startup sequence has been reordered so snippets are extracted from clean live files before takeover state is restored; and Codex`base_url` editing has been refactored into a section-aware model that no longer appends to the end of the file.
+
+Release Date: 2026-03-12
+
+Update Scale: 5 commits | 22 files changed | +1,716 / -288 lines
+
+---
+
+## Highlights
+
+Empty state guidance: Provider list empty state now shows detailed import instructions with a conditional Common Config snippet hint for Claude/Codex/Gemini
+
+Proxy takeover restore flow rework: Hot-switches and provider sync now refresh the restore backup instead of overwriting live config files, preserving the full user configuration on rollback
+
+Snippet lifecycle stability: Introduced a`cleared` flag to prevent auto-extraction from resurrecting cleared snippets, and reordered startup to extract from clean state
+
+Section-aware Codex TOML editing:`base_url` and`model` field reads/writes now target the correct`[model_providers.]` section
+
+Codex MCP config protection: Existing`mcp_servers` blocks in restore snapshots survive provider hot-switches via per-server-id merge instead of wholesale replacement, with provider/common-config definitions winning on conflict
+
+---
+
+## New Features
+
+### Empty State Guidance
+
+Improved the first-run experience with helpful guidance when the provider list is empty.
+
+- Empty state page shows step-by-step import instructions
+- Conditionally displays a Common Config snippet hint for Claude/Codex/Gemini providers (not shown for OpenCode/OpenClaw)
+
+---
+
+## Changes
+
+### Proxy Takeover Restore Flow
+
+The proxy takeover hot-switch and provider sync logic has been reworked to protect Common Config throughout the takeover lifecycle.
+
+- Provider sync now updates the restore backup instead of writing directly to live config files when takeover is active
+- Effective provider settings are rebuilt with Common Config applied before saving restore snapshots, so rollback restores the real user configuration
+- Legacy providers with inferred common config usage are automatically marked with`commonConfigEnabled=true`
+
+### Codex TOML Editing Engine
+
+Codex`config.toml` update logic has been refactored onto shared section-aware TOML helpers.
+
+- New Rust module`codex_config.rs` with`update_codex_toml_field` and`remove_codex_toml_base_url_if`
+- New frontend utilities`getTomlSectionRange`/`getCodexProviderSectionName` for section-aware operations
+- Inline TOML editing logic scattered across`proxy.rs` now delegates to the new module
+
+### Common Config Initialization Lifecycle
+
+The startup sequence has been reordered for more robust snippet extraction and migration.
+
+- Startup now auto-extracts Common Config snippets from clean live files before restoring proxy takeover state
+- Introduced a snippet`cleared` flag to track whether a user intentionally cleared a snippet
+- Persisted a one-time legacy migration flag to avoid repeated`commonConfigEnabled` backfills
+
+---
+
+## Bug Fixes
+
+### Common Config Loss
+
+- Fixed multiple scenarios where Common Config could be dropped during proxy takeover: sync overwriting live files, hot-switches producing incomplete restore snapshots, and provider switches losing config changes
+
+### Codex Restore Snapshot Preservation
+
+- Fixed Codex takeover restore backups discarding existing`mcp_servers` blocks during provider hot-switches; changed MCP backup preservation from wholesale table replacement to per-server-id merge so provider/common-config MCP updates win on conflict while backup-only servers are retained
+
+### Cleared Snippet Resurrection
+
+- Fixed startup auto-extraction recreating Common Config snippets that users had intentionally cleared
+
+### Codex base_url Misplacement
+
+- Fixed Codex`base_url` extraction and editing not targeting the correct`[model_providers.]` section, causing it to append to the file tail or confuse`mcp_servers.*.base_url` entries for provider endpoints
+
+---
+
+## Download & Installation
+
+Visit Releases to download the appropriate version.
+
+### System Requirements
+
+| System | Minimum Version | Architecture |
+| --- | --- | --- |
+| Windows | Windows 10 or later | x64 |
+| macOS | macOS 10.15 (Catalina) or later | Intel (x64) / Apple Silicon (arm64) |
+| Linux | See table below | x64 |
+
+### Windows
+
+| File | Description |
+| --- | --- |
+| `CC-Switch-v3.12.2-Windows.msi` | Recommended - MSI installer with auto-update |
+| `CC-Switch-v3.12.2-Windows-Portable.zip` | Portable version, extract and run, no registry write |
+
+### macOS
+
+| File | Description |
+| --- | --- |
+| `CC-Switch-v3.12.2-macOS.zip` | Recommended - Extract and drag to Applications, Universal Binary |
+| `CC-Switch-v3.12.2-macOS.tar.gz` | For Homebrew installation and auto-update |
+
+Note: Since the author doesn't have an Apple Developer account, you may see an "unidentified developer" warning on first launch. Please close it, then go to "System Settings" -> "Privacy & Security" -> click "Open Anyway", and it will open normally afterwards.
+
+### Homebrew (macOS)
+
+```
+brew tap farion1231/ccswitch
+brew install --cask cc-switch
+```
+
+Update:
+
+```
+brew upgrade --cask cc-switch
+```
+
+### Linux
+
+| Distribution | Recommended Format | Installation Method |
+| --- | --- | --- |
+| Ubuntu / Debian / Linux Mint / Pop!_OS | `.deb` | `sudo dpkg -i CC-Switch-*.deb` or`sudo apt install ./CC-Switch-*.deb` |
+| Fedora / RHEL / CentOS / Rocky Linux | `.rpm` | `sudo rpm -i CC-Switch-*.rpm` or`sudo dnf install ./CC-Switch-*.rpm` |
+| openSUSE | `.rpm` | `sudo zypper install ./CC-Switch-*.rpm` |
+| Arch Linux / Manjaro | `.AppImage` | Add execute permission and run directly, or use AUR |
+| Other distributions / Unsure | `.AppImage` | `chmod +x CC-Switch-*.AppImage && ./CC-Switch-*.AppImage` |
+
+Assets 17
+
+👍 38 ❤️ 2
+
+40 people reacted
+
+11 Mar 16:26
+
+Compare
+
+# Choose a tag to compare
+
+# CC Switch v3.12.1
+
+Stability Fixes, StepFun Presets, OpenClaw authHeader, and New Sponsor Partners
+
+中文版 →|日本語版 →
+
+---
+
+## Overview
+
+CC Switch v3.12.1 is a patch release focused on stability improvements and bug fixes. It resolves a Common Config modal infinite reopen loop, a WebDAV sync foreign key constraint failure, and several i18n interpolation issues. It also adds StepFun provider presets, OpenClaw input type selection and authHeader support, upgrades the default Gemini model to 3.1-pro, and welcomes four new sponsor partners.
+
+Release Date: 2026-03-12
+
+Update Scale: 19 commits | 56 files changed | +1,429 / -396 lines
+
+---
+
+## Highlights
+
+- Common Config modal fix: Resolved an infinite reopen loop in the Common Config modal and added draft editing support
+- WebDAV sync reliability: Fixed a foreign key constraint failure when restoring`provider_health` during WebDAV sync
+- StepFun presets: Added StepFun (阶跃星辰) provider presets including the step-3.5-flash model
+- OpenClaw enhancements: Added input type selection for model Advanced Options and`authHeader` field for vendor-specific auth header support
+- Gemini model upgrade: Upgraded default Gemini model to 3.1-pro in provider presets
+- New sponsors: Welcomed Micu API, XCodeAPI, SiliconFlow, and CTok as sponsor partners
+
+---
+
+## New Features
+
+### StepFun Provider Presets
+
+Added provider presets for StepFun (阶跃星辰), a leading Chinese AI model provider.
+
+- New preset entries for StepFun across supported applications
+- Includes the step-3.5-flash model (#1369, thanks@hengm3467)
+
+### OpenClaw Enhancements
+
+Enhanced the OpenClaw configuration with more granular control and better vendor compatibility.
+
+- Added input type selection dropdown for model Advanced Options (#1368, thanks@liuxxxu)
+- Added optional`authHeader` boolean to`OpenClawProviderConfig` for vendor-specific auth header support (e.g. Longcat), and refactored form state to reuse the shared type
+
+### Sponsor Partners
+
+- Micu API: Added Micu API as sponsor partner with affiliate links
+- XCodeAPI: Added XCodeAPI as sponsor partner
+- SiliconFlow: Added SiliconFlow (硅基流动) as sponsor partner with affiliate links
+- CTok: Added CTok as sponsor partner
+
+---
+
+## Changes
+
+- UCloud → Compshare: Renamed UCloud provider to Compshare (优云智算) with full i18n support across all three locales (EN/ZH/JA)
+- Compshare Links: Updated Compshare sponsor registration links to coding-plan page
+- Gemini Model Upgrade: Upgraded default Gemini model from 2.5-pro to 3.1-pro in provider presets
+
+---
+
+## Bug Fixes
+
+### Common Config & UI
+
+- Fixed an infinite reopen loop in the Common Config modal and added draft editing support to prevent data loss during edits
+- Fixed toolbar compact mode not triggering on Windows due to left-side overflow (#1375, thanks@zuoliangyu)
+- Fixed session search index not syncing with query data, causing stale list display after session deletion
+
+### Sync & Data
+
+- Fixed foreign key constraint failure when restoring`provider_health` table during WebDAV sync
+
+### Provider & Preset
+
+- Added missing`authHeader: true` to Longcat provider preset (#1377, thanks@wavever)
+- Aligned OpenClaw tool permission profiles with upstream schema (#1355, thanks@bigsongeth)
+- Corrected X-Code API URL from`www.x-code.cn` to`x-code.cc`
+
+### i18n & Localization
+
+- Fixed stream check toast i18n interpolation keys not matching translation placeholders
+- Fixed proxy startup toast not interpolating address and port values (#1399, thanks@Mason-mengze)
+- Renamed OpenCode API format label from "OpenAI" to "OpenAI Responses" for accuracy
+
+---
+
+## Special Thanks
+
+Thanks to all contributors for their contributions to this release!
+
+---
+
+## Download & Installation
+
+Visit Releases to download the appropriate version.
+
+### System Requirements
+
+| System | Minimum Version | Architecture |
+| --- | --- | --- |
+| Windows | Windows 10 or later | x64 |
+| macOS | macOS 10.15 (Catalina) or later | Intel (x64) / Apple Silicon (arm64) |
+| Linux | See table below | x64 |
+
+### Windows
+
+| File | Description |
+| --- | --- |
+| `CC-Switch-v3.12.1-Windows.msi` | Recommended - MSI installer with auto-update |
+| `CC-Switch-v3.12.1-Windows-Portable.zip` | Portable version, extract and run, no registry write |
+
+### macOS
+
+| File | Description |
+| --- | --- |
+| `CC-Switch-v3.12.1-macOS.zip` | Recommended - Extract and drag to Applications, Universal Binary |
+| `CC-Switch-v3.12.1-macOS.tar.gz` | For Homebrew installation and auto-update |
+
+Note: Since the author doesn't have an Apple Developer account, you may see an "unidentified developer" warning on first launch. Please close it, then go to "System Settings" -> "Privacy & Security" -> click "Open Anyway", and it will open normally afterwards.
+
+### Homebrew (macOS)
+
+```
+brew tap farion1231/ccswitch
+brew install --cask cc-switch
+```
+
+Update:
+
+```
+brew upgrade --cask cc-switch
+```
+
+### Linux
+
+| Distribution | Recommended Format | Installation Method |
+| --- | --- | --- |
+| Ubuntu / Debian / Linux Mint / Pop!_OS | `.deb` | `sudo dpkg -i CC-Switch-*.deb` or`sudo apt install ./CC-Switch-*.deb` |
+| Fedora / RHEL / CentOS / Rocky Linux | `.rpm` | `sudo rpm -i CC-Switch-*.rpm` or`sudo dnf install ./CC-Switch-*.rpm` |
+| openSUSE | `.rpm` | `sudo zypper install ./CC-Switch-*.rpm` |
+| Arch Linux / Manjaro | `.AppImage` | Add execute permission and run directly, or use AUR |
+| Other distributions / Unsure | `.AppImage` | `chmod +x CC-Switch-*.AppImage && ./CC-Switch-*.AppImage` |
+
+### Contributors
+
+wavever, bigsongeth, and 4 other contributors
+
+Assets 17
+
+👍 12
+
+12 people reacted

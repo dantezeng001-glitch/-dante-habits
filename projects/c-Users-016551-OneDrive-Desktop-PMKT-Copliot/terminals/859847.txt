@@ -1,0 +1,7 @@
+---
+pid: 17936
+cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\PMKT Copliot\\fanbox-1.11.2"
+command: "cmd /c \"npm install --no-audit --no-fund --loglevel=http > install.log 2>&1\""
+started_at: 2026-06-15T01:20:59.441Z
+running_for_ms: 966979   
+---

@@ -1,6 +1,0 @@
----
-pid: 14072
-cwd: |
-  C:\Users\016551\OneDrive\Desktop\耳挂\耳挂用研报告
----
-PS C:\Users\016551\OneDrive\Desktop\耳挂\ 耳挂用研报告>

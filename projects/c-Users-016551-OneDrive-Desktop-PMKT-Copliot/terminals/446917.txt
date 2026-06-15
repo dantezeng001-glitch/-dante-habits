@@ -1,0 +1,26 @@
+---
+pid: 22288
+cwd: "C:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\PMKT Copliot\\fanbox-1.11.2"
+command: "\"CREATOR(no query):\"; (dws doc search --creator-uids 016551 --page-size 8 2>&1 | Out-String).Substring(0,260); $from = [DateTimeOffset]::UtcNow.AddDays(-120).ToUnixTimeMilliseconds(); \"`nVISITED from $from :\"; (dws doc search --visited-from $from --page-size 8 2>&1 | Out-String).Substring(0,260)"
+started_at: 2026-06-15T03:54:04.234Z
+running_for_ms: 369095   
+---
+CREATOR(no query):
+{
+  "documents": [
+    {
+      "contentType": "ALIDOC",
+      "createTime": 1777252637000,
+      "creatorUid": "016551",
+      "docUrl": "https://alidocs.dingtalk.com/i/nodes/oP0MALyR8k7j0oboUKlZL7p083bzYmDO?utm_scene=person_space",
+      "extension": "
+
+VISITED from 1771127649010 :
+{
+  "documents": [
+    {
+      "contentType": "ALIDOC",
+      "createTime": 1779087945000,
+      "creatorUid": "015575",
+      "docUrl": "https://alidocs.dingtalk.com/i/nodes/Y1OQX0akWm3kYolohvEnOyXKJGlDd3mE?utm_scene=person_space",
+      "extension": "

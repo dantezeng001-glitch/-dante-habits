@@ -1,0 +1,14 @@
+---
+pid: 38860
+cwd: "C:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\PMKT Copliot\\fanbox-1.11.2"
+command: "Get-Process electron -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep -Seconds 2; $lnk = Join-Path ([Environment]::GetFolderPath('Desktop')) 'FanBox.lnk'; Start-Process -FilePath $lnk; Start-Sleep -Seconds 8; (Test-NetConnection -ComputerName localhost -Port 4567 -WarningAction SilentlyContinue).TcpTestSucceeded"
+started_at: 2026-06-15T02:30:12.124Z
+running_for_ms: 30031    
+---
+True
+
+---
+exit_code: 0
+elapsed_ms: 31135
+ended_at: 2026-06-15T02:30:43.259Z
+---

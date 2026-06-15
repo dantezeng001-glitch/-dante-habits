@@ -1,7 +1,0 @@
----
-pid: 32300
-cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\PMKT Copliot\\校对"
-command: "python app.py"
-started_at: 2026-06-12T03:41:52.441Z
-running_for_ms: 1092092  
----

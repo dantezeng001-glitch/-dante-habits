@@ -1,0 +1,10 @@
+---
+pid: 11712
+cwd: "c:\\Users\\016551\\OneDrive\\Desktop\\流程建设\\PMKT Copliot\\fanbox-1.11.2"
+command: "node --check server.js; node --check public/app.js; echo \"syntax OK\"; $env:FANBOX_NO_OPEN=1; $env:FANBOX_PORT=4599; Start-Process node -ArgumentList \"server.js\" -WorkingDirectory $PWD -WindowStyle Hidden; Start-Sleep -Seconds 3; $h=@{Host=\"localhost:4599\"}; \"MINE:\"; (Invoke-WebRequest -UseBasicParsing -Uri \"http://127.0.0.1:4599/api/dingtalk/mine\" -Headers $h).Content.Substring(0,220); $c = Get-NetTCPConnection -LocalPort 4599 -State Listen -ErrorAction SilentlyContinue; if ($c) { Stop-Process -Id $c.OwningProcess -Force }"
+started_at: 2026-06-15T03:55:59.679Z
+running_for_ms: 253650   
+---
+syntax OK
+MINE:
+{"ok":false,"error":"pageSize ������ 1 �� 30 ֮�䡣","detail":{"category":"api","code":1,"hint":"The API returned a business-level error. Check required parameters and values.","message":"pageSize ������ 1 �� 30 ֮�䡣","operation":"t
