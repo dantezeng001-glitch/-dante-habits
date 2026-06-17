@@ -101,6 +101,15 @@ export type { CanvasAction };
  * `agent-transcripts/` directory). Works for both local and
  * cloud/background agents in Glass and classic IDE modes.
  *
+ * **`newComposerChat`** — Open a new local agent chat with the
+ * dispatching canvas file as an @mention. Optional `userPrompt` is
+ * appended after the mention. The canvas file is resolved from the
+ * action route's `canvasId`; do not pass the path from canvas UI.
+ *
+ * **`openFile`** — Open an existing workspace file in the host IDE.
+ * `path` may be workspace-relative or absolute. Optional `selection`
+ * follows VS Code editor line/column fields.
+ *
  * @example
  * ```tsx
  * function AgentLink({ agentId, title }: { agentId: string; title: string }) {
@@ -108,6 +117,25 @@ export type { CanvasAction };
  *   return (
  *     <Button onClick={() => dispatch({ type: "openAgent", agentId })}>
  *       {title}
+ *     </Button>
+ *   );
+ * }
+ * ```
+ *
+ * @example
+ * ```tsx
+ * function AskAboutCanvas() {
+ *   const dispatch = useCanvasAction();
+ *   return (
+ *     <Button
+ *       onClick={() =>
+ *         dispatch({
+ *           type: "newComposerChat",
+ *           userPrompt: "please explain what is using the most context",
+ *         })
+ *       }
+ *     >
+ *       Ask in chat
  *     </Button>
  *   );
  * }

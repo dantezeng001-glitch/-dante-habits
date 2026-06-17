@@ -1,0 +1,3 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Monday, Jun 15, 2026, 2:31 PM (UTC+8)</timestamp>\n<user_query>\nsay OK\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"好的\n\nThe user query is \"say OK\". The rules say: \"Always respond in Chinese-simplified\".\n"}]}}
+{"type":"turn_ended","status":"success"}

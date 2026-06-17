@@ -50,8 +50,9 @@ flowchart TB
 ## 关键决策
 
 - 原样复用校对核心：搬 copilot 的 `lib/tools/excel.ts`、`proofread.ts`、`types.ts`、`lib/kb/store.ts + types.ts`，配对与提示词逻辑不改，打成 CommonJS。
-- 不嵌独立 LLM 客户端，全盘走 FanBox 的 LLM 通道：原 `lib/llm.ts` 的 `completeJson` 基于 `openai` SDK + 独立 `config.local.json`，本切片去掉 SDK，把 `completeJson` 改写成用 `fetch` 调 FanBox 配置（`~/.fanbox/config.json` 的 `chatApiBaseUrl / chatApiKey / chatApiModel`）的 `/chat/completions`（加 `response_format: json_object`，非流式，解析 JSON）。key/baseURL/model 全用 FanBox 那一份；不再需要 `settings.ts` / `openai`。
-- 说明：校对要的是「一次性拿回结构化 JSON」，只能走 FanBox 的程序化 LLM 通道（`chatApi` 同款 fetch），不走终端 CLI agent（PTY 交互、输出非结构化，不可靠）。
+- 不嵌独立 LLM 客户端，复用 FanBox 的 LLM 通道：原 `lib/llm.ts` 的 `completeJson` 基于 `openai` SDK + 独立 `config.local.json`，本切片去掉 SDK，改用 `fetch` 调 FanBox 配置（`~/.fanbox/config.json`）的 `/chat/completions`。`runProofread` 不写死调用方式——接收注入的 `complete` 函数，默认才是这个 API 版。
+- LLM 调用「Agent 优先」（按用户要求）：`server.js` 注入 `copilotComplete`——先用 cursor-agent headless（`-p ... --mode ask`，复用 FanBox 现成的 `resolveCursorAgent`/`chatCursor` 机制，不动文件），从其输出抠出 JSON；agent 失败且配了 API Key 时才退回直连 API。这样无需 API Key 也能用（cursor-agent 自带登录态）。已验证：用测试 Excel 经 cursor-agent 29s 跑出正确九列结果。
+- 不再依赖 chat 后端下拉框：proofread 永远先试 agent，与用户在对话窗选 cursor/api 无关。
 - 深度融合点——文件走本地路径，不走上传：FanBox 是本地应用，用它的文件能力选路径，端点按路径 `fs.readFile` 再喂给 `runProofread`（校对核心本就支持 Buffer 入参）。这样请求体是 JSON，套进 FanBox 现有 `readBody`，不用处理 multipart。
 - 知识库落在 `~/.fanbox/copilot`：首启把 copilot 的 `data/knowledge-base.json` seed 过去，`runProofread` 读它当判据。本切片不做知识库编辑 UI。
 - 打包用 esbuild（FanBox 现有 devDep）把上述逻辑 + `xlsx` 打成一个 `vendor-server/copilot.cjs` 供 `server.js` `require`（不再 bundle `openai`）。

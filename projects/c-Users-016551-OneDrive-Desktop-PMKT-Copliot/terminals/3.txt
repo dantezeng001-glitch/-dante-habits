@@ -1,6 +1,0 @@
----
-pid: 6032
-cwd: |
-  C:\Users\016551\OneDrive\Desktop\流程建设\PMKT Copliot
----
-PS C:\Users\016551\OneDrive\Desktop\流程建设\PMKT Copliot>

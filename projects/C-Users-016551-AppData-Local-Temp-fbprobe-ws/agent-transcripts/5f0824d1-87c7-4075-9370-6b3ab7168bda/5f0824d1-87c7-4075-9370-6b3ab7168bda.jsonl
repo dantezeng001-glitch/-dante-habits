@@ -1,0 +1,3 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<timestamp>Monday, Jun 15, 2026, 1:04 PM (UTC+8)</timestamp>\n<user_query>\nhi\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"你好！有什么我可以帮你的吗？\n\n无论是写代码、调试问题、改文档，还是其他工程任务，告诉我你想做什么就行。"}]}}
+{"type":"turn_ended","status":"success"}

@@ -5,9 +5,6 @@ description: >-
   (e.g. /loop 5m /foo).
 disabled-environments:
   - cloud
-metadata:
-  disabledEnvironments:
-    - cloud
 ---
 # Loop
 
