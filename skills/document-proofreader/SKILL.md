@@ -15,7 +15,7 @@ Use this skill to proofread any target document against a user-confirmed source-
 - Do not assume `Product Info`, `SPEC`, `包装卖点文案`, or any other sheet, section, or file is the baseline unless the user explicitly confirms it or the current conversation already makes it unambiguous.
 - Treat the user-confirmed baseline and its confirmed location as the highest authority. A baseline location may be a workbook sheet, document section, page range, row range, column set, SKU block, language block, named paragraph, or any other clearly bounded region.
 - Keep the proofreading scope limited to the confirmed location. If target content falls outside that scope, stop and ask the user to provide or confirm the right baseline before judging it.
-- Every reported finding must cite an exact baseline fragment and its location as evidence. If you cannot quote the baseline that proves the issue, do not call it an error; downgrade it to `需确认` (see Judgment quality layer).
+- Every reported finding must cite an exact baseline fragment and its location as evidence. **Exception**: Self-evident linguistic, grammatical, spelling, and typographical errors (such as subject-verb agreement, missing articles, spelling typos, CJK punctuation in English, and spacing issues) are governed by standard language rules and do not require a product-specific baseline fragment to be marked as confirmed errors (`高`置信度).
 - Report differences, not only errors. Cover factual mismatches, untranslated/unsynced content, terminology inconsistency, style differences, expression-strength differences, information-granularity differences, and contextual differences.
 - Cluster repeated issues. The same root problem appearing in multiple locations is one finding with an affected-location list, not many rows.
 - Report severity and confidence as two separate dimensions. Severity is how bad it is if wrong; confidence is how sure you are that it is wrong.
@@ -120,7 +120,12 @@ Aggregate findings by problem fingerprint. Two findings share a fingerprint when
 
 ### Evidence sourcing
 
-Every finding's evidence must quote the exact baseline fragment plus its location. If you cannot quote a baseline fragment that proves the issue, you may not call it an error; downgrade it to `Scope / needs confirmation`. This follows the same principle as the environment's content-integrity rule: you may offer a judgment, but you may not manufacture a standard.
+Every finding's evidence must quote the exact baseline fragment plus its location.
+
+**Exception for Linguistic, Grammatical, Spelling, and Typographical Errors**:
+Standard language grammar, spelling, punctuation, spacing, and typographical rules are self-evident authorities. When reporting a grammar error (e.g., subject-verb agreement, missing articles/copulas), spelling error, punctuation error (e.g., CJK punctuation in English), or spacing error (e.g., missing space after period), you do NOT need a product-specific baseline fragment to prove it. You can cite standard English grammar/typesetting rules as the authority, and mark it as a high-confidence error (`高`置信度).
+
+If the issue is a product fact or parameter, you must quote a baseline fragment. If you cannot quote a baseline fragment that proves a product-specific issue, you may not call it an error; downgrade it to `Scope / needs confirmation`. This follows the same principle as the environment's content-integrity rule: you may offer a judgment, but you may not manufacture a standard.
 
 ### Severity and confidence
 
@@ -227,7 +232,8 @@ When several target files are uploaded:
 - Do not edit, overwrite, or save into a source document. This skill is read-only.
 - Do not assume a baseline (`Product Info`, `SPEC`, a "main" sheet) to avoid asking. An assumed baseline poisons every finding.
 - Do not judge content that falls outside the confirmed scope. Mark `不在本轮基准范围` and pause instead.
-- Do not call something an error when you cannot quote the baseline fragment that proves it. Downgrade to `需确认`.
+- Do not call something an error when you cannot quote the baseline fragment that proves it. Downgrade to `需确认` (except for self-evident linguistic, grammatical, spelling, and typographical errors).
+- Do not ignore micro-level text quality such as English grammar, spelling, punctuation, spacing, and capitalization consistency.
 - Do not present your own translation as the official term. Without a glossary, it is a consistency suggestion only.
 - Do not mark every finding `中` confidence to dodge a judgment. Use the high/medium/low anchors.
 - Do not emit one row per occurrence of the same root problem. Cluster into one finding with an affected-location list.

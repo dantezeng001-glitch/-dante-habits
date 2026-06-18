@@ -61,3 +61,33 @@ Common inconsistency triggers in this domain: product-name capitalization, app n
 ## Packaging-specific strong-claim watchlist
 
 Treat as Tone / expression-strength difference at higher attention: `fully`, `ultimate`, `best`, `guaranteed`, `always`, `never`, `perfect`, `waterproof`. On packaging these can become compliance risk, so when a strong claim exceeds what Product Info or SPEC supports, escalate severity toward `高` and cite the baseline fragment that limits the claim.
+
+## Instruction Manual (说明书) & User Guide Specific Checks
+
+Instruction manuals and user guides contain detailed operational steps, voice prompts, and hardware descriptions. They require a much higher level of micro-level linguistic, grammatical, and typographical perfection than simple front-of-pack marketing copy. When proofreading instruction manuals or user guides, always run these checks:
+
+### 1. Button & UI Capitalization (按键与UI大小写一致性)
+- Physical button names (e.g., `Multifunction Button`, `Power/Volume + Button`, `Volume - Button`) and UI indicators (e.g., `LED Indicator`) must be strictly capitalized (Title Case) and consistent across the entire manual.
+- Lowercase forms like `multifunction button`, `Volume + button`, or `LED indicator` must be flagged as `术语不统一` (Consistency) and corrected.
+- Check that operators in button names have consistent spacing (e.g., `Volume + Button`, not `Volume+ Button`).
+- Check bolding consistency for button names and indicators (e.g., if `LED Indicator` is bolded in one section, it should be bolded everywhere).
+
+### 2. English Grammar & Article Usage (英语语法与冠词/系动词)
+- **Subject-Verb Agreement**: Check voice prompt descriptions carefully (e.g., `Audrey says "pairing"`, not `Audrey say "pairing"`).
+- **Articles**: Singular countable nouns (like devices or buttons) must have correct articles (e.g., `the first device`, `the second device`, `Answer a call`, `End a call`, not `first device`, `second device`, `Answer call`, `End call`).
+- **Copulas & Auxiliaries**: Ensure clauses have necessary verbs (e.g., `when you are in the pool`, `while the headphones are powered off`, not `when you in the pool`, `when headphones powered off`).
+- **Prepositions**: Remove redundant prepositions (e.g., `Double-click the multifunction button`, not `Double-click on the multifunction button`).
+- **Conjunctions**: Check structures like `so that` (e.g., `so that you can confirm` or `to confirm`, not `so that to confirm`).
+
+### 3. Punctuation & Spacing Standards (排版、标点与空格规范)
+- **Space after Period**: Standard English typesetting requires exactly one space after a sentence-ending period before starting the next sentence (e.g., `countries. Google`, not `countries.Google`; `corrosion. Please`, not `corrosion.Please`).
+- **Space after List Numbering**: Numbers in lists must be followed by a period and a space (e.g., `8. Turn`, not `8.Turn`).
+- **Colon Spacing**: Colons must be standard half-width English colons (`:`), and there must be no space before the colon (e.g., `Audrey will say:`, not `Audrey will say :`). Flag and correct CJK full-width colons (`：`).
+- **CJK Characters in English**: Ensure no Chinese full-width punctuation (e.g., `：`, `。`) appears in English text blocks.
+- **Missing Periods**: Ensure all complete sentences in body text have ending periods.
+- **Number Spelling**: Numbers under 10 in body text should be spelled out (e.g., `two EQ modes`, not `2 EQ modes`).
+
+### 4. Chapter Heading & Structure Consistency (章节标题与结构一致性)
+- Chapter headings must use consistent grammatical structures (e.g., gerunds like `Checking Battery Status` instead of infinitive/imperative `Check Battery Status` if other chapters use gerunds like `Downloading the Shokz App`, `Switching between...`).
+- Word choices must be natural and professional (e.g., `update firmware` or `firmware updates` instead of `upgrade firmware`; remove redundancies like `trouble or problems` -> `problems`).
+- Ensure terms like `headphones` are used consistently throughout the manual instead of mixing with `headset`.

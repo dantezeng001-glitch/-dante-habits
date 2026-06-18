@@ -4,16 +4,16 @@ overview: 以 OpenSwim Pro User Guide 为母本，对 OpenTri (S710) 英文线�
 todos:
   - id: name-replacement-verify
     content: 验证所有 OpenSwim Pro → OpenTri 换名点是否完整且无遗漏
-    status: pending
+    status: completed
   - id: inherited-issues
     content: 标记母本自带的语言/格式问题（同时存在于两份文档）
-    status: pending
+    status: completed
   - id: target-only-issues
     content: 识别目标文件独有的问题（换名过程中引入）
-    status: pending
+    status: completed
   - id: output-table
     content: 按 skill 表格格式汇总输出，同根因聚合，附严重程度统计
-    status: pending
+    status: completed
 isProject: false
 ---
 

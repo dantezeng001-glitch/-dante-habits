@@ -1,0 +1,34 @@
+{
+  "name": "request_seat_upgrade",
+  "description": "Request a Full-seat upgrade with higher MCP rate limits on the user's behalf. Suggest and invoke ONLY when the user has hit an MCP rate limit on a Professional (pro) plan with a View (null) or Collab (collaborator) seat — other tiers and seats aren't eligible. Call whoami first for the user's `plan_key` (pass verbatim); if multiple plans, ask which.\n\nThis sends a real request to the user's plan admins. Get explicit user confirmation every call (set `user_approved=true` only if confirmed this turn) and offer an optional `message`. Don't call in parallel.\n\nIdempotent and never throws: runs an eligibility pre-flight, never duplicates a request, and returns a `message` plus a `status` (on failure, text is in an `error` field instead). Re-calling is safe: the pre-flight returns the CURRENT state, so checking status and submitting are one call. Always re-call for fresh status rather than replaying an earlier answer (an admin may have acted since). Branch on `status`, not the message:\n- `submitted`: new request sent to plan admins for approval.\n- `has_pending_request`: a request (this or an earlier session) is already awaiting review — expected, not an error. Don't resubmit; tell the user it's pending. Approval clears the rate limit; denial lets them submit a fresh request.\n- `self_service_pathway`: no request sent — the user can self-upgrade; point them to the URL in the message.\n- `upgrade_not_needed`: the seat already has the max limits for its plan; nothing to do.\n- `ineligible_plan_tier`: a non-Professional plan that can't use this tool; message may include a self-serve URL.\n- `cannot_upgrade`: an eligible plan the server denied (e.g. plan restrictions); nothing to retry.\n- `error`: the request failed; reason is in the `error` field.",
+  "arguments": {
+    "type": "object",
+    "properties": {
+      "plan_key": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^(team|organization)::\\d+$",
+        "description": "The team or organization key (e.g. \"team::1234567890\" or \"organization::1234567890\"). Use the `key` field verbatim from one of the user's plans. If the user has more than one plan, ask which one to use before calling."
+      },
+      "message": {
+        "type": "string",
+        "maxLength": 1000,
+        "description": "Optional short note to the plan admins (max 1000 characters), in the user’s own words, explaining why they want the upgrade. Proactively offer the user the chance to include one when you ask for confirmation; omit it if the user declines. Never invent or paraphrase a justification — use the user’s own words, or omit."
+      },
+      "user_approved": {
+        "type": "boolean",
+        "description": "Self-report whether the user has explicitly confirmed this seat upgrade in the current turn. Set to true ONLY if the user has just said something affirmative (e.g. \"yes\", \"go ahead\", \"submit it\") in direct response to your prompt about requesting an upgrade. Set to false if you have not yet asked, the user has not yet answered, or the answer was ambiguous. Do not auto-fill this to true to skip the confirmation step."
+      }
+    },
+    "required": [
+      "plan_key",
+      "user_approved"
+    ],
+    "additionalProperties": false,
+    "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "plugin": "figma",
+  "marketplace": "cursor-public",
+  "pluginId": "657",
+  "marketplaceId": "34"
+}

@@ -49,10 +49,17 @@ Classify every finding into exactly one dimension, then pick a sub-type for disp
 
 ### Accuracy
 
-Target conflicts with a baseline fact or hard parameter.
+Target conflicts with a baseline fact or hard parameter, or violates standard language rules.
 
 - Factual mismatch: target changes a function, feature presence/absence, usage scenario, packaging/inclusion list, name/SKU/model, URL, QR, SN location, safety limitation, claim condition, or risk wording compared with the confirmed baseline.
 - Parameter mismatch: hard values, units, ranges, conditions, or subjects differ from the confirmed baseline or a confirmed auxiliary parameter source. Examples: `25 hours` vs `27 hours`, `IP54` vs `fully waterproof`, different charge time, missing `with charging case`, per-unit vs total quantity.
+- Grammar & Spelling Error (语法与拼写错误): Violations of standard English grammar, spelling, and syntax. Examples:
+  - Subject-verb agreement (e.g., `Audrey say` -> `Audrey says`).
+  - Missing articles (e.g., `first device` -> `the first device`, `Answer call` -> `Answer a call`).
+  - Missing copulas/auxiliaries (e.g., `you in the pool` -> `you are in the pool`, `headphones powered off` -> `headphones are powered off`).
+  - Spelling typos (e.g., `paring` -> `pairing`).
+  - Incorrect prepositions (e.g., `Double-click on the button` -> `Double-click the button`).
+  - Incorrect conjunction structures (e.g., `so that to confirm` -> `to confirm` or `and confirm`).
 
 ### Sync
 
@@ -66,7 +73,17 @@ Baseline or source has changed but target still reflects older or different cont
 The same concept appears with different wording or format inside the target or project.
 
 - Terminology inconsistency: the same product, feature, accessory, app, technology, or action appears with multiple translations or formats. Examples: name capitalization, app name, technology names, `earbuds` vs `earphones` vs `headphones`, `charging case` vs `charger` vs `case`, action names such as tap/press/hold.
+  - **UI & Button Capitalization Consistency**: Physical button names (e.g., `Multifunction Button`, `Power/Volume + Button`, `Volume - Button`) and UI indicators (e.g., `LED Indicator`) must be strictly capitalized (Title Case) and consistent. Lowercase button names (e.g., `multifunction button` or `Volume + button`) are errors.
 - Format inconsistency: dates, units, punctuation, capitalization style, or number formatting differ across the target where they should match.
+  - **Typographical & Spacing Standards**: Standard typesetting requires:
+    - Exactly one space after a sentence-ending period (e.g., `countries. Google`, not `countries.Google`).
+    - Spaces around operators in button names (e.g., `Volume + Button`, not `Volume+ Button`).
+    - Spaces after list numbering (e.g., `8. Turn`, not `8.Turn`).
+    - Standard half-width English colons (`:`) with no space before them (e.g., `Audrey will say:`, not `Audrey will say :`).
+    - No CJK full-width punctuation (e.g., `：`, `。`) in English text.
+    - Missing sentence-ending periods must be flagged.
+    - Number formatting in body text (numbers under 10 should be spelled out, e.g., `2 EQ modes` -> `two EQ modes`).
+    - Chapter headings consistency (e.g., `Check Battery Status` -> `Checking Battery Status` to match other gerund headings).
 
 If context may justify different terms, record it as `语境差异` or `术语不统一，需确认`, not a confirmed error.
 
@@ -156,7 +173,12 @@ A root cause is the same when the underlying correction is identical, for exampl
 
 ### Evidence sourcing
 
-Every finding's evidence field must quote the exact baseline fragment plus its location. If you cannot quote a baseline fragment that proves the issue:
+Every finding's evidence field must quote the exact baseline fragment plus its location.
+
+**Exception for Linguistic, Grammatical, Spelling, and Typographical Errors**:
+Standard language grammar, spelling, punctuation, spacing, and typographical rules are self-evident authorities. When reporting a grammar error (e.g., subject-verb agreement, missing articles/copulas), spelling error, punctuation error (e.g., CJK punctuation in English), or spacing error (e.g., missing space after period), you do NOT need a product-specific baseline fragment to prove it. You can cite standard English grammar/typesetting rules as the authority, and mark it as a high-confidence error (`高`置信度).
+
+If the issue is a product fact or parameter, you must quote a baseline fragment. If you cannot quote a baseline fragment that proves a product-specific issue:
 
 - Do not call it an error.
 - Set the sub-type to `需确认` and confidence to `低`.

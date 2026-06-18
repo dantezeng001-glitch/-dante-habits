@@ -1,0 +1,12 @@
+{
+  "name": "whoami",
+  "description": "Returns information about the authenticated user. If you are experiencing permission issues with other tools, you can use this tool to get information about who is authenticated and validate the right user is logged in.",
+  "arguments": {
+    "type": "object",
+    "properties": {}
+  },
+  "plugin": "figma",
+  "marketplace": "cursor-public",
+  "pluginId": "657",
+  "marketplaceId": "34"
+}
